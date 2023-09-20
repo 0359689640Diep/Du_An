@@ -69,7 +69,7 @@
 </body>
 <?php
 $khoi=3;
-//  $test = !$data[0] ??  "<script>alert($data[0]);</script>"; 
+ $test = !$data[0] ??  "<script>alert($data[0]);</script>"; 
  $test = !empty($data[0]) ? "<script>alert('$data[0]');</script>" : ""; 
  echo ($test);
  ?>
