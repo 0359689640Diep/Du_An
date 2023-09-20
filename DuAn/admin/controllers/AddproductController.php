@@ -1,10 +1,11 @@
 <?php
-include "models/productModels.php";
-class ProductController extends Controller{
-    use ProductModels;
+include "models/AddproductModels.php";
+class AddproductController extends Controller{
+    use AddproductModels;
     public function index() {
-        $data = $this->modelproduct();
-        $this->loadView("product.php", $data);
+        $data = $this->modeladdproduct();
+        var_dump($data);die();
+        $this->loadView("Addproduct.php", $data);
     }
 }
 ?>
