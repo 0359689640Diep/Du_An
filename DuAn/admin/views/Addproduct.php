@@ -14,11 +14,11 @@
         <aside>
             <section class="setting">
                 <i class="ti-home"></i>
-                <a href="">Home</a>
+                <a href="index.php?controller=product">Home</a>
             </section>
             <section class="setting">
                 <i class="ti-cloud-up"></i>
-                <a href="">Add product</a>
+                <a href="">Lisst product</a>
             </section>
             <section class="setting">
                 <i class="ti-list-ol"></i>
@@ -68,10 +68,12 @@
     </section>
 </body>
 <?php
-//  echo($data); 
+$khoi=3;
+//  $test = !$data[0] ??  "<script>alert($data[0]);</script>"; 
+ $test = !empty($data[0]) ? "<script>alert('$data[0]');</script>" : ""; 
+ echo ($test);
  ?>
-<!-- <script>
-    alert("");
-</script> -->
+
+    
 
 </html>

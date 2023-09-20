@@ -1,7 +1,9 @@
 <?php
 trait AddproductModels{
     public function modeladdproduct(){
+        // if($_SERVER['REQUEST_METHOD']==='POST'){
         $NameProducts = isset($_POST['NameProducts']) ? $_POST['NameProducts']: "";
+        
         $Details = isset($_POST['Details']) ? $_POST['Details']: "";
         $ProductDescription = isset($_POST['ProductDescription']) ? $_POST['ProductDescription']: "";
         $Color = isset($_POST['Color']) ? $_POST['Color']: "";
@@ -10,7 +12,8 @@ trait AddproductModels{
         $Size = isset($_POST['Size']) ? $_POST['Size']: "";
         $ImageName = isset($_FILES['Image']['name']) ? $_FILES['Image']['name']: "";
         $ImageTmp = isset($_FILES['Image']['tmp_name']) ? $_FILES['Image']['tmp_name']: "";
-
+        //     extr
+        // }
         $data = array();
         if(
             !empty($NameProducts) &&
@@ -22,6 +25,8 @@ trait AddproductModels{
             !empty($Size) &&
             !empty($ImageName)
         ){
+            $data[] = "Hệ thống đang bảo trì4";
+
             $conn = Connection::getInstance();
             // thêm dữ liệu vào bảng details
             $queryDetails = $conn->query("insert into productdetails(ProductDetails,ProductDescription) values($Details,$ProductDescription)");
@@ -34,7 +39,7 @@ trait AddproductModels{
                     if(!empty($result['IdProductDetails'])){
                        $IdDetails= $result['IdProductDetails'];
                         // thêm dữ liệu vào product
-                        $query = $conn->query("insert into product (NameProducts,IdDetails, Color,NumberProduct, Price, Size, image)  values ($NameProducts,$IdDetails, $Color, $NumberProduct, $Price, $Size, $ImageName)");
+                        $query = $conn->query("insert into product (NameProducts,IdDetails, Color, NumberProduct, Price, Size, image)  values ('$NameProducts','$IdDetails','$Color','$NumberProduct','$Price','$Size', '$ImageName')");
                         if($query){
                             // thêm file ảnh vào thư mục 
                             move_uploaded_file($ImageTmp,"assets/imgUpload/". $ImageName);
@@ -59,4 +64,5 @@ trait AddproductModels{
         return $data;
     }
 }
+// }
 ?>  

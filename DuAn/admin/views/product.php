@@ -17,12 +17,12 @@
                 <a href="">Home</a>
             </section>
             <section class="setting">
-                <i class="ti-comment-alt"></i>
-                <a href="">Add product</a>
+                <i class="ti-cloud-up"></i>
+                <a href="index.php?controller=Addproduct">Product</a>
             </section>
             <section class="setting">
                 <i class="ti-list"></i>
-                <a href="">The number of products</a>
+                <a href="">Account</a>
             </section>
             <section class="setting">
                 <i class="ti-settings"></i>
