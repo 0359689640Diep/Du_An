@@ -11,26 +11,42 @@
 <body>
     <section class="page">
 <?php require_once "masterLayout/header.php"?>
-        <aside>
-            <section class="setting" onclick="redirectToPage('index.php?controller=product')">
+<aside>
+            <section class="setting" onclick="redirectToPage('index.php?controller=homeAdmin')">
                 <i class="ti-home"></i>
-                <a href="index.php?controller=product">Home</a>
-            </section>
-            <section class="setting" onclick="redirectToPage('index.php?controller=LisstProduct')">
-                <i class="ti-cloud-up"></i>
-                <a href="index.php?controller=LisstProduct">Lisst product</a>
+                <a href="index.php?controller=homeAdmin">Home</a>
             </section>
             <section class="setting">
-                <i class="ti-list-ol"></i>
-                <a href="">The number of products</a>
+                <i class="ti-comment-alt"></i>
+                <a href="">Comment</a>
+            </section>
+            <section class="setting">
+                <i class="ti-list"></i>
+                <a href="">Lisst Account</a>
+            </section>
+            <section class="setting" onclick="redirectToPage('index.php?controller=product')">
+                <i class="ti-cloud-up"></i>
+                <a href="index.php?controller=product"> Product</a>
+            </section>
+            <section class="setting" onclick="redirectToPage('index.php?controller=LisstProduct')">
+                <i class="ti-list"></i>
+                <a href="index.php?controller=LisstProduct">Lisst product</a>
+            </section>
+            <section class="setting" onclick="redirectToPage('index.php?controller=AddCategory')">
+                <i class="ti-write"></i>
+                <a href="index.php?controller=AddCategory">Add Category</a>
+            </section>
+            <section class="setting" onclick="redirectToPage('index.php?controller=LisstCategory')">
+                <i class="ti-cloud-up"></i>
+                <a href="index.php?controller=LisstCategory">Lisst Category</a>
+            </section>
+            <section class="setting">
+                <i class="ti-package"></i>
+                <a href="">Trash can</a>
             </section>
             <section class="setting">
                 <i class="ti-settings"></i>
                 <a href="">Setting</a>
-            </section>
-            <section class="setting">
-                <i class="ti-id-badge"></i>
-                <a href="">Profile</a>
             </section>
             <section class="setting">
                 <i class="ti-share-alt"></i>
@@ -62,14 +78,27 @@
                 </select>
                 <label for="Image">Image</label>
                 <input required title="Không được để trống" type="file" name="Image" id="Image">
+                <label for="Category">Category</label>
+                <select name="Category" id="Category" required title="Không được để trống">
+                    <option value="">Category</option>
+                    <?php 
+                        if(!empty($data['dataCategory']['result'])){
+                            foreach($data['dataCategory']['result'] as $value){
+                                echo "<option value='{$value['IdCategory ']}'>{$value['NameCategory']}</option>";
+                            }
+
+                        }
+                    ?>
+                </select>                
                 <button type="submit">Add Product</button>
             </form>
         </main>
     </section>
 </body>
 <?php 
- $test = !empty($data[0]) ? "<script>alert('$data[0]');</script>" : ""; 
- echo ($test);
+$alert = isset($data['dataMessage'][0]);
+ $message = !empty($alert) ? "<script>alert($alert);</script>" : ""; 
+ echo ($message);
  ?>
 <script src="assets/js/product.js"></script>
 

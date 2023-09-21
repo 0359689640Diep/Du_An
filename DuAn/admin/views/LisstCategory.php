@@ -6,24 +6,16 @@
     <title>Document</title>
 </head>
 
-<link rel="stylesheet" href="assets/css/homeAdmin.css">
+<link rel="stylesheet" href="assets/css/LisstCategory.css">
 <link rel="stylesheet" href="assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">
 <?php require_once "masterLayout/header.php"?>
 <aside>
-    <section class="individual">
-        <article class="img">
-            <img src="assets/imgUpload/<?php echo $data['result']['Image'] ?>" alt="img">
-        </article>
-        <article class="Personal_Information">
-            <h2> <?php echo $data['result']['Name'] ?></h2>
-            <h4>
-                <?php echo $data['result']['Permission']==0 ?  "HR" : "Admin"; ?>
-            </h4>
-        </article>
-    </section>
-
+            <section class="setting" onclick="redirectToPage('index.php?controller=homeAdmin')">
+                <i class="ti-home"></i>
+                <a href="index.php?controller=homeAdmin">Home</a>
+            </section>
             <section class="setting">
                 <i class="ti-comment-alt"></i>
                 <a href="">Comment</a>
@@ -44,10 +36,6 @@
                 <i class="ti-write"></i>
                 <a href="index.php?controller=AddCategory">Add Category</a>
             </section>
-            <section class="setting" onclick="redirectToPage('index.php?controller=LisstCategory')">
-                <i class="ti-cloud-up"></i>
-                <a href="index.php?controller=LisstCategory">Lisst Category</a>
-            </section>
             <section class="setting">
                 <i class="ti-package"></i>
                 <a href="">Trash can</a>
@@ -63,8 +51,37 @@
             </section>
         </aside>
         <main>
-            <h1>Ứng Dụng Chưa phát triển</h1>
+            <table>
+                <tr>
+                    <th>Name Category</th>
+                    <th>Status</th>
+                    <th>Date Edit</th>
+                </tr>
+                <?php 
+                if(!empty($data['result'])){
+                    foreach($data['result'] as $value){
+                        echo "
+                        <tr >
+                            <td>{$value['NameCategory']}</td>
+                            <td>{$value['Status']}</td>
+                            <td>{$value['DateEdit']}</td>
+                            <td><button onclick='deleteProduct({$value['IdCategory']})'>Delete</button></td>
+                            <td><button onclick='fixProduct({$value['IdCategory']})'>Fix</button></td>
+                        </tr>
+                    ";
+                    
+
+                    }
+                
+                }else{
+                    echo "<script> alert('No data displayed, please update the data'); </script>";
+
+                }
+            ?>
+
+            </table>
         </main>
     </section>
 </body>
+<script src="assets/js/LisstCategory.js"></script>
 </html>

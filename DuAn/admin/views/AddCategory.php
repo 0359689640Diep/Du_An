@@ -6,24 +6,16 @@
     <title>Document</title>
 </head>
 
-<link rel="stylesheet" href="assets/css/homeAdmin.css">
+<link rel="stylesheet" href="assets/css/AddCategory.css">
 <link rel="stylesheet" href="assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">
 <?php require_once "masterLayout/header.php"?>
 <aside>
-    <section class="individual">
-        <article class="img">
-            <img src="assets/imgUpload/<?php echo $data['result']['Image'] ?>" alt="img">
-        </article>
-        <article class="Personal_Information">
-            <h2> <?php echo $data['result']['Name'] ?></h2>
-            <h4>
-                <?php echo $data['result']['Permission']==0 ?  "HR" : "Admin"; ?>
-            </h4>
-        </article>
-    </section>
-
+            <section class="setting" onclick="redirectToPage('index.php?controller=homeAdmin')">
+                <i class="ti-home"></i>
+                <a href="index.php?controller=homeAdmin">Home</a>
+            </section>
             <section class="setting">
                 <i class="ti-comment-alt"></i>
                 <a href="">Comment</a>
@@ -39,10 +31,6 @@
             <section class="setting" onclick="redirectToPage('index.php?controller=LisstProduct')">
                 <i class="ti-list"></i>
                 <a href="index.php?controller=LisstProduct">Lisst product</a>
-            </section>
-            <section class="setting" onclick="redirectToPage('index.php?controller=AddCategory')">
-                <i class="ti-write"></i>
-                <a href="index.php?controller=AddCategory">Add Category</a>
             </section>
             <section class="setting" onclick="redirectToPage('index.php?controller=LisstCategory')">
                 <i class="ti-cloud-up"></i>
@@ -63,8 +51,24 @@
             </section>
         </aside>
         <main>
-            <h1>Ứng Dụng Chưa phát triển</h1>
+            <form action="index.php?controller=AddCategory" method="post" enctype="multipart/form-data">
+                <label for="NameCategory">Name Category</label>
+                <input required title="Không được để trống" type="text" name="NameCategory" id="NameCategory">
+                <label for="Status">Status</label>
+                <select name="Status" id="Status" required title="Không được để trống" >
+                    <option value="">Status</option>
+                    <option value="0">Hidden</option>
+                    <option value="1">Presently</option>
+                </select>
+                <button type="submit">Add Category</button>
+            </form>
         </main>
     </section>
 </body>
+<?php 
+ $test = !empty($data[0]) ? "<script>alert('$data[0]');</script>" : ""; 
+ echo ($test);
+ ?>
+<script src="assets/js/product.js"></script>
+
 </html>

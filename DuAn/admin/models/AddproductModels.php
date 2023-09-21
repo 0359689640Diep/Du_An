@@ -1,4 +1,5 @@
 <?php
+
 trait AddproductModels{
     public function modeladdproduct(){
         // if($_SERVER['REQUEST_METHOD']==='POST'){
@@ -60,6 +61,22 @@ trait AddproductModels{
 
 
         return $data;
+    }
+    public function modelGetCategory(){
+        $conn = Connection::getInstance();
+        $query = $conn->query("select IdCategory, NameCategory from category where Status != 0");
+        $data = array();
+        if($query) {
+            while($row = $query->fetch_assoc()) {
+                $data['result'][] = $row;
+            }
+        // print_r($data);die();
+
+            return $data;
+        } else {
+            $data['messageError'] = "Hệ thống đang bảo trì";
+            return $data;
+        }
     }
 }
 // }

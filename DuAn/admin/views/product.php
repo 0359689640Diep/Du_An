@@ -12,25 +12,41 @@
     <section class="page">
 <?php require_once "masterLayout/header.php"?>
         <aside>
-            <section class="setting">
-                <i class="ti-view-list-alt"></i>
-                <a href="">Home</a>
+            <section class="setting" onclick="redirectToPage('index.php?controller=homeAdmin')">
+                <i class="ti-home"></i>
+                <a href="index.php?controller=homeAdmin">Home</a>
             </section>
-            <section class="setting" onclick="redirectToPage('index.php?controller=Addproduct')">
-                <i class="ti-cloud-up"></i>
-                <a href="index.php?controller=Addproduct">Product</a>
+            <section class="setting">
+                <i class="ti-comment-alt"></i>
+                <a href="">Comment</a>
             </section>
             <section class="setting">
                 <i class="ti-list"></i>
-                <a href="">Account</a>
+                <a href="">Lisst Account</a>
+            </section>
+            <section class="setting" onclick="redirectToPage('index.php?controller=Addproduct')">
+                <i class="ti-cloud-up"></i>
+                <a href="index.php?controller=Addproduct">Add Product</a>
+            </section>
+            <section class="setting" onclick="redirectToPage('index.php?controller=LisstProduct')">
+                <i class="ti-list"></i>
+                <a href="index.php?controller=LisstProduct">Lisst product</a>
+            </section>
+            <section class="setting" onclick="redirectToPage('index.php?controller=AddCategory')">
+                <i class="ti-write"></i>
+                <a href="index.php?controller=AddCategory">Add Category</a>
+            </section>
+            <section class="setting" onclick="redirectToPage('index.php?controller=LisstCategory')">
+                <i class="ti-cloud-up"></i>
+                <a href="index.php?controller=LisstCategory">Lisst Category</a>
+            </section>
+            <section class="setting">
+                <i class="ti-package"></i>
+                <a href="">Trash can</a>
             </section>
             <section class="setting">
                 <i class="ti-settings"></i>
                 <a href="">Setting</a>
-            </section>
-            <section class="setting">
-                <i class="ti-id-badge"></i>
-                <a href="">Profile</a>
             </section>
             <section class="setting">
                 <i class="ti-share-alt"></i>
