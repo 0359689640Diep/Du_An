@@ -25,8 +25,6 @@ trait AddproductModels{
             !empty($Size) &&
             !empty($ImageName)
         ){
-            $data[] = "Hệ thống đang bảo trì4";
-
             $conn = Connection::getInstance();
             // thêm dữ liệu vào bảng details
             $queryDetails = $conn->query("insert into productdetails(ProductDetails,ProductDescription) values($Details,$ProductDescription)");

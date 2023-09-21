@@ -12,13 +12,13 @@
     <section class="page">
 <?php require_once "masterLayout/header.php"?>
         <aside>
-            <section class="setting">
+            <section class="setting" onclick="redirectToPage('index.php?controller=product')">
                 <i class="ti-home"></i>
                 <a href="index.php?controller=product">Home</a>
             </section>
-            <section class="setting">
+            <section class="setting" onclick="redirectToPage('index.php?controller=LisstProduct')">
                 <i class="ti-cloud-up"></i>
-                <a href="">Lisst product</a>
+                <a href="index.php?controller=LisstProduct">Lisst product</a>
             </section>
             <section class="setting">
                 <i class="ti-list-ol"></i>
@@ -67,13 +67,10 @@
         </main>
     </section>
 </body>
-<?php
-$khoi=3;
- $test = !$data[0] ??  "<script>alert($data[0]);</script>"; 
+<?php 
  $test = !empty($data[0]) ? "<script>alert('$data[0]');</script>" : ""; 
  echo ($test);
  ?>
-
-    
+<script src="assets/js/product.js"></script>
 
 </html>

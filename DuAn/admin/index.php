@@ -12,8 +12,8 @@ $action = isset($_GET['action']) ? $_GET['action']:"index";
 $fileController = "controllers/".ucfirst($controller). "Controller.php";
 // tên class
 $classController = ucfirst($controller)."Controller";
-// print_r($fileController);die();
-// print_r($action); 
+// print_r($fileController);;
+// print_r($action); die();
 // load file controller
 include $fileController;
 // kiểm tra class có tồn tại hay không, nếu không thì khởi tạo

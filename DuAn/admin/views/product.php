@@ -16,7 +16,7 @@
                 <i class="ti-view-list-alt"></i>
                 <a href="">Home</a>
             </section>
-            <section class="setting">
+            <section class="setting" onclick="redirectToPage('index.php?controller=Addproduct')">
                 <i class="ti-cloud-up"></i>
                 <a href="index.php?controller=Addproduct">Product</a>
             </section>
@@ -39,43 +39,11 @@
             </section>
         </aside>
         <main>
-            <table>
-                <?php 
-                if(!empty($data['result'])){
-                    echo "
-                    <tr>
-                        <th>Details	</th>
-                        <th>Name Products</th>
-                        <th>Details	</th>
-                        <th>Comment	</th>
-                        <th>Color </th>
-                        <th>Number Product </th>
-                        <th>Price </th>
-                        <th>Evalute </th>
-                        <th>Size </th>
-                        <th>Image </th>
-                    </tr>
-                    <tr>
-                        <td> {$data['result']['Details']} </td>
-                        <td> {$data['result']['NameProducts']}</td>
-                        <td> {$data['result']['Details']} </td>
-                        <td> {$data['result']['Comment']} </td>
-                        <td> {$data['result']['Color']} </td>
-                        <td> {$data['result']['NumberProduct']} </td>
-                        <td> {$data['result']['Price']} </td>
-                        <td> {$data['result']['Evalute']} </td>
-                        <td> {$data['result']['Size']} </td>
-                        <td> <img src='assets/imgUpload/{$data['result']['image']}' alt='product'> </td>
-                    </tr>
-                ";
-                
-                }else{
-                    echo "<h1>không có dữ liệu</h1>";
-                }
-            ?>
+   
 
             </table>
         </main>
     </section>
 </body>
+<script src="assets/js/product.js"></script>
 </html>
