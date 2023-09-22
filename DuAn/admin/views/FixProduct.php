@@ -109,6 +109,7 @@ if(!empty($data['dataMessage'][0]) ){
     $message = $data['dataMessage'][0];
 // hàm json_encode() để mã hóa giá trị của biến $message thành chuỗi JSON trước khi truyền vào đoạn mã JavaScript, để đảm bảo rằng các ký tự đặc biệt sẽ được mã hóa đúng và không gây ra lỗi cú pháp
     echo "<script>alert(" . json_encode($message) . ");</script>";
+    header("location:index.php?controller=LisstProduct");
 
 }
 

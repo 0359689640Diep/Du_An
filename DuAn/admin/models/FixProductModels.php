@@ -30,42 +30,46 @@ trait FixProductModels{
             $IdCategory = isset($_POST['Category']) ? $_POST['Category']: "";
             $data = array();
             // lấy id details
-            $IdDetails = isset($this->FixProductDisplayModels($id)["display"]['IdDetails']) ? $this->FixProductDisplayModels($id)["display"]['IdDetails'] : "";
+            $IdDetails = $_COOKIE['IdDetails'];
+            if(empty($IdDetails) && empty($id)){
+                echo "<script> alert('Your session has expired'); </script>";
+                header("location:index.php?controller=LisstProduct");
+            }
             $conn = Connection::getInstance();
             $currentDate = date("Y/m/d");
 
             if(!empty($ImageName)){
                 // thêm dữ liệu vào bảng details
-                $queryDetails = $conn->query("update  productdetails set ProductDetails = $Details,ProductDescription =$ProductDescription where IdProductDetails = '$IdDetails'");
+                $queryDetails = $conn->query("update productdetails set ProductDetails = '$Details',ProductDescription ='$ProductDescription' where IdProductDetails = '$IdDetails'");
                 if($queryDetails){;
                     // thêm dữ liệu vào product
                     $query = $conn->query("UPDATE product SET NameProducts = '$NameProducts',IdDetails= '$IdDetails', Color = '$Color', NumberProduct = '$NumberProduct', Price = '$Price', Size = '$Size', image='$ImageName',  IdCategory = '$IdCategory' ,DateEdit = '$currentDate' where IdProduct = '$id'");
                     if($query){
                         // thêm file ảnh vào thư mục 
                         move_uploaded_file($ImageTmp,"assets/imgUpload/". $ImageName);
-                        $data[] = "Thêm sản phẩm thành công";
+                        $data[] = "Added product successfully";
                     }else{
                                 // print_r($conn->error);
-                        $data[] = "Hệ thống đang bảo trì11";
+                        $data[] = "The system is maintenance";
                      }
                 }else{
-                    $data[] = "Hệ thống đang bảo trì41";
+                    $data[] = "The system is maintenance";
                 }
     
             }else{
                 // thêm dữ liệu vào bảng details
-                $queryDetails = $conn->query("update  productdetails set ProductDetails = $Details,ProductDescription =$ProductDescription where IdProductDetails = '$IdDetails'");
+                $queryDetails = $conn->query("update  productdetails set ProductDetails = '$Details',ProductDescription ='$ProductDescription' where IdProductDetails = '$IdDetails'");
                 if($queryDetails){;
                     // thêm dữ liệu vào product
                     $query = $conn->query("UPDATE product SET NameProducts = '$NameProducts',IdDetails = '$IdDetails', Color = '$Color', NumberProduct = '$NumberProduct', Price = '$Price', Size = '$Size', IdCategory = '$IdCategory', DateEdit = '$currentDate' where IdProduct = '$id'");
                     if($query){
-                        $data[] = "Thêm sản phẩm thành công";
+                        $data[] = "Added product successfully";
                     }else{
                         print_r($conn->error);
-                        $data[] = "Hệ thống đang bảo trì12";
+                        $data[] = "The system is maintenance";
                     }
                 }else{
-                    $data[] = "Hệ thống đang bảo trì42";
+                    $data[] = "The system is maintenance";
                 }
             }
     
@@ -73,6 +77,7 @@ trait FixProductModels{
             return $data;
 
         }
+
     }
     public function modelGetCategory(){
         $conn = Connection::getInstance();
@@ -87,7 +92,7 @@ trait FixProductModels{
 
             return $data;
         } else {
-            $data['messageError'] = "Hệ thống đang bảo trì";
+            $data['messageError'] = "The system is maintenance";
             return $data;
         }
     }
