@@ -38,7 +38,12 @@
                         <input type="text" placeholder="Full Name " name ="FullName">
                         <input type="text" placeholder="Gmail" name ="Gmail">
                         <input type="password" placeholder="Password" name ="Password">
-                        <input type="text" placeholder="Enter the password " name ="EnterThePassword">
+                        <input type="text" placeholder="Confirmation password " name ="ConfirmationPassword ">
+                        <select name="Permission" id="Permission" required title="Không được để trống" >
+                            <option value="">Permission</option>
+                            <option value="0">Admin</option>
+                            <option value="1">User</option>
+                        </select>                        
                         <button type="submit" name="submit" >Create  Account</button>
                         <span id="messageError" style="color:red;"></span>
                         

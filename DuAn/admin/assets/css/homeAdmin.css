@@ -5,7 +5,7 @@
 }
 :root{
     --background-color: #FFFFFF;
-    --background-color-main: #F8FAFB;
+    --background-color-main: #efefef;
     --text-color: #0C0C0D;
     --text-color1: #A7A7A7;
     --text-color2: #efefef;
@@ -17,7 +17,7 @@
     gap: 4px;
     display: grid;
     grid-template-columns: 20% 80%;
-    grid-template-rows: 10% 80%;
+    grid-template-rows: 10% 90%;
     grid-template-areas: "header header" "aside main" ; 
     grid-gap: 1%;
 }
@@ -38,6 +38,7 @@
     justify-content: space-between;
     place-items: center;
     border-bottom: 2px solid var(--background-color-main);
+    
 }
 .logo{
     width:30%;

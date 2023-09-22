@@ -41,7 +41,7 @@
                         <span id="messageError" style="color:red;">
                         <?php if(!empty($_SESSION['messageError'])){echo $_SESSION['messageError'];}?>
                         </span>
-                        <button type="submit" name="submit" >Create  Account</button>
+                        <button type="submit" name="submit" >Log in to your account</button>
                     </form>
                 </main>
                 <footer>

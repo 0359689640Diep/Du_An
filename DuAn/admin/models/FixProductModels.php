@@ -63,7 +63,7 @@ trait FixProductModels{
                     // thêm dữ liệu vào product
                     $query = $conn->query("UPDATE product SET NameProducts = '$NameProducts',IdDetails = '$IdDetails', Color = '$Color', NumberProduct = '$NumberProduct', Price = '$Price', Size = '$Size', IdCategory = '$IdCategory', DateEdit = '$currentDate' where IdProduct = '$id'");
                     if($query){
-                        $data[] = "Added product successfully";
+                        $data[] = "Add product successfully";
                     }else{
                         print_r($conn->error);
                         $data[] = "The system is maintenance";

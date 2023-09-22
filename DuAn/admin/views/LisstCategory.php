@@ -60,13 +60,14 @@
                 <?php 
                 if(!empty($data['result'])){
                     foreach($data['result'] as $value){
+                        $status = $value['Status'] == 1 ? "Display":"Hidden";
                         echo "
                         <tr >
                             <td>{$value['NameCategory']}</td>
-                            <td>{$value['Status']}</td>
+                            <td>{$status}</td>
                             <td>{$value['DateEdit']}</td>
-                            <td><button onclick='deleteProduct({$value['IdCategory']})'>Delete</button></td>
-                            <td><button onclick='fixProduct({$value['IdCategory']})'>Fix</button></td>
+                            <td><button onclick='deleteCategory({$value['IdCategory']})'>Delete</button></td>
+                            <td><button onclick='fixCategory({$value['IdCategory']})'>Fix</button></td>
                         </tr>
                     ";
                     

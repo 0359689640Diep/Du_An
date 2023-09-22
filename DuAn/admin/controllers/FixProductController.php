@@ -7,8 +7,10 @@ class FixProductController extends Controller{
         $datadisplay = $this->FixProductDisplayModels($id);
         $dataMessage = $this->modelFixProduct($id);
         $dataCategory = $this->modelGetCategory();
+        if($id == 0){
+            header("location:index.php?controller=LisstProduct");
+        }
         setcookie("IdDetails", $datadisplay['display']['IdDetails'], time() + 3600); 
-        
         $data = array(
             "display" => $datadisplay,
            "dataCategory" => $dataCategory,
