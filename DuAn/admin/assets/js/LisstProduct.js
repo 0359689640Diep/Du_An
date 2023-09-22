@@ -8,3 +8,8 @@ function redirectToPage(url) {
         window.location.replace(`index.php?controller=LisstProduct&action=deleteProduct&Id=${value}`);
     }
   }
+  function fixProduct(value){
+    if(confirm("Do you want to fix the product? "+value)){
+        window.location.replace(`index.php?controller=FixProduct&Id=${value}`);
+    }
+  }

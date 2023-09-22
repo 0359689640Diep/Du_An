@@ -17,8 +17,9 @@ trait LisstProductModels{
     }
 
     public function delete($id){
+        $currentDate = date("Y/m/d");
         $conn = Connection::getInstance();
-        $query = $conn->query("UPDATE product SET Status = 0 where IdProduct = '$id' ");
+        $query = $conn->query("UPDATE product SET Status = 0 , DateEdit = $currentDate where IdProduct = '$id' ");
         $data = array();
         if($query){
             $data[] = true;

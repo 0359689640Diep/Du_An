@@ -5,6 +5,6 @@ class HomeAdminController extends Controller{
     public function index(){
         $data = $this->modelHomeAdmin();
         $this->loadView('homeAdmin.php', $data);
-    }
+            }
 }
 ?>

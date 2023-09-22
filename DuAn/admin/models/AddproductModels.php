@@ -2,7 +2,6 @@
 
 trait AddproductModels{
     public function modeladdproduct(){
-        // if($_SERVER['REQUEST_METHOD']==='POST'){
         $NameProducts = isset($_POST['NameProducts']) ? $_POST['NameProducts']: "";
         
         $Details = isset($_POST['Details']) ? $_POST['Details']: "";
@@ -13,6 +12,7 @@ trait AddproductModels{
         $Size = isset($_POST['Size']) ? $_POST['Size']: "";
         $ImageName = isset($_FILES['Image']['name']) ? $_FILES['Image']['name']: "";
         $ImageTmp = isset($_FILES['Image']['tmp_name']) ? $_FILES['Image']['tmp_name']: "";
+        $IdCategory = isset($_POST['Category']) ? $_POST['Category']: "";
         //     extr
         // }
         $data = array();
@@ -24,8 +24,9 @@ trait AddproductModels{
             !empty($NumberProduct) &&
             !empty($Price) &&
             !empty($Size) &&
+            !empty($IdCategory) &&
             !empty($ImageName)
-        ){
+            ){
             $conn = Connection::getInstance();
             // thêm dữ liệu vào bảng details
             $queryDetails = $conn->query("insert into productdetails(ProductDetails,ProductDescription) values($Details,$ProductDescription)");
@@ -38,12 +39,13 @@ trait AddproductModels{
                     if(!empty($result['IdProductDetails'])){
                        $IdDetails= $result['IdProductDetails'];
                         // thêm dữ liệu vào product
-                        $query = $conn->query("insert into product (NameProducts,IdDetails, Color, NumberProduct, Price, Size, image)  values ('$NameProducts','$IdDetails','$Color','$NumberProduct','$Price','$Size', '$ImageName')");
+                        $query = $conn->query("insert into product (NameProducts,IdDetails, Color, NumberProduct, Price, Size, image, IdCategory)  values ('$NameProducts','$IdDetails','$Color','$NumberProduct','$Price','$Size', '$ImageName', '$IdCategory')");
                         if($query){
                             // thêm file ảnh vào thư mục 
                             move_uploaded_file($ImageTmp,"assets/imgUpload/". $ImageName);
                             $data[] = "Thêm sản phẩm thành công";
                         }else{
+                            // print_r($conn->error);
                             $data[] = "Hệ thống đang bảo trì1";
                         }
                     }else{

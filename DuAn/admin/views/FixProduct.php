@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 
-<link rel="stylesheet" href="assets/css/Addproduct.css">
+<link rel="stylesheet" href="assets/css/FixProduct.css">
 <link rel="stylesheet" href="assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">
@@ -55,32 +55,37 @@
             </section>
         </aside>
         <main>
-            <form action="index.php?controller=Addproduct" method="post" enctype="multipart/form-data">
+            <form action="index.php?controller=FixProduct" method="post" enctype="multipart/form-data">
                 <label for="NameProducts">Name Products</label>
-                <input required title="Không được để trống" type="text" name="NameProducts" id="NameProducts">
+                <input value="<?php echo $data['display']['display']["NameProducts"]; ?>"  type="text" name="NameProducts" id="NameProducts">
+
                 <label for="Details">Details</label>
-                <input required title="Không được để trống" type="text" name="Details" id="Details">
+                <input value="<?php echo $data['display']['display']["ProductDetails"];?>" type="text" name="Details" id="Details">
+
                 <label for="ProductDescription">Product Description</label>
-                <input required title="Không được để trống" type="text" name="ProductDescription" id="ProductDescription">
+                <input value="<?php echo $data['display']['display']["ProductDescription"]; ?>"  type="text" name="ProductDescription" id="ProductDescription">
                 <label for="Color">Color</label>
-                <input required title="Không được để trống" type="color" name="Color" id="Color">
+                <input value="<?php echo $data['display']['display']["Color"]; ?>"  type="color" name="Color" id="Color">
                 <label for="NumberProduct">Number Product</label>
-                <input required title="Không được để trống" type="number" min =0  name="NumberProduct" id="NumberProduct">
+                <input value="<?php echo $data['display']['display']["NumberProduct"]; ?>"  type="number" min =0  name="NumberProduct" id="NumberProduct">
                 <label for="Price">Price</label>
-                <input required title="Không được để trống" type="number" min =0  name="Price" id="Price">
+                <input value="<?php echo $data['display']['display']["Price"]; ?>"  type="number" min =0  name="Price" id="Price">
                 <label for="Size">Size</label>
-                <select name="Size" id="Size" required title="Không được để trống">
-                    <option value="">Size</option>
+                <select name="Size" id="Size" >
+                    <option value="<?php echo $data['display']['display']["Size"]; ?>"><?php echo $data['display']['display']["Size"]; ?></option>
                     <option value="S">S</option>
                     <option value="L">L</option>
                     <option value="XL">XL</option>
                     <option value="XXL">XXL</option>
                 </select>
                 <label for="Image">Image</label>
-                <input required title="Không được để trống" type="file" name="Image" id="Image">
+                <input   type="file" name="Image" id="Image">
                 <label for="Category">Category</label>
-                <select name="Category" id="Category" required title="Không được để trống">
-                    <option value="">Category</option>
+                <select name="Category" id="Category" >
+
+                    <option value="<?php echo $data['display']['display']["IdCategory"]; ?>">
+                        <?php echo $data['display']['display']["NameCategory"]; ?>
+                    </option>
                     <?php 
                         if(!empty($data['dataCategory']['result'])){
                             foreach($data['dataCategory']['result'] as $value){

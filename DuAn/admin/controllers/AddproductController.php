@@ -12,10 +12,15 @@ class AddproductController extends Controller{
 
         );
         // echo "<pre>";
-        // print_r($data['dataCategory']);die();
+        // print_r($data['dataMessage']);
+        // die();
         // echo "<pre>";
 
         $this->loadView("Addproduct.php", $data);
+    }
+
+    public function fix(){
+        $this->loadView("FixProduct.php");
     }
 }
 ?>
