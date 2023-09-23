@@ -7,7 +7,11 @@
     --background-color: #FFFFFF;
     --background-color-main: #efefef;
     --background-color-Message: #00CC99;
+    --background-color-Message22: #EB5757;
+    --background-color-Message33: #F2C94C;
     --background-color-Message1: #E6FAF5;
+    --background-color-Message2: #FDEFEF;
+    --background-color-Message3: #FDF8E8;
     --text-color: #0C0C0D;
     --text-color1: #A7A7A7;
     --text-color2: #efefef;
@@ -17,18 +21,25 @@
     width: 1440px;
     height: 750px;
     gap: 4px;
-    display: none;
+    display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 100%;
     grid-template-areas: "left right" "left right" ; 
     background-image: url("../img/backgound-login-signIn.png");
     background-repeat: no-repeat;
     background-size: 1440px 1000px; /* Độ rộng 1440px và chiều cao 1000px */
+    position: relative;
 
 }
-.Message{
+.Notification{
     width: 300px;
-    height: 90px;
+    height: 270px;  
+    position: absolute;
+    z-index: 1;
+}
+.Message{
+    width: 100%;
+    height: 33.33%;
     display: flex;
     padding: 0, 2%;
     background-color: var(--background-color-Message1);
@@ -36,6 +47,8 @@
     justify-content: space-between;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+    position: relative;
+    transform: translate(-100%, -100%);
 }
 .Message>p{
     width: 3%;
@@ -43,31 +56,51 @@
     background-color: var(--background-color-Message);
     border-radius: 10px;
 }
-.Message> .iconMessage{
+.iconMessage {
     width: 40%;
     height: 100%;
-
-}
-.iconMessage>svg{
-    width: 70%;
-    height: 100%;
-    margin: 0% 20%;
     display: flex;
     justify-content: center;
-}
-.ti-check{
+    align-items: center; 
+    /* border:2px solid;  */
+  }
+  
+  .iconMessage > svg {
+    width: 70%;
+    height: 100%;
+    margin-top:15% ;
+  }
+  
+  .ti-check {
     font-size: 30px;
     color: var(--background-color);
+    position: absolute;
+    top: 35%;
+    left: 19%;
 
-}
+  }
+  
 .Message> .contentMessage{
     width: 50%;
     height: 100%;
-
+    margin-top:5% ;
     text-align: left;
 }
 .contentMessage>h1{
     margin:1%;
+}
+
+#Error{
+    background-color: var(--background-color-Message2);
+}
+#Error>p{
+    background-color: var(--background-color-Message22);
+}
+#Warning{
+    background-color: var(--background-color-Message3);
+}
+#Warning>p{
+    background-color: var(--background-color-Message33);
 }
 .page> .left{
     width: 100%;

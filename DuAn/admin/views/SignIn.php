@@ -8,34 +8,51 @@
 <link rel="stylesheet" href="assets/css/signIn.css">
 <link rel="stylesheet" href="assets/themify-icons/themify-icons.css">
 <body>
-    <section class="Message" id="Success">
-        <p></p>
-        <article class="iconMessage">
-            <svg >
-                <circle cx="35" cy="35" r="35" fill = "#00CC99"></circle>
-                <use class="ti-check"></use>
-            </svg>
-        </article>
-        <section class="contentMessage">
-            <h1>Success</h1>
-            <p id ="messageSuccess">contentSuccess</p>
+    <section class="Notification">
+        <section class="Message" id="Success">
+            <p></p>
+            <article class="iconMessage">
+                <svg >
+                    <circle cx="35" cy="35" r="35" fill = "#00CC99"></circle>
+                    <i class="ti-check"></i>
+                </svg>
+            </article>
+            <section class="contentMessage">
+                <h1>Success</h1>
+                <p id ="messageSuccess"></p>
+            </section>
         </section>
+        <section class="Message" id="Error">
+            <p></p>
+            <article class="iconMessage">
+                <svg >
+                    <circle cx="35" cy="35" r="35" fill = "#EB5757"></circle>
+                    <i class="ti-check"></i>
+                </svg>
+            </article>
+            <section class="contentMessage">
+                <h1>Error</h1>
+                <p id ="messageError">contentError</p>
+            </section>
+        </section>
+        <section class="Message" id="Warning">
+            <p></p>
+            <article class="iconMessage">
+                <svg >
+                    <circle cx="35" cy="35" r="35" fill = "#F2C94C"></circle>
+                    <i class="ti-check"></i>
+                </svg>
+            </article>
+            <section class="contentMessage">
+                <h1>Warning</h1>
+                <p id ="messageWarning">contentWarning</p>
+            </section>
+        </section>
+        
     </section>
-    <!-- <section class="Message" id="Error">
-        <p></p>
-        <article class="iconMessage">
-            <svg >
-                <circle cx="35" cy="35" r="35" fill = "#00CC99"></circle>
-                <i class="ti-check"></i>
-            </svg>
-        </article>
-        <section class="contentMessage">
-            <h1>Error</h1>
-            <p id ="messageError">contentError</p>
-        </section>
-    </section> -->
 
     <section class="page">
+        <button onclick="Notification('Success', 'messageSuccess', 'dataTest')" >tesst</button>
         <section class="left">
             <article class="Wellcome">
                 <h1>Wellcome</h1>
@@ -87,6 +104,7 @@
         </section>
     </section>
 </body>
+<script src="assets/js/SignIn.js" ></script>
 <?php 
 
 // hàm json_encode() để mã hóa giá trị của biến $message thành chuỗi JSON trước khi truyền vào đoạn mã JavaScript, để đảm bảo rằng các ký tự đặc biệt sẽ được mã hóa đúng và không gây ra lỗi cú pháp

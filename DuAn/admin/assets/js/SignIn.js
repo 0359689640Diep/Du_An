@@ -6,3 +6,9 @@
 //     <input type="text" placeholder="Enter the confirmation code from your gmail" name="ConfirmationEmail" id="ConfirmationEmail">
 
 // }
+
+function Notification(idType, content, data){
+    idType = document.getElementById(idType);
+    content = document.getElementById(content).innerHTML = data;
+    idType.classList.remove(idType)
+}
