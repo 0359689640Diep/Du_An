@@ -1,5 +1,4 @@
 <?php
-
 class validate {
     public static function check($type, $value, $value1){
         switch($type){

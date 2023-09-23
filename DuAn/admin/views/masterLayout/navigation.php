@@ -10,13 +10,13 @@
     <i class="ti-list"></i>
     <a href="">Lisst Account</a>
 </section>
-<section class="setting">
-    <i class="ti-list"></i>
-    <a href="">Add Account</a>
-</section>
 <section class="setting" onclick="redirectToPage('index.php?controller=SignIn')">
+    <i class="ti-list"></i>
+    <a href="index.php?controller=SignIn">Add Account</a>
+</section>
+<section class="setting" onclick="redirectToPage('index.php?controller=addProduct')">
     <i class="ti-cloud-up"></i>
-    <a href="index.php?controller=SignIn">Add Product</a>
+    <a href="index.php?controller=addProduct">Add Product</a>
 </section>
 <section class="setting" onclick="redirectToPage('index.php?controller=LisstProduct')">
     <i class="ti-list"></i>
