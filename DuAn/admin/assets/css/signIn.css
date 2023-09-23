@@ -52,8 +52,11 @@
   }
 .icont img:nth-child(1) {
     position: absolute;
-    top: 5%;
-    right: 15%
+    top: 30%;
+    left:0;
+    width: 60%;
+    height: 60%;
+    
   }
 .page> .right{
     width: 100%;
@@ -61,7 +64,9 @@
     background-color: var(--background-color-main);
     border-top-left-radius:24px ;
     border-bottom-left-radius: 24px;
-    padding: 15%;
+    padding: 2% 5%;
+    grid-area: right;
+
 }
 .right> .contentRight{
     width: 100%;
@@ -99,18 +104,32 @@
 }
 .contentRight>main{
     width: 100%;
-    height: 55%;
+    height: 50%;
 
 }
 .contentRight>main>form{
     width: 100%;
     height: 100%;
+    /* border: 2px solid; */
 
 }
 .contentRight>main>form>input{
     width: 100%;
     font-size: 24px;
-    height: 15%;
+    height: 13%;
+    margin: 1% 0;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid var(--text-color1);
+    background-color: var(--background-color-main);
+    color: var(--text-color);
+
+}
+.contentRight>main>form>select{
+    width: 100%;
+    font-size: 24px;
+    height: 13%;
     margin: 1% 0;
     border-top: none;
     border-right: none;
@@ -122,10 +141,10 @@
 }
 .contentRight>main>form>button{
     width: 100%;
-    height: 20%;
+    height: 15%;
     font-size: 24px;
     height: 15%;
-    margin: 2% 0;
+    margin: 1% 0;
     background-color: var(--background-color);
     color: var(--text-color);
     border-radius: 24px;
@@ -144,7 +163,7 @@
     height: 5%;
 }
 .contentRight>footer>h3{
-    margin: 2%;
+    margin: 2% 0;
     font-size: 20px;
     color: var(--text-color1)
 }

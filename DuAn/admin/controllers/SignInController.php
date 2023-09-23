@@ -4,11 +4,11 @@ class SignInController extends Controller{
     use SignInModles;
     // load views
     public function index(){
+        $this->modelSignIn();
         $this->loadView("SignIn.php");
     }
     // khi ấn nút submit
     public function SignIn(){
-        $this->modelSignIn();
         // kiểm tra tài khoản
         if(isset($_SESSION["emailAdmin"]) == true && $_SESSION["emailAdmin"] != ""){
             header("location:index.php?controller=homeAdmin");

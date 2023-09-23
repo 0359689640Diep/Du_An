@@ -47,7 +47,7 @@
                 <footer>
                     <h3>
                     Already have an account ? 
-                        <a href="">Sign In</a>
+                        <a href="index.php?controller=SignIn">Sign In</a>
                     </h3>
                 </footer>
             </section>

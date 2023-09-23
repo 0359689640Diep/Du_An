@@ -50,10 +50,13 @@
     top: 0;
     right: 10%;
   }
-.icont img:nth-child(1) {
+  .icont img:nth-child(1) {
     position: absolute;
-    top: 5%;
-    right: 15%
+    top: 30%;
+    left:0;
+    width: 60%;
+    height: 60%;
+    
   }
 .page> .right{
     width: 100%;

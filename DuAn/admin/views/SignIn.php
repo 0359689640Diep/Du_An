@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<link rel="stylesheet" href="../assets/css/signIn.css">
+<link rel="stylesheet" href="assets/css/signIn.css">
 <body>
     <section class="page">
         <section class="left">
@@ -13,8 +13,8 @@
                 <h1>Wellcome</h1>
             </article>
             <article class="icont">
-                <img src="../assets/img/traidat.png" alt="icont">
-                <img src="../assets/img/phihanhgia.png" alt="icont">
+                <img src="assets/img/traidat.png" alt="icont">
+                <img src="assets/img/phihanhgia.png" alt="icont">
             </article>
         </section>
         <section class="right">
@@ -22,11 +22,11 @@
                 <header>
                     <h1>Create  Account </h1>
                     <button>
-                        <img src="../assets/img/Googlelogo.png" alt="Google">
+                        <img src="assets/img/Googlelogo.png" alt="Google">
                         <h5>Sign up with Google</h5>
                     </button>
                     <button>
-                        <img src="../assets/img/facebool.png" alt="Facebook">
+                        <img src="assets/img/facebool.png" alt="Facebook">
                         <h5>Sign up with Facebook</h5>
                     </button>
                 </header>
@@ -34,7 +34,7 @@
                     <h1>--OR--</h1>
                 </article>
                 <main>
-                    <form action="" method="post">
+                    <form action="index.php?controller=SignIn" method="post">
                         <input type="text" placeholder="Full Name " name ="FullName">
                         <input type="text" placeholder="Gmail" name ="Gmail">
                         <input type="password" placeholder="Password" name ="Password">
@@ -52,7 +52,7 @@
                 <footer>
                     <h3>
                     Already have an account ? 
-                        <a href="">Login</a>
+                        <a href="index.php?controller=login">Login</a>
                     </h3>
                 </footer>
             </section>
