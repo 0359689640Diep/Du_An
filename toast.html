@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.toast__0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    #toast{
+    position: fixed;
+    top: 32px;
+    right:32px;
+    /* không cho bất kì phần tử nào nằm trên nó  */
+    z-index: 999999;
+    
+    }
+    .toast{
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 2px;
+        border-left:4px solid ;
+        box-shadow: 0 5px 8px rgba(0,0,0,0.08);
+        padding: 2px 0;
+        width: 600px;
+        height: 80px;
+        min-width: 400px;
+        max-width: 450px;
+        transition: all linear 0.3s;
+        
+}
+.toast + .toast {
+    margin-top:24px;
+}
+@keyframes slideInLeft {
+    from{
+        opacity: 0;
+        transform: translateX(calc(100% + 32px));
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    to{
+        opacity: 0;
+    }
+}
+.toast__close,
+.toast__icont{
+    padding: 0 16px;
+    
+}
+.toast__icont{
+    font-size: 24px;
+    
+}
+.toast__close{
+    font-size: 20px rgba(0,0,0,0.03);
+    cursor: pointer;
+}
+.toast__body{
+    flex-grow: 1;
+}
+.toast__mgs{
+    font-size: 14px;
+    color: #888;
+    margin-top: 4px;
+    line-height: 1;
+}
+.toast__title{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+.toast--success {
+    border-color: #47d864;
+}
+.toast--success .toast__icont {
+    color:#47d864 ;
+}
+.toast--error {
+    border-color:#ff623d ;
+}
+.toast--error .toast__icont {
+    color: #ff623d;
+}
+.toast--warning {
+    border-color: #ffc021;
+}
+.toast--warning .toast__icont {
+    color: #ffc021;
+}
+/* nếu muốn nó hiện ra loại nào màu đó thì tr */
+</style>
+<body>
+    <div id="toast"></div>
+    <button onclick="
+        toast(
+        title= 'Sucssess',
+        message= 'Bạn nào chưa học Javascript thì cứ chép vào là được nhé . Sau đó học Javascript tại ',
+        type= 'success',
+        duration= 5000
+    )
+    " >Hello</button>
+</body>
+<script>
+    function toast(
+        title = "",
+        message = "",
+        type = "",
+        duration = 0)
+        {
+            const main = document.getElementById("toast");
+            if(main){
+                const toast = document.createElement('div');
+
+                // sau 1 khoảng thời gian delay thì xóa khỏi dom
+                const autoRemoveId= setTimeout(function(){
+                    main.removeChild(toast)
+                }, duration+1000)
+
+                // khi click thì được xóa
+                toast.onclick = function(e){
+                    //target trả về chính phần tử được gọi đến. tìm class chính nó nếu không có thì tìm class cha của nó  
+                    if(e.target.closest('.toast__close')){
+                        // xóa khỏi dom
+                        main.removeChild(toast);
+                        // xóa bỏ tự động xóa
+                        clearTimeout(autoRemoveId);
+
+                    }
+                }
+
+                // lưu các class icont để gán vào html
+                const icons = {
+                    success: "fas fa-check-circle", 
+                    warning: "fas fa-exclamation-circle", 
+                    error: "fas fa-exclamation-circle"
+                };
+                const icon = icons[type]; 
+
+                // chỉ lấy hai số ở phần thập phân
+                const delay = (duration / 1000).toFixed(2); 
+        /* tên animation, chuyển động, thời gian: tên animation, chuyển động, thời gian, độ trễ, dừng ở điểm cuối của animation */
+                toast.classList.add("toast", `toast--${type}`);
+                toast.style.animation = `slideInLeft ease 1.3s, fadeOut linear 1s ${delay}s forwards`;
+                toast.innerHTML = `
+                    <div class="toast__icont">
+                        <i class="${icon}"></i>
+                    </div>
+                    <div class="toast__body">
+                        <h3 class="toast__title">${title}</h3>
+                        <p class="toast__mgs">${message}</p>
+                    </div>
+                    <div class="toast__close">
+                        <i class="fas fa-times"></i>
+                    </div>            
+                `;
+// đưa tất cả phần tử html vào trong id toast
+                main.appendChild(toast);
+
+            }
+        
+    }
+
+
+</script>
+</html>

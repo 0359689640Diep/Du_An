@@ -8,51 +8,8 @@
 <link rel="stylesheet" href="assets/css/signIn.css">
 <link rel="stylesheet" href="assets/themify-icons/themify-icons.css">
 <body>
-    <section class="Notification">
-        <section class="Message" id="Success">
-            <p></p>
-            <article class="iconMessage">
-                <svg >
-                    <circle cx="35" cy="35" r="35" fill = "#00CC99"></circle>
-                    <i class="ti-check"></i>
-                </svg>
-            </article>
-            <section class="contentMessage">
-                <h1>Success</h1>
-                <p id ="messageSuccess"></p>
-            </section>
-        </section>
-        <section class="Message" id="Error">
-            <p></p>
-            <article class="iconMessage">
-                <svg >
-                    <circle cx="35" cy="35" r="35" fill = "#EB5757"></circle>
-                    <i class="ti-check"></i>
-                </svg>
-            </article>
-            <section class="contentMessage">
-                <h1>Error</h1>
-                <p id ="messageError">contentError</p>
-            </section>
-        </section>
-        <section class="Message" id="Warning">
-            <p></p>
-            <article class="iconMessage">
-                <svg >
-                    <circle cx="35" cy="35" r="35" fill = "#F2C94C"></circle>
-                    <i class="ti-check"></i>
-                </svg>
-            </article>
-            <section class="contentMessage">
-                <h1>Warning</h1>
-                <p id ="messageWarning">contentWarning</p>
-            </section>
-        </section>
-        
-    </section>
-
     <section class="page">
-        <button onclick="Notification('Success', 'messageSuccess', 'dataTest')" >tesst</button>
+        <section class="Notification" id="Notification"> </section>
         <section class="left">
             <article class="Wellcome">
                 <h1>Wellcome</h1>
@@ -89,7 +46,7 @@
                             <option value="0">Admin</option>
                             <option value="1">User</option>
                         </select>                        
-                        <button type="submit" name="submit" >Create  Account</button>
+                        <button  type="submit" name="submit" >Create  Account</button>
                         <span id="messageError" style="color:red;"></span>
                         
                     </form>
@@ -105,15 +62,35 @@
     </section>
 </body>
 <script src="assets/js/SignIn.js" ></script>
+
 <?php 
+    $sumData = count($data);
+foreach ($data as $item) {
+    if (isset($item['error'])) {
+      $error = $item['error'];
+      echo "<script>
+      toast(
+        title= 'Error',
+        message= '$error',
+        type= 'error',
+        duration= 50000,
+        quantity = '$sumData'
+    )
+      </script>";
+    }else{
+        $success = $item['success'];
+        echo "<script>
+        toast(
+          title= 'Success',
+          message= '$success',
+          type= 'success',
+          duration= 50000,
+          quantity = '0'
+      )
+        </script>";        
+    }
+  }
 
-// hàm json_encode() để mã hóa giá trị của biến $message thành chuỗi JSON trước khi truyền vào đoạn mã JavaScript, để đảm bảo rằng các ký tự đặc biệt sẽ được mã hóa đúng và không gây ra lỗi cú pháp
-if(!empty($data[0]) ){
-    $message = $data[0];
-    echo "<script>alert(" . json_encode($message) . ");</script>";
-    // header("location:index.php?controller=LisstProduct");
-
-}
-
+  // header("location:index.php?controller=LisstProduct");
  ?>
 </html>
