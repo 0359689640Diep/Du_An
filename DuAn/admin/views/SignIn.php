@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<link rel="stylesheet" href="assets/css/signIn.css">
-<link rel="stylesheet" href="assets/themify-icons/themify-icons.css">
+</head> 
+<link rel="stylesheet" href="../assets/css/signIn.css">
+<link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">
         <section class="Notification" id="Notification"> </section>
@@ -15,18 +15,18 @@
             <h1>Create  Account </h1>
             </article>
             <article class="icont">
-                <img src="assets/img/background_login_SignIn.png" alt="icont">
+                <img src="../assets/img/background_login_SignIn.png" alt="icont">
             </article>
         </section>
         <section class="right">
             <section class="contentRight">
                 <header>
                     <button>
-                        <img src="assets/img/Googlelogo.png" alt="Google">
+                        <img src="../assets/img/Googlelogo.png" alt="Google">
                         <h5>Sign up with Google</h5>
                     </button>
                     <button>
-                        <img src="assets/img/facebool.png" alt="Facebook">
+                        <img src="../assets/img/facebool.png" alt="Facebook">
                         <h5>Sign up with Facebook</h5>
                     </button>
                 </header>
@@ -59,7 +59,7 @@
         </section>
     </section>
 </body>
-<script src="assets/js/SignIn.js" ></script>
+<script src="../assets/js/SignIn.js" ></script>
 
 <?php 
 if(!empty($data)){

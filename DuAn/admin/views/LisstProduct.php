@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 
-<link rel="stylesheet" href="assets/css/LisstProduct.css">
-<link rel="stylesheet" href="assets/themify-icons/themify-icons.css">
+<link rel="stylesheet" href="../assets/css/LisstProduct.css">
+<link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">
 <?php require_once "masterLayout/header.php"?>
@@ -38,7 +38,7 @@
                             <td>{$value['Price']}</td>
                             <td>{$value['Evalute']}</td>
                             <td>{$value['Size']}</td>
-                            <td><img src='assets/imgUpload/{$value['image']}' alt='product'></td>
+                            <td><img src='../assets/imgUpload/{$value['image']}' alt='product'></td>
                             <td><button onclick='deleteProduct({$value['IdProduct']})'>Delete</button></td>
                             <td><button onclick='fixProduct({$value['IdProduct']})'>Fix</button></td>
                         </tr>
@@ -57,5 +57,5 @@
         </main>
     </section>
 </body>
-<script src="assets/js/LisstProduct.js"></script>
+<script src="../assets/js/LisstProduct.js"></script>
 </html>

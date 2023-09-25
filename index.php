@@ -1,3 +1,3 @@
 <?php 
-    header("location:DuAn/admin/index.php?controller=login");
+    header("location:DuAn/user/index.php");
 ?>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<link rel="stylesheet" href="assets/css/login.css">
+<link rel="stylesheet" href="../assets/css/login.css">
 <body>
     <section class="page">
         <section class="left">
@@ -14,7 +14,7 @@
                 <h1>Welcome nice to meet you</h1>
             </article>
             <article class="icont">
-                <img src="assets/img/background_login_SignIn.png" alt="icont">
+                <img src="../assets/img/background_login_SignIn.png" alt="icont">
             </article>
         </section>
         <section class="right">
@@ -22,11 +22,11 @@
                 <header>
                     <h1>Log in to your account</h1>
                     <button>
-                        <img src="assets/img/Googlelogo.png" alt="Google">
+                        <img src="../assets/img/Googlelogo.png" alt="Google">
                         <h5>Sign up with Google</h5>
                     </button>
                     <button>
-                        <img src="assets/img/facebool.png" alt="Facebook">
+                        <img src="../assets/img/facebool.png" alt="Facebook">
                         <h5>Sign up with Facebook</h5>
                     </button>
                 </header>

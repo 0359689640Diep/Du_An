@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 
-<link rel="stylesheet" href="assets/css/AddCategory.css">
-<link rel="stylesheet" href="assets/themify-icons/themify-icons.css">
+<link rel="stylesheet" href="../assets/css/AddCategory.css">
+<link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">
 <?php require_once "masterLayout/header.php"?>
@@ -33,6 +33,6 @@
  $test = !empty($data[0]) ? "<script>alert('$data[0]');</script>" : ""; 
  echo ($test);
  ?>
-<script src="assets/js/product.js"></script>
+<script src="../assets/js/product.js"></script>
 
 </html>

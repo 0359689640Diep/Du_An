@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 
-<link rel="stylesheet" href="assets/css/LisstAccount.css">
-<link rel="stylesheet" href="assets/themify-icons/themify-icons.css">
+<link rel="stylesheet" href="../assets/css/LisstAccount.css">
+<link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">
 <?php require_once "masterLayout/header.php"?>
@@ -37,7 +37,7 @@
                             <td>{$value['Name']}</td>
                             <td>{$value['Phone']}</td>
                             <td>{$Permission}</td>
-                            <td><img src='assets/imgUpload/{$value['Image']}' alt='img'></td>
+                            <td><img src='../assets/imgUpload/{$value['Image']}' alt='img'></td>
                             <td>{$value['Address']}</td>
                             
                             <td><button onclick='deleteAccount({$value['Id']})'>Delete</button></td>
@@ -58,5 +58,5 @@
         </main>
     </section>
 </body>
-<script src="assets/js/LisstAccount.js"></script>
+<script src="../assets/js/LisstAccount.js"></script>
 </html>

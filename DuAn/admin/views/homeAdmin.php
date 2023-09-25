@@ -6,15 +6,15 @@
     <title>Document</title>
     </head>
 
-<link rel="stylesheet" href="assets/css/homeAdmin.css">
-<link rel="stylesheet" href="assets/themify-icons/themify-icons.css">
+<link rel="stylesheet" href="../assets/css/homeAdmin.css">
+<link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">  
 <?php require_once "masterLayout/header.php"?>
 <aside>
     <section class="individual">
         <article class="img">
-            <img src="assets/imgUpload/<?php echo $data['result']['Image'] ?>" alt="img">
+            <img src="../assets/imgUpload/<?php echo $data['result']['Image'] ?>" alt="img">
         </article>
         <article class="Personal_Information">
             <h2> <?php echo $data['result']['Name'] ?></h2>

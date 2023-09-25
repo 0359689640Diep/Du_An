@@ -1,7 +1,7 @@
 
         <header>
             <article class="logo">
-                <img src="assets/img/logo.png" alt="logo">
+                <img src="../assets/img/logo.png" alt="logo">
             </article>
             <article class="search">
                 <i class="ti-search"></i>

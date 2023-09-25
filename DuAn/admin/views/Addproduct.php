@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 
-<link rel="stylesheet" href="assets/css/Addproduct.css">
-<link rel="stylesheet" href="assets/themify-icons/themify-icons.css">
+<link rel="stylesheet" href="../assets/css/Addproduct.css">
+<link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">
 <?php require_once "masterLayout/header.php"?>
@@ -68,6 +68,6 @@ if(!empty($data['dataMessage'][0]) ){
 }
 
  ?>
-<script src="assets/js/product.js"></script>
+<script src="../assets/js/product.js"></script>
 
 </html>
