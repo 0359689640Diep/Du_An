@@ -14,8 +14,7 @@
                 <h1>Welcome nice to meet you</h1>
             </article>
             <article class="icont">
-                <img src="assets/img/traidat.png" alt="icont">
-                <img src="assets/img/phihanhgia.png" alt="icont">
+                <img src="assets/img/background_login_SignIn.png" alt="icont">
             </article>
         </section>
         <section class="right">

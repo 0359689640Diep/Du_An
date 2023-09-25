@@ -6,9 +6,9 @@
     <i class="ti-comment-alt"></i>
     <a href="">Comment</a>
 </section>
-<section class="setting">
+<section class="setting"  onclick="redirectToPage('index.php?controller=LisstAccount')">
     <i class="ti-list"></i>
-    <a href="">Lisst Account</a>
+    <a href="index.php?controller=LisstAccount">Lisst Account</a>
 </section>
 <section class="setting" onclick="redirectToPage('index.php?controller=SignIn')">
     <i class="ti-list"></i>

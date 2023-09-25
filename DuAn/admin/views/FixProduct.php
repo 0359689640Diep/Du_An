@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">
+<?php require_once "masterLayout/header.php"?>
+
         <aside>
         <?php require_once "masterLayout/navigation.php"?>
         </aside>

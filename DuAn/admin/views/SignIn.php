@@ -12,17 +12,15 @@
         <section class="Notification" id="Notification"> </section>
         <section class="left">
             <article class="Wellcome">
-                <h1>Wellcome</h1>
+            <h1>Create  Account </h1>
             </article>
             <article class="icont">
-                <img src="assets/img/traidat.png" alt="icont">
-                <img src="assets/img/phihanhgia.png" alt="icont">
+                <img src="assets/img/background_login_SignIn.png" alt="icont">
             </article>
         </section>
         <section class="right">
             <section class="contentRight">
                 <header>
-                    <h1>Create  Account </h1>
                     <button>
                         <img src="assets/img/Googlelogo.png" alt="Google">
                         <h5>Sign up with Google</h5>
@@ -64,33 +62,36 @@
 <script src="assets/js/SignIn.js" ></script>
 
 <?php 
-    $sumData = count($data);
-foreach ($data as $item) {
-    if (isset($item['error'])) {
-      $error = $item['error'];
-      echo "<script>
-      toast(
-        title= 'Error',
-        message= '$error',
-        type= 'error',
-        duration= 50000,
-        quantity = '$sumData'
-    )
-      </script>";
-    }else{
-        $success = $item['success'];
-        echo "<script>
-        toast(
-          title= 'Success',
-          message= '$success',
-          type= 'success',
-          duration= 50000,
-          quantity = '0'
-      )
-        </script>";        
-    }
-  }
+if(!empty($data)){
+    foreach ($data as $item) {
+        if (isset($item['error'])) {
+        $sumData = count($data);
+          $error = $item['error'];
+          echo "<script>
+          toast(
+            title= 'Error',
+            message= '$error',
+            type= 'error',
+            duration= 50000,
+            quantity = '$sumData'
+        )
+          </script>";
+        }else{
+            $success = $item['success'];
+            echo "<script>
+            toast(
+              title= 'Success',
+              message= '$success',
+              type= 'success',
+              duration= 50000,
+              quantity = '0'
+          )
+            </script>";        
+            header("location:index.php?controller=LisstProduct");
+        }
+      }
+    
 
-  // header("location:index.php?controller=LisstProduct");
+}
  ?>
 </html>
