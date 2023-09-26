@@ -1,0 +1,57 @@
+@media screen and (min-width: 1024px){
+    
+}
+@media screen and (min-width: 845px) and (max-width: 1023px){
+    .page{
+        width: 1023px;
+        height: 3500px;
+        background-color: var(--background-color);
+        padding: 0 5%;
+    }
+    
+}
+@media screen and (max-width: 844px){
+    .page{
+        max-width: 390px;
+        height: 3500px;
+        background-color: var(--background-color);
+        padding: 0 5%;
+    }
+    .SEOSignUp>h4, .SEOSignUp>h4>a, .ti-close{
+       font-size: 10px;
+    }
+    .logo{
+        display: none;
+    }
+    .NavMobile{
+        max-width: 50%;
+        max-height: 100%;
+        border: 2px solid;
+        display: grid;
+
+    }
+    .nav{
+        display: none;
+    }
+     .sheach{
+        max-width: 5%;
+        height: 45%;
+        border: 2px solid;
+        position: relative;
+        
+    }
+     .sheach>input{
+        width: 100%;
+        height: 100%;
+        padding-left: 10%;
+        font-size: 16px;
+        background-color: var(--background-color3);
+        color: var(--text-color3);
+        border-radius: 62px;
+        border: none;
+        display: none;
+        
+    }
+}
+
+

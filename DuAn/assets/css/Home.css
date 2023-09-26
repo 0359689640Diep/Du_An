@@ -30,11 +30,13 @@
     grid-template-areas: "header" 'Banner' "BrandName" "main" "footer";
 
 }
+
 .contener>header{
     width: 100%;
     height: 100%;
     background-color: var(--background-color1);
     grid-area: header;
+    position:relative;
 }
 .mainHeader{
     width: 100%;
@@ -74,21 +76,24 @@
     object-fit: contain;
 }
 .contentHeader> .nav{
-    width: 25%;
+    width: 30%;
     display: flex;
     justify-content: space-between;
+    height: 100%;
     align-items: center;
-}
-.contentHeader> .nav>h5, .navShop>h5{
-    font-size: 16px;
-}
-.contentHeader> .nav> .navShop{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 20%;
     
 }
+.NavMobile{
+    display: none;
+} 
+
+.contentHeader> .nav>h5{
+    font-size: 16px;
+}
+.contentHeader> .nav>h5:hover{
+    color: var(--text-color3);
+}
+
 .contentHeader> .sheach{
     width: 35%;
     height: 45%;
@@ -127,10 +132,72 @@
 .contentHeader> .Cart_Individual> i{
     font-size: 30px;
 }
+
+.menu-product{
+    width: 90%;
+    height: 200%;
+    background-color: var(--background-color1);
+    color: var(--text-color1);
+    position: absolute;
+    top: 100%;
+    left: 5%;
+    display: none;
+    justify-content: space-around;
+}
+.menu-product> .product, .imageProduct{
+    width: 50%;
+    height: 100%;
+    border: 2px solid;
+    padding: 5%;
+    box-sizing: border-box;
+}
+.product>header{
+    width: 100%;
+    height: 20%;
+    border-bottom: 2px solid;
+}
+.product>header>h1{
+    font-size: 27px;
+}
+.product>main{
+    width: 100%;
+    height:75%;
+    margin: 10% 0%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px; /* Khoảng cách giữa các thẻ */
+    overflow-x: auto;
+}
+.product>main>a{
+    display: block;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: left;
+    color: var(--text-color1);
+    margin: 2% 0;
+}
+.product>main>a:hover{
+    color: var(--text-color3);
+}
+.imageProduct{
+    /* margin-left: 5%; */
+}
+
+.menu-product> .demand{
+    width: 33%;
+    height: 100%;
+    border: 2px solid;
+}
+.menu-product> .imageProduct{
+    width: 33%;
+    height: 100%;
+    border: 2px solid;
+}
+
 .contener> .Banner{
     width: 100%;
     height: 100%;
-    background-color: #dd5757;
+    background-color: var(--background-color2);
     grid-area: Banner;
 }
 .contener> .BrandName{
@@ -151,3 +218,4 @@
     background-color: #151e94;
     grid-area: footer;
 }
+
