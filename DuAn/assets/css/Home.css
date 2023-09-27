@@ -199,19 +199,229 @@
     height: 100%;
     background-color: var(--background-color2);
     grid-area: Banner;
+    display: flex;
 }
+.Banner> .contentBanner{
+    width: 60%;
+    height: 100%;
+    padding: 5%;
+}
+.contentBanner>h1{
+    font-size: 64px;
+    color: var(--text-color1);
+}
+.contentBanner>h5{
+    font-size: 16px;
+    color: var(--text-color3);
+    margin: 2% 0%;
+}
+.contentBanner>button{
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 2% 0%;
+    width: 30%;
+    height: 10%;
+    border-radius: 62px;
+}
+.contentBanner>button:hover{
+    font-size: 20px;
+    color: var(--text-color1);
+    background-color: var(--background-color1);
+    border: none;
+    transition: ease-in-out 1.3s;
+    transform: scale(1.2);
+}
+
+.contentBanner>footer{
+    margin: 5% 0%;
+    width: 100%;
+    height: 20% ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contentBanner>footer> .contentFooterBanner{
+    
+}
+.contentFooterBanner>h1{
+    font-size: 40px;
+    color: var(--text-color1);
+}
+.contentFooterBanner>p{
+    font-size: 16px;
+    color: var(--text-color3);
+}
+
+.Banner> .imageLeft{
+    width: 40%;
+    height: 100%;
+    padding: 5%;
+    position: relative;
+
+}
+
+.imageLeft>img{
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+    margin-top: 17%;
+}
+.imageLeft>img:nth-child(2), .imageLeft>img:nth-child(3){
+    position: absolute;
+}
+.imageLeft>img:nth-child(2){
+    top: 50%;
+    left: 10%;
+    width: 8%;
+    height: 5%;
+}
+.imageLeft>img:nth-child(3){
+    top: 0%;
+    right: 5%;
+    width: 13%;
+    height: 10%;
+}
+
 .contener> .BrandName{
     width: 100%;
     height: 100%;
-    background-color: #7808d4;
+    background-color: var(--background-color);
     grid-area: BrandName;
+    display: flex;
+    justify-content: space-around;
+    color: var(--background-color1);
+    align-items: center;
 }
+.BrandName>img{
+    width: 15%;
+    height: 20%
+}
+
 .contener>main{
     width: 100%;
     height: 100%;
-    background-color: #129f54;
+    background-color: var(--background-color1);
     grid-area: main;
+    padding: 5%;
 }
+
+.contener>main> .NewProduct{
+    width: 100%;
+    height: 20%;
+    border: 2px solid;
+}
+.NewProduct>h1{
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 3%;
+}
+.NewProduct> .ListNewProduct{
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    scrollbar-width: thin;
+
+}
+.ListNewProduct> .NewProduct{
+    width: 20%;
+    height: 100%;
+    margin: 1% 1%;
+    flex: 0 0 auto;
+}
+.NewProduct> .img{
+    width: 100%;
+    height: 60%;
+}
+.NewProduct> .img>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.NewProduct> .title{
+    width: 100%;
+    height: 12%;
+    margin: 1% 0;
+    display: flex;
+    align-items: center;
+}
+.NewProduct> .title>h1{
+    font-size: 20px;
+}
+.NewProduct> .evaluate{
+    margin: 1% 0;
+    width: 50%;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.NewProduct> .evaluate>i{
+    color: gold;
+}
+.NewProduct> .price{
+    margin: 1% 0;
+    width: 70%;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.NewProduct> .price>h1, del{
+    font-size: 24px;
+}
+.NewProduct> .price> del{
+    color: var(--text-color3)
+}
+
+.contener>main> .Bestseller{
+    width: 100%;
+    height: 20%;
+    border: 2px solid;
+    margin: 5% 0;
+}
+.Bestseller>h1{
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 3%;
+}
+.Bestseller> .ListBestsellerProduct{
+    width: 100%;
+    height: 75%;
+    border: 2px solid;
+}
+
+.contener>main> .BrowseByDressStyle{
+    width: 100%;
+    height: 30%;
+    border: 2px solid;
+    margin: 5% 0;
+}
+.BrowseByDressStyle>h1{
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 3%;
+}
+
+.contener>main> .Customers{
+    width: 100%;
+    height: 15%;
+    border: 2px solid;
+    margin: 5% 0;
+}
+.Customers>h1{
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 3%;
+}
+
+
+
 .contener>footer{
     width: 100%;
     height: 100%;
