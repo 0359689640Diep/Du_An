@@ -42,7 +42,7 @@ trait AddproductModels{
                         $query = $conn->query("insert into product (NameProducts,IdDetails, Color, NumberProduct, Price, Size, image, IdCategory)  values ('$NameProducts','$IdDetails','$Color','$NumberProduct','$Price','$Size', '$ImageName', '$IdCategory')");
                         if($query){
                             // thêm file ảnh vào thư mục 
-                            move_uploaded_file($ImageTmp,"assets/imgUpload/". $ImageName);
+                            move_uploaded_file($ImageTmp,"../assets/imgUpload/". $ImageName);
                             $data[] = "Thêm sản phẩm thành công";
                         }else{
                             // print_r($conn->error);

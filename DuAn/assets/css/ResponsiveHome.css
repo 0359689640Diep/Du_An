@@ -10,7 +10,7 @@
     }
     
 }
-@media only screen and (max-width: 768px){
+@media  (max-width: 768px){
     .page{
         max-width: 390px;
         height: 3500px;
@@ -28,8 +28,9 @@
         max-height: 100%;
         border: 2px solid;
         display: block;
-
+        background-color: red;
     }
+
     .nav{
         display: none;
     }
@@ -63,6 +64,12 @@
     .contentHeader> .Cart_Individual> i{
         font-size: 10px;
     }
+    .Banner{
+        display: block ;
+    }
+    /* .contentBanner>h1{
+        font-size: 36px;
+    } */
 }
 
 

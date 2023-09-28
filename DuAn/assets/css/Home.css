@@ -85,6 +85,7 @@
 }
 .NavMobile{
     display: none;
+    background-color: blue;
 } 
 
 .contentHeader> .nav>h5{
@@ -143,6 +144,7 @@
     left: 5%;
     display: none;
     justify-content: space-around;
+    z-index: 999999;
 }
 .menu-product> .product, .imageProduct{
     width: 50%;
@@ -166,7 +168,7 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 10px; /* Khoảng cách giữa các thẻ */
-    overflow-x: auto;
+    overflow-x: hidden;
 }
 .product>main>a{
     display: block;
@@ -310,61 +312,60 @@
 .contener>main> .NewProduct{
     width: 100%;
     height: 20%;
-    border: 2px solid;
 }
-.NewProduct>h1{
+.contener>main> .Bestseller{
+    width: 100%;
+    height: 20%;
+    border-top: 2px solid var(--text-color3);
+    margin: 5% 0;
+}
+.NewProduct, .Bestseller>h1{
     text-align: center;
     font-size: 48px;
     margin-bottom: 3%;
 }
-.NewProduct> .ListNewProduct{
+.NewProduct> .ListNewProduct, .ListBestsellerProduct{
     width: 100%;
     height: 75%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    overflow-x: auto;
+    overflow-x: hidden;
     scrollbar-width: thin;
 
 }
-.ListNewProduct> .NewProduct{
+.ListNewProduct> .NewProduct, .BestsellerProduct{
     width: 20%;
     height: 100%;
     margin: 1% 1%;
     flex: 0 0 auto;
 }
-.NewProduct> .img{
+.NewProduct> .img, .BestsellerProduct> .img{
     width: 100%;
     height: 60%;
 }
-.NewProduct> .img>img{
+.NewProduct> .img:hover, .BestsellerProduct> .img:hover{
+    transition: linear 1.5s;
+    transform: scale(1.1);
+}
+
+.NewProduct> .img>img, .BestsellerProduct> .img>img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
 }
-.NewProduct> .title{
+.NewProduct> .title, .BestsellerProduct> .title{
     width: 100%;
     height: 12%;
     margin: 1% 0;
     display: flex;
     align-items: center;
 }
-.NewProduct> .title>h1{
+.NewProduct> .title>h1, .BestsellerProduct> .title>h1{
     font-size: 20px;
 }
-.NewProduct> .evaluate{
-    margin: 1% 0;
-    width: 50%;
-    height: 12%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.NewProduct> .evaluate>i{
-    color: gold;
-}
-.NewProduct> .price{
+.NewProduct> .evaluate, .BestsellerProduct> .evaluate{
     margin: 1% 0;
     width: 70%;
     height: 12%;
@@ -372,60 +373,276 @@
     align-items: center;
     justify-content: space-around;
 }
-.NewProduct> .price>h1, del{
+.NewProduct> .evaluate>i, .BestsellerProduct> .evaluate>i{
+    color: gold;
+    font-size: 20px;
+}
+.NewProduct> .price, .BestsellerProduct> .price{
+    margin: 1% 0;
+    width: 70%;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.NewProduct> .price>h1, del, .BestsellerProduct> .price>h1, del{
     font-size: 24px;
 }
-.NewProduct> .price> del{
+.NewProduct> .price> del, .BestsellerProduct> .price> del{
     color: var(--text-color3)
-}
-
-.contener>main> .Bestseller{
-    width: 100%;
-    height: 20%;
-    border: 2px solid;
-    margin: 5% 0;
-}
-.Bestseller>h1{
-    text-align: center;
-    font-size: 48px;
-    margin-bottom: 3%;
-}
-.Bestseller> .ListBestsellerProduct{
-    width: 100%;
-    height: 75%;
-    border: 2px solid;
 }
 
 .contener>main> .BrowseByDressStyle{
     width: 100%;
     height: 30%;
-    border: 2px solid;
+   background-color: var(--background-color2);
     margin: 5% 0;
+    border-radius: 40px;
+    padding: 5% ;
 }
 .BrowseByDressStyle>h1{
     text-align: center;
     font-size: 48px;
     margin-bottom: 3%;
 }
+.BrowseByDressStyle> .Content{
+    width: 100%;
+    height: 80%;
+}
+.Content> .CasualFormal, .PartyGym{
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: space-around;
+
+}
+.PartyGym{
+    margin-top: 3.5%;
+}
+.CasualFormal> .Casual, .PartyGym> .Gym, .CasualFormal> .Formal, .PartyGym> .Party{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    background-color: var(--background-color1 );
+    border-radius: 20px;
+    /* justify-content: space-between; */
+    font-size: 36px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.CasualFormal> .Formal, .PartyGym> .Party{
+    width: 60%;
+}
+.Casual>h1, .Gym>h1{
+    margin: 10%;
+}
+.Formal>h1, .Party>h1{
+     margin: 5%;
+ }
+.Casual>img, .Gym>img, .Formal>img, .Party>img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 .contener>main> .Customers{
     width: 100%;
     height: 15%;
-    border: 2px solid;
+    flex-wrap: wrap;
+    overflow-y: hidden;
+    scrollbar-width: thin;
     margin: 5% 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 .Customers>h1{
-    text-align: center;
+    text-align: left;
     font-size: 48px;
     margin-bottom: 3%;
 }
+.Customers> .Content{
+    width: 100%;
+    height: 65%;
+    border-radius: 20px;
+    white-space: nowrap;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: space-around;
+}
+.Customers> .Content> .Comment{
+    width: 35%;
+    height: 100%;
+    border: 2px solid var(--text-color3);
+    padding: 2% 5%;
+    border-radius: 20px;
+    margin-left: 5%;
+}
 
+.Comment> .Evaluate{
+    width: 70%;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.Comment> .Evaluate>i{
+    color: orange;
+    font-size: 30px;
+}
+.Comment> .NameCustomers{
+    width: 70%;
+    margin: 7% 0%;
+}
+.Comment> .NameCustomers>h1{
+    font-size: 20px;
+}
+.Comment> .CommentContent{
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.Comment> .CommentContent>p{
+    color: var(--text-color3);
+}
 
 
 .contener>footer{
     width: 100%;
     height: 100%;
-    background-color: #151e94;
+    background-color: var(--background-color2);
     grid-area: footer;
+    position: relative;
+}
+.Feedback{
+    width: 80%;
+    height: 40%;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    position: absolute;
+    top: -20%;
+    left: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.Feedback>h1{
+    color: var(--text-color);
+    font-size: 40px;
+    width: 50%;
+}
+.Feedback> .Mailing{
+    width: 40%;
+    height: 80%;
+    position: relative;
+}
+.Mailing>input{
+    width: 100%;
+    height: 45%;
+    background-color: var(--background-color1);
+    border-radius: 62px;
+    font-size: 16px;
+    margin-bottom: 1%;
+    padding-left: 15%;
+    border: none;
+}
+.Mailing>button{
+    width: 100%;
+    height: 45%;
+    background-color: var(--background-color1);
+    border-radius: 62px;
+    font-size: 16px;
+    margin-top: 1%;
+    border: none;
+
 }
 
+.Mailing> .ti-email{
+    font-size: 16px;
+    position: absolute;
+    top: 18%;
+    left: 7%;
+    color: var(--text-color1);
+}
+footer> main{
+    width: 100%;
+    height: 50%;
+    margin: 10% 0 0% 0;
+    padding: 0 5%;
+}
+.ContentFooter{
+    width: 100%;
+    height: 100%;
+    /* margin: 10% 0 0% 0; */
+    display: flex;
+    justify-content: space-around;
+}
+.ContentFooter .content{
+    width: 15%;
+    height: 100%;
+}
+.content>img{
+    width: 60%;
+    height: 10%;
+}
+.content>h5{
+    width: 100%;
+    height: 40%;
+    font-size: 14px;
+    color: var(--text-color3);
+    margin: 15% 0;
+}
+.content> .media{
+    width: 100%;
+    height: 20%;
+    font-size: 14px;
+    margin: 15% 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.content> .media>i{
+    font-size: 20px;
+}
+.content>h1{
+    text-align: center;
+    font-size: 16px;
+    margin: 5% 0;
+}
+.content>ul{
+    width: 100%;
+    height: 60%;
+    text-align: center;
+}
+.content>ul>li{
+    font-size: 16px;
+    margin: 10% 0;
+    list-style-type: none;
+    font-size: 16px;
+    color: var(--text-color3);
+}
+
+
+footer> footer{
+    width: 100%;
+    height: 25%;
+    border-top: 2px solid var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+
+}
+footer>h5{
+    font-size: 14px;
+    color: var(--text-color3);
+
+}
+footer> .pay{
+    width: 30%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

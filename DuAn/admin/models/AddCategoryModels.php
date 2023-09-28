@@ -10,8 +10,7 @@ trait AddCategoryModels{
             !empty($Status) 
         ){
             $conn = Connection::getInstance();
-
-            $query = $conn->query("insert into category (NameCategory, Status )  values ('$NameCategory', '$Status')");
+            $query = $conn->query("insert into category (NameCategory, Status ) values ('$NameCategory', '$Status')");
                     if($query){
                         $data[] = "Thêm sản phẩm thành công";
                     }else{

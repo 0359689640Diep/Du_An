@@ -38,9 +38,9 @@
     <i class="ti-settings"></i>
     <a href="">Setting</a>
 </section>
-<section class="setting">
+<section class="setting" onclick="redirectToPage('location:DuAn/user/index.php')">
     <i class="ti-share-alt"></i>
-    <a href="">Log out</a>
+    <a href="location:DuAn/user/index.php">Log out</a>
 
 </section>
 

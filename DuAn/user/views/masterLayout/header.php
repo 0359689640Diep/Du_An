@@ -8,9 +8,11 @@
                         <article class="logo">
                             <img src="../assets/img/logo.png" alt="logo">
                         </article>
+
                         <section class="NavMobile">
                             <h1>hello</h1>
                         </section>
+                        
                         <nav class="nav">
                             <h5>On Sale</h5>
                             <h5 onmouseover="showMenu('menuproduct')" onmouseout="setHideTimeout('menuproduct')" onclick="clearTimeout()">Daily wear</h5>
@@ -36,9 +38,12 @@
                         <main>
                             <a href="#">All</a>
                             <a href="#">New product</a>
-                            <a href="#">T-shirts</a>
-                            <a href="#">Jeans</a>
-                            <a href="#">Jeans</a>
+                            <?php 
+                            foreach($data['showCategory'] as $value){
+                                echo "<a href='$value[IdCategory]'>$value[NameCategory]</a>";
+                            }
+                            ?>
+
                     
                         </main>
                     </section>
