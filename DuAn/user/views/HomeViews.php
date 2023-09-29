@@ -163,6 +163,81 @@
                                 <p>1111111111111111111</p>
                             </article>
                         </section>
+                        <section class="Comment">
+                            <article class="Evaluate">
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                            </article>
+                            <article class="NameCustomers">
+                                <h1>Henry</h1>
+                            </article>
+                            <article class="CommentContent">
+                                <p>1111111111111111111</p>
+                            </article>
+                        </section>
+                        <section class="Comment">
+                            <article class="Evaluate">
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                            </article>
+                            <article class="NameCustomers">
+                                <h1>Henry</h1>
+                            </article>
+                            <article class="CommentContent">
+                                <p>1111111111111111111</p>
+                            </article>
+                        </section>
+                        <section class="Comment">
+                            <article class="Evaluate">
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                            </article>
+                            <article class="NameCustomers">
+                                <h1>Henry</h1>
+                            </article>
+                            <article class="CommentContent">
+                                <p>1111111111111111111</p>
+                            </article>
+                        </section>
+                        <section class="Comment">
+                            <article class="Evaluate">
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                            </article>
+                            <article class="NameCustomers">
+                                <h1>Henry</h1>
+                            </article>
+                            <article class="CommentContent">
+                                <p>1111111111111111111</p>
+                            </article>
+                        </section>
+                        <section class="Comment">
+                            <article class="Evaluate">
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                                <i class="ti-star"></i>
+                            </article>
+                            <article class="NameCustomers">
+                                <h1>Henry</h1>
+                            </article>
+                            <article class="CommentContent">
+                                <p>1111111111111111111</p>
+                            </article>
+                        </section>
 
                     </section>
                 </section>

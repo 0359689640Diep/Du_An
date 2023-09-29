@@ -16,7 +16,7 @@
 }
 
 .page{
-    width: 1440px;
+    width: 1470px;
     height: 3500px;
     background-color: var(--background-color);
     padding: 0 5%;
@@ -488,7 +488,6 @@
     white-space: nowrap;
     overflow-y: hidden;
     display: flex;
-    justify-content: space-around;
 }
 .Customers> .Content> .Comment{
     width: 35%;

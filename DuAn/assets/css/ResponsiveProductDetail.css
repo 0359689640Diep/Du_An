@@ -1,6 +1,6 @@
 @media screen and (min-width: 1024px){
     .page{
-        width: 100%;
+        width:1440px;
         height: 3500px;
         background-color: var(--background-color);  
         padding: 0 5%;
@@ -8,11 +8,8 @@
     
 }
 @media screen and (min-width: 767px) and (max-width: 1023px){
-    
-}
-@media screen and (min-width: 767px) and (max-width: 1023px){
     .page{
-        width: 100%;
+        width: 768px;
         height: 3500px;
         background-color: var(--background-color);  
         padding: 0 5%;
@@ -88,7 +85,7 @@
 }
 @media  screen and (max-width: 767px){
     .page{
-        width: 100%;
+        max-width: 390px;
         height: 3500px;
         background-color: var(--background-color);
         padding: 0 5%;
