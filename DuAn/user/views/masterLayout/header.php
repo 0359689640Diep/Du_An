@@ -5,23 +5,33 @@
                         <i class="ti-close"></i>
                     </section>
                      <section class="contentHeader">
+                     <section class="NavMobile">
+                            <i class="ti-menu" id ="ti-menu"></i>
+                            <section class="contentNavMobile" id = "contentNavMobile">
+                                <nav id="nav" >
+                                    <h5>On Sale</h5>
+                                    <h5 >Daily wear</h5>
+                                    <h5 >New Arrivals</h5>
+                                    <h5>Brands</h5>
+                                </nav>
+                            </section>
+                        </section>
                         <article class="logo">
                             <img src="../assets/img/logo.png" alt="logo">
                         </article>
-
-                        <section class="NavMobile">
-                            <h1>hello</h1>
-                        </section>
                         
                         <nav class="nav">
                             <h5>On Sale</h5>
-                            <h5 onmouseover="showMenu('menuproduct')" onmouseout="setHideTimeout('menuproduct')" onclick="clearTimeout()">Daily wear</h5>
-                            <h5 onmouseover="showMenu('menuproduct')" onmouseout="setHideTimeout('menuproduct')" onclick="clearTimeout()">New Arrivals</h5>
+                            <h5 onmouseover="showMenu('menuproduct', 'flex')" onmouseout="setHideTimeout('menuproduct')" onclick="clearTimeout()">Daily wear</h5>
+                            <h5 onmouseover="showMenu('menuproduct', 'flex')" onmouseout="setHideTimeout('menuproduct')" onclick="clearTimeout()">New Arrivals</h5>
                             <h5>Brands</h5>
                         </nav>
                         <section class="sheach">
                             <input type="text" placeholder="Search for product...">
-                            <i class="ti-search"></i>
+                            <i class="ti-search" id = "ti-search" ></i>
+                        </section>
+                        <section class="sheachMobile" id = "sheachMobile" >
+                            <input type="text" placeholder="Search for product...">
                         </section>
                         <article class="Cart_Individual">
                             <i class="ti-shopping-cart"></i>

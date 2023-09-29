@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <link rel="stylesheet" href="../assets/css/Home.css">
-<link rel="stylesheet" href="../assets/css/ResponsiveHome.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
+<link rel="stylesheet" href="../assets/css/ResponsiveHome.css">
 <body>
-    <section class="page" onclick="clearTimeout()">
+    <section class="page" >
         <section class="contener">
             <?php include "masterLayout/header.php" ?>
             <section class="Banner">

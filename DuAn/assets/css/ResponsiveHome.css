@@ -1,7 +1,7 @@
 @media screen and (min-width: 1024px){
     
 }
-@media screen and (min-width: 845px) and (max-width: 1023px){
+@media screen and (min-width: 767px) and (max-width: 1023px){
     .page{
         width: 1023px;
         height: 3500px;
@@ -10,66 +10,252 @@
     }
     
 }
-@media  (max-width: 768px){
+@media  screen and (max-width: 767px){
     .page{
         max-width: 390px;
         height: 3500px;
         background-color: var(--background-color);
         padding: 0 5%;
     }
+    .contentHeader{
+        width: 100%;
+        height: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     .SEOSignUp>h4, .SEOSignUp>h4>a, .ti-close{
        font-size: 10px;
     }
-    .logo{
+
+    .contentHeader> .logo{
+        width: 25%;
+        height: 45%;
+    }
+    .contentHeader> .logo>img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .contentHeader> .nav, .contentHeader> .sheach>input{
         display: none;
     }
     .NavMobile{
-        max-width: 50%;
-        max-height: 100%;
-        border: 2px solid;
         display: block;
-        background-color: red;
+        width: 10%;
+        height: 15%;
+        position: relative;
+        text-align: left;
+
     }
 
-    .nav{
+    .NavMobile> i{
+        font-size: 20px;
+
+    }
+    .contentNavMobile{
+        position: absolute;
+        width: 100px;
+        height: 150px;
+        text-align: left;
+        z-index: 9999;
+        background-color: var(--background-color1);
+        top: 110%;
         display: none;
     }
-     .sheach{
-        max-width: 15%;
-        height: 45%;
-        position: relative;
-        
-    }
-     .sheach>input{
+    .contentNavMobile> #nav{
         width: 100%;
         height: 100%;
-        padding-left: 10%;
+    }
+    .contentNavMobile> #nav>h5{
+        margin: 4% 0;
         font-size: 16px;
-        background-color: var(--background-color3);
+    }
+    .contentNavMobile> #nav>h5:hover{
         color: var(--text-color3);
-        border-radius: 62px;
-        border: none;
-        display: none;
+    }
+
+     .contentHeader> .sheach{
+        width: 10%;
+        height: 30%;
+        position: relative;
+        margin-left: 30%;
+
         
     }
+    .contentHeader> .sheach> .ti-search{
+        position: absolute;
+        left: 25%;
+        top: 30%;
+        font-size: 24px;
+        color: var(--text-color3);        
+    }
+
     .contentHeader> .Cart_Individual{
-        border: 2px solid;
-        width: 10%;
-        height: 10%;
-        margin-left: 2%;
-        /* display: flex;
+        width: 25%;
+        height: 30%;
+        display: flex;
         justify-content: space-evenly;
-        align-items: center; */
+        align-items: center;
     }
     .contentHeader> .Cart_Individual> i{
-        font-size: 10px;
+        font-size: 25px;
     }
-    .Banner{
-        display: block ;
+    .contener> .Banner{
+        display: block;
     }
-    /* .contentBanner>h1{
+    .Banner> .contentBanner{
+        width: 100%;
+        height: 45%;
+    }
+    .contentBanner>h1{
+        width: 100%;
         font-size: 36px;
-    } */
+    }
+    .contentBanner>h5{
+        font-size: 14px;
+
+    }
+    .contentBanner>button{
+        width: 100%;
+        height: 15%;
+    }
+    .contentFooterBanner>h1{
+        font-size: 24px;
+
+    }
+    .contentBanner>footer{
+        height: 10%;
+    }
+    .contentFooterBanner>p{
+        font-size: 12px;
+
+    }
+    .Banner> .imageLeft {
+        width: 100%;
+        height: 55%;
+        position: relative;
+    }
+    .imageLeft>img{
+        margin-top: 5.5%;
+    }
+
+    .contener> .BrandName{
+        flex-wrap: wrap;
+    }
+    .BrandName>img{
+        width: 25%;
+        height: auto;
+         margin: 8px; 
+    }
+
+    .NewProduct, .Bestseller>h1 {
+        font-size: 32px;       
+    }
+    .ListNewProduct> .NewProduct, .BestsellerProduct{
+        width: 40%;
+        text-align: left;
+    }
+    .NewProduct> .price, .BestsellerProduct> .price{
+        justify-content: space-evenly;
+    }
+
+    .BrowseByDressStyle>h1{
+        font-size: 32px;
+    } 
+    .Content> .CasualFormal, .PartyGym{
+        display: block;
+
+    }
+    .CasualFormal> .Casual, .PartyGym> .Gym, .CasualFormal> .Formal, .PartyGym> .Party {
+        width: 100%;
+        height: 45%;
+        margin-top: 3.5%;
+    }
+
+    .Customers>h1{
+        font-size: 32px;
+    }
+    .Customers> .Content> .Comment{
+        width: 100%;
+    }
+
+    .Feedback{
+        width: 95%;
+        top: -40%;
+        left: 2.5%;
+        display: block;
+    }
+    .Feedback>h1{
+        font-size: 27px;
+        width: 100%;
+        padding: 2%;
+    }
+    .Feedback> .Mailing {
+        width: 100%;
+        height: 40%;
+        position: relative;
+    }
+    .Mailing>input, .Mailing>button{
+        height: 45%;
+        font-size: 14px;
+    }
+    .Mailing> .ti-email{
+        top: 12%;
+    }
+
+    /* footer */
+    footer> main {
+        width: 100%;
+        height: 68%;
+        padding: 0% 5%;
+    }
+    .ContentFooter{
+        display: block;
+        height: 70%;
+    }
+    .ContentFooter .content{
+        width: 100%;
+        height: 15%;
+    }
+    .content>img{
+        width: 33%;
+        height: 44%;
+    }
+    .content>h5{
+        margin: 5% 0;
+    }
+    .content> .media{
+        width: 70%;
+        margin: 13% 0;
+    }
+    .content> .media>i {
+        font-size: 15px;
+    }
+
+    .content1 {
+        width: 100%;
+        height: 100%;
+        margin: 20% 0 5% 0;
+    }
+    .content11{
+        width: 42%;
+        margin: 1% 0;
+    }
+    .content1> .content11>h1, .content1> .content11>ul>li{
+        font-size: 14px;
+        margin: 5% 0;
+    }
+
+    footer> .footer{
+        display: block;
+        text-align: center;
+        padding: 5%;
+    }
+    .footer> .pay{
+        margin: 5% 8%;
+    }
 }
 
 

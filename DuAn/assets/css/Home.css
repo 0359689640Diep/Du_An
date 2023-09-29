@@ -85,7 +85,6 @@
 }
 .NavMobile{
     display: none;
-    background-color: blue;
 } 
 
 .contentHeader> .nav>h5{
@@ -112,6 +111,27 @@
     border: none;
     
 }
+.contentHeader> .sheachMobile{
+    width: 60%;
+    height: 20%;
+    display: none;
+    position: absolute;
+    bottom: 5%;
+    right: 0%;
+    
+}
+.contentHeader> .sheachMobile>input{
+    width: 100%;
+    height: 100%;
+    padding-left: 10%;
+    font-size: 16px;
+    background-color: var(--background-color3);
+    color: var(--text-color3);
+    border-radius: 62px;
+    border: none;
+    
+}
+
 .contentHeader> .sheach>input:focus{
     outline: none;
 }
@@ -516,13 +536,13 @@
     position: relative;
 }
 .Feedback{
-    width: 80%;
+    width: 95%;
     height: 40%;
     background-color: var(--background-color);
     border-radius: 20px;
     position: absolute;
     top: -20%;
-    left: 10%;
+    left: 2.5%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -605,17 +625,30 @@ footer> main{
 .content> .media>i{
     font-size: 20px;
 }
-.content>h1{
+
+.content1{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.content11{
+    width: 20%;
+}
+.content1> .content11>h1{
     text-align: center;
     font-size: 16px;
     margin: 5% 0;
 }
-.content>ul{
+.content1> .content11>ul{
     width: 100%;
     height: 60%;
     text-align: center;
 }
-.content>ul>li{
+.content1> .content11>ul>li{
     font-size: 16px;
     margin: 10% 0;
     list-style-type: none;
@@ -624,7 +657,7 @@ footer> main{
 }
 
 
-footer> footer{
+footer> .footer{
     width: 100%;
     height: 25%;
     border-top: 2px solid var(--text-color);
@@ -632,14 +665,13 @@ footer> footer{
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-
 }
-footer>h5{
+.footer>h5{
     font-size: 14px;
     color: var(--text-color3);
 
 }
-footer> .pay{
+.footer> .pay{
     width: 30%;
     height: 60%;
     display: flex;
