@@ -8,7 +8,7 @@
 </head>
 <link rel="stylesheet" href="../assets/css/Home.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
-<link rel="stylesheet" href="../assets/css/ResponsiveHome.css">
+<link rel="stylesheet" href="../assets/css/responsive/ResponsiveHome.css">
 <body>
     <section class="page" >
         <section class="contener">

@@ -1,0 +1,8 @@
+@mixin FlexCenter{
+    display: flex;
+    align-items: center;
+}
+@mixin WidthHieght{
+    width: 100%;
+    height: 100%;
+}

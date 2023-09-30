@@ -1,0 +1,165 @@
+.contener > footer {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color2);
+  grid-area: footer;
+  position: relative;
+}
+
+.Feedback {
+  width: 95%;
+  height: 40%;
+  background-color: var(--background-color);
+  border-radius: 20px;
+  position: absolute;
+  top: -20%;
+  left: 2.5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Feedback > h1 {
+  color: var(--text-color);
+  font-size: 40px;
+  width: 50%;
+}
+
+.Feedback > .Mailing {
+  width: 40%;
+  height: 80%;
+  position: relative;
+}
+
+.Mailing > input {
+  width: 100%;
+  height: 45%;
+  background-color: var(--background-color1);
+  border-radius: 62px;
+  font-size: 16px;
+  margin-bottom: 1%;
+  padding-left: 15%;
+  border: none;
+}
+
+.Mailing > button {
+  width: 100%;
+  height: 45%;
+  background-color: var(--background-color1);
+  border-radius: 62px;
+  font-size: 16px;
+  margin-top: 1%;
+  border: none;
+}
+
+.Mailing > .ti-email {
+  font-size: 16px;
+  position: absolute;
+  top: 18%;
+  left: 7%;
+  color: var(--text-color1);
+}
+
+footer > main {
+  width: 100%;
+  height: 50%;
+  margin: 10% 0 0% 0;
+  padding: 0 5%;
+}
+
+.ContentFooter {
+  width: 100%;
+  height: 100%;
+  /* margin: 10% 0 0% 0; */
+  display: flex;
+  justify-content: space-around;
+}
+
+.ContentFooter .content {
+  width: 15%;
+  height: 100%;
+}
+
+.content > img {
+  width: 60%;
+  height: 10%;
+}
+
+.content > h5 {
+  width: 100%;
+  height: 40%;
+  font-size: 14px;
+  color: var(--text-color3);
+  margin: 15% 0;
+}
+
+.content > .media {
+  width: 100%;
+  height: 20%;
+  font-size: 14px;
+  margin: 15% 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.content > .media > i {
+  font-size: 20px;
+}
+
+.content1 {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content11 {
+  width: 20%;
+}
+
+.content1 > .content11 > h1 {
+  text-align: center;
+  font-size: 16px;
+  margin: 5% 0;
+}
+
+.content1 > .content11 > ul {
+  width: 100%;
+  height: 60%;
+  text-align: center;
+}
+
+.content1 > .content11 > ul > li {
+  font-size: 16px;
+  margin: 10% 0;
+  list-style-type: none;
+  font-size: 16px;
+  color: var(--text-color3);
+}
+
+footer > .footer {
+  width: 100%;
+  height: 25%;
+  border-top: 2px solid var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.footer > h5 {
+  font-size: 14px;
+  color: var(--text-color3);
+}
+
+.footer > .pay {
+  width: 30%;
+  height: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}/*# sourceMappingURL=footer.css.map */

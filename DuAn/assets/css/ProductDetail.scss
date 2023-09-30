@@ -1,0 +1,176 @@
+@import "masterLayout/main";
+@import "masterLayout/mixin";
+.contener{
+    main{
+        width: 100%;
+        height: 100%;
+        grid-area: main;
+        background-color: var(--background-color1);
+        border-top: 2px solid var(--text-color3);
+        padding: 0 2%;
+        
+        .ProductDetail{
+            @include WidthHieght;
+            @include FlexCenter;
+            height: 30%;
+
+            .ProductDetailImg{
+                @include WidthHieght;
+                @include FlexCenter;
+                width: 50%;
+                justify-content: space-between;
+                .ProductDetailImgLeft{
+                    @include WidthHieght;
+                    width: 30%;   
+                    img{
+                        @include WidthHieght;
+                        height: 30%;
+                        margin: 6% 0;
+                    }
+                 }
+                 .ProductDetailImgRight{
+                    @include WidthHieght;
+                    width: 65%;     
+                    img{
+                        @include WidthHieght;
+                        object-fit: contain
+                    }             
+                 }
+            }
+
+            .ProductDetailContent{
+                @include WidthHieght;
+                width: 50%;
+                 padding: 5% 2%;
+                h1{
+                    font-size: 2.5rem;
+                    margin: 2% 0;
+                }
+                .evaluate{
+                    width: 30%;
+                    height: 5%;
+                    @include FlexCenter;
+                    justify-content: space-around;
+                    margin: 2% 0;
+                    i{
+                        font-size: 1rem;
+                        color: orange;
+                    }
+                }
+                .price{
+                    width: 30%;
+                    height: 5%;
+                    @include FlexCenter;
+                    justify-content: space-around;
+                    margin: 2% 0;
+                    h1, del{
+                        font-size: 2rem;
+                    }
+                    del{
+                        color: var(--text-color3);
+                    }
+                }
+                p{
+                    margin: 2% 0;
+                    color: var(--text-color3);
+                    font-size: 1rem;
+
+                }
+                .color{
+                    width: 100%;
+                    height: 15%;
+                    padding: 2% 0;
+                    border-top: 2px solid var(--text-color3);
+                    justify-content: space-around;
+                    margin: 2% 0;
+                    h3{
+                        margin: 1% 0;
+                       font-size: 1rem;
+                       color: var(--text-color3);
+                    }
+                }
+                .side{
+                    width: 100%;
+                    height: 15%;
+                    padding: 2% 0;
+                    border-top: 2px solid var(--text-color3);
+                    justify-content: space-around;
+                    margin: 2% 0;
+                    h3{
+                        margin: 1% 0;
+                       font-size: 1rem;
+                       color: var(--text-color3);
+                    }
+                    button{
+                        width: 20%;
+                        height: 50%;
+                        background-color: var(--background-color3);
+                       color: var(--text-color3);
+                       margin: 1% 2%;
+                        border-radius: 60px;
+                        border: none;
+                        font-size: 1rem;
+
+                    }
+                    button:hover{
+                        background-color: var(--background-color);
+                        color: var(--text-color)
+                    }
+                }
+                .addTocart{
+                    width: 100%;
+                    height: 15%;
+                    padding: 2% 0;
+                    border-top: 2px solid var(--text-color3);
+                    justify-content: space-around;
+                    @include FlexCenter;
+                    margin: 2% 0;
+
+                    input{
+                        width: 30%;
+                        height: 70%;
+                        background-color: var(--background-color3);
+                       color: var(--text-color3);
+                       margin: 1% 2%;
+                        border-radius: 60px;
+                        border: none;
+                        font-size: 1rem;
+                        padding-left: 15%;
+                    }
+                    button{
+                        width: 50%;
+                        height: 70%;
+                       margin: 1% 2%;
+                        border-radius: 60px;
+                        border: none;
+                        font-size: 1rem;
+                        background-color: var(--background-color);
+                        color: var(--text-color)
+
+                    }
+                    button:hover{
+                        background-color: var(--background-color3);
+                       color: var(--text-color3);
+                    }
+                }
+
+                
+            }
+        }
+        .commentUser{
+            @include WidthHieght;
+            height: 50%;
+            border: 2px solid;
+            background-color: aqua;
+        }
+        .productSuggestions{
+            @include WidthHieght;
+            height: 50%;
+            border: 2px solid;
+            
+        }
+    }
+
+}
+
+
