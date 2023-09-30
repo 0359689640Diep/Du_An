@@ -7,7 +7,7 @@
             <i class="ti-email"></i>
         </section>
     </section>
-    <main>
+    <section class="mainFooter">
         <section class="ContentFooter">
             <section class="content">
                 <img src="../assets/img/logo.png" alt="">
@@ -60,7 +60,7 @@
 
         </section>
 
-    </main>
+    </section>
     <section class = "footer">
         <h5>Shop.co © 2000-2023, All Rights Reserved</h5>
         <article class="pay">

@@ -160,14 +160,202 @@
         .commentUser{
             @include WidthHieght;
             height: 50%;
-            border: 2px solid;
-            background-color: aqua;
+            background-color: var(--background-color1);
+            padding: 5% 0;
+
+            nav{
+                width: 100%;
+                height: 3%;
+                @include FlexCenter;
+                justify-content: space-around;
+                
+                a{
+                    border-bottom: 2px solid;
+                    text-decoration: none;
+                    font-size: 1.25rem;
+                    color: var(--text-color3);
+                    @include WidthHieght;
+                    width: 33.33%;
+                    text-align: center;
+                }
+                a:hover{
+                    border-bottom: 2px solid var(--text-color1);
+                    color: var(--text-color1);
+                }
+            }
+            .header{
+                @include WidthHieght;
+                height: 10%;
+                justify-content: space-between;
+                @include FlexCenter;
+
+                           
+                .left{
+                    width: 15%;
+                    height: 50%;
+                    justify-content: space-between;
+                    @include FlexCenter;
+
+                    h1{
+                        font-size: 1.5rem;
+                    }
+                    span{
+                        font-size: 1rem;
+                        color: var(--text-color3);
+                        margin-top: 15%;
+
+                    }
+
+                }
+                .right{
+                    width: 30%;
+                    height: 50%;
+                    justify-content: space-around;
+                    @include FlexCenter;
+                    position: relative;
+
+                    svg{
+                        width: 15%;
+                    }
+                    i{
+                        position: absolute;
+                        top: 38%;
+                        left: 7%;
+                    }
+                    select, button{
+                        width: 30%;
+                        height: 100%;
+                        background-color: var(--background-color3);
+                        border-radius: 62px;
+                        text-align: center;
+                        font-size: 1 rem ;
+                        border: none;
+                    }
+                    button{
+                        width: 40%;
+                        background-color: var(--background-color);
+                        color: var(--text-color);
+                    }
+                }  
+            }       
+            .content{
+                width: 100%;
+                height: 92%;
+                @include FlexCenter;
+                justify-content: space-between;
+                overflow-x: hidden;
+                flex-wrap: wrap;
+
+                .Comment{
+                    width: 45%;
+                    height: 25%;
+                    border: 2px solid var(--text-color3);
+                    margin: 5% 0;
+                    border-radius: 20px;
+                    padding: 2%;
+
+                    .Evaluate{
+                        width: 50%;
+                        height: 10%;
+                        @include FlexCenter;
+                        justify-content: space-between;
+                        
+                        i{
+                            color: orange;
+                            font-size: 1.5rem;
+                        }
+                    }
+                    .NameCustomers{
+                        width: 100%;
+                        height: 10%;
+                        margin: 2% 0;
+                        h1{
+                            font-size: 1.25rem;
+                        }
+                    }
+                    .CommentContent{
+                        width: 100%;
+                        height: 70%;
+                        margin: 2% 0;
+                        
+                        p{
+                            color: var(--text-color3);
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
         }
         .productSuggestions{
             @include WidthHieght;
             height: 50%;
-            border: 2px solid;
             
+            header{
+                width: 100%;
+                height: 5%;
+                @include FlexCenter;
+                justify-content: center;
+                h1{
+                    font-size: 3rem;
+                }
+            }
+            .mainproductSuggestions{
+                width: 100%;
+                height: 23%;
+                margin-top: 2%;
+                overflow-x: auto;
+                display: flex;
+
+                
+                .SuggestionsProduct{
+                    width: 20%;
+                    height: 100%;
+                    margin-left: 5%;
+                    
+                    .img{
+                        width: 100%;
+                        height: 60%;
+                        
+                        img{
+                            @include WidthHieght;
+                        }
+                    }
+                    .title, .evaluate, .price{
+                        @include WidthHieght;
+                        @include FlexCenter;
+                        height: 10%;
+                        margin: 2% 0;
+                    }
+                    .title{
+                        h1{
+                            font-size: 1.25rem;
+                        }
+                    }
+                    .evaluate{
+                        @include FlexCenter;
+                        justify-content: space-between;
+                        font-size: 1.5rem;
+                        i{
+                            font-size: 1.5rem;
+                            color: orange;
+                        }
+                    }
+                    .price{
+                        @include FlexCenter;
+                        justify-content: space-evenly;
+                        h1, del{
+                            font-size: 1.5rem;
+                        }
+                        del{
+                            color: var(--text-color3);
+                            
+                        }
+
+                    }
+
+                }
+            }
+
         }
     }
 

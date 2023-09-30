@@ -536,12 +536,192 @@ footer > .footer {
   width: 100%;
   height: 100%;
   height: 50%;
-  border: 2px solid;
-  background-color: aqua;
+  background-color: var(--background-color1);
+  padding: 5% 0;
+}
+.contener main .commentUser nav {
+  width: 100%;
+  height: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.contener main .commentUser nav a {
+  border-bottom: 2px solid;
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: var(--text-color3);
+  width: 100%;
+  height: 100%;
+  width: 33.33%;
+  text-align: center;
+}
+.contener main .commentUser nav a:hover {
+  border-bottom: 2px solid var(--text-color1);
+  color: var(--text-color1);
+}
+.contener main .commentUser .header {
+  width: 100%;
+  height: 100%;
+  height: 10%;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.contener main .commentUser .header .left {
+  width: 15%;
+  height: 50%;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.contener main .commentUser .header .left h1 {
+  font-size: 1.5rem;
+}
+.contener main .commentUser .header .left span {
+  font-size: 1rem;
+  color: var(--text-color3);
+  margin-top: 15%;
+}
+.contener main .commentUser .header .right {
+  width: 30%;
+  height: 50%;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.contener main .commentUser .header .right svg {
+  width: 15%;
+}
+.contener main .commentUser .header .right i {
+  position: absolute;
+  top: 38%;
+  left: 7%;
+}
+.contener main .commentUser .header .right select, .contener main .commentUser .header .right button {
+  width: 30%;
+  height: 100%;
+  background-color: var(--background-color3);
+  border-radius: 62px;
+  text-align: center;
+  font-size: 1 rem;
+  border: none;
+}
+.contener main .commentUser .header .right button {
+  width: 40%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+.contener main .commentUser .content {
+  width: 100%;
+  height: 92%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+}
+.contener main .commentUser .content .Comment {
+  width: 45%;
+  height: 25%;
+  border: 2px solid var(--text-color3);
+  margin: 5% 0;
+  border-radius: 20px;
+  padding: 2%;
+}
+.contener main .commentUser .content .Comment .Evaluate {
+  width: 50%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contener main .commentUser .content .Comment .Evaluate i {
+  color: orange;
+  font-size: 1.5rem;
+}
+.contener main .commentUser .content .Comment .NameCustomers {
+  width: 100%;
+  height: 10%;
+  margin: 2% 0;
+}
+.contener main .commentUser .content .Comment .NameCustomers h1 {
+  font-size: 1.25rem;
+}
+.contener main .commentUser .content .Comment .CommentContent {
+  width: 100%;
+  height: 70%;
+  margin: 2% 0;
+}
+.contener main .commentUser .content .Comment .CommentContent p {
+  color: var(--text-color3);
+  font-size: 1rem;
 }
 .contener main .productSuggestions {
   width: 100%;
   height: 100%;
   height: 50%;
-  border: 2px solid;
 }
+.contener main .productSuggestions header {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contener main .productSuggestions header h1 {
+  font-size: 3rem;
+}
+.contener main .productSuggestions .mainproductSuggestions {
+  width: 100%;
+  height: 23%;
+  margin-top: 2%;
+  overflow-x: auto;
+  display: flex;
+}
+.contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct {
+  width: 20%;
+  height: 100%;
+  margin-left: 5%;
+}
+.contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .img {
+  width: 100%;
+  height: 60%;
+}
+.contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .img img {
+  width: 100%;
+  height: 100%;
+}
+.contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .title, .contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .evaluate, .contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .price {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  height: 10%;
+  margin: 2% 0;
+}
+.contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .title h1 {
+  font-size: 1.25rem;
+}
+.contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .evaluate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+.contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .evaluate i {
+  font-size: 1.5rem;
+  color: orange;
+}
+.contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .price {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .price h1, .contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .price del {
+  font-size: 1.5rem;
+}
+.contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .price del {
+  color: var(--text-color3);
+}/*# sourceMappingURL=ProductDetail.css.map */
