@@ -8,7 +8,7 @@
 </head>
 <link rel="stylesheet" href="../assets/css/ProductDetail.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
-<!-- <link rel="stylesheet" href="../assets/css/responsive/ResponsiveProductDetail.css"> -->
+<link rel="stylesheet" href="../assets/css/responsive/ResponsiveProductDetail.css">
 <body>
     <section class="page" >
         <section class="contener">
@@ -42,7 +42,7 @@
                         <p>This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.</p> 
                         <article class="color">
                             <h3>Select Colors</h3>
-                            <svg height = "50" >
+                            <svg height = "50" id="my-svg" >
                                 <circle cx= "25" cy = "25" r = "25" fill = "#F0F0F0" ></circle>
                             </svg>
                         </article> 
@@ -73,7 +73,7 @@
                             <span>(453)</span>
                         </article>
                         <article class="right">
-                            <svg height = "50" >
+                            <svg height = "50" class="my-svg">
                                 <circle cx= "25" cy = "25" r = "25" fill = "#F0F0F0" ></circle>
                             </svg>
                             <i class="ti-filter"></i>
@@ -211,8 +211,46 @@
                                 <i class='ti-star'></i>
                             </article> 
                             <section class='price'>
-                                <h1>$value[Price]</h1>
-                                <del>$value[Price]</del>
+                                <h1>$value</h1>
+                                <del>$value</del>
+                            </section>
+                        </section>
+                        <section class='SuggestionsProduct'>
+                            <article class='img'>
+                            <img src="../assets/img/aothun1.png" alt="">
+                            </article>
+                            <article class='title'>
+                                <h1>title</h1>
+                            </article> 
+                            <article class='evaluate'>
+                                <i class='ti-star'></i>
+                                <i class='ti-star'></i>
+                                <i class='ti-star'></i>
+                                <i class='ti-star'></i>
+                                <i class='ti-star'></i>
+                            </article> 
+                            <section class='price'>
+                                <h1>$value</h1>
+                                <del>$value</del>
+                            </section>
+                        </section>
+                        <section class='SuggestionsProduct'>
+                            <article class='img'>
+                            <img src="../assets/img/aothun1.png" alt="">
+                            </article>
+                            <article class='title'>
+                                <h1>title</h1>
+                            </article> 
+                            <article class='evaluate'>
+                                <i class='ti-star'></i>
+                                <i class='ti-star'></i>
+                                <i class='ti-star'></i>
+                                <i class='ti-star'></i>
+                                <i class='ti-star'></i>
+                            </article> 
+                            <section class='price'>
+                                <h1>$value</h1>
+                                <del>$value</del>
                             </section>
                         </section>
                     </section>

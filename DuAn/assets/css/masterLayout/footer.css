@@ -4,7 +4,6 @@
   background-color: var(--background-color2);
   grid-area: footer;
   position: relative;
-  border: 2px solid red;
 }
 
 .Feedback {
