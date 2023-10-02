@@ -3,8 +3,6 @@
     trait ConfirmAccoundModles  {
         public function modelConfirmAccound()
         {
-
-
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 extract($_POST);
                     $data = array();
@@ -17,11 +15,9 @@
                     $Password = $infoUserArray['Password'];
                     $FullName = $infoUserArray['FullName'];
                     $CodeEmail = $infoUserArray['codeGmail'];
-                    echo  "<pre>";
-                    var_dump($infoUserArray); die();
                     $conn = Connection::getInstance();
                     if($codeEmail === $CodeEmail){
-                        $insertQuery = $conn->query("INSERT INTO account (Gmail, Password, Name) VALUES ('$Gmail', '$Password', '$FullName')");
+                        $insertQuery = $conn->query("INSERT INTO account (Gmail, Password, Name, Permission) VALUES ('$Gmail', '$Password', '$FullName', '1')");
                         if ($insertQuery ) {
                             $data[]["success"] = "Account successfully created";
                         } else {
@@ -31,7 +27,6 @@
                     }else{
                         $data[]["error"] =  "Verification code is invalid, please check again";
                     }
-                
                 return $data;
 
             }

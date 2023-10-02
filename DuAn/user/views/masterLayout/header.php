@@ -1,7 +1,7 @@
 <header>
                 <section class="mainHeader">
                     <section class="SEOSignUp">
-                        <h4>Sign up and get 20% off to your first order.<a href="#"> Sign Up Now</a></h4>
+                        <h4>Sign up and get 20% off to your first order.<a href="?controller=SignIn"> Sign Up Now</a></h4>
                         <i class="ti-close"></i>
                     </section>
                      <section class="contentHeader">
@@ -24,7 +24,7 @@
                             <h5>On Sale</h5>
                             <h5 onmouseover="showMenu('menuproduct', 'flex')" onmouseout="setHideTimeout('menuproduct')" onclick="clearTimeout()">Daily wear</h5>
                             <h5 onmouseover="showMenu('menuproduct', 'flex')" onmouseout="setHideTimeout('menuproduct')" onclick="clearTimeout()">New Arrivals</h5>
-                            <h5>Log in</h5>
+                            <h5 onclick="RenderNotId('login')" >Log in</h5>
                         </nav>
                         <section class="sheach">
                             <input type="text" placeholder="Search for product...">

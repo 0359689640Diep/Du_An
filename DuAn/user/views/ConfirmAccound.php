@@ -50,7 +50,7 @@
         </section>
     </section>
 </body>
-<script src="../assets/js/SignIn.js" ></script>
+<script src="../assets/js/SignInUser.js" ></script>
 
 <?php 
 if(!empty($data)){
@@ -63,7 +63,7 @@ if(!empty($data)){
             title= 'Error',
             message= '$error',
             type= 'error',
-            duration= 50000,
+            duration= 5000,
             quantity = '$sumData'
         )
           </script>";
@@ -74,12 +74,12 @@ if(!empty($data)){
               title= 'Success',
               message= '$success',
               type= 'success',
-              duration= 50000,
+              duration= 5000,
               quantity = '0'
           )
             </script>";        
-            header("location:index.php?controller=LisstProduct");
         }
+        header("location:index.php?controller=login");
       }
     
 

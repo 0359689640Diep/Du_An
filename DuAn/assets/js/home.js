@@ -50,3 +50,6 @@ showHideMenu( 'sheachMobile','ti-search');
 function Render(Arrive,id){
   window.location.replace(`index.php?controller=${Arrive}=${id}`)
 }
+function RenderNotId(Arrive){
+  window.location.replace(`index.php?controller=${Arrive}`)
+}

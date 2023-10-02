@@ -378,4 +378,224 @@ footer > .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}/*# sourceMappingURL=main.css.map */
+}
+
+.page {
+  width: 1470px;
+  height: 1500px;
+}
+.page .contener {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 60% 30%;
+  grid-template-areas: "header" "main" "footer";
+}
+.page .contener main {
+  width: 100%;
+  height: 100%;
+  grid-area: main;
+  background-color: var(--background-color1);
+  border-top: 2px solid var(--text-color3);
+  padding: 7% 2%;
+}
+.page .contener main h1 {
+  font-size: 40px;
+}
+.page .contener main .contentCart {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  height: 80%;
+  margin: 5% 0;
+  justify-content: space-evenly;
+}
+.page .contener main .contentCart .product {
+  border: 2px solid var(--text-color3);
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  width: 50%;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+  padding: 2%;
+}
+.page .contener main .contentCart .product .listProduct {
+  width: 100%;
+  height: 100%;
+  height: 35%;
+  border-bottom: 2px solid var(--text-color3);
+  margin-bottom: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 5%;
+}
+.page .contener main .contentCart .product .img {
+  width: 30%;
+  height: 100%;
+}
+.page .contener main .contentCart .product .img img {
+  width: 100%;
+  height: 100%;
+}
+.page .contener main .contentCart .product .contentProduct {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page .contener main .contentCart .product .contentProduct .contentProductLeft {
+  height: 100%;
+  width: 70%;
+}
+.page .contener main .contentCart .product .contentProduct .contentProductLeft h1 {
+  font-size: 1.25rem;
+}
+.page .contener main .contentCart .product .contentProduct .contentProductLeft h4 {
+  font-size: 0.875rem;
+  margin: 5% 0;
+}
+.page .contener main .contentCart .product .contentProduct .contentProductRight {
+  height: 100%;
+  width: 30%;
+  position: relative;
+}
+.page .contener main .contentCart .product .contentProduct .contentProductRight i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--text-color2);
+  font-size: 2rem;
+}
+.page .contener main .contentCart .product .contentProduct .contentProductRight input {
+  position: absolute;
+  bottom: 0;
+  font-size: 2rem;
+  width: 100%;
+  height: 30%;
+  border-radius: 62px;
+  text-align: center;
+  font-size: 1rem;
+  background-color: var(--background-color3);
+  border: none;
+}
+.page .contener main .contentCart .product .contentProduct .contentProductRight input:focus {
+  outline: none;
+}
+.page .contener main .contentCart .detail {
+  border: 2px solid var(--text-color3);
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  width: 40%;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  padding: 2%;
+}
+.page .contener main .contentCart .detail h1 {
+  font-size: 1.5rem;
+}
+.page .contener main .contentCart .detail .detailSEO {
+  width: 100%;
+  height: 100%;
+  height: 35%;
+  margin-top: 5%;
+  overflow-x: auto;
+  border-bottom: 2px solid var(--text-color3);
+}
+.page .contener main .contentCart .detail .detailSEO .contentDetailSEO {
+  width: 100%;
+  height: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2%;
+  justify-content: space-between;
+}
+.page .contener main .contentCart .detail .detailSEO .contentDetailSEO h4 {
+  font-size: 1.25rem;
+}
+.page .contener main .contentCart .detail .detailSEO .contentDetailSEO h4:nth-child(1) {
+  font-size: 1.25rem;
+  color: var(--text-color3);
+}
+.page .contener main .contentCart .Totail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 10%;
+  margin: 5% 0;
+}
+.page .contener main .contentCart .Totail h4 {
+  font-size: 1.25rem;
+}
+.page .contener main .contentCart .Totail h4:nth-child(1) {
+  font-size: 1.25rem;
+  color: var(--text-color3);
+}
+.page .contener main .contentCart .AddCromoCode {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 10%;
+  margin: 1% 0;
+}
+.page .contener main .contentCart .AddCromoCode input {
+  width: 100%;
+  height: 100%;
+  border-radius: 62px;
+  border: none;
+  font-size: 1rem;
+}
+.page .contener main .contentCart .AddCromoCode input:focus {
+  outline: none;
+}
+.page .contener main .contentCart .AddCromoCode input:nth-child(1) {
+  width: 65%;
+  background-color: var(--background-color3);
+  padding-left: 10%;
+}
+.page .contener main .contentCart .AddCromoCode input:nth-child(2) {
+  width: 30%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+.page .contener main .contentCart .Payment {
+  width: 100%;
+  height: 25%;
+  margin: 4% 0;
+  position: relative;
+}
+.page .contener main .contentCart .Payment button {
+  width: 100%;
+  height: 40%;
+  margin-bottom: 5%;
+  background-color: var(--background-color);
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 62px;
+  color: var(--text-color);
+}
+.page .contener main .contentCart .Payment i:nth-child(1) {
+  position: absolute;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  right: 30%;
+  top: 11%;
+}
+.page .contener main .contentCart .Payment i:nth-child(2) {
+  position: absolute;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  right: 25%;
+  top: 68%;
+}
+.page .contener footer > .footer {
+  height: 20%;
+}/*# sourceMappingURL=Cart.css.map */

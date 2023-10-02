@@ -162,7 +162,7 @@ html {
   position: absolute;
   top: 100%;
   left: 5%;
-  display: none;
+  display: block;
   justify-content: space-around;
   z-index: 999999;
 }
@@ -188,6 +188,10 @@ html {
 .mainMeuProduct {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .page {
