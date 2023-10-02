@@ -87,7 +87,7 @@ if(!empty($data)){
               quantity = '0'
           )
             </script>";        
-            header("location:index.php?controller=LisstAccount");
+            header("location:index.php?controller=LisstProduct");
         }
       }
     

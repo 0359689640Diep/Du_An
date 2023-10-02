@@ -10,6 +10,9 @@ class loginController extends Controller{
     public function login(){
         $data = $this->modelLogin();
         $this->loadView("login.php", $data);
+        // echo "<pre>";
+        // print_r($data); die();
+        
     }
 }
 ?>

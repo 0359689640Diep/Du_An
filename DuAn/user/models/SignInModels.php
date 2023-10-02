@@ -26,6 +26,7 @@
                     }
                     
                 }
+                print_r($conn->error);
                 return $data;
 
             }

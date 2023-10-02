@@ -54,7 +54,7 @@
                         <?php 
                          foreach($data['showProduct'] as $value){
                              echo "
-                             <section class='NewProduct'>
+                             <section class='NewProduct' onclick = Render('ProductDetail&id','$value[IdProduct]')>
                                 <article class='img'>
                                     <img src='../assets/img/$value[image]' alt='product'>
                                 </article>
@@ -71,9 +71,7 @@
                                 <section class='price'>
                                     <h1>$value[Price]</h1>
                                 </section>
-                            </section>
-                            
-                            
+                            </section>                            
                             ";
                                 }                            
                             ?>
@@ -84,10 +82,10 @@
                 <section class="Bestseller">
                     <h1>BESTSELLER</h1>
                     <section class="ListBestsellerProduct">
-                        <                        <?php 
+                    <?php 
                          foreach($data['showProduct'] as $value){
                              echo "
-                             <section class='BestsellerProduct'>
+                             <section class='BestsellerProduct' onclick = Render('ProductDetail&id','$value[IdProduct]')>
                              
                                 <article class='img'>
                                     <img src='../assets/img/$value[image]' alt='product'>
@@ -106,14 +104,9 @@
                                     <h1>$value[Price]</h1>
                                 </section>
                             </section>
-                            
-                            
                             ";
                                 }                            
-                            ?>
-
-                        
-                    
+                            ?>                       
                     </section>
                 </section>
                 <section class="BrowseByDressStyle">

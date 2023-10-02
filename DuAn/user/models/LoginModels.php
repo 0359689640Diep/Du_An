@@ -14,10 +14,10 @@
                     // kiểm tra xem đúng password ,
                     if($result['Password'] === $Password && $result['Permission'] == 0){
 
-                        $array[]['message0'] = "Hello $Gmail";
+                        $array[]['message'] = "Hello $Gmail";
                         $_SESSION["emailAdmin"] = $Gmail;
                     }elseif($result['Password'] === $Password && $result['Permission'] == 1){
-                        $array[]['message1'] = "Hello $Gmail";
+                        $array[]['message'] = "Hello $Gmail";
                         $_SESSION["email"] = $Gmail;
                     }else{
                         $array[]["messageError"] = "Mật khẩu hoặc tài khoản không hợp lệ";

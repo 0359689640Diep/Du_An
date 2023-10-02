@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<link rel="stylesheet" href="../assets/css/login.css">
+<link rel="stylesheet" href="../assets/css/loginUser.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
-
 <body>
     <section class="page">
     <section class="Notification" id="Notification"> </section>
@@ -17,7 +16,8 @@
                 <h1>Welcome nice to meet you</h1>
             </article>
             <article class="icont">
-                <img src="../assets/img/background_login_SignIn.png" alt="icont">
+                <img src="../assets/img/traidat.png" alt="icont">
+                <img src="../assets/img/phihanhgia.png" alt="icont">
             </article>
         </section>
         <section class="right">
@@ -38,7 +38,7 @@
                 </article>
                 <main>
                     <form action="index.php?controller=login&action=login" method="post">
-                        <input type="text" required title="Không được để trống" placeholder="Gmail" name ="Gmail">
+                        <input type="email" required title="Không được để trống" placeholder="Gmail" name ="Gmail">
                         <input type="password" required title="Không được để trống" placeholder="Password" name ="Password">
                         <span id="messageError" style="color:red;">
                         <?php if(!empty($_SESSION['messageError'])){echo $_SESSION['messageError'];}?>
@@ -68,45 +68,22 @@ if(!empty($data)){
             title= 'Error',
             message= '$error',
             type= 'error',
-            duration= 500000,
+            duration= 5000,
             
         )
           </script>";
         }else{
-            if(!empty($item['message0'])){
-                $success = $item['message0'];
-                echo "<script>
-                toast(
-                  title= 'Success',
-                  message= '$success',
-                  type= 'success',
-                  duration= 5000, 
-              )
-                </script>";         
-                header("location:index.php?controller=homeAdmin");
-            }elseif(!empty($item['message1'])){
-                $success = $item['message1'];
-                echo "<script>
-                toast(
-                  title= 'Success',
-                  message= '$success',
-                  type= 'success',
-                  duration= 5000, 
-              )
-                </script>";         
-                header("location:index.php?controller=Home");
-
-            }else{
-                $success = $item['message0'];
-                echo "<script>
-                toast(
-                  title= 'Success',
-                  message= 'Error 404',
-                  type= 'success',
-                  duration= 5000, 
-              )
-                </script>";  
-            }
+            $success = $item['message'];
+            echo "<script>
+            toast(
+              title= 'Success',
+              message= '$success',
+              type= 'success',
+              duration= 5000,
+              
+          )
+            </script>";        
+            header("location:index.php?controller=Home");
         }
       }
     

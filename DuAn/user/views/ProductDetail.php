@@ -17,44 +17,52 @@
                 <section class="ProductDetail">
                     <section class="ProductDetailImg">
                         <article class="ProductDetailImgLeft">
+                            <!-- <img src="../assets/img/aothun1.png" alt="">
                             <img src="../assets/img/aothun1.png" alt="">
-                            <img src="../assets/img/aothun1.png" alt="">
-                            <img src="../assets/img/aothun1.png" alt="">
+                            <img src="../assets/img/aothun1.png" alt=""> -->
                         </article>
                         <article class="ProductDetailImgRight">
-                            <img src="../assets/img/aothun1.png" alt="">
-                        
+                        <?php
+                            $showProduct = $data['showProduct'][0];
+                            $showDetails = $data['showDetails'][0];
+                            // echo "<pre>";
+                            // var_dump($showProduct); die();
+                            echo "
+                                <img src='../assets/imgUpload/" . $showProduct['image'] . "' alt='showProduct[0][image]'>
+                            ";                            
+                        ?>
                         </article>
                     </section>
                     <section class="ProductDetailContent">
-                        <h1>One Life Graphic T-shirt</h1>
-                        <article class='evaluate'>
-                            <i class='ti-star'></i>
-                            <i class='ti-star'></i>
-                            <i class='ti-star'></i>
-                            <i class='ti-star'></i>
-                            <i class='ti-star'></i>
-                        </article>   
-                        <section class='price'>
-                            <h1>2222</h1>
-                            <del>3333</del>
-                        </section>    
-                        <p>This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.</p> 
-                        <article class="color">
-                            <h3>Select Colors</h3>
-                            <svg height = "50" id="my-svg" >
-                                <circle cx= "25" cy = "25" r = "25" fill = "#F0F0F0" ></circle>
-                            </svg>
-                        </article> 
-                        <article class="side">
-                            <h3>Choose Size</h3>
-                            <button>Small</button>
-                            <button>Medium</button>
-                            <button>Large</button>
-                            <button>X-Large</button>
-                        </article>
+                        <?php 
+                            echo "
+                            <h1>{$showProduct['NameProducts']}</h1>
+                            <article class='evaluate'>
+                                <i class='ti-star'></i>
+                                <i class='ti-star'></i>
+                                <i class='ti-star'></i>
+                                <i class='ti-star'></i>
+                                <i class='ti-star'></i>
+                            </article>   
+                            <section class='price'>
+                                <h1>{$showProduct['Price']}</h1>
+                            </section>    
+                            <p>{$showDetails['ProductDetails']}</p> 
+                            <article class='color'>
+                                <h3>Select Colors</h3>
+                                <svg height = '50' id='my-svg' >
+                                    <circle cx= '25' cy = '25' r = '25' fill = '{$showProduct['Color']}' ></circle>
+                                </svg>
+                            </article> 
+                            <article class='side'>
+                                <h3>Choose Size</h3>
+                                <button>{$showProduct['Size']}</button>
+                            </article>
+                            
+                            ";
+                        ?>
                         <article class="addTocart">
-                            <input type="number" name="" id="" min = 1 max = 10 value="1">
+                            <input type="number" name="" id="" min = 1 max = <?php echo $showProduct['NumberProduct']?> value="1">
                             <button>Add To Cart</button>
                         </article>
 
@@ -196,63 +204,31 @@
                         <h1>You might also like</h1>
                     </header>
                     <section class="mainproductSuggestions">
-                        <section class='SuggestionsProduct'>
-                            <article class='img'>
-                            <img src="../assets/img/aothun1.png" alt="">
-                            </article>
-                            <article class='title'>
-                                <h1>title</h1>
-                            </article> 
-                            <article class='evaluate'>
-                                <i class='ti-star'></i>
-                                <i class='ti-star'></i>
-                                <i class='ti-star'></i>
-                                <i class='ti-star'></i>
-                                <i class='ti-star'></i>
-                            </article> 
-                            <section class='price'>
-                                <h1>$value</h1>
-                                <del>$value</del>
-                            </section>
-                        </section>
-                        <section class='SuggestionsProduct'>
-                            <article class='img'>
-                            <img src="../assets/img/aothun1.png" alt="">
-                            </article>
-                            <article class='title'>
-                                <h1>title</h1>
-                            </article> 
-                            <article class='evaluate'>
-                                <i class='ti-star'></i>
-                                <i class='ti-star'></i>
-                                <i class='ti-star'></i>
-                                <i class='ti-star'></i>
-                                <i class='ti-star'></i>
-                            </article> 
-                            <section class='price'>
-                                <h1>$value</h1>
-                                <del>$value</del>
-                            </section>
-                        </section>
-                        <section class='SuggestionsProduct'>
-                            <article class='img'>
-                            <img src="../assets/img/aothun1.png" alt="">
-                            </article>
-                            <article class='title'>
-                                <h1>title</h1>
-                            </article> 
-                            <article class='evaluate'>
-                                <i class='ti-star'></i>
-                                <i class='ti-star'></i>
-                                <i class='ti-star'></i>
-                                <i class='ti-star'></i>
-                                <i class='ti-star'></i>
-                            </article> 
-                            <section class='price'>
-                                <h1>$value</h1>
-                                <del>$value</del>
-                            </section>
-                        </section>
+                        <?php 
+                        foreach($data['GetProductsByCategory'] as $value){
+                            echo "
+                                <section class='SuggestionsProduct'>
+                                    <article class='img'>
+                                    <img src='../assets/imgUpload/" . $value['image'] . "' alt='showProduct[0][image]'>
+                                    </article>
+                                    <article class='title'>
+                                        <h1>{$value['NameProducts']}</h1>
+                                    </article> 
+                                    <article class='evaluate'>
+                                        <i class='ti-star'></i>
+                                        <i class='ti-star'></i>
+                                        <i class='ti-star'></i>
+                                        <i class='ti-star'></i>
+                                        <i class='ti-star'></i>
+                                    </article> 
+                                    <section class='price'>
+                                        <h1>{$value['Price']}</h1>
+                                        
+                                    </section>
+                                </section>                            
+                            ";
+                        }
+                        ?>
                     </section>
                 </section>
 
@@ -262,5 +238,5 @@
         </section>
     </section>
 </body>
-<script src="../assets/js/home.js"></script>
+<script src="../assets/js/ProductDetail.js"></script>
 </html>

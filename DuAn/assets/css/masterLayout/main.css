@@ -185,6 +185,11 @@ html {
   font-size: 27px;
 }
 
+.mainMeuProduct {
+  display: flex;
+  justify-content: space-around;
+}
+
 .page {
   width: 1470px;
   height: 3500px;
@@ -211,7 +216,6 @@ html {
   background-color: var(--background-color2);
   grid-area: footer;
   position: relative;
-  border: 2px solid red;
 }
 
 .Feedback {

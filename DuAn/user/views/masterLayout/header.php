@@ -24,7 +24,7 @@
                             <h5>On Sale</h5>
                             <h5 onmouseover="showMenu('menuproduct', 'flex')" onmouseout="setHideTimeout('menuproduct')" onclick="clearTimeout()">Daily wear</h5>
                             <h5 onmouseover="showMenu('menuproduct', 'flex')" onmouseout="setHideTimeout('menuproduct')" onclick="clearTimeout()">New Arrivals</h5>
-                            <h5>Brands</h5>
+                            <h5>Log in</h5>
                         </nav>
                         <section class="sheach">
                             <input type="text" placeholder="Search for product...">
@@ -45,7 +45,7 @@
                         <header>
                             <h1>According to product</h1>
                         </header>
-                        <main>
+                        <section class="mainMeuProduct">
                             <a href="#">All</a>
                             <a href="#">New product</a>
                             <?php 
@@ -55,7 +55,7 @@
                             ?>
 
                     
-                        </main>
+                        </section>
                     </section>
                     <article class="imageProduct">
                         <img src="" alt="">

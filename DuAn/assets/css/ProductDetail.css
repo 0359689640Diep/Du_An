@@ -185,6 +185,11 @@ html {
   font-size: 27px;
 }
 
+.mainMeuProduct {
+  display: flex;
+  justify-content: space-around;
+}
+
 .page {
   width: 1470px;
   height: 3500px;

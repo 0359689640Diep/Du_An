@@ -8,5 +8,6 @@ class HomeController extends Controller{
         // var_dump($data); die();
         $this->loadView("HomeViews.php", $data);
     }
+    
 }
 ?>
