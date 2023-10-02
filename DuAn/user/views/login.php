@@ -68,22 +68,45 @@ if(!empty($data)){
             title= 'Error',
             message= '$error',
             type= 'error',
-            duration= 5000,
+            duration= 500000,
             
         )
           </script>";
         }else{
-            $success = $item['message'];
-            echo "<script>
-            toast(
-              title= 'Success',
-              message= '$success',
-              type= 'success',
-              duration= 5000,
-              
-          )
-            </script>";        
-            header("location:index.php?controller=Home");
+            if(!empty($item['message0'])){
+                $success = $item['message0'];
+                echo "<script>
+                toast(
+                  title= 'Success',
+                  message= '$success',
+                  type= 'success',
+                  duration= 5000, 
+              )
+                </script>";         
+                header("location:index.php?controller=homeAdmin");
+            }elseif(!empty($item['message1'])){
+                $success = $item['message1'];
+                echo "<script>
+                toast(
+                  title= 'Success',
+                  message= '$success',
+                  type= 'success',
+                  duration= 5000, 
+              )
+                </script>";         
+                header("location:index.php?controller=Home");
+
+            }else{
+                $success = $item['message0'];
+                echo "<script>
+                toast(
+                  title= 'Success',
+                  message= 'Error 404',
+                  type= 'success',
+                  duration= 5000, 
+              )
+                </script>";  
+            }
         }
       }
     

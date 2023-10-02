@@ -37,6 +37,7 @@ function toast(title = "", message = "", type = "", duration = 0){
         toast.style.animation = `slideInLeft ease 1.3s, fadeOut linear 1s ${delay}s forwards`;
         toast.innerHTML = `
             <section class="Message" id="Success">
+                <p></p>
                 <article class="iconMessage">
                     <svg >
                         <circle cx="35" cy="35" r="35" fill = "${color}"></circle>

@@ -35,13 +35,9 @@
                     <h1>--OR--</h1>
                 </article>
                 <main>
-                    <form action="index.php?controller=SignIn" method="post" id = "form1">
-                        <input type="text" placeholder="Full Name " name ="FullName" required title="Không được để trống">
-                        <input type="text" placeholder="Gmail" name ="Gmail" required title="Không được để trống">
-                        <input type="password" placeholder="Password" name ="Password" required title="Không được để trống">
-                        <input type="password" placeholder="Password" name ="ConfirmationPassword" required title="Không được để trống">
-                        <button  type="submit" name="submit" >Create  Account</button>
-                        <span id="messageError" style="color:red;"></span>
+                    <form action="index.php?controller=ConfirmAccound" method="post">
+                        <input type="text" placeholder="Enter the confirmation code from your gmail" name ="codeEmail"  id ="codeEmail"  >
+                        <button  type="submit" name="submit" >Confirm</button>
                     </form>
                 </main>
                 <footer>
@@ -82,7 +78,7 @@ if(!empty($data)){
               quantity = '0'
           )
             </script>";        
-            
+            header("location:index.php?controller=LisstProduct");
         }
       }
     

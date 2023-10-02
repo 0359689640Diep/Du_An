@@ -63,3 +63,13 @@ function toast(title = "", message = "", type = "", duration = 0, quantity = 0){
 
     }
 }
+
+function hiden(id){
+    let hiden = document.getElementById(id);
+    hiden.style.display = "none";
+}
+function show(id){
+    let show = document.getElementById(id);
+    show.style.display = "block";
+}
+
