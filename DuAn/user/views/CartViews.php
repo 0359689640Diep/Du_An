@@ -17,160 +17,64 @@
                     <h1>Your cart</h1>
                     <section class="contentCart">
                         <section class="product">
-                            <section class="listProduct">
-                                <article class="img">
-                                    <img src="../assets/img/aothun.png" alt="">
-                                </article>
-                                <section class="contentProduct">
-                                    <section class="contentProductLeft">
-                                        <h1>Gradient Graphic T-shirt</h1>
-                                        <h4>Size: Large</h4>
-                                        <h4>Color: White</h4>
-                                        <h1>$145</h1>
-                                    </section>
-                                    <section class="contentProductRight">
-                                        <i class="ti-trash"></i>
-                                        <input type="number" name="number" id="" min = 1 value="1">
-                                    </section>
-                                    
-                                </section>
-                            </section>
-                            <section class="listProduct">
-                                <article class="img">
-                                    <img src="../assets/img/aothun.png" alt="">
-                                </article>
-                                <section class="contentProduct">
-                                    <section class="contentProductLeft">
-                                        <h1>Gradient Graphic T-shirt</h1>
-                                        <h4>Size: Large</h4>
-                                        <h4>Color: White</h4>
-                                        <h1>$145</h1>
-                                    </section>
-                                    <section class="contentProductRight">
-                                        <i class="ti-trash"></i>
-                                        <input type="number" name="number" id="" min = 1 value="1">
+                            <?php 
+                                        // echo "<pre>";
+                                        // print_r($data["showCart"]); die();
+                            if(!empty($data['showCart'])){
+                                foreach($data['showCart'] as $value){
+                                    echo "
+                                    <section class='listProduct'>
+                                        <article class='img'>
+                                        <img src='../assets/imgUpload/$value[image] ' alt=''>
+                                        </article>
+                                        <section class='contentProduct'>
+                                            <section class='contentProductLeft'>
+                                                <h1>Gradient Graphic T-shirt</h1>
+                                                <h4>Size :$value[Size] </h4>
+                                                <h4>Color :$value[Color] </h4>
+                                                <h1>$ $value[Price]</h1>
+                                            </section>
+                                            <section class='contentProductRight'>
+                                                <i class='ti-trash'></i>
+                                                <input type='number' name='number' id='' min = 1 max = $value[NumberProduct] value='$value[Number]'>
+                                            </section>
+                                            
+                                        </section>
                                     </section>
                                     
-                                </section>
-                            </section>
-                            <section class="listProduct">
-                                <article class="img">
-                                    <img src="../assets/img/aothun.png" alt="">
-                                </article>
-                                <section class="contentProduct">
-                                    <section class="contentProductLeft">
-                                        <h1>Gradient Graphic T-shirt</h1>
-                                        <h4>Size: Large</h4>
-                                        <h4>Color: White</h4>
-                                        <h1>$145</h1>
-                                    </section>
-                                    <section class="contentProductRight">
-                                        <i class="ti-trash"></i>
-                                        <input type="number" name="number" id="" min = 1 value="1">
-                                    </section>
-                                    
-                                </section>
-                            </section>
-                            <section class="listProduct">
-                                <article class="img">
-                                    <img src="../assets/img/aothun.png" alt="">
-                                </article>
-                                <section class="contentProduct">
-                                    <section class="contentProductLeft">
-                                        <h1>Gradient Graphic T-shirt</h1>
-                                        <h4>Size: Large</h4>
-                                        <h4>Color: White</h4>
-                                        <h1>$145</h1>
-                                    </section>
-                                    <section class="contentProductRight">
-                                        <i class="ti-trash"></i>
-                                        <input type="number" name="number" id="" min = 1 value="1">
-                                    </section>
-                                    
-                                </section>
-                            </section>
-                            <section class="listProduct">
-                                <article class="img">
-                                    <img src="../assets/img/aothun.png" alt="">
-                                </article>
-                                <section class="contentProduct">
-                                    <section class="contentProductLeft">
-                                        <h1>Gradient Graphic T-shirt</h1>
-                                        <h4>Size: Large</h4>
-                                        <h4>Color: White</h4>
-                                        <h1>$145</h1>
-                                    </section>
-                                    <section class="contentProductRight">
-                                        <i class="ti-trash"></i>
-                                        <input type="number" name="number" id="" min = 1 value="1">
-                                    </section>
-                                    
-                                </section>
-                            </section>
-                            <section class="listProduct">
-                                <article class="img">
-                                    <img src="../assets/img/aothun.png" alt="">
-                                </article>
-                                <section class="contentProduct">
-                                    <section class="contentProductLeft">
-                                        <h1>Gradient Graphic T-shirt</h1>
-                                        <h4>Size: Large</h4>
-                                        <h4>Color: White</h4>
-                                        <h1>$145</h1>
-                                    </section>
-                                    <section class="contentProductRight">
-                                        <i class="ti-trash"></i>
-                                        <input type="number" name="number" id="" min = 1 value="1">
-                                    </section>
-                                    
-                                </section>
-                            </section>
-                            <section class="listProduct">
-                                <article class="img">
-                                    <img src="../assets/img/aothun.png" alt="">
-                                </article>
-                                <section class="contentProduct">
-                                    <section class="contentProductLeft">
-                                        <h1>Gradient Graphic T-shirt</h1>
-                                        <h4>Size: Large</h4>
-                                        <h4>Color: White</h4>
-                                        <h1>$145</h1>
-                                    </section>
-                                    <section class="contentProductRight">
-                                        <i class="ti-trash"></i>
-                                        <input type="number" name="number" id="" min = 1 value="1">
-                                    </section>
-                                    
-                                </section>
-                            </section>
+                                    ";
+                                }
+                            }else{
+
+                                    echo "<h1>'Hống' có gì trong giỏ hàng hết</h1>";
+                                }
+                                // var_dump($value); die();
+                            ?>
+                            
                         </section>
                         <section class="detail">
+                            <?php 
+                              if(!empty($data['showCart'])){
+                                $total =0 ;
+                                foreach($data['showCart'] as $value){
+                                    $total += (float)$value['Price'];
+                                }
+                            }else{
+                                echo "";
+                                
+                            };
+                            ?>
                             <h1>Order Summary</h1>
                             <section class="detailSEO">
+
                                 <article class="contentDetailSEO">
-                                    <h4>Subtotal</h4>
-                                    <h4>$565</h4>
-                                </article>
-                                <article class="contentDetailSEO">
-                                    <h4>Subtotal</h4>
-                                    <h4>$565</h4>
-                                </article>
-                                <article class="contentDetailSEO">
-                                    <h4>Subtotal</h4>
-                                    <h4>$565</h4>
-                                </article>
-                                <article class="contentDetailSEO">
-                                    <h4>Subtotal</h4>
-                                    <h4>$565</h4>
-                                </article>
-                                <article class="contentDetailSEO">
-                                    <h4>Subtotal</h4>
-                                    <h4>$565</h4>
+                                    <h4>Total VAT</h4>
+                                    <h4>$<?php echo $total*0.1 ?></h4>
                                 </article>
                             </section>
                             <section class="Totail">
                                 <h4>Total</h4>
-                                <h4>$467</h4>
+                                <h4>$<?php echo ($total*0.1) + $total ?></h4>
                             </section>
                             <section class="AddCromoCode">
                                 <input type="text" placeholder="Add promo code">

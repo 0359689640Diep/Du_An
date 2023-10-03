@@ -82,8 +82,9 @@ if(!empty($data)){
                   type= 'success',
                   duration= 5000, 
               )
+              window.location.replace(`http://localhost:3000/DuAn/admin/index.php?controller=homeAdmin`)
                 </script>";         
-                header("location:index.php?controller=homeAdmin");
+               
             }elseif(!empty($item['message1'])){
                 $success = $item['message1'];
                 echo "<script>

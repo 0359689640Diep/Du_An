@@ -47,6 +47,7 @@ function showHideMenu(menu, showHide) {
 showHideMenu( 'contentNavMobile','ti-menu')
 showHideMenu( 'sheachMobile','ti-search');
 
-function detailProduct(id){
-  window.location.replace(`index.php?controller=ProductDetail&id=${id}`)
+function Run(type,id){
+  window.location.replace(`index.php?controller=${type}&action=addToCart&id=${id}`)
 }
+

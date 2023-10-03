@@ -61,10 +61,10 @@
                             
                             ";
                         ?>
-                        <article class="addTocart">
-                            <input type="number" name="" id="" min = 1 max = <?php echo $showProduct['NumberProduct']?> value="1">
-                            <button>Add To Cart</button>
-                        </article>
+                        <form action="index.php?controller=ProductDetail&action=addToCart&id=<?php echo $showProduct['IdProduct']?>" method="post" class="addTocart">
+                            <input type="number" name="number" id="" min = 1 max = <?php echo $showProduct['NumberProduct']?> value="1">
+                            <button type="submit">Add To Cart</button>
+                        </form>
 
                     </section>
                     
