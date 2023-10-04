@@ -67,7 +67,8 @@
         public function checkLogin(){
             $dataProduct = array();
             $idProduct =isset($_GET['id']) && !empty($_GET['id']) ? $_GET['id'] : '' ;
-            $idAccount = isset($_SESSION['IdAccountUser']) && !empty($_SESSION['IdAccountUser']);
+            $idAccount = isset($_SESSION['IdAccountUser']) && !empty($_SESSION['IdAccountUser']) ? $_SESSION['IdAccountUser'] : '';
+            // var_dump($idAccount); die(); 
             if(!empty($idProduct) && !empty($idAccount)){
                 if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     extract($_POST);
@@ -78,7 +79,6 @@
                             $dataProduct= $row;
                         }
                         extract($dataProduct);
-                        $Date = date("Y/m/d");
                         $queryOder = $conn->query("insert into cart value(null,'$idProduct',null, '$Size', '$idAccount',  '$number')");
 
                         if($queryOder){

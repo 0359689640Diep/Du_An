@@ -14,8 +14,10 @@
         <section class="contener">
             <?php include "masterLayout/header.php" ?>
                 <main>
-                    <?php $idAccount = isset($_SESSION['IdAccountUser']) && !empty($_SESSION['IdAccountUser']);?>
-                    <form action="index.php?controller=Cart&id=<?php echo $idAccount;?>" method="post">
+                    <?php $idAccount = !empty($_SESSION['IdAccountUser']) ? $_SESSION['IdAccountUser']: "";
+                    ?>
+                    
+                    <form action="index.php?controller=Cart&id=<?php echo $idAccount;?>" method="post" id = "form">
                         <h1>Your cart</h1>
                         <section class="contentCart">
                             <section class="product">
@@ -38,7 +40,7 @@
                                                 </section>
                                                 <section class='contentProductRight'>
                                                     <i onclick='deleteCart($value[IdCart])'class='ti-trash'></i>
-                                                    <input type='number' name='number' id='' min = 1 max = $value[NumberProduct] value='$value[Number]'>
+                                                    <input type='number' name='number[$value[IdCart]]' id='' min = 1 max = $value[NumberProduct] value='$value[Number]'>
                                                 </section>
                                                 
                                             </section>
@@ -85,8 +87,10 @@
                                 <section class="Payment">
                                     <i class="ti-arrow-right"></i>
                                     <i class="ti-arrow-right"></i>
-                                    <button type="submit">Cash payment</button>
-                                    <button type="submit">Bank card payment</button>
+                                    
+                                    
+                                    <button type="submit" onclick="PayBank('CashPayment', <?= $idAccount ?> )" >Cash payment</button>
+                                    <button type="submit" onclick="PayBank('BankCardPayment', <?= $idAccount ?> )" >Bank card payment</button>
                                 </section>
                             </section>
                         </section>

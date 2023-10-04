@@ -23,7 +23,7 @@
                         </article>
                         <article class="ProductDetailImgRight">
                         <?php
-                            $showProduct = $data['showProduct'][0];
+                            $showProduct =  $data['showProduct'][0];
                             $showDetails = $data['showDetails'][0];
                             // echo "<pre>";
                             // var_dump($showProduct); die();

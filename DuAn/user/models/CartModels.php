@@ -40,25 +40,30 @@
             
         }
 
-        function pay(){
+        function PayBank(){
             $conn = Connection::getInstance();
+            $data = array();
             if($_SERVER['REQUEST_METHOD']){
                 extract($_POST);
                 $Price = $_SESSION['Price'];
-                $idAccount = isset($_GET['id']);
-                $sumPrice = ((float)$number * (float)$Price) * 0.1;
-                $query = $conn->query("select Phone, Address from account where Id = $idAccount");
-                if($query){
-                    $rows = $query->fetch_assoc();
-                    if(!empty($rows)){
-                        $queryCart = $conn->query("update cart set Price = $sumPrice, Number = $number");
-                        if($queryCart){
+                // echo "<pre>";
+                // var_dump($number) ; die();
+                if(isset($number)){
+                    foreach($number as $key=>$value){
+                        $sumPrice = ((float)$value * (float)$Price) * 0.1+10;
+                        $queryCart = $conn->query("update cart set Price = $sumPrice, Number = $value where IdCart =$key");
+                        if(!$queryCart){
+                            $data["messageError"] = $conn->error;
                             // header("loaction: index.php?controller=pay");
-                        }
-                    }
+                            die();
+                        }   
+                    };
+
+                }
+                    
                 }
             }
-        }
+        
 
         public function deleteCart(){
             $data = array();
