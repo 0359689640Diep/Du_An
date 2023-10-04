@@ -193,17 +193,11 @@ html {
   width: 100%;
   height: 100%;
 }
-.product> .mainMeuProduct>a{
-  display: none;
-  font-size: 20px;
+.mainMeuProduct a {
   text-decoration: none;
-  text-align: left;
-  color: var(--text-color1);
-  margin: 2% 0;
+  font-size: 2rem;
 }
-.product> .mainMeuProduct>a:hover{
-  color: var(--text-color3);
-}
+
 .page {
   width: 1470px;
   height: 3500px;

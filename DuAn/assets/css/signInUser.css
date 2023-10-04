@@ -213,7 +213,7 @@
 }
 .contentRight> .or{
     width: 100%;
-    height: 20%;
+    height: 2%;
     display: flex;
     justify-content: center;
     place-items: center;
@@ -268,10 +268,10 @@
   }
 .contentRight>footer{
     width: 100%;
-    height: 5%;
+    height: 10%;
+    margin: 10% 0;
 }
 .contentRight>footer>h3{
-    margin: 2% 0;
     font-size: 20px;
     color: var(--text-color1)
 }

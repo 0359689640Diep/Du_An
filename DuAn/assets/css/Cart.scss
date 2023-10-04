@@ -19,198 +19,202 @@
             background-color: var(--background-color1);
             border-top: 2px solid var(--text-color3);
             padding: 7% 2%;
-            h1{
-                font-size: 40px;
-            }
-            .contentCart{
-                @include WidthHieght;
-                @include FlexCenter;
-                height: 80%;
-                margin: 5% 0;
-                justify-content: space-evenly;
             
-            .product{
-                border: 2px solid var(--text-color3);
-                border-radius: 20px;
+            form{
                 @include WidthHieght;
-                width: 50%;
-                flex-wrap:nowrap;
-                overflow-y: auto;
-                padding: 2%;
-                .listProduct{
-                    @include WidthHieght;
-                    height: 35%;
-                    border-bottom: 2px solid var(--text-color3);
-                    margin-bottom: 5%;
-                    @include FlexCenter;
-                    justify-content: space-between;
-                    padding-bottom: 5%;
-                }
-                .img{
-                    width: 30%;
-                    height: 100%;
-                    img{
-                    @include WidthHieght;
-
-                    }
-                }
-                .contentProduct{
-                    width: 65%;
-                    height: 100%;
-                    @include FlexCenter;
-                    justify-content: space-between;
-                    .contentProductLeft{
-                        height: 100%;
-                        width: 70%;
-                        h1{
-                            font-size: 1.25rem;
-                        }
-                        h4{
-                            font-size: 0.875rem;
-                            margin: 5% 0;
-                        }
-                    }
-                    .contentProductRight{
-                        height: 100%;
-                        width: 30%;
-                        position: relative;
-                        i{
-                            position: absolute;
-                            top: 0;
-                            right: 0;
-                            color: var(--text-color2);
-                            font-size: 2rem;
-                        }
-                        input{
-                            position: absolute;
-                            bottom: 0;
-                            // right: 10%;
-                            font-size: 2rem;
-                            width: 100%;
-                            height: 30%;
-                            border-radius: 62px;
-                            text-align: center;
-                            font-size: 1rem;
-                            background-color: var(--background-color3);
-                            border: none;
-                        }
-                        input:focus{
-                            outline: none;
-                        }
-
-                        
-                    }
-                }
-            }
-            .detail{
-                border: 2px solid var(--text-color3);
-                border-radius: 20px;
-                @include WidthHieght;
-                width: 40%;
-                flex-wrap:nowrap;
-                overflow-y: hidden;
-                padding: 2%;
                 h1{
-                    font-size: 1.5rem;
+                    font-size: 40px;
                 }
-                .detailSEO{
+                .contentCart{
                     @include WidthHieght;
-                    height: 35%;
-                    margin-top:5% ;
-                    overflow-x: auto;
-                    border-bottom: 2px solid var(--text-color3);
-
-                    .contentDetailSEO{
-
+                    @include FlexCenter;
+                    height: 80%;
+                    margin: 5% 0;
+                    justify-content: space-evenly;
+                
+                .product{
+                    border: 2px solid var(--text-color3);
+                    border-radius: 20px;
+                    @include WidthHieght;
+                    width: 50%;
+                    flex-wrap:nowrap;
+                    overflow-y: auto;
+                    padding: 2%;
+                    .listProduct{
                         @include WidthHieght;
-                        height: 20%;
+                        height: 35%;
+                        border-bottom: 2px solid var(--text-color3);
+                        margin-bottom: 5%;
                         @include FlexCenter;
-                        margin-bottom: 2%;
                         justify-content: space-between;
-                        h4{
-                            font-size: 1.25rem;
-                        }
-                        h4:nth-child(1){
-                            font-size: 1.25rem;
-                            color: var(--text-color3);
-                        }
-                        
+                        padding-bottom: 5%;
                     }
-
+                    .img{
+                        width: 30%;
+                        height: 100%;
+                        img{
+                        @include WidthHieght;
+    
+                        }
+                    }
+                    .contentProduct{
+                        width: 65%;
+                        height: 100%;
+                        @include FlexCenter;
+                        justify-content: space-between;
+                        .contentProductLeft{
+                            height: 100%;
+                            width: 70%;
+                            h1{
+                                font-size: 1.25rem;
+                            }
+                            h4{
+                                font-size: 0.875rem;
+                                margin: 5% 0;
+                            }
+                        }
+                        .contentProductRight{
+                            height: 100%;
+                            width: 30%;
+                            position: relative;
+                            i{
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                color: var(--text-color2);
+                                font-size: 2rem;
+                            }
+                            input{
+                                position: absolute;
+                                bottom: 0;
+                                // right: 10%;
+                                font-size: 2rem;
+                                width: 100%;
+                                height: 30%;
+                                border-radius: 62px;
+                                text-align: center;
+                                font-size: 1rem;
+                                background-color: var(--background-color3);
+                                border: none;
+                            }
+                            input:focus{
+                                outline: none;
+                            }
+    
+                            
+                        }
+                    }
                 }
-             }
-            .Totail{
-                @include FlexCenter;
-                justify-content: space-between;
-                width: 100%;
-                height: 10%;
-                margin: 5% 0;
-                h4{
-                    font-size: 1.25rem;
-                }
-                h4:nth-child(1){
-                    font-size: 1.25rem;
-                    color: var(--text-color3);
-                }
-            } 
-            .AddCromoCode{
-                @include FlexCenter;
-                justify-content: space-between;
-                width: 100%;
-                height: 10%;
-                margin: 1% 0;
-                input{
+                .detail{
+                    border: 2px solid var(--text-color3);
+                    border-radius: 20px;
                     @include WidthHieght;
-                    border-radius: 62px;
-                    border: none;
-                    font-size: 1rem;
-                }
-                input:focus{
-                    outline: none;
-                }
-                input:nth-child(1){
-                    width: 65%;
-                    background-color: var(--background-color3);
-                    padding-left: 10%;
-                }
-                input:nth-child(2){
-                    width: 30%;
-                    background-color: var(--background-color);
-                    color: var(--text-color)
-                }
-            } 
-            .Payment{
-                width: 100%;
-                height: 25%;
-                margin: 4% 0;
-                position: relative;
-
-                button{
+                    width: 40%;
+                    flex-wrap:nowrap;
+                    overflow-y: hidden;
+                    padding: 2%;
+                    h1{
+                        font-size: 1.5rem;
+                    }
+                    .detailSEO{
+                        @include WidthHieght;
+                        height: 35%;
+                        margin-top:5% ;
+                        overflow-x: auto;
+                        border-bottom: 2px solid var(--text-color3);
+    
+                        .contentDetailSEO{
+    
+                            @include WidthHieght;
+                            height: 20%;
+                            @include FlexCenter;
+                            margin-bottom: 2%;
+                            justify-content: space-between;
+                            h4{
+                                font-size: 1.25rem;
+                            }
+                            h4:nth-child(1){
+                                font-size: 1.25rem;
+                                color: var(--text-color3);
+                            }
+                            
+                        }
+    
+                    }
+                 }
+                .Totail{
+                    @include FlexCenter;
+                    justify-content: space-between;
                     width: 100%;
-                    height: 40%;
-                    margin-bottom: 5%;
-                    background-color: var(--background-color);
-                    text-align: center;
-                    font-size: 1rem;
-                    border-radius: 62px;
-                    color: var(--text-color)
+                    height: 10%;
+                    margin: 5% 0;
+                    h4{
+                        font-size: 1.25rem;
+                    }
+                    h4:nth-child(1){
+                        font-size: 1.25rem;
+                        color: var(--text-color3);
+                    }
+                } 
+                .AddCromoCode{
+                    @include FlexCenter;
+                    justify-content: space-between;
+                    width: 100%;
+                    height: 10%;
+                    margin: 1% 0;
+                    input{
+                        @include WidthHieght;
+                        border-radius: 62px;
+                        border: none;
+                        font-size: 1rem;
+                    }
+                    input:focus{
+                        outline: none;
+                    }
+                    input:nth-child(1){
+                        width: 65%;
+                        background-color: var(--background-color3);
+                        padding-left: 10%;
+                    }
+                    input:nth-child(2){
+                        width: 30%;
+                        background-color: var(--background-color);
+                        color: var(--text-color)
+                    }
+                } 
+                .Payment{
+                    width: 100%;
+                    height: 25%;
+                    margin: 4% 0;
+                    position: relative;
+    
+                    button{
+                        width: 100%;
+                        height: 40%;
+                        margin-bottom: 5%;
+                        background-color: var(--background-color);
+                        text-align: center;
+                        font-size: 1rem;
+                        border-radius: 62px;
+                        color: var(--text-color)
+                    }
+                    i:nth-child(1){
+                        position: absolute;
+                        color: var(--text-color);
+                        font-size: 1.5rem;
+                        right: 30%;
+                        top: 11%;
+                    }
+                    i:nth-child(2){
+                        position: absolute;
+                        color: var(--text-color);
+                        font-size: 1.5rem;
+                        right: 25%;
+                        top: 68%;
+                    }
                 }
-                i:nth-child(1){
-                    position: absolute;
-                    color: var(--text-color);
-                    font-size: 1.5rem;
-                    right: 30%;
-                    top: 11%;
                 }
-                i:nth-child(2){
-                    position: absolute;
-                    color: var(--text-color);
-                    font-size: 1.5rem;
-                    right: 25%;
-                    top: 68%;
-                }
-            }
-            }
+            }  
         }
         footer > .footer{
             height: 20%;

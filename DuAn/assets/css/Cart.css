@@ -193,6 +193,10 @@ html {
   width: 100%;
   height: 100%;
 }
+.mainMeuProduct a {
+  text-decoration: none;
+  font-size: 2rem;
+}
 
 .page {
   width: 1470px;
@@ -400,10 +404,14 @@ footer > .footer {
   border-top: 2px solid var(--text-color3);
   padding: 7% 2%;
 }
-.page .contener main h1 {
+.page .contener main form {
+  width: 100%;
+  height: 100%;
+}
+.page .contener main form h1 {
   font-size: 40px;
 }
-.page .contener main .contentCart {
+.page .contener main form .contentCart {
   width: 100%;
   height: 100%;
   display: flex;
@@ -412,7 +420,7 @@ footer > .footer {
   margin: 5% 0;
   justify-content: space-evenly;
 }
-.page .contener main .contentCart .product {
+.page .contener main form .contentCart .product {
   border: 2px solid var(--text-color3);
   border-radius: 20px;
   width: 100%;
@@ -422,7 +430,7 @@ footer > .footer {
   overflow-y: auto;
   padding: 2%;
 }
-.page .contener main .contentCart .product .listProduct {
+.page .contener main form .contentCart .product .listProduct {
   width: 100%;
   height: 100%;
   height: 35%;
@@ -433,45 +441,45 @@ footer > .footer {
   justify-content: space-between;
   padding-bottom: 5%;
 }
-.page .contener main .contentCart .product .img {
+.page .contener main form .contentCart .product .img {
   width: 30%;
   height: 100%;
 }
-.page .contener main .contentCart .product .img img {
+.page .contener main form .contentCart .product .img img {
   width: 100%;
   height: 100%;
 }
-.page .contener main .contentCart .product .contentProduct {
+.page .contener main form .contentCart .product .contentProduct {
   width: 65%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.page .contener main .contentCart .product .contentProduct .contentProductLeft {
+.page .contener main form .contentCart .product .contentProduct .contentProductLeft {
   height: 100%;
   width: 70%;
 }
-.page .contener main .contentCart .product .contentProduct .contentProductLeft h1 {
+.page .contener main form .contentCart .product .contentProduct .contentProductLeft h1 {
   font-size: 1.25rem;
 }
-.page .contener main .contentCart .product .contentProduct .contentProductLeft h4 {
+.page .contener main form .contentCart .product .contentProduct .contentProductLeft h4 {
   font-size: 0.875rem;
   margin: 5% 0;
 }
-.page .contener main .contentCart .product .contentProduct .contentProductRight {
+.page .contener main form .contentCart .product .contentProduct .contentProductRight {
   height: 100%;
   width: 30%;
   position: relative;
 }
-.page .contener main .contentCart .product .contentProduct .contentProductRight i {
+.page .contener main form .contentCart .product .contentProduct .contentProductRight i {
   position: absolute;
   top: 0;
   right: 0;
   color: var(--text-color2);
   font-size: 2rem;
 }
-.page .contener main .contentCart .product .contentProduct .contentProductRight input {
+.page .contener main form .contentCart .product .contentProduct .contentProductRight input {
   position: absolute;
   bottom: 0;
   font-size: 2rem;
@@ -483,10 +491,10 @@ footer > .footer {
   background-color: var(--background-color3);
   border: none;
 }
-.page .contener main .contentCart .product .contentProduct .contentProductRight input:focus {
+.page .contener main form .contentCart .product .contentProduct .contentProductRight input:focus {
   outline: none;
 }
-.page .contener main .contentCart .detail {
+.page .contener main form .contentCart .detail {
   border: 2px solid var(--text-color3);
   border-radius: 20px;
   width: 100%;
@@ -496,10 +504,10 @@ footer > .footer {
   overflow-y: hidden;
   padding: 2%;
 }
-.page .contener main .contentCart .detail h1 {
+.page .contener main form .contentCart .detail h1 {
   font-size: 1.5rem;
 }
-.page .contener main .contentCart .detail .detailSEO {
+.page .contener main form .contentCart .detail .detailSEO {
   width: 100%;
   height: 100%;
   height: 35%;
@@ -507,7 +515,7 @@ footer > .footer {
   overflow-x: auto;
   border-bottom: 2px solid var(--text-color3);
 }
-.page .contener main .contentCart .detail .detailSEO .contentDetailSEO {
+.page .contener main form .contentCart .detail .detailSEO .contentDetailSEO {
   width: 100%;
   height: 100%;
   height: 20%;
@@ -516,14 +524,14 @@ footer > .footer {
   margin-bottom: 2%;
   justify-content: space-between;
 }
-.page .contener main .contentCart .detail .detailSEO .contentDetailSEO h4 {
+.page .contener main form .contentCart .detail .detailSEO .contentDetailSEO h4 {
   font-size: 1.25rem;
 }
-.page .contener main .contentCart .detail .detailSEO .contentDetailSEO h4:nth-child(1) {
+.page .contener main form .contentCart .detail .detailSEO .contentDetailSEO h4:nth-child(1) {
   font-size: 1.25rem;
   color: var(--text-color3);
 }
-.page .contener main .contentCart .Totail {
+.page .contener main form .contentCart .Totail {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -531,14 +539,14 @@ footer > .footer {
   height: 10%;
   margin: 5% 0;
 }
-.page .contener main .contentCart .Totail h4 {
+.page .contener main form .contentCart .Totail h4 {
   font-size: 1.25rem;
 }
-.page .contener main .contentCart .Totail h4:nth-child(1) {
+.page .contener main form .contentCart .Totail h4:nth-child(1) {
   font-size: 1.25rem;
   color: var(--text-color3);
 }
-.page .contener main .contentCart .AddCromoCode {
+.page .contener main form .contentCart .AddCromoCode {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -546,33 +554,33 @@ footer > .footer {
   height: 10%;
   margin: 1% 0;
 }
-.page .contener main .contentCart .AddCromoCode input {
+.page .contener main form .contentCart .AddCromoCode input {
   width: 100%;
   height: 100%;
   border-radius: 62px;
   border: none;
   font-size: 1rem;
 }
-.page .contener main .contentCart .AddCromoCode input:focus {
+.page .contener main form .contentCart .AddCromoCode input:focus {
   outline: none;
 }
-.page .contener main .contentCart .AddCromoCode input:nth-child(1) {
+.page .contener main form .contentCart .AddCromoCode input:nth-child(1) {
   width: 65%;
   background-color: var(--background-color3);
   padding-left: 10%;
 }
-.page .contener main .contentCart .AddCromoCode input:nth-child(2) {
+.page .contener main form .contentCart .AddCromoCode input:nth-child(2) {
   width: 30%;
   background-color: var(--background-color);
   color: var(--text-color);
 }
-.page .contener main .contentCart .Payment {
+.page .contener main form .contentCart .Payment {
   width: 100%;
   height: 25%;
   margin: 4% 0;
   position: relative;
 }
-.page .contener main .contentCart .Payment button {
+.page .contener main form .contentCart .Payment button {
   width: 100%;
   height: 40%;
   margin-bottom: 5%;
@@ -582,14 +590,14 @@ footer > .footer {
   border-radius: 62px;
   color: var(--text-color);
 }
-.page .contener main .contentCart .Payment i:nth-child(1) {
+.page .contener main form .contentCart .Payment i:nth-child(1) {
   position: absolute;
   color: var(--text-color);
   font-size: 1.5rem;
   right: 30%;
   top: 11%;
 }
-.page .contener main .contentCart .Payment i:nth-child(2) {
+.page .contener main form .contentCart .Payment i:nth-child(2) {
   position: absolute;
   color: var(--text-color);
   font-size: 1.5rem;

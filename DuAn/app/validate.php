@@ -40,8 +40,21 @@ class validate {
             case "ConfirmationPassword":
                 if(empty($value1)&& $value === $value1){
                     $ArrayAouPush['error'] = " không hợp lệ";                   
-                }  
+                }
              return $ArrayAouPush;
+            break;
+            case "Phone":
+                if( empty($value) && strlen($value) <= 10 && strlen($value) >= 12
+                && !is_int($value)  && !is_numeric($value)
+                ){
+                    $ArrayAouPush['error'] = "Invalid phone number";                   
+                };
+            return $ArrayAouPush;
+            case "Address":
+                if( empty($value)){
+                    $ArrayAouPush['error'] = "Address cannot be left blank";                   
+                };
+            return $ArrayAouPush;
             break;
             default:
                 return $ArrayAouPush['error']="Lỗi ";

@@ -12,12 +12,14 @@
         
                     // Lấy từng phần tử từ mảng
                     $Gmail = $infoUserArray['Gmail'];
+                    $Phone = $infoUserArray['Phone'];
+                    $Address = $infoUserArray['Address'];
                     $Password = $infoUserArray['Password'];
                     $FullName = $infoUserArray['FullName'];
                     $CodeEmail = $infoUserArray['codeGmail'];
                     $conn = Connection::getInstance();
                     if($codeEmail === $CodeEmail){
-                        $insertQuery = $conn->query("INSERT INTO account (Gmail, Password, Name, Permission) VALUES ('$Gmail', '$Password', '$FullName', '1')");
+                        $insertQuery = $conn->query("INSERT INTO account (Gmail, Password, Name,Phone ,Permission, Address) VALUES ('$Gmail', '$Password', '$FullName','$Phone', '1', '$Address')");
                         if ($insertQuery ) {
                             $data[]["success"] = "Account successfully created";
                         } else {

@@ -14,85 +14,88 @@
         <section class="contener">
             <?php include "masterLayout/header.php" ?>
                 <main>
-                    <h1>Your cart</h1>
-                    <section class="contentCart">
-                        <section class="product">
-                            <?php 
-                                        // echo "<pre>";
-                                        // print_r($data["showCart"]); die();
-                            if(!empty($data['showCart'])){
-                                foreach($data['showCart'] as $value){
-                                    echo "
-                                    <section class='listProduct'>
-                                        <article class='img'>
-                                        <img src='../assets/imgUpload/$value[image] ' alt=''>
-                                        </article>
-                                        <section class='contentProduct'>
-                                            <section class='contentProductLeft'>
-                                                <h1>Gradient Graphic T-shirt</h1>
-                                                <h4>Size :$value[Size] </h4>
-                                                <h4>Color :$value[Color] </h4>
-                                                <h1>$ $value[Price]</h1>
+                    <?php $idAccount = isset($_SESSION['IdAccountUser']) && !empty($_SESSION['IdAccountUser']);?>
+                    <form action="index.php?controller=Cart&id=<?php echo $idAccount;?>" method="post">
+                        <h1>Your cart</h1>
+                        <section class="contentCart">
+                            <section class="product">
+                                <?php 
+                                            // echo "<pre>";
+                                            // print_r($data["showCart"]); die();
+                                if(!empty($data['showCart'])){
+                                    foreach($data['showCart'] as $value){
+                                        echo "
+                                        <section class='listProduct'>
+                                            <article class='img'>
+                                            <img src='../assets/imgUpload/$value[image] ' alt=''>
+                                            </article>
+                                            <section class='contentProduct'>
+                                                <section class='contentProductLeft'>
+                                                    <h1>Gradient Graphic T-shirt</h1>
+                                                    <h4>Size :$value[Size] </h4>
+                                                    <h4>Color :$value[Color] </h4>
+                                                    <h1 name ='Price'>$ {$value['Price']}</h1>
+                                                </section>
+                                                <section class='contentProductRight'>
+                                                    <i onclick='deleteCart($value[IdCart])'class='ti-trash'></i>
+                                                    <input type='number' name='number' id='' min = 1 max = $value[NumberProduct] value='$value[Number]'>
+                                                </section>
+                                                
                                             </section>
-                                            <section class='contentProductRight'>
-                                                <i class='ti-trash'></i>
-                                                <input type='number' name='number' id='' min = 1 max = $value[NumberProduct] value='$value[Number]'>
-                                            </section>
-                                            
                                         </section>
-                                    </section>
-                                    
-                                    ";
-                                }
-                            }else{
-
-                                    echo "<h1>'Hống' có gì trong giỏ hàng hết</h1>";
-                                }
-                                // var_dump($value); die();
-                            ?>
-                            
-                        </section>
-                        <section class="detail">
-                            <?php 
-                              if(!empty($data['showCart'])){
-                                $total =0 ;
-                                foreach($data['showCart'] as $value){
-                                    $total += (float)$value['Price'];
-                                }
-                            }else{
-                                echo "";
+                                        
+                                        ";
+                                    }
+                                }else{
+    
+                                        echo "<h1>'Hống' có gì trong giỏ hàng hết</h1>";
+                                    }
+                                    // var_dump($value); die();
+                                ?>
                                 
-                            };
-                            ?>
-                            <h1>Order Summary</h1>
-                            <section class="detailSEO">
-
-                                <article class="contentDetailSEO">
-                                    <h4>Total VAT</h4>
-                                    <h4>$<?php echo $total*0.1 ?></h4>
-                                </article>
                             </section>
-                            <section class="Totail">
-                                <h4>Total</h4>
-                                <h4>$<?php echo ($total*0.1) + $total ?></h4>
-                            </section>
-                            <section class="AddCromoCode">
-                                <input type="text" placeholder="Add promo code">
-                                <input type="submit" value="Apply">
-                            </section>
-                            <section class="Payment">
-                                <i class="ti-arrow-right"></i>
-                                <i class="ti-arrow-right"></i>
-                                <button>Cash payment</button>
-                                <button>Bank card payment</button>
+                            <section class="detail">
+                                <?php 
+                                    $total =0 ;
+                                  if(!empty($data['showCart'])){
+                                    foreach($data['showCart'] as $value){
+                                        $total += (float)$value['Price'];
+                                    }
+                                }else{
+                                    echo "";
+                                    
+                                };
+                                ?>
+                                <h1>Order Summary</h1>
+                                <section class="detailSEO">
+    
+                                    <article class="contentDetailSEO">
+                                        <h4>Total VAT</h4>
+                                        <h4>$<?php echo $total*0.1 ?></h4>
+                                    </article>
+                                </section>
+                                <section class="Totail">
+                                    <h4>Total</h4>
+                                    <h4>$<?php echo ($total*0.1) + $total ?></h4>
+                                </section >
+                                <section class="AddCromoCode">
+                                    <input type="text" placeholder="Add promo code">
+                                    <input type="submit" value="Apply">
+                                </section>
+                                <section class="Payment">
+                                    <i class="ti-arrow-right"></i>
+                                    <i class="ti-arrow-right"></i>
+                                    <button type="submit">Cash payment</button>
+                                    <button type="submit">Bank card payment</button>
+                                </section>
                             </section>
                         </section>
-                    </section>
+                </form>
                 </main>
             <?php include "masterLayout/footer.php" ?>
 
         </section>
     </section>
 </body>
-<script src="../assets/js/home.js"></script>
+<script src="../assets/js/cart.js"></script>
 </html>

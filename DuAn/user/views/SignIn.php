@@ -37,7 +37,9 @@
                 <main>
                     <form action="index.php?controller=SignIn" method="post" id = "form1">
                         <input type="text" placeholder="Full Name " name ="FullName" required title="Không được để trống">
-                        <input type="text" placeholder="Gmail" name ="Gmail" required title="Không được để trống">
+                        <input type="email" placeholder="Gmail" name ="Gmail" required title="Không được để trống">
+                        <input type="number" placeholder="Phone" name ="Phone" required title="Không được để trống">
+                        <input type="text" placeholder="Address" name ="Address" required title="Không được để trống">
                         <input type="password" placeholder="Password" name ="Password" required title="Không được để trống">
                         <input type="password" placeholder="Password" name ="ConfirmationPassword" required title="Không được để trống">
                         <button  type="submit" name="submit" >Create  Account</button>

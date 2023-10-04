@@ -15,29 +15,38 @@
         }
 
         public function showDetails(){
-            $IdDetails = $_SESSION["IdDetails"];
-            $conn = Connection::getInstance();
-            $query = $conn->query("select * from productdetails where IdProductDetails = '$IdDetails'");
-            if($query){
-                while($row = $query->fetch_assoc()){
-                    $this->data['showDetails'][] = $row;
+            if(!empty($_SESSION["IdDetails"])){
+                $IdDetails = $_SESSION["IdDetails"];
+                $conn = Connection::getInstance();
+                $query = $conn->query("select * from productdetails where IdProductDetails = '$IdDetails'");
+                if($query){
+                    while($row = $query->fetch_assoc()){
+                        $this->data['showDetails'][] = $row;
+                    }
+                }else{
+                    $this->data['messageError'] = "Hệ thống đang bảo trì";
                 }
             }else{
-                $this->data['messageError'] = "Hệ thống đang bảo trì";
+                header("localhost: index.php");
             }
 
         }
 
         public function GetProductsByCategory(){
-            $conn = Connection::getInstance();
-            $IdCategory = $_SESSION["IdCategory"];
-            $query = $conn->query("select IdProduct, NameProducts, Price, Evalute, image from product where IdCategory = '$IdCategory'");
-            if($query){
-                while($row = $query->fetch_assoc()){
-                    $this->data['GetProductsByCategory'][] = $row;
+            if(!empty($_SESSION["IdCategory"])){
+                $IdCategory = $_SESSION["IdCategory"];
+                $conn = Connection::getInstance();
+                $query = $conn->query("select IdProduct, NameProducts, Price, Evalute, image from product where IdCategory = '$IdCategory'");
+                if($query){
+                    while($row = $query->fetch_assoc()){
+                        $this->data['GetProductsByCategory'][] = $row;
+                    }
+                }else{
+                    $this->data['messageError'] = "Hệ thống đang bảo trì";
                 }
+
             }else{
-                $this->data['messageError'] = "Hệ thống đang bảo trì";
+                header("localhost: index.php");
             }
         }
 
@@ -70,7 +79,7 @@
                         }
                         extract($dataProduct);
                         $Date = date("Y/m/d");
-                        $queryOder = $conn->query("insert into orderconfirmation value(null, '$idAccount', 'null',null, '$Date', '$idProduct', '$number', '$Size', '$image')");
+                        $queryOder = $conn->query("insert into cart value(null,'$idProduct',null, '$Size', '$idAccount',  '$number')");
 
                         if($queryOder){
                             $this->data['message'][] = $idAccount;
