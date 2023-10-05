@@ -16,15 +16,16 @@ class CartController extends Controller{
                 // var_dump($dataPay);
                 if(!empty($_COOKIE['CashPayMentAccout'])){
                     $idAccount = $_COOKIE['CashPayMentAccout'];
-                    header("location: index.php?controller=CashPayMent&id=$idAccount");
+                    echo "<script>
+                    window.location.replace('http://localhost:3000/DuAn/user/index.php?controller=CashPayMent&id=$idAccount');
+                    </script>";
                     
                 }elseif(!empty($_COOKIE['BankCardPayMentAccout'])){
-                     $idAccount = $_COOKIE['BankCardPayMentAccout'];
-
-                    header("location: index.php?controller=BankCardPayMent&id=$idAccount");
+                    $idAccount = $_COOKIE['BankCardPayMentAccout'];
+                     echo "<script>
+                        window.location.replace('http://localhost:3000/DuAn/user/index.php?controller=BankCardPayMent&id=$idAccount');
+                    </script>";
                     
-                }else{
-                    die("error");
                 }
             }
     }
@@ -36,6 +37,6 @@ class CartController extends Controller{
             header("location: index.php?controller=Cart&id=$idAccount");
         }
     }
-    
-}
+
+    }
 ?>

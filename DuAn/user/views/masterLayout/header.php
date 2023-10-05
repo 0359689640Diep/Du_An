@@ -116,7 +116,7 @@ function showHideMenu(menu, showHide) {
 showHideMenu( 'contentNavMobile','ti-menu')
 showHideMenu( 'sheachMobile','ti-search');
     function RenderPersonalPage(Arrive, IdAccountUser){
-        if (IdAccountUser === null) {
+        if (IdAccountUser === null || IdAccountUser === undefined) {
                 window.location.replace("http://localhost:3000/DuAn/user/index.php?controller=login");
             } else {
                 window.location.replace(`index.php?controller=${Arrive}&id=${IdAccountUser}`);

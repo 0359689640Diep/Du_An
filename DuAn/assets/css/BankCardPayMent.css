@@ -393,7 +393,7 @@ footer > .footer {
 .page .contener main {
   display: flex;
   padding: 6% 24px;
-  justify-content: center;
+  justify-content: space-between;
   background-color: var(--background-color1);
   border-top: 2px solid var(--background-color3);
 }
@@ -485,22 +485,84 @@ footer > .footer {
   font-size: 0.78rem;
   color: var(--text-color3);
 }
-.page .contener main .mainOrder .contentMainOrder input {
+.page .contener main .mainCart {
+  height: 100%;
+  width: 47%;
+  background-color: var(--background-color);
+  border-radius: 74px;
+  padding: 5% 2%;
+}
+.page .contener main .mainCart .img {
   width: 100%;
-  height: 10%;
+  height: 40%;
+}
+.page .contener main .mainCart .img img {
+  width: 100%;
+  height: 100%;
+}
+.page .contener main .mainCart .contentMainCart {
+  width: 100%;
+  height: 60%;
+}
+.page .contener main .mainCart .contentMainCart .contentMainCartHeader {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page .contener main .mainCart .contentMainCart .contentMainCartHeader .input {
+  width: 45%;
+  height: 100%;
+  padding: 5% 0;
+}
+.page .contener main .mainCart .contentMainCart .contentMainCartHeader .input input {
+  width: 100%;
+  height: 25%;
+  margin: 10% 0;
   border-radius: 11px;
+  font-size: 0.8725rem;
   color: var(--text-color3);
-  font-size: 0.875rem;
-  margin: 5% 0;
+  padding-left: 10%;
   border: none;
 }
-.page .contener main .mainOrder .contentMainOrder input:hover {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: linear 1.5s;
-}
-.page .contener main .mainOrder .contentMainOrder input:focus {
+.page .contener main .mainCart .contentMainCart .contentMainCartHeader .input input:focus {
   outline: none;
+}
+.page .contener main .mainCart .contentMainCart .contentMainCartHeader .rules {
+  width: 45%;
+  height: 100%;
+}
+.page .contener main .mainCart .contentMainCart .contentMainCartHeader .rules p {
+  margin: 25% 0% 15% 0;
+  font-size: 0.8725rem;
+  color: var(--text-color3);
+}
+.page .contener main .mainCart .contentMainCart .contentMainCartHeader .rules label {
+  font-size: 0.8725rem;
+  color: var(--text-color3);
+}
+.page .contener main .mainCart .contentMainCart .contentMainCartFooter {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page .contener main .mainCart .contentMainCart .contentMainCartFooter input {
+  width: 30%;
+  height: 50%;
+  border-radius: 11px;
+  color: var(--text-color3);
+  padding-left: 5%;
+  font-size: 0.875rem;
+}
+.page .contener main .mainCart .contentMainCart .contentMainCartFooter input:focus {
+  outline: none;
+}
+.page .contener main .mainCart .contentMainCart .contentMainCartFooter input:nth-child(3) {
+  color: var(--text-color1);
+  padding-left: 0;
 }
 .page .contener footer > .footer {
   height: 14%;

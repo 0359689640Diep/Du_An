@@ -6,10 +6,10 @@ function deleteCart(id){
 }
 function PayBank(type,id){
         var d = new Date();
-        d.setTime(d.getTime() + (1 * 60 * 1000)); // 2 phút
+        d.setTime(d.getTime() + (0.1 * 60 * 1000)); // 2 phút
         var expires = "expires="+ d.toUTCString();
         if(type === 'CashPayment'){ 
-            document.cookie = `CashPaymentAccout=${id}; ` + expires + "; path=/";
+            document.cookie = `CashPayMentAccout=${id}; ` + expires + "; path=/";
         }else{
             document.cookie = `BankCardPayMentAccout=${id}; ` + expires + "; path=/";
         }

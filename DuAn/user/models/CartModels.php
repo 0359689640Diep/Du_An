@@ -50,7 +50,7 @@
                 // var_dump($number) ; die();
                 if(isset($number)){
                     foreach($number as $key=>$value){
-                        $sumPrice = ((float)$value * (float)$Price) * 0.1+10;
+                        $sumPrice = ((float)$value * (float)$Price);
                         $queryCart = $conn->query("update cart set Price = $sumPrice, Number = $value where IdCart =$key");
                         if(!$queryCart){
                             $data["messageError"] = $conn->error;
