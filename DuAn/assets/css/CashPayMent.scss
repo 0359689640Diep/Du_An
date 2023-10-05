@@ -1,0 +1,200 @@
+@import "masterLayout/main";
+@import "./masterLayout/mixin";
+    
+.page{
+    height: 1500px;
+    .contener{
+        grid-template-rows: 10% 65% 25%;
+
+        main{
+            display: flex;
+            padding: 6% 24px;
+            justify-content: space-between;
+            background-color: var(--background-color1);
+            border-top: 2px solid var(--background-color3);
+            .mainOrder{
+                height: 100%;
+                width: 47%;
+                padding: 5%;
+
+                .contentMainOrder{
+                    @include WidthHieght;
+
+                    .contentMainOrderHeader{
+                        @include WidthHieght;
+                        @include FlexCenter;
+                        justify-content: space-between;
+                        height: 10%;
+
+                        h1{
+                            font-size: 1.5rem;
+                        }
+                        p{
+                            font-size: 0.875rem;
+
+                        }
+                    }
+                    .contentMainOrderMain{
+                        width: 100%;
+                        max-height: 80%;
+
+                        .listItem{
+                            width: 100%;
+                            max-height: 70%;
+                            flex-wrap: nowrap;
+                            overflow-x: auto;
+                            border-bottom: 2px solid var(--background-color3);
+                            
+                            .item{
+                                width: 100%;
+                                height: 10%;
+                                margin: 2% 0; 
+                                @include FlexCenter;
+                                justify-content: space-between;
+
+                                h4{
+                                    font-size: 1.5rem;
+                                }
+                            }
+                        }
+                        .subTotal{
+                            width: 100%;
+                            max-height: 20%;
+                            border-bottom: 2px solid var(--background-color3);
+                            flex-wrap: nowrap;  
+                            overflow-x: auto;
+                            
+                            .item{
+                                width: 100%;
+                                height: 25%;
+                                margin: 2% 0; 
+                                @include FlexCenter;
+                                justify-content: space-between;
+
+                                h4{
+                                    font-size: 1.5rem;
+                                }
+                            }
+                        }
+                        .total{
+                            width: 100%;
+                            height: 10%;
+                            border-bottom: 2px solid var(--background-color3);
+                            
+                            .item{
+                                @include WidthHieght;
+                                @include FlexCenter;
+                                height: 70%;
+                                justify-content: space-between;
+
+                                h4{
+                                    font-size: 1.5rem;
+                                }
+                            }
+                        }
+
+                    }
+                    .contentMainOrderFooter{
+                        width: 100%;
+                        height: 10%;
+                        
+                        p{
+                            font-size: 0.78rem;
+                            color: var(--text-color3);
+                        }
+
+
+                    }
+                }
+            }
+            .mainCart{
+                height: 100%;
+                width: 47%;
+                background-color: var(--background-color);
+                border-radius: 74px;
+                padding: 5% 2%;
+
+                .img{
+                    width: 100%;
+                    height: 40%;
+
+                    img{
+                        @include WidthHieght;
+                    }
+                }
+                .contentMainCart{
+                    width: 100%;
+                    height: 60%;
+                    
+                    .contentMainCartHeader{
+                        width: 100%;
+                        height: 60%;
+                        @include FlexCenter;
+                        justify-content: space-between;
+                        .input{
+                            width: 45%;
+                            height: 100%;
+                            padding: 5% 0;
+                            input{
+                                width: 100%;
+                                height: 25%;
+                                margin: 10% 0;
+                                border-radius: 11px;
+                                font-size: 0.8725rem;
+                                color: var(--text-color3);
+                                padding-left: 10%;
+                                border: none;
+                                
+                            }
+                            input:focus{
+                                outline: none;
+                            }
+                        }
+                        .rules{
+                            width: 45%;
+                            height: 100%;                            
+                            p{
+                                margin: 25% 0% 15% 0;
+                                font-size: 0.8725rem;
+                                color: var(--text-color3);
+                            }
+                            label{
+                                font-size: 0.8725rem;
+                                color: var(--text-color3);
+
+                            }
+                        }
+                    }
+                    .contentMainCartFooter{
+                        width: 100%;
+                        height: 20%;
+                        @include FlexCenter;
+                        justify-content: space-between;
+
+                        input{
+                            width: 30%;
+                            height: 50%;
+                            border-radius: 11px;
+                            color: var(--text-color3);
+                            padding-left: 5%;
+                            font-size: 0.875rem;
+                            
+                        }
+                        input:focus{
+                            outline: none;
+                        }
+                        input:nth-child(3){
+                            color: var(--text-color1);
+                            padding-left: 0;
+                            
+                        }
+                    }
+                }
+            }
+        }
+        footer > .footer{
+            height: 14%;
+            
+        }
+    }
+}

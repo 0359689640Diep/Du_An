@@ -11,16 +11,17 @@ class CartController extends Controller{
                 $_SESSION['Price'] = $data["showCart"][0]['Price'];
             }
             $dataPay = $this->PayBank();
-            $idAccount = $_GET['id'];
             $this->loadView("CartViews.php", $data);
             if($dataPay == null){
-            // var_dump($dataPay);
-                echo "test";
+                // var_dump($dataPay);
                 if(!empty($_COOKIE['CashPayMentAccout'])){
+                    $idAccount = $_COOKIE['CashPayMentAccout'];
                     header("location: index.php?controller=CashPayMent&id=$idAccount");
                     
                 }elseif(!empty($_COOKIE['BankCardPayMentAccout'])){
-                    header("location: index.php?controller=CashPaymentAccout&id=$idAccount");
+                     $idAccount = $_COOKIE['BankCardPayMentAccout'];
+
+                    header("location: index.php?controller=BankCardPayMent&id=$idAccount");
                     
                 }else{
                     die("error");
