@@ -39,7 +39,7 @@
                 ?>
 
                 <i onclick="RenderPersonalPage('Cart', <?= $IdAccountUser ?> )" class="ti-shopping-cart"></i>
-                <i onclick="RenderPersonalPage('PersonalPage',<?= $IdAccountUser ?>)" class="ti-user"></i>
+                <i onclick="RenderPersonalPage('Personal',<?= $IdAccountUser ?>)" class="ti-user"></i>
             </article>
         </section> 
     </section>

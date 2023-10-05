@@ -10,6 +10,7 @@
   --background-color1:#FFFFFF;
   --background-color2:#F2F0F1;
   --background-color3:#F0F0F0;
+  --background-color4:#ededed;
   --text-color:#FFFFFF;
   --text-color1:#000000;
   --text-color2:#FF3333;
@@ -386,184 +387,103 @@ footer > .footer {
 
 .page {
   height: 1500px;
+  padding: 0px 2%;
 }
 .page .contener {
   grid-template-rows: 10% 65% 25%;
 }
 .page .contener main {
-  display: flex;
-  padding: 6% 24px;
-  justify-content: space-between;
+  padding: 3% 0 8% 0;
   background-color: var(--background-color1);
   border-top: 2px solid var(--background-color3);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
-.page .contener main .mainOrder {
-  height: 100%;
-  width: 47%;
-  padding: 5%;
-}
-.page .contener main .mainOrder .contentMainOrder {
-  width: 100%;
+.page .contener main .sidebar {
+  width: 20%;
   height: 100%;
 }
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderHeader {
+.page .contener main .sidebar .headerSidebar {
   width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.page .contener main .sidebar .headerSidebar .img {
+  width: 55%;
+  height: 100%;
+}
+.page .contener main .sidebar .headerSidebar .img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.page .contener main .sidebar .headerSidebar .Name {
+  width: 40%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 10%;
 }
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderHeader h1 {
-  font-size: 1.5rem;
+.page .contener main .sidebar .headerSidebar .Name h1 {
+  font-size: 1rem;
 }
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderHeader p {
-  font-size: 0.875rem;
-}
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderMain {
+.page .contener main .sidebar .mainSidebar {
+  margin: 25% 0;
   width: 100%;
-  max-height: 80%;
-  min-height: 50%;
+  height: 50%;
+  border-bottom: 2px solid var(--text-color3);
 }
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderMain .listItem {
+.page .contener main .sidebar .mainSidebar .item {
   width: 100%;
-  max-height: 70%;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  border-bottom: 2px solid var(--background-color3);
-}
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderMain .listItem .item {
-  width: 100%;
-  height: 10%;
+  height: 15%;
   margin: 5% 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderMain .listItem .item h4 {
-  font-size: 1.5rem;
+.page .contener main .sidebar .mainSidebar .item h3 {
+  font-size: 1.3rem;
+  color: var(--text-color1);
 }
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderMain .subTotal {
+.page .contener main .sidebar .mainSidebar .item i {
+  font-size: 1.3rem;
+}
+.page .contener main .sidebar .mainSidebar .item:hover {
+  background-color: var(--background-color4);
+  border-left: 5px solid;
+}
+.page .contener main .sidebar .footerSidebar {
   width: 100%;
-  max-height: 20%;
-  border-bottom: 2px solid var(--background-color3);
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  height: 18%;
 }
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderMain .subTotal .item {
-  width: 100%;
-  height: 25%;
-  margin: 2% 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderMain .subTotal .item h4 {
-  font-size: 1.5rem;
-}
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderMain .total {
-  width: 100%;
-  height: 10%;
-  border-bottom: 2px solid var(--background-color3);
-}
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderMain .total .item {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  height: 70%;
-  justify-content: space-between;
-}
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderMain .total .item h4 {
-  font-size: 1.5rem;
-}
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderFooter {
-  width: 100%;
-  height: 10%;
-}
-.page .contener main .mainOrder .contentMainOrder .contentMainOrderFooter p {
-  font-size: 0.78rem;
-  color: var(--text-color3);
-}
-.page .contener main .mainCart {
-  height: 100%;
-  width: 47%;
-  background-color: var(--background-color);
-  border-radius: 74px;
-  padding: 5% 2%;
-}
-.page .contener main .mainCart .img {
+.page .contener main .sidebar .footerSidebar .item {
   width: 100%;
   height: 40%;
-}
-.page .contener main .mainCart .img img {
-  width: 100%;
-  height: 100%;
-}
-.page .contener main .mainCart .contentMainCart {
-  width: 100%;
-  height: 60%;
-}
-.page .contener main .mainCart .contentMainCart .contentMainCartHeader {
-  width: 100%;
-  height: 60%;
+  margin: 5% 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.page .contener main .mainCart .contentMainCart .contentMainCartHeader .input {
-  width: 45%;
-  height: 100%;
-  padding: 5% 0;
-}
-.page .contener main .mainCart .contentMainCart .contentMainCartHeader .input input {
-  width: 100%;
-  height: 25%;
-  margin: 10% 0;
-  border-radius: 11px;
-  font-size: 0.8725rem;
-  color: var(--text-color3);
-  padding-left: 10%;
-  border: none;
-}
-.page .contener main .mainCart .contentMainCart .contentMainCartHeader .input input:focus {
-  outline: none;
-}
-.page .contener main .mainCart .contentMainCart .contentMainCartHeader .rules {
-  width: 45%;
-  height: 100%;
-}
-.page .contener main .mainCart .contentMainCart .contentMainCartHeader .rules p {
-  margin: 25% 0% 15% 0;
-  font-size: 0.8725rem;
-  color: var(--text-color3);
-}
-.page .contener main .mainCart .contentMainCart .contentMainCartHeader .rules label {
-  font-size: 0.8725rem;
-  color: var(--text-color3);
-}
-.page .contener main .mainCart .contentMainCart .contentMainCartFooter {
-  width: 100%;
-  height: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.page .contener main .mainCart .contentMainCart .contentMainCartFooter input {
-  width: 30%;
-  height: 50%;
-  border-radius: 11px;
-  color: var(--text-color3);
-  padding-left: 5%;
-  font-size: 0.875rem;
-}
-.page .contener main .mainCart .contentMainCart .contentMainCartFooter input:focus {
-  outline: none;
-}
-.page .contener main .mainCart .contentMainCart .contentMainCartFooter input:nth-child(3) {
+.page .contener main .sidebar .footerSidebar .item h3 {
+  font-size: 1.3rem;
   color: var(--text-color1);
-  padding-left: 0;
+}
+.page .contener main .sidebar .footerSidebar .item i {
+  font-size: 1.3rem;
+}
+.page .contener main .sidebar .footerSidebar .item:hover {
+  background-color: var(--background-color4);
+  border-left: 5px solid;
+}
+.page .contener main .contentMain {
+  margin-left: 5%;
+  width: 70%;
+  height: 100%;
+  border-left: 2px solid var(--background-color4);
+  padding: 0 5%;
 }
 .page .contener footer > .footer {
-  height: 14%;
-}/*# sourceMappingURL=BankCardPayMent.css.map */
+  height: 10%;
+}/*# sourceMappingURL=mainPersonal.css.map */

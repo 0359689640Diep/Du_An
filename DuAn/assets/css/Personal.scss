@@ -1,0 +1,82 @@
+@import "masterLayout/mainPersonal";
+.contentMain{
+    .headerContentMain{
+        width: 100%;
+        height: 10%;
+
+        h1{
+            font-size: 1.7rem;
+        }
+        p{
+            color: var(--text-color3);
+            margin: 0.5% 0;
+        }
+    }
+    form{
+        width: 100%;
+        height: 90%;
+        @include  FlexCenter;
+        justify-content: space-between;
+
+        .fromLeft{
+            width: 60%;
+            height: 70%;
+
+            h4{
+                font-size: 1rem;
+                margin: 2% 0;
+                font-size: 1rem;
+
+            }
+            input{
+                width: 95%;
+                height: 8%;
+                padding-left: 5%;
+                font-size: 1rem;
+            }        
+            .sex{
+                @include  FlexCenter;
+                justify-content: space-between;
+            }
+            button{
+                width: 40%;
+                height: 10%;
+                margin: 5% 0;
+                background-color: var(--background-color);
+                color: var(--text-color);
+                font-size: 1rem;
+                border: none;
+            }
+            button:hover{
+                transition: linear 1s;
+                // transform: scale(2,2);
+                background-color: var(--text-color3);
+                border-radius: 20px;
+            };
+            
+            
+        }
+        .fromRight{
+            width: 40%;
+            height: 70%;
+            @include  FlexCenter;
+            justify-content: space-between;
+            justify-content: center;
+
+            .ContentFromRight{
+                width: 80%;
+                height: 40%;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 100px;
+                }
+                input{
+                    margin: 5% 0;
+                }
+            }
+        }
+    }
+
+}
