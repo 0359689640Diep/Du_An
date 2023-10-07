@@ -18,31 +18,34 @@
                         <h1>My profile</h1>
                         <p>Manage profile information for account security</p>
                     </section>
-                    <form action="index.php?controller=Personal&action=UpdateAccount&id=<?= $_GET['id']?>" method="post">
+                    <form action="index.php?controller=Personal&action=UpdateAccount" method="post" enctype="multipart/form-data">
                         <section class="fromLeft">
-                            <h4>User name:  <?= $data["showAccount"]["Name"]?></h4>
-                            <input required title="Cannot be left blank" type="text" name="name" >
-                            <h4>Email: <?= $data["showAccount"]["Gmail"]?></h4>
-                            <input required title="Cannot be left blank" type="email" name="email" id="">
-                            <h4>Phone number: <?= $data["showAccount"]["Phone"]?></h4>
-                            <input required title="Cannot be left blank" type="number" name="phone" id="">
-                            <h4>Sex: <?= $data["showAccount"]["Sex"]?></h4>
+                            <h4>User name:  </h4>
+                            <input required value="<?= $data["showAccount"]["Name"]?>" title="Cannot be left blank" type="text" name="name" >
+
+                            <h4>Email: </h4>
+                            <input required value="<?= $data["showAccount"]["Gmail"]?>" title="Cannot be left blank" type="email" name="email" id="">
+
+                            <h4>Phone number: </h4>
+                            <input required value="<?= $data["showAccount"]["Phone"]?>" title="Cannot be left blank" type="number" name="phone" id="">
+
+                            <h4>Gender: <?= $data["showAccount"]["Sex"]?></h4>
                             <article class="sex">
                                 <label  for="male">Male</label>
-                                <input required title="Cannot be left blank" type="radio" name="sex" id="male">
-                                <label for="female">Female</label>
-                                <input type="radio" name="sex" id="female">
-                                <label for="other">Other</label>
-                                <input type="radio" name="sex" id="other">
+                                <input <?= $data["showAccount"]["Sex"] ==  0 ? 'checked': "" ?> required title="Cannot be left blank" type="radio" value="0" name="sex" id="male">
+                                <label value = "" for="female">Female</label>
+                                <input <?= $data["showAccount"]["Sex"] ==  1 ? 'checked': "" ?> type="radio" value="1" name="sex" id="female">
+                                <label value = "" for="other">Other</label>
+                                <input <?= $data["showAccount"]["Sex"] == 2 ? 'checked': "" ?> type="radio" value="2" name="sex" id="other">
                             </article>
-                            <h4>Address: <?= $data["showAccount"]["Address"]?></h4>
-                            <input required title="Cannot be left blank" type="text" name="address" id="">
+                            <h4>Address: </h4>
+                            <input value="<?= $data["showAccount"]["Address"]?>" required title="Cannot be left blank" type="text" name="address" id="">
                             <button type="submit">Save</button>
                         </section>
                         
                         <section class="fromRight">
                             <article class="ContentFromRight">
-                                <img src="../assets/img/<?= $data["showAccount"]["Image"]?>" alt="image">
+                                <img src="../assets/imgUpload/<?= $data["showAccount"]["Image"]?>" alt="image">
                                 <input required title="Cannot be left blank" type="file" name="image" value="Select photo" id="">
                             </article>
                         </section>
@@ -54,4 +57,7 @@
         </section>
     </section>
 </body>
+<?php 
+// var_dump($data);
+?>
 </html>

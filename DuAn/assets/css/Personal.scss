@@ -33,7 +33,13 @@
                 height: 8%;
                 padding-left: 5%;
                 font-size: 1rem;
-            }        
+                border-top: none;
+                border-left: none;
+                border-right: none;
+            }  
+            input:focus{
+                outline: none;
+            }      
             .sex{
                 @include  FlexCenter;
                 justify-content: space-between;

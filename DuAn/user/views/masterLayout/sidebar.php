@@ -1,10 +1,10 @@
 <section class="sidebar">
     <section class="headerSidebar">
         <article class="img">
-            <img src="../assets/img/<?= $data["showAccount"]["Image"]?>" alt="">
+            <img src="../assets/imgUpload/<?= $_SESSION["ImageUser"]?>" alt="">
         </article>
         <article class="Name">
-            <h1><?= $data["showAccount"]["Name"]?></h1>
+            <h1><?= $_SESSION["NameUser"]?></h1>
         </article>
     </section>
     <section class="mainSidebar">
@@ -20,7 +20,7 @@
             <h3>Waiting for delivery</h3>
             <i class="ti-truck"></i>
         </article>
-        <article class="item">
+        <article class="item" onclick="loadView('CommentUser')">
             <h3>Evaluate</h3>
             <i class="ti-id-badge"></i>
         </article>
@@ -41,3 +41,8 @@
 
     </section>
 </section>
+<script>
+    function loadView(type){
+        window.location.replace(`index.php?controller=${type}`)
+    }
+</script>

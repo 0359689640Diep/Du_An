@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">
-        <section class="Notification" id="Notification"> </section>
+        <?php require "masterLayout/Notification.php" ?>
         <section class="left">
             <article class="Wellcome">
             <h1>Create  Account </h1>

@@ -386,225 +386,168 @@ footer > .footer {
 }
 
 .page {
-  width: 1470px;
   height: 1500px;
+  padding: 0px 2%;
 }
 .page .contener {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 10% 60% 30%;
-  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: 10% 65% 25%;
 }
 .page .contener main {
-  width: 100%;
-  height: 100%;
-  grid-area: main;
+  padding: 3% 0 8% 0;
   background-color: var(--background-color1);
-  border-top: 2px solid var(--text-color3);
-  padding: 7% 2%;
-}
-.page .contener main form {
-  width: 100%;
-  height: 100%;
-}
-.page .contener main form h1 {
-  font-size: 40px;
-}
-.page .contener main form .contentCart {
-  width: 100%;
-  height: 100%;
+  border-top: 2px solid var(--background-color3);
   display: flex;
   align-items: center;
-  height: 80%;
-  margin: 5% 0;
   justify-content: space-evenly;
 }
-.page .contener main form .contentCart .product {
-  border: 2px solid var(--text-color3);
-  border-radius: 20px;
-  width: 100%;
+.page .contener main .sidebar {
+  width: 20%;
   height: 100%;
-  width: 50%;
-  flex-wrap: nowrap;
-  overflow-y: auto;
-  padding: 2%;
 }
-.page .contener main form .contentCart .product .listProduct {
+.page .contener main .sidebar .headerSidebar {
   width: 100%;
-  height: 100%;
-  height: 35%;
-  border-bottom: 2px solid var(--text-color3);
-  margin-bottom: 5%;
+  height: 15%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-bottom: 5%;
+  justify-content: space-around;
 }
-.page .contener main form .contentCart .product .img {
-  width: 30%;
+.page .contener main .sidebar .headerSidebar .img {
+  width: 55%;
   height: 100%;
 }
-.page .contener main form .contentCart .product .img img {
+.page .contener main .sidebar .headerSidebar .img img {
   width: 100%;
   height: 100%;
+  border-radius: 10px;
 }
-.page .contener main form .contentCart .product .contentProduct {
-  width: 65%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.page .contener main form .contentCart .product .contentProduct .contentProductLeft {
-  height: 100%;
-  width: 70%;
-}
-.page .contener main form .contentCart .product .contentProduct .contentProductLeft h1 {
-  font-size: 1.25rem;
-}
-.page .contener main form .contentCart .product .contentProduct .contentProductLeft h4 {
-  font-size: 0.875rem;
-  margin: 5% 0;
-}
-.page .contener main form .contentCart .product .contentProduct .contentProductRight {
-  height: 100%;
-  width: 30%;
-  position: relative;
-}
-.page .contener main form .contentCart .product .contentProduct .contentProductRight i {
-  position: absolute;
-  top: 0;
-  right: 0;
-  color: var(--text-color2);
-  font-size: 2rem;
-}
-.page .contener main form .contentCart .product .contentProduct .contentProductRight input {
-  position: absolute;
-  bottom: 0;
-  font-size: 2rem;
-  width: 100%;
-  height: 30%;
-  border-radius: 62px;
-  text-align: center;
-  font-size: 1rem;
-  background-color: var(--background-color3);
-  border: none;
-}
-.page .contener main form .contentCart .product .contentProduct .contentProductRight input:focus {
-  outline: none;
-}
-.page .contener main form .contentCart .detail {
-  border: 2px solid var(--text-color3);
-  border-radius: 20px;
-  width: 100%;
-  height: 100%;
+.page .contener main .sidebar .headerSidebar .Name {
   width: 40%;
-  flex-wrap: nowrap;
-  overflow-y: hidden;
-  padding: 2%;
-}
-.page .contener main form .contentCart .detail h1 {
-  font-size: 1.5rem;
-}
-.page .contener main form .contentCart .detail .detailSEO {
-  width: 100%;
   height: 100%;
-  height: 35%;
-  margin-top: 5%;
-  overflow-x: auto;
-  border-bottom: 2px solid var(--text-color3);
-}
-.page .contener main form .contentCart .detail .detailSEO .contentDetailSEO {
-  width: 100%;
-  height: 100%;
-  height: 20%;
   display: flex;
   align-items: center;
-  margin-bottom: 2%;
-  justify-content: space-between;
 }
-.page .contener main form .contentCart .detail .detailSEO .contentDetailSEO h4 {
-  font-size: 1.25rem;
-}
-.page .contener main form .contentCart .detail .detailSEO .contentDetailSEO h4:nth-child(1) {
-  font-size: 1.25rem;
-  color: var(--text-color3);
-}
-.page .contener main form .contentCart .Totail {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 10%;
-  margin: 5% 0;
-}
-.page .contener main form .contentCart .Totail h4 {
-  font-size: 1.25rem;
-}
-.page .contener main form .contentCart .Totail h4:nth-child(1) {
-  font-size: 1.25rem;
-  color: var(--text-color3);
-}
-.page .contener main form .contentCart .AddCromoCode {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 10%;
-  margin: 1% 0;
-}
-.page .contener main form .contentCart .AddCromoCode input {
-  width: 100%;
-  height: 100%;
-  border-radius: 62px;
-  border: none;
+.page .contener main .sidebar .headerSidebar .Name h1 {
   font-size: 1rem;
 }
-.page .contener main form .contentCart .AddCromoCode input:focus {
-  outline: none;
-}
-.page .contener main form .contentCart .AddCromoCode input:nth-child(1) {
-  width: 65%;
-  background-color: var(--background-color3);
-  padding-left: 10%;
-}
-.page .contener main form .contentCart .AddCromoCode input:nth-child(2) {
-  width: 30%;
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-.page .contener main form .contentCart .Payment {
+.page .contener main .sidebar .mainSidebar {
+  margin: 25% 0;
   width: 100%;
-  height: 25%;
-  margin: 4% 0;
-  position: relative;
+  height: 50%;
+  border-bottom: 2px solid var(--text-color3);
 }
-.page .contener main form .contentCart .Payment button {
+.page .contener main .sidebar .mainSidebar .item {
+  width: 100%;
+  height: 15%;
+  margin: 5% 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page .contener main .sidebar .mainSidebar .item h3 {
+  font-size: 1.3rem;
+  color: var(--text-color1);
+}
+.page .contener main .sidebar .mainSidebar .item i {
+  font-size: 1.3rem;
+}
+.page .contener main .sidebar .mainSidebar .item:hover {
+  background-color: var(--background-color4);
+  border-left: 5px solid;
+}
+.page .contener main .sidebar .footerSidebar {
+  width: 100%;
+  height: 18%;
+}
+.page .contener main .sidebar .footerSidebar .item {
   width: 100%;
   height: 40%;
-  margin-bottom: 5%;
-  background-color: var(--background-color);
-  text-align: center;
-  font-size: 1rem;
-  border-radius: 62px;
-  color: var(--text-color);
+  margin: 5% 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.page .contener main form .contentCart .Payment i:nth-child(1) {
-  position: absolute;
-  color: var(--text-color);
-  font-size: 1.5rem;
-  right: 30%;
-  top: 11%;
+.page .contener main .sidebar .footerSidebar .item h3 {
+  font-size: 1.3rem;
+  color: var(--text-color1);
 }
-.page .contener main form .contentCart .Payment i:nth-child(2) {
-  position: absolute;
-  color: var(--text-color);
-  font-size: 1.5rem;
-  right: 25%;
-  top: 68%;
+.page .contener main .sidebar .footerSidebar .item i {
+  font-size: 1.3rem;
+}
+.page .contener main .sidebar .footerSidebar .item:hover {
+  background-color: var(--background-color4);
+  border-left: 5px solid;
+}
+.page .contener main .contentMain {
+  margin-left: 5%;
+  width: 70%;
+  height: 100%;
+  border-left: 2px solid var(--background-color4);
+  padding: 0 5%;
 }
 .page .contener footer > .footer {
+  height: 10%;
+}
+
+.contentMain {
+  overflow: auto;
+}
+.contentMain .listProduct {
+  border-bottom: 2px solid var(--text-color3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   height: 20%;
-}/*# sourceMappingURL=Cart.css.map */
+  margin-top: 5%;
+}
+.contentMain .listProduct .img {
+  width: 20%;
+  height: 100%;
+}
+.contentMain .listProduct .img img {
+  width: 100%;
+  height: 100%;
+}
+.contentMain .listProduct .content {
+  width: 30%;
+  height: 100%;
+}
+.contentMain .listProduct .content h1 {
+  font-size: 1.5rem;
+}
+.contentMain .listProduct .content h4 {
+  margin: 2% 0;
+  font-size: 1rem;
+  color: var(--text-color3);
+}
+.contentMain .listProduct form {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.contentMain .listProduct form input:nth-child(1) {
+  width: 60%;
+  height: 75%;
+  font-size: 1.2rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.contentMain .listProduct form input:nth-child(1):focus {
+  outline: none;
+}
+.contentMain .listProduct form input:nth-child(2) {
+  width: 35%;
+  height: 30%;
+  font-size: 1rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 10px;
+}
+.contentMain .listProduct form input:nth-child(2):hover {
+  background-color: var(--text-color3);
+  transition: linear 1s;
+}/*# sourceMappingURL=CommentUser.css.map */

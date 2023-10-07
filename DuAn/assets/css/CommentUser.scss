@@ -1,0 +1,67 @@
+@import "masterLayout/mainPersonal";
+.contentMain{
+    overflow: auto;
+    .listProduct{
+        border-bottom: 2px solid var(--text-color3);
+        @include FlexCenter;
+        justify-content: space-between;
+        width: 100%;
+        height: 20%;
+        margin-top: 5%;
+        
+        .img{
+            width: 20%;
+            height: 100%;
+            img{
+                @include WidthHieght;
+            }
+        }
+        .content{
+            width: 30%;
+            height: 100%;
+
+            h1{
+                font-size: 1.5rem;
+            }
+            h4{
+                margin: 2% 0;
+                font-size: 1rem;
+                color: var(--text-color3);
+            }
+        
+        }
+        form{
+            width: 40%;
+            height: 100%;
+            @include FlexCenter;
+            justify-content: space-around;
+        
+            input:nth-child(1){
+                width: 60%;
+                height: 75%;
+                font-size: 1.2rem;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+            }
+            input:nth-child(1):focus{
+                outline: none;
+            }
+            input:nth-child(2){
+                width: 35%;
+                height: 30%;
+                font-size: 1rem;
+                background-color: var(--background-color);
+                color: var(--text-color);
+                border: none;
+                border-radius: 10px;
+            }
+            input:nth-child(2):hover{
+                background-color: var(--text-color3);
+                transition: linear 1s;
+
+            }
+        }
+    }
+
+}
