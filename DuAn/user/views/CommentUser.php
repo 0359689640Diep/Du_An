@@ -16,24 +16,48 @@
                 <?php require "masterLayout/sidebar.php" ?>
                 <section class="contentMain">
                     <?php 
-                    foreach($data['listProduct'] as $value){
-                        echo "
-                        <section class='listProduct'>
-                            <article class='img'>
-                                <img src='../assets/imgUpload/{$value['image']}' alt=''>
-                            </article>
-                            <section class='content'>
-                                <h1>NameProducts: {$value['NameProducts']}</h1>
-                                <h4>Size: {$value['Size']}</h4>
-                                <h4>Quantity: {$value['Number']}</h4>
-                                <h4>Price: {$value['Price']}</h4>
+                    if(isset($data['listProduct'])){
+                        foreach($data['listProduct'] as $value){
+                            echo "
+                            <section class='listProduct'>
+                                <article class='img'>
+                                    <img src='../assets/imgUpload/{$value['image']}' alt=''>
+                                </article>
+                                <section class='content'>
+                                    <h1>NameProducts: {$value['NameProducts']}</h1>
+                                    <h4>Size: {$value['Size']}</h4>
+                                    <h4>Quantity: {$value['Number']}</h4>
+                                    <h4>Price: {$value['Price']}</h4>
+                                </section>
+                                <form action='index.php?controller=CommentUser&action=addComment&id={$value['IdProduct']}' method='post'>
+                                    <input type='text' name='comment' autofocus>
+                                    <input type='submit' value='Add comment'>
+                                </form>
+                            </section>                    
+                            ";
+                        }
+                    }else{
+                        foreach($data['listComment'] as $value){
+                            echo "
+                            <section class='listComment'>
+                                <article class='img'>
+                                    <img src='../assets/imgUpload/{$value['image']}' alt=''>
+                                </article>
+                                <article class='content'>
+                                    <h1>Name: {$value['Name']}</h1>
+                                    <h4>{$value['Content']}</h4>
+                                </article>
+                                <form id='myForm' action='index.php?controller=CommentUser&action=FixComment&id={$value['IdComment']}' method='post'>
+                                    <input type='text' name='comment'>
+                                    <article class='button'>
+                                        <button type='submit'>Fix</button>
+                                        <button><a href='index.php?controller=CommentUser&action=deleteComment&id={$value['IdComment']}'>Delete</a> </button>
+
+                                    </article>  
+                                </form>
                             </section>
-                            <form action='index.php?controller=CommentUser&action=addComment&id={$value['IdProduct']}' method='post'>
-                                <input type='text' name='comment' autofocus>
-                                <input type='submit' value='Add comment'>
-                            </form>
-                        </section>                    
-                        ";
+                            ";
+                        }
                     }
                     ?>
                 </section>
@@ -51,7 +75,7 @@ if(isset($data['message'])){
           title= 'Success',
           message= '$success',
           type= 'success',
-          duration= 500,
+          duration= 1000,
           quantity = '0'
       )
         </script>";        
@@ -62,7 +86,7 @@ if(isset($data['message'])){
       title= 'Error',
       message= '$message',
       type= 'error',
-      duration= 500,
+      duration= 1000,
       quantity = '0'
   )
   ";
@@ -70,4 +94,5 @@ if(isset($data['message'])){
 }
 }
 ?>
+
 </html>

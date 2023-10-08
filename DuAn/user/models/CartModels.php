@@ -45,10 +45,10 @@
             $data = array();
             if($_SERVER['REQUEST_METHOD']){
                 extract($_POST);
-                $Price = $_SESSION['Price'];
                 // echo "<pre>";
                 // var_dump($number) ; die();
-                if(isset($number)){
+                if(isset($Price)){
+                    $Price = $_SESSION['Price'];
                     foreach($number as $key=>$value){
                         $sumPrice = ((float)$value * (float)$Price);
                         $queryCart = $conn->query("update cart set Price = $sumPrice, Number = $value where IdCart =$key");

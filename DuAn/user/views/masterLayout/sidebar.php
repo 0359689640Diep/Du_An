@@ -17,20 +17,20 @@
             <i class="ti-archive"></i>
         </article>
         <article class="item">
-            <h3>Waiting for delivery</h3>
+            <h3>Being shipped</h3>
             <i class="ti-truck"></i>
         </article>
         <article class="item" onclick="loadView('CommentUser')">
             <h3>Evaluate</h3>
             <i class="ti-id-badge"></i>
         </article>
-        <article class="item">
+        <article class="item" onclick="loadView('home')">
             <h3>Home</h3>
             <i class="ti-home"></i>
         </article>
     </section>
     <section class="footerSidebar">
-        <article class="item">
+        <article class="item" onclick="loadView('Personal')">
             <h3>Profile</h3>
             <i class="ti-user"></i>
         </article>

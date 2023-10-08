@@ -35,11 +35,11 @@
             </section>
             <article class="Cart_Individual">
                 <?php 
-                    $IdAccountUser = $_SESSION['IdAccountUser'] ?? '';
+                    $IdAccountUser = $_SESSION['IdAccountUser'];
                 ?>
 
-                <i onclick="RenderPersonalPage('Cart' )" class="ti-shopping-cart"></i>
-                <i onclick="RenderPersonalPage('Personal')" class="ti-user"></i>
+                <i onclick="RenderPersonalPage('Cart', <?= $IdAccountUser?>)" class="ti-shopping-cart"></i>
+                <i onclick="RenderPersonalPage('Personal', <?= $IdAccountUser?>)" class="ti-user"></i>
             </article>
         </section> 
     </section>
@@ -115,7 +115,7 @@ function showHideMenu(menu, showHide) {
 }
 showHideMenu( 'contentNavMobile','ti-menu')
 showHideMenu( 'sheachMobile','ti-search');
-    function RenderPersonalPage(Arrive){
+    function RenderPersonalPage(Arrive, IdAccountUser){
         if (IdAccountUser === null || IdAccountUser === undefined) {
                 window.location.replace("http://localhost:3000/DuAn/user/index.php?controller=login");
             } else {

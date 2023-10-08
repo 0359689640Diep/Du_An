@@ -52,8 +52,10 @@ trait CashPayMentModels{
             $conn = Connection::getInstance();
             $data = $this->getData();
             foreach($data as $value){
+        //status:  1 = Chờ xác nhận, 2 = Đang chờ giao hàng, 3 = Đang được vận chuyển, 
+        // StatusComment: 0 = chưa comment, 1 = đã comment 
                 $quey = $conn->query("
-                insert into orderconfirmation value(null, null , '$value[IdProduct]', '$value[IdAccount]',
+                insert into orderconfirmation value(null, '1', '0', '$value[IdProduct]', '$value[IdAccount]',
                 '$value[Size]','$value[Price]','$value[Number]','TM')");
                 
                 if($quey){
