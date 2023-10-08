@@ -141,96 +141,27 @@
                 <section class="Customers">
                     <h1>OUR HAPPY CUSTOMERS</h1>
                     <section class="Content">
-                        <section class="Comment">
-                            <article class="Evaluate">
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                            </article>
-                            <article class="NameCustomers">
-                                <h1>Henry</h1>
-                            </article>
-                            <article class="CommentContent">
-                                <p>1111111111111111111</p>
-                            </article>
-                        </section>
-                        <section class="Comment">
-                            <article class="Evaluate">
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                            </article>
-                            <article class="NameCustomers">
-                                <h1>Henry</h1>
-                            </article>
-                            <article class="CommentContent">
-                                <p>1111111111111111111</p>
-                            </article>
-                        </section>
-                        <section class="Comment">
-                            <article class="Evaluate">
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                            </article>
-                            <article class="NameCustomers">
-                                <h1>Henry</h1>
-                            </article>
-                            <article class="CommentContent">
-                                <p>1111111111111111111</p>
-                            </article>
-                        </section>
-                        <section class="Comment">
-                            <article class="Evaluate">
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                            </article>
-                            <article class="NameCustomers">
-                                <h1>Henry</h1>
-                            </article>
-                            <article class="CommentContent">
-                                <p>1111111111111111111</p>
-                            </article>
-                        </section>
-                        <section class="Comment">
-                            <article class="Evaluate">
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                            </article>
-                            <article class="NameCustomers">
-                                <h1>Henry</h1>
-                            </article>
-                            <article class="CommentContent">
-                                <p>1111111111111111111</p>
-                            </article>
-                        </section>
-                        <section class="Comment">
-                            <article class="Evaluate">
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                            </article>
-                            <article class="NameCustomers">
-                                <h1>Henry</h1>
-                            </article>
-                            <article class="CommentContent">
-                                <p>1111111111111111111</p>
-                            </article>
-                        </section>
+                        <?php 
+                         foreach($data["showComment"] as $value){
+                            echo "
+                            <section class='Comment'>
+                                <article class='Evaluate'>
+                                    <i class='ti-star'></i>
+                                    <i class='ti-star'></i>
+                                    <i class='ti-star'></i>
+                                    <i class='ti-star'></i>
+                                    <i class='ti-star'></i>
+                                </article>
+                                <article class='NameCustomers'>
+                                    <h1>{$value["Name"]}</h1>
+                                </article>
+                                <article class='CommentContent'>
+                                    <p> </p>
+                                </article>
+                            </section>
+                            ";
+                         }
+                        ?>
 
                     </section>
                 </section>

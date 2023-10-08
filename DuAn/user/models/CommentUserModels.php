@@ -7,14 +7,10 @@ trait CommentUserModel{
         // StatusComment: 1 = chưa comment, 2 = đã comment 
         $query = $conn->query("
         SELECT orderconfirmation.Size, orderconfirmation.Price, orderconfirmation.IdProduct, 
-        orderconfirmation.Number, product.NameProducts, product.image 
+        orderconfirmation.Number, orderconfirmation.IdOrder, product.NameProducts, product.image 
         FROM orderconfirmation
         JOIN product ON orderconfirmation.IdProduct = product.IdProduct
-         WHERE orderconfirmation.StatusComment != 1 
-
-        ;
-        
-        ");
+         WHERE orderconfirmation.StatusComment != 1;");
         if($query){
             while($row = $query->fetch_assoc()){
                 $this->data["listProduct"][] = $row;
@@ -28,7 +24,7 @@ trait CommentUserModel{
                 join product on comment.IdProduct = product.IdProduct
                 join account on comment.IdAccount = account.Id
                 WHERE comment.Status != 1 ");
-                
+                // status: 1 la xoa 0 la hien thi
                 if($queryComment){
                     while($row = $queryComment->fetch_assoc()){
                         $this->data["listComment"][] = $row;
@@ -47,14 +43,29 @@ trait CommentUserModel{
             $date = date('Y-m-d H:i:s');
             $IdAccount = $_SESSION['IdAccountUser'];
             $IdProduct = $_GET['id'];
+            $IdOrder = $_GET['IdOrder'];
+            // echo "<pre>";
+            // print_r($IdOrder); die();            
             $conn = Connection::getInstance();
-            $query = $conn->query("insert into comment value(null,'$IdAccount', '$IdProduct', '$comment', '$date', '1')");
-            if($query){
-                $this->data['message'] = "Success";
+
+                // status: 1 la da comment xoa 0 la chua comment
+            $queryUpdateStatusComment = $conn->query("update orderconfirmation set 	StatusComment = '1' where IdOrder = $IdOrder ");
+
+            if($queryUpdateStatusComment){
+                // status: 1 la xoa 0 la hien thi
+                $query = $conn->query("insert into comment value(null,'$IdAccount', '$IdProduct', '$comment', '$date', '1')");
+                if($query){
+                    $this->data['message'] = "Success";
+                }else{
+                    
+                    $this->data['message'] = "Failure";
+                }
+
             }else{
-                
+                    
                 $this->data['message'] = "Failure";
             }
+
         }
         return $this->data;
     }

@@ -35,7 +35,7 @@
             </section>
             <article class="Cart_Individual">
                 <?php 
-                    $IdAccountUser = $_SESSION['IdAccountUser'];
+                    $IdAccountUser = isset($_SESSION['IdAccountUser']) ?? "";
                 ?>
 
                 <i onclick="RenderPersonalPage('Cart', <?= $IdAccountUser?>)" class="ti-shopping-cart"></i>

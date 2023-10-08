@@ -29,7 +29,7 @@
                                     <h4>Quantity: {$value['Number']}</h4>
                                     <h4>Price: {$value['Price']}</h4>
                                 </section>
-                                <form action='index.php?controller=CommentUser&action=addComment&id={$value['IdProduct']}' method='post'>
+                                <form action='index.php?controller=CommentUser&action=addComment&id={$value['IdProduct']}&IdOrder={$value['IdOrder']}' method='post'>
                                     <input type='text' name='comment' autofocus>
                                     <input type='submit' value='Add comment'>
                                 </form>
@@ -37,26 +37,28 @@
                             ";
                         }
                     }else{
-                        foreach($data['listComment'] as $value){
-                            echo "
-                            <section class='listComment'>
-                                <article class='img'>
-                                    <img src='../assets/imgUpload/{$value['image']}' alt=''>
-                                </article>
-                                <article class='content'>
-                                    <h1>Name: {$value['Name']}</h1>
-                                    <h4>{$value['Content']}</h4>
-                                </article>
-                                <form id='myForm' action='index.php?controller=CommentUser&action=FixComment&id={$value['IdComment']}' method='post'>
-                                    <input type='text' name='comment'>
-                                    <article class='button'>
-                                        <button type='submit'>Fix</button>
-                                        <button><a href='index.php?controller=CommentUser&action=deleteComment&id={$value['IdComment']}'>Delete</a> </button>
-
-                                    </article>  
-                                </form>
-                            </section>
-                            ";
+                        if(isset($data['listComment'] )){
+                            foreach($data['listComment'] as $value){
+                                echo "
+                                <section class='listComment'>
+                                    <article class='img'>
+                                        <img src='../assets/imgUpload/{$value['image']}' alt=''>
+                                    </article>
+                                    <article class='content'>
+                                        <h1>Name: {$value['Name']}</h1>
+                                        <h4>{$value['Content']}</h4>
+                                    </article>
+                                    <form id='myForm' action='index.php?controller=CommentUser&action=FixComment&id={$value['IdComment']}' method='post'>
+                                        <input type='text' name='comment'>
+                                        <article class='button'>
+                                            <button type='submit'>Fix</button>
+                                            <button><a href='index.php?controller=CommentUser&action=deleteComment&id={$value['IdComment']}'>Delete</a> </button>
+    
+                                        </article>  
+                                    </form>
+                                </section>
+                                ";
+                            }
                         }
                     }
                     ?>

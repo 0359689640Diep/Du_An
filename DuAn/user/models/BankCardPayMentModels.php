@@ -53,7 +53,7 @@ trait BankCardPayMentModels{
             $data = $this->getData();
             foreach($data as $value){
                 $quey = $conn->query("
-                insert into orderconfirmation value(null, null , '$value[IdProduct]', '$value[IdAccount]',
+                insert into orderconfirmation value(null, '1', '0', '$value[IdProduct]', '$value[IdAccount]',
                 '$value[Size]','$value[Price]','$value[Number]','CK')");
                 
                 if($quey){

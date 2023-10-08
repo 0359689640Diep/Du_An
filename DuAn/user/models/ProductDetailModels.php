@@ -31,6 +31,20 @@
             }
 
         }
+        public function showComment(){
+            $IdAccount = $_SESSION['IdAccountUser'];
+            $conn = Connection::getInstance();
+            $query = $conn->query("select comment.Content, account.Name from comment 
+            join account on comment.IdAccount = account.Id
+            where IdAccount = '$IdAccount'");
+            if($query){
+                while($row = $query->fetch_assoc()){
+                    $this->data['showComment'][] = $row;
+                }
+            }else{
+                $this->data['messageError'] = "Hệ thống đang bảo trì";
+            }
+        }
 
         public function GetProductsByCategory(){
             if(!empty($_SESSION["IdCategory"])){
@@ -105,6 +119,7 @@
         public function toString(){
             $this->showCategory();
             $this->showProduct();
+            $this->showComment();
             $this->showDetails();
             $this->GetProductsByCategory();
             // $this->checkLogin();
