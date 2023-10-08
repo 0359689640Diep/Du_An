@@ -40,7 +40,6 @@
                     <form action="index.php?controller=login&action=login" method="post">
                         <input type="email" required title="Không được để trống" placeholder="Gmail" name ="Gmail">
                         <input type="password" required title="Không được để trống" placeholder="Password" name ="Password">
-                        <span id="messageError" style="color:red;">
                         <?php if(!empty($_SESSION['messageError'])){echo $_SESSION['messageError'];}?>
                         </span>
                         <button type="submit" name="submit" >Log in to your account</button>

@@ -3,24 +3,28 @@
     <a href="index.php?controller=homeAdmin">Home</a>
 </section>
 <section class="setting">
+    <i class="ti-pencil-alt"></i>
+    <a href="">Browse orders</a>
+</section>
+<section class="setting" onclick="redirectToPage('index.php?controller=LisstComment')">
     <i class="ti-comment-alt"></i>
-    <a href="">Comment</a>
+    <a href="index.php?controller=LisstComment">Comment</a>
 </section>
 <section class="setting"  onclick="redirectToPage('index.php?controller=LisstAccount')">
     <i class="ti-list"></i>
     <a href="index.php?controller=LisstAccount">Lisst Account</a>
 </section>
 <section class="setting" onclick="redirectToPage('index.php?controller=SignIn')">
-    <i class="ti-list"></i>
-    <a href="index.php?controller=SignIn">Add Account</a>
-</section>
-<section class="setting" onclick="redirectToPage('index.php?controller=addProduct')">
     <i class="ti-cloud-up"></i>
-    <a href="index.php?controller=addProduct">Add Product</a>
+    <a href="index.php?controller=SignIn">Add Account</a>
 </section>
 <section class="setting" onclick="redirectToPage('index.php?controller=LisstProduct')">
     <i class="ti-list"></i>
     <a href="index.php?controller=LisstProduct">Lisst product</a>
+</section>
+<section class="setting" onclick="redirectToPage('index.php?controller=addProduct')">
+    <i class="ti-cloud-up"></i>
+    <a href="index.php?controller=addProduct">Add Product</a>
 </section>
 <section class="setting" onclick="redirectToPage('index.php?controller=AddCategory')">
     <i class="ti-write"></i>

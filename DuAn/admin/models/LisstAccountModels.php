@@ -2,7 +2,7 @@
 trait LisstAccountModels{
     public function LisstAccountModels(){
         $conn = Connection::getInstance();
-        $query = $conn->query("SELECT * FROM account where Status !=0 ");
+        $query = $conn->query("SELECT * FROM account where Status != 1 ");
         $data = array();
     
         if($query) {

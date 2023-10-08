@@ -58,8 +58,8 @@
                                 <article class='img'>
                                     <img src='../assets/img/$value[image]' alt='product'>
                                 </article>
-                                <article class='$value[NameProducts]'>
-                                    <h1>title</h1>
+                                <article class='title'>
+                                    <h1>$value[NameProducts]</h1>
                                 </article> 
                                 <article class='evaluate'>
                                     <i class='ti-star'></i>
@@ -90,8 +90,8 @@
                                 <article class='img'>
                                     <img src='../assets/img/$value[image]' alt='product'>
                                 </article>
-                                <article class='$value[NameProducts]'>
-                                    <h1>title</h1>
+                                <article class='title'>
+                                    <h1>$value[NameProducts]</h1>
                                 </article> 
                                 <article class='evaluate'>
                                     <i class='ti-star'></i>
@@ -142,25 +142,29 @@
                     <h1>OUR HAPPY CUSTOMERS</h1>
                     <section class="Content">
                         <?php 
-                         foreach($data["showComment"] as $value){
-                            echo "
-                            <section class='Comment'>
-                                <article class='Evaluate'>
-                                    <i class='ti-star'></i>
-                                    <i class='ti-star'></i>
-                                    <i class='ti-star'></i>
-                                    <i class='ti-star'></i>
-                                    <i class='ti-star'></i>
-                                </article>
-                                <article class='NameCustomers'>
-                                    <h1>{$value["Name"]}</h1>
-                                </article>
-                                <article class='CommentContent'>
-                                    <p> </p>
-                                </article>
-                            </section>
-                            ";
-                         }
+                        if(isset($data["showComment"])){
+                            foreach($data["showComment"] as $value){
+                               echo "
+                               <section class='Comment'>
+                                   <article class='Evaluate'>
+                                       <i class='ti-star'></i>
+                                       <i class='ti-star'></i>
+                                       <i class='ti-star'></i>
+                                       <i class='ti-star'></i>
+                                       <i class='ti-star'></i>
+                                   </article>
+                                   <article class='NameCustomers'>
+                                       <h1>{$value["Name"]}</h1>
+                                   </article>
+                                   <article class='CommentContent'>
+                                       <p>{$value["Content"]} </p>
+                                   </article>
+                               </section>
+                               ";
+                            }
+                        }else{
+                            echo "You need to log in to use the service";
+                        }
                         ?>
 
                     </section>

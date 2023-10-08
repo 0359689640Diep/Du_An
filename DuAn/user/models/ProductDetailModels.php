@@ -32,18 +32,22 @@
 
         }
         public function showComment(){
-            $IdAccount = $_SESSION['IdAccountUser'];
-            $conn = Connection::getInstance();
-            $query = $conn->query("select comment.Content, account.Name from comment 
-            join account on comment.IdAccount = account.Id
-            where IdAccount = '$IdAccount'");
-            if($query){
-                while($row = $query->fetch_assoc()){
-                    $this->data['showComment'][] = $row;
+            if(isset($_SESSION['IdAccountUser'])){
+                $IdAccount = $_SESSION['IdAccountUser'];
+                $conn = Connection::getInstance();
+                $query = $conn->query("select comment.Content, account.Name from comment 
+                join account on comment.IdAccount = account.Id
+                where IdAccount = '$IdAccount'");
+                if($query){
+                    while($row = $query->fetch_assoc()){
+                        $this->data['showComment'][] = $row;
+                    }
+                }else{
+                    $this->data['messageError'] = "Hệ thống đang bảo trì";
                 }
-            }else{
-                $this->data['messageError'] = "Hệ thống đang bảo trì";
-            }
+                // echo "<pre>";
+                // var_dump($data["showComment"]); die();                
+            }   
         }
 
         public function GetProductsByCategory(){

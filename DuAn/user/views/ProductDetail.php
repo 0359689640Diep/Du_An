@@ -91,26 +91,31 @@
                             <button>Write a Review</button>
                         </article>
                     </section>
-                    <section class="content">
+                    <section class="content">                           
                         <?php 
-                         foreach($data["showComment"] as $value){
-                            echo "
-                            <section class='Comment'>
-                                <article class='Evaluate'>
-                                    <i class='ti-star'></i>
-                                    <i class='ti-star'></i>
-                                    <i class='ti-star'></i>
-                                    <i class='ti-star'></i>
-                                    <i class='ti-star'></i>
-                                </article>
-                                <article class='NameCustomers'>
-                                    <h1>{$value["Name"]}</h1>
-                                </article>
-                                <article class='CommentContent'>
-                                    <p>{$value['Content']}</p>
-                                </article>
-                            </section>
-                            ";}
+                        if(isset($data["showComment"])){
+                            foreach($data["showComment"] as $value){
+                               echo "
+                               <section class='Comment'>
+                                   <article class='Evaluate'>
+                                       <i class='ti-star'></i>
+                                       <i class='ti-star'></i>
+                                       <i class='ti-star'></i>
+                                       <i class='ti-star'></i>
+                                       <i class='ti-star'></i>
+                                   </article>
+                                   <article class='NameCustomers'>
+                                       <h1>{$value["Name"]}</h1>
+                                   </article>
+                                   <article class='CommentContent'>
+                                       <p>{$value['Content']}</p>
+                                   </article>
+                               </section>
+                               ";
+                           }
+                        }else{
+                            echo "You need to log in to use the service";
+                        }
                         ?>
                     </section>
                 </section>

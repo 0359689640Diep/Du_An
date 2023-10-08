@@ -19,7 +19,7 @@
                     $CodeEmail = $infoUserArray['codeGmail'];
                     $conn = Connection::getInstance();
                     if($codeEmail === $CodeEmail){
-                        $insertQuery = $conn->query("INSERT INTO account (Gmail, Password, Name,Phone ,Permission, Address) VALUES ('$Gmail', '$Password', '$FullName','$Phone', '1', '$Address')");
+                        $insertQuery = $conn->query("INSERT INTO account (Gmail, Password, Name,Phone ,Permission,	Status ,Address) VALUES ('$Gmail', '$Password', '$FullName','$Phone', '1', '0', '$Address')");
                         if ($insertQuery ) {
                             $data[]["success"] = "Account successfully created";
                         } else {

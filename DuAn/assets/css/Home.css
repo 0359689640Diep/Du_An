@@ -356,7 +356,7 @@
 }
 .ListNewProduct> .NewProduct, .BestsellerProduct{
     width: 20%;
-    height: 100%;
+    height: 90%;
     margin: 1% 1%;
     flex: 0 0 auto;
 }
@@ -378,9 +378,8 @@
 .NewProduct> .title, .BestsellerProduct> .title{
     width: 100%;
     height: 12%;
-    margin: 1% 0;
-    display: flex;
-    align-items: center;
+    margin: 2% 0;
+    text-align: left;
 }
 .NewProduct> .title>h1, .BestsellerProduct> .title>h1{
     font-size: 20px;
@@ -401,9 +400,7 @@
     margin: 1% 0;
     width: 70%;
     height: 12%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    text-align: left;
 }
 .NewProduct> .price>h1, del, .BestsellerProduct> .price>h1, del{
     font-size: 24px;
@@ -520,7 +517,8 @@
     width: 100%;
     height: 80%;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: wrap;
+    word-wrap: break-word;
 }
 .Comment> .CommentContent>p{
     color: var(--text-color3);
