@@ -24,8 +24,8 @@
                     <?php echo ($data['display']['display']['Status'] == 1) ? "Display" : "Hidden"; ?>
                 </option>
 
-                    <option value="0">Hidden</option>
-                    <option value="1">Display</option>
+                    <option value="1">Hidden</option>
+                    <option value="0">Display</option>
                 </select>
                 <button type="submit">Fix Category</button>
             </form>

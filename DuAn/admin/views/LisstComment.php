@@ -63,4 +63,33 @@
     </section>
 </body>
 <script src="../assets/js/LisstComment.js"></script>
+<?php 
+if(isset($data['message'])){
+    echo $data['message'] ;
+    if ($data['message'] === 'Failure') {
+      $error = $data['message'];
+      echo "<script>
+      toast(
+        title= 'Error',
+        message= '$error',
+        type= 'error',
+        duration= 10000,'
+    )
+      </script>";
+    }else{
+        $success = $data['message'];
+        echo "<script>
+        toast(
+          title= 'Success',
+          message= '$success',
+          type= 'success',
+          duration= 10000,
+      )
+        </script>";        
+        // header("location:index.php?controller=Oder");
+    }
+    
+
+}
+?>
 </html>

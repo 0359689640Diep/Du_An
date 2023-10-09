@@ -19,6 +19,30 @@
         if(isset($data["listOder"])){
             foreach($data["listOder"] as $value){
                 $type = $value['Type'] === "TM" ? "Cash":"Transfer";
+                $status = '';
+                switch ($value['Status']){
+                    case $value['Status'] = 1:
+                        $status = "Wait for confirmation";
+                    break;
+                    case $value['Status'] = 2:
+                        $status = "Waiting for delivery";
+                    break;
+                    case $value['Status'] = 3:
+                        $status = "Being shipped";
+                    break;
+                    case $value['Status'] = 4:
+                        $status = "Delivered Successfully";
+                    break;
+                    case $value['Status'] = 5:
+                        $status = "Order was canceled due to Admin";
+                    break;
+                    case $value['Status'] = 6:
+                        $status = "Order was canceled due to {$value['Name']}";
+                    break;
+                    case $value['Status'] = 7:
+                        $status = "Order returned due to {$value['Name']}";
+                    break;
+                }
                 echo "
                 <section class='lisstOder'>
                     <section class='product'>
@@ -33,6 +57,7 @@
                                 <li>Number of products ordered: {$value['Number']}</li>
                                 <li>Size: {$value['Size']}</li>
                                 <li>Payments: {$type}</li>   
+                                <li style = 'color: orangered'>Status: {$status}</li>   
         
                             </ul>
         

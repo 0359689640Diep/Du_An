@@ -12,13 +12,17 @@
             <h3>Wait for confirmation</h3>
             <i class="ti-write"></i>
         </article>
-        <article class="item">
+        <article class="item" onclick="loadView('WaitingForDelivery')">
             <h3>Waiting for delivery</h3>
             <i class="ti-archive"></i>
         </article>
-        <article class="item">
+        <article class="item" onclick="loadView('BeingShipped')">
             <h3>Being shipped</h3>
             <i class="ti-truck"></i>
+        </article>
+        <article class="item" onclick="loadView('DeliveredSuccessfully')">
+            <h3>Delivered Successfully</h3>
+            <i class="ti-check-box"></i>
         </article>
         <article class="item" onclick="loadView('CommentUser')">
             <h3>Evaluate</h3>

@@ -16,27 +16,31 @@
                 <?php include "masterLayout/sidebar.php" ?>
                 <section class="contentMain">
                     <?php 
-                    foreach($data["lisstProduct"] as $value){
-                        echo "
-                        <section class='listContentMain'>
-                            <article class='imageProduct'>
-                                <img src='../assets/imgUpload/{$value['image']}' alt=''>
-                            </article>
-                            <section class='contentProduct'>
-                                <ul>
-                                    <li>Name Product: {$value['NameProducts']}</li>
-                                    <li>Price: {$value['Price']}</li>
-                                    <li>Address: {$value['Address']}</li>
-                                    <li>Phone: {$value['Phone']}</li>
-                                </ul>
+                    if(isset($data["lisstProduct"])){
+                        foreach($data["lisstProduct"] as $value){
+                            echo "
+                            <section class='listContentMain'>
+                                <article class='imageProduct'>
+                                    <img src='../assets/imgUpload/{$value['image']}' alt=''>
+                                </article>
+                                <section class='contentProduct'>
+                                    <ul>
+                                        <li>Name Product: {$value['NameProducts']}</li>
+                                        <li>Price: {$value['Price']}</li>
+                                        <li>Address: {$value['Address']}</li>
+                                        <li>Phone: {$value['Phone']}</li>
+                                    </ul>
+                                </section>
+                                <article class='function'>
+                                    <button>
+                                        <a href='index.php?controller=DeliveredSuccessfully&action=GiveBack&id={$value['IdOrder']}'>Give back</a>
+                                    </button>
+                                </article>
                             </section>
-                            <article class='function'>
-                                <button>
-                                    <a href='index.php?controller=WaitForConfirmation&action=CancelOrder&id={$value['IdOrder']}'>Cancel order</a>
-                                </button>
-                            </article>
-                        </section>
-                        ";
+                            ";
+                        }
+                    }else{
+                        echo "<h1>No orders yet</h1>";
                     }
                     ?>
                 </section>

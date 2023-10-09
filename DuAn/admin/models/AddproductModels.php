@@ -29,7 +29,7 @@ trait AddproductModels{
             ){
             $conn = Connection::getInstance();
             // thêm dữ liệu vào bảng details
-            $queryDetails = $conn->query("insert into productdetails(ProductDetails,ProductDescription) values($Details,$ProductDescription)");
+            $queryDetails = $conn->query("insert into productdetails(ProductDetails,ProductDescription) values('$Details','$ProductDescription')");
             if($queryDetails){
                 // lấy id từ bảng Details rồi đưa vào bảng product,
                 $getIdDetails = $conn->query("select IdProductDetails from productdetails");

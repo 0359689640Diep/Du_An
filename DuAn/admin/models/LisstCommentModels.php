@@ -30,12 +30,12 @@ trait LisstCommentModels{
 
         $query = $conn->query("update comment set Status = 0 where IdComment = '$IdComment '");
         if($query){
-            $this->data['message'] = "Success";
+            $this->data['message'] = "Comments restored successfully";
         }else{
-            $this->data['message'] = "Failure";
+            $this->data['message'] = "Comments restored successfully failure";
 
         }
-
+        return $this->data;
     }
     public function DeleteComment(){
         $IdComment  = $_GET['id'];
@@ -43,12 +43,12 @@ trait LisstCommentModels{
 
         $query = $conn->query("update comment set Status = 1 where IdComment = '$IdComment '");
         if($query){
-            $this->data['message'] = "Success";
+            $this->data['message'] = "Comment deleted successfully";
         }else{
-            $this->data['message'] = "Failure";
+            $this->data['message'] = "Comment deleted failure";
 
         }
-
+        return $this->data;
     }
 }
 ?>

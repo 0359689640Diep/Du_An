@@ -5,6 +5,9 @@ class SignInController extends Controller{
     // load views
     public function index(){
         $data = $this->modelSignIn();
+        // echo "<pre>";
+        // var_dump($data); 
+        // die();
         $this->loadView("SignIn.php", $data);
     }
 }

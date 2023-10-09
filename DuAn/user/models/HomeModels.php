@@ -16,7 +16,7 @@
 
         public function showProduct(){
             $conn = Connection::getInstance();
-            $query = $conn->query('select IdProduct, NameProducts, Price, Evalute, image from product');
+            $query = $conn->query('select IdProduct, NameProducts, Price, Evalute, image from product where Status = 0');
             if($query){
                 while($row = $query->fetch_assoc()){
                     $this->data['showProduct'][] = $row;

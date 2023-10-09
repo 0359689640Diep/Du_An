@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">
-        <section class="Notification" id="Notification"> </section>
+        <?php include "masterLayout/Notification.php" ?>
         <section class="left">
             <article class="Wellcome">
             <h1>Create  Account </h1>
@@ -37,16 +37,17 @@
                     <form action="index.php?controller=SignIn" method="post">
                         <input type="text" placeholder="Full Name " name ="FullName" required title="Không được để trống">
                         <input type="text" placeholder="Gmail" name ="Gmail" required title="Không được để trống">
+                        <input type="number" placeholder="Phone" name ="Phone" required title="Không được để trống">
+                        <input type="text" placeholder="Address" name ="Address" required title="Không được để trống">
                         <input type="password" placeholder="Password" name ="Password" required title="Không được để trống">
-                        <input type="password" placeholder="Password" name ="ConfirmationPassword" required title="Không được để trống">
+                        <input type="password" placeholder="Confirmation Password" name ="ConfirmationPassword" required title="Không được để trống">
                         <select name="Permission" id="Permission" required title="Không được để trống" >
                             <option value="">Permission</option>
                             <option value="0">Admin</option>
                             <option value="1">User</option>
                         </select>                        
                         <button  type="submit" name="submit" >Create  Account</button>
-                        <span id="messageError" style="color:red;"></span>
-                        
+               
                     </form>
                 </main>
                 <footer>
@@ -72,7 +73,7 @@ if(!empty($data)){
             title= 'Error',
             message= '$error',
             type= 'error',
-            duration= 50000,
+            duration= 10000,
             quantity = '$sumData'
         )
           </script>";
@@ -83,11 +84,11 @@ if(!empty($data)){
               title= 'Success',
               message= '$success',
               type= 'success',
-              duration= 50000,
+              duration= 10000,
               quantity = '0'
           )
             </script>";        
-            header("location:index.php?controller=LisstAccount");
+            
         }
       }
     

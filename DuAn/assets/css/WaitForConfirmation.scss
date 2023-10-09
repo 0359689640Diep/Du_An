@@ -51,6 +51,11 @@
                     font-size: 1rem;
                 }
             }
+            button:hover{
+                border-radius: 20px;
+                background-color: var(--text-color3);
+                transition: linear 1s;
+            }
         }
     }
 }

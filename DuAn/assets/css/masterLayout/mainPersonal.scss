@@ -46,7 +46,7 @@
                 }
             
                 .mainSidebar{
-                    margin: 25% 0;
+                    margin: 15% 0;
                     width: 100%;
                     height: 50%;
                     border-bottom: 2px solid var(--text-color3);
@@ -55,7 +55,6 @@
                     .item{
                         width: 100%;
                         height: 15%;
-                        margin: 5% 0;
                         @include FlexCenter;
                         justify-content: space-between;
             
@@ -80,7 +79,6 @@
                     .item{
                         width: 100%;
                         height: 40%;
-                        margin: 5% 0;
                         @include FlexCenter;
                         justify-content: space-between;
             

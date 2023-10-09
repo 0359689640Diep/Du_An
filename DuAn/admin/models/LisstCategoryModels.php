@@ -2,7 +2,7 @@
 trait LisstCategoryModels{
     public function LisstCategoryModels(){
         $conn = Connection::getInstance();
-        $query = $conn->query("SELECT * FROM category where Status != 0");
+        $query = $conn->query("SELECT * FROM category where Status = 0");
         $data = array();
     
         if($query) {
@@ -17,9 +17,9 @@ trait LisstCategoryModels{
     }
 
     public function delete($id){
-        $currentDate = date("Y/m/d");
+        $currentDate = date('Y-m-d H:i:s');
         $conn = Connection::getInstance();
-        $query = $conn->query("UPDATE category  SET DateEdit = $currentDate, Status = 0 where IdCategory = '$id' ");
+        $query = $conn->query("UPDATE category  SET DateEdit = '$currentDate', Status = '1' where IdCategory = '$id' ");
         $data = array();
         if($query){
             $data[] = true;

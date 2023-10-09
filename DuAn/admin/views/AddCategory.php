@@ -21,8 +21,8 @@
                 <label for="Status">Status</label>
                 <select name="Status" id="Status" required title="Không được để trống" >
                     <option value="">Status</option>
-                    <option value="0">Hidden</option>
-                    <option value="1">Presently</option>
+                    <option value="1">Hidden</option>
+                    <option value="0">Presently</option>
                 </select>
                 <button type="submit">Add Category</button>
             </form>

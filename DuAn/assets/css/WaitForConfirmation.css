@@ -50,9 +50,12 @@ html {
 
 .SEOSignUp > .ti-close {
   position: absolute;
-  right: 10%;
+  right: 30%;
+  top: 30%;
+  width: 2%;
+  color: var(--background-color1);
+  font-size: 1.1rem;
 }
-
 .contentHeader {
   width: 100%;
   height: 80%;
@@ -438,7 +441,6 @@ footer > .footer {
 .page .contener main .sidebar .mainSidebar .item {
   width: 100%;
   height: 15%;
-  margin: 5% 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -461,7 +463,6 @@ footer > .footer {
 .page .contener main .sidebar .footerSidebar .item {
   width: 100%;
   height: 40%;
-  margin: 5% 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -540,4 +541,9 @@ footer > .footer {
   text-decoration: none;
   color: var(--text-color);
   font-size: 1rem;
+}
+.contentMain .listContentMain .function button:hover {
+  border-radius: 20px;
+  background-color: var(--text-color3);
+  transition: linear 1s;
 }/*# sourceMappingURL=WaitForConfirmation.css.map */

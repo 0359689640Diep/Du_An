@@ -1,18 +1,18 @@
 <?php 
-include "models/WaitForConfirmationModels.php";
-class WaitForConfirmationController  extends Controller{
-    use WaitForConfirmationModels;
+include "models/WaitingForDeliveryModels.php";
+class WaitingForDeliveryController  extends Controller{
+    use WaitingForDeliveryModels;
     public function index(){
         // echo "<pre>";
         // var_dump($data);die();
         $data = $this->lisstProduct();
-        $this->loadView('WaitForConfirmation.php', $data);
+        $this->loadView('WaitingForDelivery.php', $data);
     }
     
     public function CancelOrder(){
         $data = $this->lisstProduct();
         $data = $this->CancelOrderUser();
-        $this->loadView('WaitForConfirmation.php', $data);
+        $this->loadView('WaitingForDelivery.php', $data);
 
     }
 }

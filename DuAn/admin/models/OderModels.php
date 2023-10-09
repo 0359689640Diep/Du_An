@@ -1,7 +1,7 @@
 <!-- 
 sp: Tên, giá, ảnh, số lượng, size
 user: Tên, ảnh, gmail, phone,address
-chức năng: 1- đang chuẩn bị, 2 là chờ lấy hàng, 3 chờ giao hàng, 4 đã đến nơi, 5 hủy đơn hàng
+chức năng: 1- đang chuẩn bị, 2 là chờ lấy hàng, 3 chờ giao hàng, 4 đã đến nơi, 5 hủy đơn hàng do admin. 6 hủy đơn hàng do user. 7 Trả hàng do user
 -->
 <?php
 trait OderModels{
@@ -64,7 +64,7 @@ trait OderModels{
     public function CanceldOder(){
         $IdOrder = $_GET['id'];
         $conn = Connection::getInstance();
-        $query = $conn->query("update orderconfirmation set	Status = 4 where IdOrder = '$IdOrder'");
+        $query = $conn->query("update orderconfirmation set	Status = 5 where IdOrder = '$IdOrder'");
         if($query){
             $this->data['message'] = 'Cancel product successfully';
         }else{

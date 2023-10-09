@@ -17,9 +17,8 @@ trait LisstAccountModels{
     }
 
     public function delete($id){
-        $currentDate = date("Y/m/d");
         $conn = Connection::getInstance();
-        $query = $conn->query("UPDATE account SET Status = 0 , DateEdit = $currentDate where Id = '$id' ");
+        $query = $conn->query("UPDATE account SET Status = 1 where Id = '$id' ");
         $data = array();
         if($query){
             $data[] = true;

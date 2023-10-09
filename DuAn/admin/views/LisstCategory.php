@@ -24,7 +24,7 @@
                 <?php 
                 if(!empty($data['result'])){
                     foreach($data['result'] as $value){
-                        $status = $value['Status'] == 1 ? "Display":"Hidden";
+                        $status = $value['Status'] == 0 ? "Display":"Hidden";
                         echo "
                         <tr >
                             <td>{$value['NameCategory']}</td>
