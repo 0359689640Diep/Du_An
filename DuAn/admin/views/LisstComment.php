@@ -11,9 +11,11 @@
 <body>
     <section class="page">
 <?php require_once "masterLayout/header.php"?>
-        <aside>
-        <?php require_once "masterLayout/navigation.php"?>
-        </aside>
+<aside>
+    <?php require_once "masterLayout/navigation.php"?>
+</aside>
+
+<?php require_once "masterLayout/Notification.php"?>
         <main>
             <table>
                 <tr>

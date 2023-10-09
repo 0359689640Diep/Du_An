@@ -1,0 +1,56 @@
+@import "masterLayout/mainPersonal";
+.contentMain{
+    overflow: auto;
+    .listContentMain{
+        width: 100%;
+        height: 15%;
+        border-bottom: 2px solid var(--text-color3);
+        margin-bottom: 5%;
+        @include FlexCenter;
+        justify-content: space-between;
+
+        .imageProduct{
+            width: 20%;
+            height: 100%;
+            padding: 0;
+
+            img{
+                @include WidthHieght;
+            }
+        }
+        .contentProduct{
+            width: 45%;
+            height: 100%;
+            word-wrap: break-word;
+
+            ul li{
+                list-style-type: none;
+                font-size: 1rem;
+                margin:  2% ;
+            }
+            ul li:nth-child(1){
+                font-weight: bolder;
+                font-size: 1.5rem;
+            }
+        }
+        .function{
+            width: 20%;
+            height: 100%;
+            @include FlexCenter;
+            justify-content: center;
+
+            button{
+                width: 100%;
+                height: 42%;
+                background-color: var(--background-color);
+                border: none;
+
+                a{
+                    text-decoration: none;
+                    color: var(--text-color);
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

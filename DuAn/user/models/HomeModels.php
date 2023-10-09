@@ -32,7 +32,7 @@
                 $conn = Connection::getInstance();
                 $query = $conn->query("select comment.Content, account.Name from comment 
                 join account on comment.IdAccount = account.Id
-                where IdAccount = '$IdAccount'");
+                where IdAccount = '$IdAccount'  and comment.Status = 0");
                 if($query){
                     while($row = $query->fetch_assoc()){
                         $this->data['showComment'][] = $row;

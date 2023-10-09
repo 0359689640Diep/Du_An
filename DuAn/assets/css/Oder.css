@@ -21,9 +21,6 @@
     grid-template-areas: "header header" "aside main" ; 
     grid-gap: 1%;
 }
-.Notification {
-    top: 1%;
-   }
 .page>header{
     width: 100%;
     height: 100%;
@@ -140,53 +137,67 @@
     grid-area: main;
     padding: 1%;
     overflow: auto; /* Thanh cuộn hiển thị khi nội dung tràn */
+    overflow-x: auto;
   }
-  
-  .page > main > table {
+  .page > main> .lisstOder{
     width: 100%;
-    table-layout: fixed; /* Cố định độ rộng cột */
-    border-collapse: collapse;
-  }
-  
-  table th {
-    border: 2px solid;
-    padding: 3px;
-    white-space: nowrap; /* Ngăn không cho hàng thay đổi độ rộng */
-    overflow: hidden; /* Ẩn nội dung vượt quá độ rộng */
-    text-overflow: ellipsis; /* Hiển thị dấu ba chấm cho nội dung vượt quá */
-  }
-  
-  table td {
-    border: 2px solid;
-    padding: 3px;
-    text-align: center;
-    word-wrap: break-word;
-  }
-  
-  td > img {
-    width: 100%;
-    height: 20%;
-  }
-  
-  td > button {
-    width: 100%;
-    height: 20%;
-    background-color: var(--background-color);
-  }
-  td > button>a{
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 16px;
+    height: 25%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--text-color1);
 
   }
-  td > button:hover {
-    background-color: var(--text-color);
-    color: var(--text-color2);
-    border-radius: 14px;
-    transition: linear 1.5s;
+  .product, .user{
+    width: 40.5%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  
-   table tbody tr:hover{
-    background-color: antiquewhite;
-   }
-   
+  .product> .imgProduct, .user> .imgUser{
+    width: 40%;
+    height: 100%;
+    
+  }
+  .product> .imgProduct> img, .user> .imgUser> img{
+    width: 100%;
+    height: 100%;
+  }
+  .contentProduct, .contentUser{
+    width: 60%;
+    height: 100%;
+    word-wrap: break-word;
+  }
+  .contentProduct>ul li, .contentUser>ul li{
+    list-style-type: none;
+    font-size: 16px;
+    margin: 3%;
+  }
+  .contentProduct>ul li:nth-child(1), .contentUser>ul li:nth-child(1){
+    font-weight: bolder;
+    font-size: 25px;
+  }
+
+  .function{
+    width: 15%;
+    height: 100%;
+  }
+  .function>button{
+    width: 100%;
+    height: 16%;
+    margin: 2.1% 0;
+    background-color: var(--text-color);
+    border: none;
+  }
+  .function>button>a{
+    text-decoration: none;
+    font-size: 16px;
+    color: var(--text-color2);
+  }
+  .function>button:hover{
+    transition: linear 1s;
+    background: var(--text-color1);
+    border-radius: 20px;
+
+  }

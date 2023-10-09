@@ -8,7 +8,7 @@
         </article>
     </section>
     <section class="mainSidebar">
-        <article class="item">
+        <article class="item" onclick="loadView('WaitForConfirmation')">
             <h3>Wait for confirmation</h3>
             <i class="ti-write"></i>
         </article>

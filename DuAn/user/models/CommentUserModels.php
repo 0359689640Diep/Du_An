@@ -10,7 +10,7 @@ trait CommentUserModel{
         orderconfirmation.Number, orderconfirmation.IdOrder, product.NameProducts, product.image 
         FROM orderconfirmation
         JOIN product ON orderconfirmation.IdProduct = product.IdProduct
-         WHERE orderconfirmation.StatusComment != 1;");
+         WHERE orderconfirmation.StatusComment != 1 and orderconfirmation.Status = 4;");
         if($query){
             while($row = $query->fetch_assoc()){
                 $this->data["listProduct"][] = $row;

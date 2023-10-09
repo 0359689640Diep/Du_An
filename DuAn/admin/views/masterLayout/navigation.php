@@ -2,9 +2,9 @@
     <i class="ti-home"></i>
     <a href="index.php?controller=homeAdmin">Home</a>
 </section>
-<section class="setting">
+<section class="setting" onclick="redirectToPage('index.php?controller=Oder')">
     <i class="ti-pencil-alt"></i>
-    <a href="">Browse orders</a>
+    <a href="index.php?controller=Oder">Browse orders</a>
 </section>
 <section class="setting" onclick="redirectToPage('index.php?controller=LisstComment')">
     <i class="ti-comment-alt"></i>
@@ -48,3 +48,8 @@
 
 </section>
 
+<script>
+    function redirectToPage(url) {
+    window.location.href = url;
+  }
+</script>

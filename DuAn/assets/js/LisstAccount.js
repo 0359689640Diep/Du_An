@@ -1,6 +1,4 @@
-function redirectToPage(url) {
-    window.location.href = url;
-  }
+
 
   function deleteAccount(value){
     if(confirm("Do you want to delete the account?")){

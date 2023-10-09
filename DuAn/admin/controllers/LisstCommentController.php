@@ -10,7 +10,8 @@ class LisstCommentController extends Controller{
     }
 
     public function Delete(){
-        $this->DeleteComment();
+        $data = $this->DeleteComment();
+        var_dump($data);
         header("Location: index.php?controller=LisstComment");
     }
     public function Restore(){
