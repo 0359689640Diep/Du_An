@@ -10,8 +10,8 @@
                 <section class="contentNavMobile" id = "contentNavMobile">
                     <nav id="nav" >
                         <h5>On Sale</h5>
-                        <h5 >Daily wear</h5>
-                        <h5 >New Arrivals</h5>
+                        <h5>Daily wear</h5>
+                        <h5>New Arrivals</h5>
                         <h5>Brands</h5>
                     </nav>
                 </section>
@@ -22,8 +22,8 @@
             
             <nav class="nav">
                 <h5>On Sale</h5>
-                <h5 onmouseover="showMenu('menuproduct', 'flex')" onmouseout="setHideTimeout('menuproduct')" onclick="clearTimeout()">Daily wear</h5>
-                <h5 onmouseover="showMenu('menuproduct', 'flex')" onmouseout="setHideTimeout('menuproduct')" onclick="clearTimeout()">New Arrivals</h5>
+                <h5 onmouseover="showMenu('menuproduct', 'flex')" onmouseout="setHideTimeout('menuproduct')" onclick="clearTimeout()">Product portfolio</h5>
+                <h5 onclick="RenderNotId('home')">Home</h5>
                 <h5 onclick="RenderNotId('login')" >Log in</h5>
             </nav>
             <section class="sheach">
@@ -50,21 +50,18 @@
                 <h1 style="color: red">According to product</h1>
             </header>
             <section class="mainMeuProduct">
-                <a href="#">All</a>
-                <a href="#">New product</a>
+                <a href="index.php?controller=Casual&id=">All</a>
+                <a href="index.php?controller=Casual&id=">New product</a>
                 <?php 
                 foreach($data['showCategory'] as $value){
-                    echo "<a href='$value[IdCategory]'>$value[NameCategory]</a>";
+                    echo "<a href='index.php?controller=Casual&id=$value[IdCategory]'>$value[NameCategory]</a>";
                 }
                 ?>
+            </section>
 
         
             </section>
         </section>
-        <article class="imageProduct">
-            <img src="" alt="">
-        </article>
-    </section>
 </header>
 <script>
     let hideTimeout;
@@ -123,4 +120,8 @@ showHideMenu( 'sheachMobile','ti-search');
             
             }
         }
+
+function RenderNotId(Arrive){
+  window.location.replace(`index.php?controller=${Arrive}`)
+}
 </script>

@@ -44,18 +44,23 @@ html {
   position: relative;
 }
 
-.SEOSignUp > h4, .SEOSignUp > h4 > a, .ti-close {
+.SEOSignUp > h4, .SEOSignUp > h4 > a {
   color: var(--text-color);
 }
 
 .SEOSignUp > .ti-close {
   position: absolute;
   right: 30%;
+}
+
+.ti-close {
   top: 30%;
+  right: 7%;
   width: 2%;
   color: var(--background-color1);
   font-size: 1.1rem;
 }
+
 .contentHeader {
   width: 100%;
   height: 80%;
@@ -433,7 +438,7 @@ footer > .footer {
   font-size: 1rem;
 }
 .page .contener main .sidebar .mainSidebar {
-  margin: 25% 0;
+  margin: 15% 0;
   width: 100%;
   height: 50%;
   border-bottom: 2px solid var(--text-color3);

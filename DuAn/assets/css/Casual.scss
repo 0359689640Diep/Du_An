@@ -1,0 +1,303 @@
+@import "masterLayout/main";
+@import "masterLayout/mixin";
+.page{
+    padding: 0 2%
+}
+header{
+    border-bottom: 2px solid var(--text-color3);
+}
+main{
+    background-color: var(--background-color1);
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    .sidebar{
+        width: 23%;
+        height: 30%;
+        border: 2px solid var(--background-color2);
+        border-radius: 20px;
+        padding: 2%;
+
+        .headerSidebar{
+            width: 100%;
+            height: 30%;
+            overflow-x: auto;
+            border-bottom: 2px solid var(--text-color3);
+
+
+            .filter{
+                width: 100%;
+                height: 10%;
+                border-bottom: 2px solid var(--text-color3);
+                @include FlexCenter;
+                justify-content: space-between;
+                margin-bottom: 5% ;
+
+                                
+                h1{
+                    font-size: 1.25rem;
+                    margin: 5% 0;
+                }
+                i{
+                    font-size: 1.2rem;
+                }
+                
+            }
+            .nav{
+                width: 100%;
+                height: 15%;
+                margin-bottom: 2% ;
+                @include FlexCenter;
+                justify-content: space-between;
+
+                a,i{
+                    text-decoration: none;
+                    font-size: 1rem;
+                    color: var(--text-color3);
+                }
+            }
+            .nav:hover{
+                border-left: 7px solid var(--background-color);
+            }
+        }
+        .mainSidebar{
+            width: 100%;
+            height: 50%;
+            margin: 5% 0;
+            border-bottom: 2px solid var(--text-color3);
+
+            
+            .Price{
+                width: 100%;
+                height: 20%;
+                border-bottom: 2px solid var(--text-color3);
+
+
+                h1{
+                    font-size: 1.25rem;
+                    // margin: 2.5% 0;
+                }
+                input{
+                    width: 100%;
+                    height: 10%;
+
+                }                
+            }
+            .Color{
+                width: 100%;
+                height: 40%;
+                border-bottom: 2px solid var(--text-color3);
+            
+                .titleColor{
+                    width: 100%;
+                    height: 10%;
+
+                    h1{
+                        font-size: 1.25rem;
+                    }
+                }
+                .contentColor{
+                    width: 100%;
+                    height: 45%;
+                    @include FlexCenter;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    overflow-x: auto;
+                    
+                /* Chọn cặp thẻ SVG */
+                svg {
+                    width: 20%;
+                    height: 80%;
+                  }
+                  
+                  circle {
+                    stroke-width: 2px;
+                  }
+                  
+                  circle {
+                    cx: 20;
+                    cy: 20;
+                    r: 20;
+                  }
+                  
+  
+                }
+            }
+            .Size{
+                width: 100%;
+                height: 40%;
+                 margin-top: 5%;
+
+                .titleSize{
+                    width: 100%;
+                    margin-bottom: 1%;
+                    h1{
+                        font-size: 1.25rem;
+                    }
+                }
+                .contentSize{
+                    width: 100%;
+                    height: 75%;
+                    @include FlexCenter;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    overflow-x: auto;
+
+                    a{
+                        width: 45%;
+                        height: 20%;
+                        border: none;
+                        button{
+                            border: none;
+                            @include WidthHieght;
+                            border-radius: 62px;
+                            background-color: var(--background-color2);
+                            font-size: 0.875rem;
+                            color: var(--text-color3);
+                        }
+                        button:hover{
+                            color: var(--text-color);
+                            background-color: var(--background-color);
+                            transition: linear 1s;
+                        }
+                    }
+                
+                }
+            }
+        }
+        .footerSidebar{
+            width: 100%;
+            height: 19%;
+
+            .headerFooterSidebar{
+                width: 100%;
+                height: 10%;
+                @include FlexCenter;
+                h1{
+                    font-size: 1.25rem;
+                }
+            }
+            .mainFooterSidebar{
+                width: 100%;
+                height: 60%;
+                overflow-x: auto;
+
+                .content{
+                    width: 100%;
+                    height: 20%;
+                    @include FlexCenter;
+                    justify-content: space-between;
+                    margin-bottom: 1% ;
+                    
+                    h4,i{
+                        color: var(--text-color3);
+                        font-size: 0.875rem;
+                    }
+
+                }
+                .content:hover{
+                    border-left: 7px solid var(--background-color);
+                }
+            }
+            .footerSidebar{
+                width: 100%;
+                height: 30%;
+
+                button{
+                    @include WidthHieght;
+                    border-radius: 62px;
+                    color: var(--text-color);
+                    background-color: var(--background-color);
+                    border: none;
+                }
+                button:hover{
+                    transition: linear 1s;
+                    background-color: var(--text-color3);
+                }
+            }
+        }
+    }
+    .contentMain{
+        width: 74%;
+        height: 94%;
+        padding: 2% 0;
+
+        .headerContentMain{
+            width: 100%;
+            height: 3%;
+            @include FlexCenter;
+            justify-content: space-between;
+            h1{
+                font-size: 2rem;
+            }
+            .showing{
+                @include FlexCenter;
+                justify-content: space-evenly;
+                width: 40%;
+
+                p{
+                    font-size: 1rem;
+                    color: var(--text-color3);
+                }
+
+            }
+        }
+        .mainContentMain{
+            width: 100%;
+            height: 93%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            overflow-y: auto;
+
+            .lissProduct{
+                width: 30%;
+                height: 15%;
+                
+                .imgProduct{
+
+                    width: 100%;
+                    height: 60%;
+
+                    img{
+                        @include WidthHieght;
+                        border-radius: 20px;
+                    }
+                }
+                .nameProduct{
+                    width: 100%;
+                    margin: 5% 0;
+
+                    h2{
+
+                        font-size: 1.25rem;
+                    }
+                }
+                .evaluate{
+                    width: 70%;
+                    @include FlexCenter;
+                    justify-content: space-between;
+                    height: 10%;
+
+                    i{
+                        color: orange;
+                        font-size: 1.2rem;
+                    }
+                }
+                .priceProduct{
+                    width: 70%;
+                    height: 10%;
+                    margin-top: 2%;
+
+                    h2{
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+        .footerContentMain{
+            width: 100%;
+            height: 5%;
+        }
+    }
+}

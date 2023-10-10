@@ -6,6 +6,7 @@ class CommentUserController extends Controller{
         $data = $this->showPoduct();
         // echo "<pre>";
         // print_r($data);die();
+        $data = $this->showCategory();
         $this->loadView("CommentUser.php", $data);
     }
     

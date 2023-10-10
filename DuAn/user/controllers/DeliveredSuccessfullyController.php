@@ -5,6 +5,7 @@ class DeliveredSuccessfullyController  extends Controller{
     public function index(){
         // echo "<pre>";
         // var_dump($data);die();
+        $data = $this->showCategory();
         $data = $this->lisstProduct();
         $this->loadView('DeliveredSuccessfully.php', $data);
     }

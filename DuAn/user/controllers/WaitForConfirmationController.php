@@ -6,6 +6,7 @@ class WaitForConfirmationController  extends Controller{
         // echo "<pre>";
         // var_dump($data);die();
         $data = $this->lisstProduct();
+        $data = $this->showCategory();
         $this->loadView('WaitForConfirmation.php', $data);
     }
     

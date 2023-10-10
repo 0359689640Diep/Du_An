@@ -16,7 +16,9 @@ trait OderModels{
         account.Name, account.Gmail, account.Phone, account.Image, account.Address 
         from orderconfirmation 
         join account on  orderconfirmation.IdAccount = account.Id
-        join product on  orderconfirmation.IdProduct = product.IdProduct");
+        join product on  orderconfirmation.IdProduct = product.IdProduct
+        order by orderconfirmation.IdOrder desc
+        ");
 
         if($query){
             while($row = $query->fetch_assoc()){

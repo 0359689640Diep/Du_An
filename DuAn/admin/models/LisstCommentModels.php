@@ -11,6 +11,7 @@ trait LisstCommentModels{
         from comment
         join account on comment.IdAccount = account.Id
         join product on comment.IdProduct = product.IdProduct
+        ORDER BY comment.IdComment DESC
         ");
 
         if($query){

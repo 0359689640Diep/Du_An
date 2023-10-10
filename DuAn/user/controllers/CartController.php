@@ -11,6 +11,8 @@ class CartController extends Controller{
                 $_SESSION['Price'] = $data["showCart"][0]['Price'];
             }
             $dataPay = $this->PayBank();
+            // var_dump ($dataPay);
+            // echo "test"; die();
             $this->loadView("CartViews.php", $data);
             if($dataPay == null){
                 // var_dump($dataPay);

@@ -39,8 +39,8 @@
             <i class="ti-user"></i>
         </article>
         <article class="item">
-            <h3>Setting</h3>
-            <i class="ti-settings"></i>
+            <h3>Log out</h3>
+            <i class="ti-share-alt"></i>
         </article>
 
     </section>

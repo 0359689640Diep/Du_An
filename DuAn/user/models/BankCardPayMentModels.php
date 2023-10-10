@@ -51,6 +51,8 @@ trait BankCardPayMentModels{
         $data = array();
             $conn = Connection::getInstance();
             $data = $this->getData();
+            // echo "<pre>";
+            // var_dump($data);die();
             foreach($data as $value){
                 $quey = $conn->query("
                 insert into orderconfirmation value(null, '1', '0', '$value[IdProduct]', '$value[IdAccount]',

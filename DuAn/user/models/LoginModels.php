@@ -12,11 +12,11 @@
                 // nếu đăng nhập với tài khoản đã tồn tại
                 if(isset($result['Gmail'])) {
                     // kiểm tra xem đúng password ,
-                    if($result['Password'] === $Password && $result['Permission'] == 0){
+                    if($result['Password'] === $Password && $result['Permission'] == 0 && $result['	Status'] != 1){
 
                         $array[]['message0'] = "Hello $Gmail";
                         $_SESSION["IdAccountAdmin"] = $result['Id'] ;
-                    }elseif($result['Password'] === $Password && $result['Permission'] == 1){
+                    }elseif($result['Password'] === $Password && $result['Permission'] == 1 && $result['Status'] != 1){
                         $array[]['message1'] = "Hello $Gmail";
                         $_SESSION["IdAccountUser"] = $result['Id'] ;
                     }else{

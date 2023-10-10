@@ -59,6 +59,8 @@
                                 </section>
                                 ";
                             }
+                        }else{
+                            echo "<h1>No orders yet</h1>";
                         }
                     }
                     ?>

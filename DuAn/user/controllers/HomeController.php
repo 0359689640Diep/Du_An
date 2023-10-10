@@ -5,8 +5,7 @@ class HomeController extends Controller{
     public function index(){
         $data = $this->toString();
         // echo "<pre>";
-        // var_dump($data["showComment"]); die();
-        $idAccount = isset($_SESSION['IdAccountUser']) && !empty($_SESSION['IdAccountUser']) ? $_SESSION['IdAccountUser'] : '';
+        // var_dump($data); die();
         // var_dump($idAccount); die();
         $this->loadView("HomeViews.php", $data);
     }

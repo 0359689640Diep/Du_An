@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -177,34 +178,43 @@ html {
 }
 
 .menu-product > .product, .imageProduct {
-  width: 50%;
+  width: 100%;
   height: 100%;
-  border: 2px solid;
-  padding: 5%;
+  padding: 0 5%;
   box-sizing: border-box;
 }
 
 .product > header {
   width: 100%;
   height: 20%;
-  border-bottom: 2px solid;
+  border-bottom: 2px solid var(--text-color3);
 }
 
 .product > header > h1 {
   font-size: 27px;
 }
 
-.mainMeuProduct {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  align-items: center;
+.product > .mainMeuProduct {
   width: 100%;
-  height: 100%;
+  height: 75%;
+  margin: 1% 0%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px; /* Khoảng cách giữa các thẻ */
+  overflow-x: auto;
 }
-.mainMeuProduct a {
+
+.product > .mainMeuProduct > a {
+  display: block;
+  font-size: 20px;
   text-decoration: none;
-  font-size: 2rem;
+  text-align: left;
+  color: var(--text-color1);
+  margin: 1% 0;
+}
+
+.product > .mainMeuProduct > a:hover {
+  color: var(--text-color3);
 }
 
 .page {
@@ -394,181 +404,278 @@ footer > .footer {
 }
 
 .page {
-  height: 1500px;
-  padding: 0px 2%;
+  padding: 0 2%;
 }
-.page .contener {
-  grid-template-rows: 10% 65% 25%;
+
+header {
+  border-bottom: 2px solid var(--text-color3);
 }
-.page .contener main {
-  padding: 3% 0 8% 0;
+
+main {
   background-color: var(--background-color1);
-  border-top: 2px solid var(--background-color3);
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+main .sidebar {
+  width: 23%;
+  height: 30%;
+  border: 2px solid var(--background-color2);
+  border-radius: 20px;
+  padding: 2%;
+}
+main .sidebar .headerSidebar {
+  width: 100%;
+  height: 30%;
+  overflow-x: auto;
+  border-bottom: 2px solid var(--text-color3);
+}
+main .sidebar .headerSidebar .filter {
+  width: 100%;
+  height: 10%;
+  border-bottom: 2px solid var(--text-color3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5%;
+}
+main .sidebar .headerSidebar .filter h1 {
+  font-size: 1.25rem;
+  margin: 5% 0;
+}
+main .sidebar .headerSidebar .filter i {
+  font-size: 1.2rem;
+}
+main .sidebar .headerSidebar .nav {
+  width: 100%;
+  height: 15%;
+  margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main .sidebar .headerSidebar .nav a, main .sidebar .headerSidebar .nav i {
+  text-decoration: none;
+  font-size: 1rem;
+  color: var(--text-color3);
+}
+main .sidebar .headerSidebar .nav:hover {
+  border-left: 7px solid var(--background-color);
+}
+main .sidebar .mainSidebar {
+  width: 100%;
+  height: 50%;
+  margin: 5% 0;
+  border-bottom: 2px solid var(--text-color3);
+}
+main .sidebar .mainSidebar .Price {
+  width: 100%;
+  height: 20%;
+  border-bottom: 2px solid var(--text-color3);
+}
+main .sidebar .mainSidebar .Price h1 {
+  font-size: 1.25rem;
+}
+main .sidebar .mainSidebar .Price input {
+  width: 100%;
+  height: 10%;
+}
+main .sidebar .mainSidebar .Color {
+  width: 100%;
+  height: 40%;
+  border-bottom: 2px solid var(--text-color3);
+}
+main .sidebar .mainSidebar .Color .titleColor {
+  width: 100%;
+  height: 10%;
+}
+main .sidebar .mainSidebar .Color .titleColor h1 {
+  font-size: 1.25rem;
+}
+main .sidebar .mainSidebar .Color .contentColor {
+  width: 100%;
+  height: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  /* Chọn cặp thẻ SVG */
+}
+main .sidebar .mainSidebar .Color .contentColor svg {
+  width: 20%;
+  height: 80%;
+}
+main .sidebar .mainSidebar .Color .contentColor circle {
+  stroke-width: 2px;
+}
+main .sidebar .mainSidebar .Color .contentColor circle {
+  cx: 20;
+  cy: 20;
+  r: 20;
+}
+main .sidebar .mainSidebar .Size {
+  width: 100%;
+  height: 40%;
+  margin-top: 5%;
+}
+main .sidebar .mainSidebar .Size .titleSize {
+  width: 100%;
+  margin-bottom: 1%;
+}
+main .sidebar .mainSidebar .Size .titleSize h1 {
+  font-size: 1.25rem;
+}
+main .sidebar .mainSidebar .Size .contentSize {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow-x: auto;
+}
+main .sidebar .mainSidebar .Size .contentSize a {
+  width: 45%;
+  height: 20%;
+  border: none;
+}
+main .sidebar .mainSidebar .Size .contentSize a button {
+  border: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 62px;
+  background-color: var(--background-color2);
+  font-size: 0.875rem;
+  color: var(--text-color3);
+}
+main .sidebar .mainSidebar .Size .contentSize a button:hover {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  transition: linear 1s;
+}
+main .sidebar .footerSidebar {
+  width: 100%;
+  height: 19%;
+}
+main .sidebar .footerSidebar .headerFooterSidebar {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+}
+main .sidebar .footerSidebar .headerFooterSidebar h1 {
+  font-size: 1.25rem;
+}
+main .sidebar .footerSidebar .mainFooterSidebar {
+  width: 100%;
+  height: 60%;
+  overflow-x: auto;
+}
+main .sidebar .footerSidebar .mainFooterSidebar .content {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+main .sidebar .footerSidebar .mainFooterSidebar .content h4, main .sidebar .footerSidebar .mainFooterSidebar .content i {
+  color: var(--text-color3);
+  font-size: 0.875rem;
+}
+main .sidebar .footerSidebar .mainFooterSidebar .content:hover {
+  border-left: 7px solid var(--background-color);
+}
+main .sidebar .footerSidebar .footerSidebar {
+  width: 100%;
+  height: 30%;
+}
+main .sidebar .footerSidebar .footerSidebar button {
+  width: 100%;
+  height: 100%;
+  border-radius: 62px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border: none;
+}
+main .sidebar .footerSidebar .footerSidebar button:hover {
+  transition: linear 1s;
+  background-color: var(--text-color3);
+}
+main .contentMain {
+  width: 74%;
+  height: 94%;
+  padding: 2% 0;
+}
+main .contentMain .headerContentMain {
+  width: 100%;
+  height: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main .contentMain .headerContentMain h1 {
+  font-size: 2rem;
+}
+main .contentMain .headerContentMain .showing {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-}
-.page .contener main .sidebar {
-  width: 20%;
-  height: 100%;
-}
-.page .contener main .sidebar .headerSidebar {
-  width: 100%;
-  height: 15%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.page .contener main .sidebar .headerSidebar .img {
-  width: 55%;
-  height: 100%;
-}
-.page .contener main .sidebar .headerSidebar .img img {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-}
-.page .contener main .sidebar .headerSidebar .Name {
   width: 40%;
-  height: 100%;
-  display: flex;
-  align-items: center;
 }
-.page .contener main .sidebar .headerSidebar .Name h1 {
+main .contentMain .headerContentMain .showing p {
   font-size: 1rem;
-}
-.page .contener main .sidebar .mainSidebar {
-  margin: 15% 0;
-  width: 100%;
-  height: 50%;
-  border-bottom: 2px solid var(--text-color3);
-}
-.page .contener main .sidebar .mainSidebar .item {
-  width: 100%;
-  height: 15%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.page .contener main .sidebar .mainSidebar .item h3 {
-  font-size: 1.3rem;
-  color: var(--text-color1);
-}
-.page .contener main .sidebar .mainSidebar .item i {
-  font-size: 1.3rem;
-}
-.page .contener main .sidebar .mainSidebar .item:hover {
-  background-color: var(--background-color4);
-  border-left: 5px solid;
-}
-.page .contener main .sidebar .footerSidebar {
-  width: 100%;
-  height: 18%;
-}
-.page .contener main .sidebar .footerSidebar .item {
-  width: 100%;
-  height: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.page .contener main .sidebar .footerSidebar .item h3 {
-  font-size: 1.3rem;
-  color: var(--text-color1);
-}
-.page .contener main .sidebar .footerSidebar .item i {
-  font-size: 1.3rem;
-}
-.page .contener main .sidebar .footerSidebar .item:hover {
-  background-color: var(--background-color4);
-  border-left: 5px solid;
-}
-.page .contener main .contentMain {
-  margin-left: 5%;
-  width: 70%;
-  height: 100%;
-  border-left: 2px solid var(--background-color4);
-  padding: 0 5%;
-}
-.page .contener footer > .footer {
-  height: 10%;
-}
-
-.contentMain .headerContentMain {
-  width: 100%;
-  height: 10%;
-}
-.contentMain .headerContentMain h1 {
-  font-size: 1.7rem;
-}
-.contentMain .headerContentMain p {
   color: var(--text-color3);
-  margin: 0.5% 0;
 }
-.contentMain form {
+main .contentMain .mainContentMain {
   width: 100%;
-  height: 90%;
+  height: 93%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow-y: auto;
 }
-.contentMain form .fromLeft {
-  width: 60%;
-  height: 70%;
+main .contentMain .mainContentMain .lissProduct {
+  width: 30%;
+  height: 15%;
 }
-.contentMain form .fromLeft h4 {
-  font-size: 1rem;
-  margin: 2% 0;
-  font-size: 1rem;
+main .contentMain .mainContentMain .lissProduct .imgProduct {
+  width: 100%;
+  height: 60%;
 }
-.contentMain form .fromLeft input {
-  width: 95%;
-  height: 8%;
-  padding-left: 5%;
-  font-size: 1rem;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-}
-.contentMain form .fromLeft input:focus {
-  outline: none;
-}
-.contentMain form .fromLeft .sex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.contentMain form .fromLeft button {
-  width: 40%;
-  height: 10%;
-  margin: 5% 0;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-size: 1rem;
-  border: none;
-}
-.contentMain form .fromLeft button:hover {
-  transition: linear 1s;
-  background-color: var(--text-color3);
+main .contentMain .mainContentMain .lissProduct .imgProduct img {
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
 }
-.contentMain form .fromRight {
-  width: 40%;
-  height: 70%;
+main .contentMain .mainContentMain .lissProduct .nameProduct {
+  width: 100%;
+  margin: 5% 0;
+}
+main .contentMain .mainContentMain .lissProduct .nameProduct h2 {
+  font-size: 1.25rem;
+}
+main .contentMain .mainContentMain .lissProduct .evaluate {
+  width: 70%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  justify-content: center;
+  height: 10%;
 }
-.contentMain form .fromRight .ContentFromRight {
-  width: 80%;
-  height: 40%;
+main .contentMain .mainContentMain .lissProduct .evaluate i {
+  color: orange;
+  font-size: 1.2rem;
 }
-.contentMain form .fromRight .ContentFromRight img {
+main .contentMain .mainContentMain .lissProduct .priceProduct {
+  width: 70%;
+  height: 10%;
+  margin-top: 2%;
+}
+main .contentMain .mainContentMain .lissProduct .priceProduct h2 {
+  font-size: 1.5rem;
+}
+main .contentMain .footerContentMain {
   width: 100%;
-  height: 100%;
-  border-radius: 100px;
-}
-.contentMain form .fromRight .ContentFromRight input {
-  margin: 5% 0;
-}/*# sourceMappingURL=Personal.css.map */
+  height: 5%;
+}/*# sourceMappingURL=Casual.css.map */

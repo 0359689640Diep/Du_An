@@ -4,6 +4,7 @@ class PersonalController extends Controller{
     use PersonalModel;
     public function index(){
         $data = $this->showAccount();
+        $data = $this->showCategory();
         $_SESSION["ImageUser"] = $data["showAccount"]["Image"];
         $_SESSION["NameUser"] = $data["showAccount"]["Name"];
         // echo "<pre>";

@@ -2,15 +2,31 @@
 trait CommentUserModel{
     public $data = array();
 
+    public function showCategory(){
+        $conn = Connection::getInstance();
+        $query = $conn->query('select IdCategory,NameCategory from category');
+        if($query){
+            while($row = $query->fetch_assoc()){
+                $this->data['showCategory'][] = $row;
+            }
+        }else{
+            $this->data['messageError'] = "Hệ thống đang bảo trì";
+        }
+        return $this->data;
+
+    }
     public function showPoduct(){
         $conn = Connection::getInstance();
+        $IdAccount = $_SESSION['IdAccountUser'] ?? '';
         // StatusComment: 1 = chưa comment, 2 = đã comment 
         $query = $conn->query("
         SELECT orderconfirmation.Size, orderconfirmation.Price, orderconfirmation.IdProduct, 
         orderconfirmation.Number, orderconfirmation.IdOrder, product.NameProducts, product.image 
         FROM orderconfirmation
         JOIN product ON orderconfirmation.IdProduct = product.IdProduct
-         WHERE orderconfirmation.StatusComment != 1 and orderconfirmation.Status = 4;");
+         WHERE orderconfirmation.StatusComment != 1 and orderconfirmation.Status = 4
+         and orderconfirmation.IdAccount = '$IdAccount'
+         ");
         if($query){
             while($row = $query->fetch_assoc()){
                 $this->data["listProduct"][] = $row;
@@ -23,7 +39,7 @@ trait CommentUserModel{
                 from comment
                 join product on comment.IdProduct = product.IdProduct
                 join account on comment.IdAccount = account.Id
-                WHERE comment.Status != 1 ");
+                WHERE comment.Status != 1 and comment.IdAccount = '$IdAccount' ");
                 // status: 1 la xoa 0 la hien thi
                 if($queryComment){
                     while($row = $queryComment->fetch_assoc()){

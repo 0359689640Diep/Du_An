@@ -45,16 +45,15 @@
             $data = array();
             if($_SERVER['REQUEST_METHOD']){
                 extract($_POST);
-                // echo "<pre>";
-                // var_dump($number) ; die();
+                $Price = $_SESSION['Price'];
                 if(isset($Price)){
-                    $Price = $_SESSION['Price'];
                     foreach($number as $key=>$value){
                         $sumPrice = ((float)$value * (float)$Price);
-                        $queryCart = $conn->query("update cart set Price = $sumPrice, Number = $value where IdCart =$key");
+                        // echo "<pre>";
+                        // var_dump($key) ; die();
+                        $queryCart = $conn->query("update cart set Price = '$sumPrice', Number = '$value' where IdCart ='$key'");
                         if(!$queryCart){
                             $data["messageError"] = $conn->error;
-                            // header("loaction: index.php?controller=pay");
                             die();
                         }   
                     };

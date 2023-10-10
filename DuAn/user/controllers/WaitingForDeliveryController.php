@@ -5,6 +5,7 @@ class WaitingForDeliveryController  extends Controller{
     public function index(){
         // echo "<pre>";
         // var_dump($data);die();
+        $data = $this->showCategory();
         $data = $this->lisstProduct();
         $this->loadView('WaitingForDelivery.php', $data);
     }
