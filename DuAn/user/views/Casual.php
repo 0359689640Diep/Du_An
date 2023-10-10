@@ -111,21 +111,14 @@
                         <section class="showing">
                             <p>Showing 1-10 of 100 Products</p>
                             <p>Sort by: </p>
-                            <select name="" id="">
+                            <!-- chúng ta đã sử dụng thuộc tính onchange của thẻ select để thiết lập một sự kiện khi giá trị của option thay đổi. Khi sự kiện này xảy ra, chúng ta sẽ chuyển hướng trang đến URL tương ứng với giá trị của option được chọn. -->
+                            <select name="" id="mySelect" onchange="location = this.value;">
                                 <option value="">Most Popular</option>
-                                <option value="">
-                                    <a href="index.php?controller=Casual&action=fillter&id=10">10-25</a>
-                                </option>
-                                <option value="">
-                                    <a href="index.php?controller=Casual&action=fillter&id=10">10-25</a>
-                                </option>
-                                <option value="">
-                                    <a href="index.php?controller=Casual&action=fillter&id=25">25-50</a>
-                                </option>
-                                <option value="">
-                                    <a href="index.php?controller=Casual&action=fillter&id=50">50-100</a>
-                                </option>
+                                <option value="index.php?controller=Casual&action=fillter&id=<?=$_GET['id']?>&quantity=25">25</option>
+                                <option value="index.php?controller=Casual&action=fillter&id=<?=$_GET['id']?>&quantity=50">50</option>
+                                <option value="index.php?controller=Casual&action=fillter&id=<?=$_GET['id']?>&quantity=100">100</option>
                             </select>
+
                         </section>
                     </section>
                     <section class="mainContentMain">

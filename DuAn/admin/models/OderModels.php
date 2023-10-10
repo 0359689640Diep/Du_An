@@ -12,7 +12,7 @@ trait OderModels{
         select orderconfirmation.IdOrder, orderconfirmation.Status, 
         orderconfirmation.StatusComment, orderconfirmation.Size, 
         orderconfirmation.Price, orderconfirmation.Number, orderconfirmation.Type, 
-        product.NameProducts, product.image, product.NumberProduct,   
+        product.IdProduct, product.NameProducts, product.image, product.NumberProduct,   
         account.Name, account.Gmail, account.Phone, account.Image, account.Address 
         from orderconfirmation 
         join account on  orderconfirmation.IdAccount = account.Id
@@ -43,10 +43,19 @@ trait OderModels{
     }
     public function BeingShippedOder(){
         $IdOrder = $_GET['id'];
+        $IdProduct = $_GET['IdProduct'];
+        $Number = $_GET['quantity'];
+        // echo $Number; die();
         $conn = Connection::getInstance();
         $query = $conn->query("update orderconfirmation set	Status = 3 where IdOrder = '$IdOrder'");
         if($query){
-            $this->data['message'] = 'Product is on its way';
+            $queryUpdateNumberProduct = $conn->query("update product set NumberProduct = NumberProduct-$Number where IdProduct = $IdProduct");
+            if($queryUpdateNumberProduct){
+                $this->data['message'] = 'Product is on its way';
+
+            }else{
+                $this->data['message'] = 'Failure';
+            }
         }else{
             $this->data['message'] = 'Failure';
         }

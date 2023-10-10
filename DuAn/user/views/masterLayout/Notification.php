@@ -55,21 +55,21 @@
         margin-top:26% ;
     }
     
-    .ti-check,.ti-info, .ti-close {
+     .ti-check, .iconMessage> .ti-info, .Message> .ti-close {
         font-size: 30px;
-        color: var(--background-color);
+        color: #FFFFFF;
         position: absolute;
     }
-    .ti-check,.ti-info{
+     .ti-check, .iconMessage> .ti-info{
         top: 33%;
         left: 11%;
         }
-    .ti-close{
+    .Message> .ti-close{
         top: 35%;
         right: 7%;
         width: 2%;
     }
-    .ti-close:hover{
+    .Message> .ti-close:hover{
         color: var(--text-color)
     }
     

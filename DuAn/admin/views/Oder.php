@@ -79,7 +79,8 @@
                     </section>
                     <section class='function'>
                         <button><a href='index.php?controller=Oder&action=Delivery&id={$value['IdOrder']}'>Waiting for delivery</a></button>
-                        <button><a href='index.php?controller=Oder&action=BeingShipped&id={$value['IdOrder']}'>Being shipped</a></button>
+                        <button><a href='index.php?controller=Oder&action=BeingShipped&id={$value['IdOrder']}&IdProduct={$value['IdProduct']}&quantity={$value['Number']}'>
+                        Being shipped</a></button>
                         <button><a href='index.php?controller=Oder&action=Arrived&id={$value['IdOrder']}'>Arrived</a></button>
                         <button><a href='index.php?controller=Oder&action=CancelOrder&id={$value['IdOrder']}'>Cancel order</a></button>
                     </section>
