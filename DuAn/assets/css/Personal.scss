@@ -17,10 +17,11 @@
         height: 90%;
         @include  FlexCenter;
         justify-content: space-between;
-
+        
         .fromLeft{
             width: 60%;
-            height: 70%;
+            height: 80%;
+            position: relative;
 
             h4{
                 font-size: 1rem;
@@ -59,6 +60,12 @@
                 background-color: var(--text-color3);
                 border-radius: 20px;
             };
+            .ti-eye{
+                position: absolute;
+                right: 5%;
+                bottom: 20%;
+                font-size: 1.2rem;
+            }
             
             
         }

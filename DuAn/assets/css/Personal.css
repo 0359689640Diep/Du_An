@@ -524,7 +524,8 @@ footer > .footer {
 }
 .contentMain form .fromLeft {
   width: 60%;
-  height: 70%;
+  height: 80%;
+  position: relative;
 }
 .contentMain form .fromLeft h4 {
   font-size: 1rem;
@@ -561,6 +562,12 @@ footer > .footer {
   transition: linear 1s;
   background-color: var(--text-color3);
   border-radius: 20px;
+}
+.contentMain form .fromLeft .ti-eye {
+  position: absolute;
+  right: 5%;
+  bottom: 20%;
+  font-size: 1.2rem;
 }
 .contentMain form .fromRight {
   width: 40%;

@@ -44,7 +44,7 @@ trait PersonalModel{
                 $conn->query("
                 update account set 
                 Gmail = '$email', Name = '$name',  
-                Phone = '$phone',Image = '$nameImg' ,Sex = '$sex', Address = '$address'
+                Phone = '$phone',Image = '$nameImg' ,Sex = '$sex', Address = '$address', Password = '$password'
                 where Id = '$IdAccount'");
             }
             // echo "<pre>";

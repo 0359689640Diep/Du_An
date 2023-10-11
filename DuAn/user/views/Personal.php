@@ -29,7 +29,7 @@
                             <h4>Phone number: </h4>
                             <input required value="<?= $data["showAccount"]["Phone"]?>" title="Cannot be left blank" type="number" name="phone" id="">
 
-                            <h4>Gender: <?= $data["showAccount"]["Sex"]?></h4>
+                            <h4>Gender: </h4>
                             <article class="sex">
                                 <label  for="male">Male</label>
                                 <input <?= $data["showAccount"]["Sex"] ==  0 ? 'checked': "" ?> required title="Cannot be left blank" type="radio" value="0" name="sex" id="male">
@@ -40,6 +40,9 @@
                             </article>
                             <h4>Address: </h4>
                             <input value="<?= $data["showAccount"]["Address"]?>" required title="Cannot be left blank" type="text" name="address" id="">
+                            <h4>Password: </h4>
+                            <input type="password" name="password" id="Password" value="<?= $data["showAccount"]["Password"]?>">
+                            <i class="ti-eye" onclick="display('Password')"></i>
                             <button type="submit">Save</button>
                         </section>
                         
@@ -57,7 +60,15 @@
         </section>
     </section>
 </body>
-<?php 
-// var_dump($data);
-?>
+<script>
+function display(id) {
+    let inputElement = document.getElementById(id);
+    if (inputElement.type === 'password') {
+        inputElement.type = 'text'; // Hiển thị văn bản thường
+    } else {
+        inputElement.type = 'password'; // Hiển thị mật khẩu
+    }
+}
+
+</script>
 </html>
