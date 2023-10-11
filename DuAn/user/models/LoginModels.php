@@ -6,7 +6,7 @@
             $conn = Connection::getInstance();
             $Gmail = isset($_POST['Gmail']) ? $_POST['Gmail'] : "";
             $Password = isset($_POST['Password']) ? $_POST['Password'] : "";
-            $query = $conn->query("SELECT Id, Gmail, Password, Permission FROM account WHERE  Gmail = '$Gmail'");
+            $query = $conn->query("SELECT Id, Gmail, Password, Permission, Status FROM account WHERE  Gmail = '$Gmail'");
             if ($query) {
                 $result = $query->fetch_assoc();
                 // nếu đăng nhập với tài khoản đã tồn tại

@@ -8,7 +8,6 @@
 
 <link rel="stylesheet" href="../assets/css/homeAdmin.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <body>
     <section class="page">  
 <?php require_once "masterLayout/header.php"?>
@@ -27,36 +26,35 @@
     <?php require_once "masterLayout/navigation.php"?>
 </aside>
 <main>
-<div id="myfirstchart" style="height: 250px;"></div>
+<div id="piechart" style="width: 100%; height: 300px;"></div>
 </main>
 </section>
 
 </body>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-<script>
-    // Explain
-new Morris.Line({
-  // ID of the element in which to draw the chart.
-  element: 'myfirstchart',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
-  data: [
-    { year: '2008', value: 2, 1: 25, 2: 14 },
-    { year: '2009', value: 1, 1: 25, 2: 14 },
-    { year: '2010', value: 52, 1: 25, 2: 14 },
-    { year: '2011', value: 15, 1: 25, 2: 14 },
-    { year: '2012', value: 20, 1: 25, 2: 14 }
-  ],
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-  // The name of the data record attribute that contains x-values.
-  xkey: 'year',
-  // A list of names of data record attributes that contain y-values.
-  ykeys: ['value', '1', "2"],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
-  labels: ['Value','1', "2"]
-});
-</script>
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Number of accounts'],
+          ['Account Admin',     <?= $data['Admin'] ['count(Id)']?>],
+          ['Account User',      <?= $data['User'] ['count(Id)']?>],
+          ['Account Canceled',  <?= $data['Canceled'] ['count(Id)']?>],
+          ['Account Admin Canceled', <?= $data['AdminCanceled'] ['count(Id)']?>],
+          ['Account User Canceled',    <?= $data['UserCanceled'] ['count(Id)']?>]
+        ]);
+
+        var options = {
+          title: 'Account management'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
 </html>
