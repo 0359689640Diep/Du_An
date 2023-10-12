@@ -22,22 +22,44 @@
                 <input required title="Không được để trống" type="text" name="Details" id="Details">
                 <label for="ProductDescription">Product Description</label>
                 <input required title="Không được để trống" type="text" name="ProductDescription" id="ProductDescription">
-                <label for="Color">Color</label>
-                <input required title="Không được để trống" type="color" name="Color" id="Color">
                 <label for="NumberProduct">Number Product</label>
                 <input required title="Không được để trống" type="number" min =0  name="NumberProduct" id="NumberProduct">
                 <label for="Price">Price</label>
                 <input required title="Không được để trống" type="number" min =0  name="Price" id="Price">
+                <label for="Color">Color</label>
+                <article class="color">
+                    <input type="checkbox" value="#00C12B" style = "background-color:#00C12B" class="custom-checkbox" name="Color[]">
+                    <input type="checkbox" value="#F50606" style = "background-color:#F50606" class="custom-checkbox" name="Color[]">
+                    <input type="checkbox" value="#F5DD06" style = "background-color:#F5DD06" class="custom-checkbox" name="Color[]">
+                    <input type="checkbox" value="#F57906" style = "background-color:#F57906" class="custom-checkbox" name="Color[]">
+                    <input type="checkbox" value="#06CAF5" style = "background-color:#06CAF5" class="custom-checkbox" name="Color[]">
+                    <input type="checkbox" value="#063AF5" style = "background-color:#063AF5" class="custom-checkbox" name="Color[]">
+                    <input type="checkbox" value="#7D06F5" style = "background-color:#7D06F5" class="custom-checkbox" name="Color[]">
+                    <input type="checkbox" value="#F506A4" style = "background-color:#F506A4" class="custom-checkbox" name="Color[]">
+                    <input type="checkbox" value="#FFFFFF" style = "background-color:#FFFFFF" class="custom-checkbox" name="Color[]">
+                    <input type="checkbox" value="#000000" style = "background-color:#000000" class="custom-checkbox" name="Color[]">
+                    <input type="checkbox" value="#A7A7A7" style = "background-color:#A7A7A7" class="custom-checkbox" name="Color[]">
+                </article>
                 <label for="Size">Size</label>
-                <select name="Size" id="Size" required title="Không được để trống">
-                    <option value="">Size</option>
-                    <option value="S">S</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                    <option value="XXL">XXL</option>
-                </select>
+                <article class="size">
+                    <label for="S">S
+                        <input type="checkbox" name="Size[]" id="S" value="S">
+                    </label>
+                    <label for="M">M
+                        <input type="checkbox" name="Size[]" id="M" value="M">
+                    </label>
+                    <label for="L">L
+                        <input type="checkbox" name="Size[]" id="L" value="L">
+                    </label>
+                    <label for="XXL">XXL
+                        <input type="checkbox" name="Size[]" id="XXL" value="XXL">
+                    </label>
+                    <label for="XXXL">XXXL
+                        <input type="checkbox" name="Size[]" id="XXXL" value="XXXL">
+                    </label>
+                </article>
                 <label for="Image">Image</label>
-                <input required title="Không được để trống" type="file" name="Image" id="Image">
+                <input required title="Không được để trống" type="file" name="Image[]" id="Image" multiple>
                 <label for="Category">Category</label>
                 <select name="Category" id="Category" required title="Không được để trống">
                     <option value="">Category</option>

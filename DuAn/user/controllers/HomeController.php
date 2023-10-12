@@ -5,7 +5,7 @@ class HomeController extends Controller{
     public function index(){
         $data = $this->toString();
         // echo "<pre>";
-        // var_dump($data); die();
+        // var_dump($data["showProduct"]); die();
         // var_dump($idAccount); die();
         $this->loadView("HomeViews.php", $data);
     }

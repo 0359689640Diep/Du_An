@@ -128,7 +128,7 @@
                                 echo "
                                 <section class='lissProduct'>
                                     <article class='imgProduct'>
-                                        <img src='../assets/imgUpload/{$value['image']}' alt='{$value['image']}'>
+                                        <img src='../assets/imgUpload/{$value['Image']}' alt='{$value['Image']}'>
                                     </article>
                                     <article class='nameProduct'>
                                         <h2>{$value['NameProducts']}</h2>

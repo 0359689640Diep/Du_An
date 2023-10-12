@@ -16,7 +16,11 @@
 
         public function showProduct(){
             $conn = Connection::getInstance();
-            $query = $conn->query('select IdProduct, NameProducts, Price, Evalute, image from product where Status = 0');
+            // select , , , , image from product '
+            $query = $conn->query('SELECT image.Image, product.IdProduct, product.NameProducts, product.Price, product.Evalute
+            FROM image
+            JOIN product ON image.IdProduct = product.IdProduct
+            WHERE product.Status = 0;');
             if($query){
                 while($row = $query->fetch_assoc()){
                     $this->data['showProduct'][] = $row;

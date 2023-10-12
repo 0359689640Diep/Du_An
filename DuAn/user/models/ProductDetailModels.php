@@ -50,15 +50,18 @@
             }   
         }
 
+
         public function GetProductsByCategory(){
             if(!empty($_SESSION["IdCategory"])){
                 $IdCategory = $_SESSION["IdCategory"];
                 $conn = Connection::getInstance();
-                $query = $conn->query("select IdProduct, NameProducts, Price, Evalute, image from product where IdCategory = '$IdCategory'");
+                $query = $conn->query("select image.Image, product.IdProduct, product.NameProducts, product.Price, product.NumberProduct, product.Evalute from product join image on image.IdProduct = product.IdProduct where product.IdCategory = '$IdCategory'");
                 if($query){
                     while($row = $query->fetch_assoc()){
                         $this->data['GetProductsByCategory'][] = $row;
                     }
+                    // echo "<pre>";
+                    // var_dump($this->data['GetProductsByCategory']);die();
                 }else{
                     $this->data['messageError'] = "Hệ thống đang bảo trì";
                 }
@@ -68,17 +71,36 @@
             }
         }
 
+        // lấy tất cả các sản phẩm ra ngoài màn hình
         public function showProduct(){
             $conn = Connection::getInstance();
             $id = $_GET['id'];
-            $query = $conn->query("select * from product where IdProduct = '$id'");
-            if($query){
-                while($row = $query->fetch_assoc()){
-                    $this->data['showProduct'][] = $row;
-                }
+
+            $query = $conn->prepare("SELECT image.Image, product.IdProduct, product.NameProducts, product.Price, product.NumberProduct , product.Evalute,
+                                    color.Color,
+                                    size.Size
+                                    FROM product
+                                    JOIN image ON image.IdProduct = product.IdProduct
+                                    JOIN color ON color.IdProduct = product.IdProduct
+                                    JOIN size ON size.IdProduct = product.IdProduct
+                                    WHERE product.Status = 0 and product.IdProduct = ?");
+            
+            $query->bind_param("i", $id);
+            $query->execute();
+
+            $result = $query->get_result();
+            
+            if($result->num_rows > 0){
+                $this->data['showProduct'] = $result->fetch_all(MYSQLI_ASSOC);
             }else{
                 $this->data['messageError'] = "Hệ thống đang bảo trì";
             }
+
+            // $query->close();
+        
+            // echo "<pre>";
+            // var_dump($this->data['showProduct']);
+            // die();
         }
 
         // kiem tra tai khoan da dang nhap hay chua

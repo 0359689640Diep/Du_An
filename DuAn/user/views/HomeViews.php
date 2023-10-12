@@ -52,28 +52,33 @@
                     <h1>NEW PRODUCTS</h1>
                     <section class="ListNewProduct">
                         <?php 
-                         foreach($data['showProduct'] as $value){
-                             echo "
-                             <section class='NewProduct' onclick = Render('ProductDetail&id','$value[IdProduct]')>
-                                <article class='img'>
-                                    <img src='../assets/img/$value[image]' alt='product'>
-                                </article>
-                                <article class='title'>
-                                    <h1>$value[NameProducts]</h1>
-                                </article> 
-                                <article class='evaluate'>
-                                    <i class='ti-star'></i>
-                                    <i class='ti-star'></i>
-                                    <i class='ti-star'></i>
-                                    <i class='ti-star'></i>
-                                    <i class='ti-star'></i>
-                                </article> 
-                                <section class='price'>
-                                    <h1>$value[Price]</h1>
-                                </section>
-                            </section>                            
-                            ";
-                                }                            
+                        if(isset($data['showProduct'] )){
+                            foreach($data['showProduct'] as $value){
+                                echo "
+                                <section class='NewProduct' onclick = Render('ProductDetail&id','$value[IdProduct]')>
+                                   <article class='img'>
+                                       <img src='../assets/img/$value[Image]' alt='product'>
+                                   </article>
+                                   <article class='title'>
+                                       <h1>$value[NameProducts]</h1>
+                                   </article> 
+                                   <article class='evaluate'>
+                                       <i class='ti-star'></i>
+                                       <i class='ti-star'></i>
+                                       <i class='ti-star'></i>
+                                       <i class='ti-star'></i>
+                                       <i class='ti-star'></i>
+                                   </article> 
+                                   <section class='price'>
+                                       <h1>$value[Price]</h1>
+                                   </section>
+                               </section>                            
+                               ";
+                           }                            
+                        }else{
+                            echo "<h1>No products</h1>";
+
+                        }
                             ?>
 
 
@@ -83,12 +88,13 @@
                     <h1>BESTSELLER</h1>
                     <section class="ListBestsellerProduct">
                     <?php 
+                     if(isset($data['showProduct'] )){
                          foreach($data['showProduct'] as $value){
                              echo "
                              <section class='BestsellerProduct' onclick = Render('ProductDetail&id','$value[IdProduct]')>
                              
                                 <article class='img'>
-                                    <img src='../assets/img/$value[image]' alt='product'>
+                                    <img src='../assets/img/$value[Image]' alt='product'>
                                 </article>
                                 <article class='title'>
                                     <h1>$value[NameProducts]</h1>
@@ -105,7 +111,10 @@
                                 </section>
                             </section>
                             ";
-                                }                            
+                                }
+                            }else{
+                                echo "<h1>No products</h1>";
+                            }                            
                             ?>                       
                     </section>
                 </section>

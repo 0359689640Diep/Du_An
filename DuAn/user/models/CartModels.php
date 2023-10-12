@@ -17,18 +17,12 @@
         public function showCart(){
             $conn = Connection::getInstance();
             $query = $conn->query('select 
-            cart.IdCart, 
-            cart.IdAccount, 
-            cart.Size, 
-            cart.IdProduct, 
-            cart.Number, 
-            product.NameProducts, 
-            product.Color,
-            product.NumberProduct, 
-            product.Price, 
-            product.image
-            from cart
-            join product on cart.IdProduct = product.IdProduct
+            cart.IdCart, cart.IdAccount, cart.Size, cart.IdProduct, cart.Number, 
+            product.NameProducts, product.NumberProduct, product.Price,
+            color.Color, image.image from product
+            join cart on cart.IdProduct = product.IdProduct
+            join image on image.IdProduct = product.IdProduct
+            join color on color.IdProduct = product.IdProduct
             ');
             if($query){
                 while($row = $query->fetch_assoc()){

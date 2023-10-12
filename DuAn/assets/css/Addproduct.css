@@ -9,6 +9,11 @@
     --text-color: #0C0C0D;
     --text-color1: #A7A7A7;
     --text-color2: #efefef;
+    --text-color3: #FFFFFF;
+    --background-color1: #FFFFFF;
+    --background-color2: #F2F0F1;
+    --background-color3: #F0F0F0;
+    --background-color4: #ededed;
 
 }
 .page{
@@ -20,14 +25,6 @@
     grid-template-rows: 10% 90%;
     grid-template-areas: "header header" "aside main" ; 
     grid-gap: 1%;
-}
-@media screen and (max-width: 768px) {
-    .page{
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: 10% 20% 70%;
-        grid-template-areas: "header " "aside" " main" ; 
-    }
 }
 .page>header{
     width: 100%;
@@ -148,6 +145,7 @@
 .page>main>form{
     width: 100%;
     height: 100%;
+    /* border: 2px solid; */
 }
 .page>main>form>label{
     width: 100%;
@@ -160,7 +158,48 @@
     margin: 0.5% 0;
     font-size: 20px;
 }
-  
+.color, .size{
+    width: 75%;
+    height: 5%;
+    /* border: 2px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.color>input[type="checkbox"]{
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    color: #0C0C0D;
+}
+.custom-checkbox {
+    width: 20px; /* Điều chỉnh kích thước của checkbox */
+    height: 20px;
+    appearance: none; /* Ẩn giao diện checkbox mặc định */
+    background-color: transparent; /* Xóa nền mặc định */
+    border-radius: 50%; /* Áp dụng border-radius thành hình tròn */
+    border: 2px solid var(--text-color1);
+}
+
+.custom-checkbox:checked {
+    background-image: url(../img/checkIcont.png);
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: 50% 61%;
+}
+
+.size>label{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 10%;
+}
+.size>label>input{
+    width: 50%;
+    height: 60%;
+}
+
 .page>main>form>button{
     width: 50%;
     height: 10%;

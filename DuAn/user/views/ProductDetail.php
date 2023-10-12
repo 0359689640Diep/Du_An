@@ -28,7 +28,7 @@
                             // echo "<pre>";
                             // var_dump($showProduct); die();
                             echo "
-                                <img src='../assets/imgUpload/" . $showProduct['image'] . "' alt='showProduct[0][image]'>
+                                <img src='../assets/imgUpload/" . $showProduct['Image'] . "' alt='showProduct[0][Image]'>
                             ";                            
                         ?>
                         </article>
@@ -129,7 +129,7 @@
                             echo "
                                 <section class='SuggestionsProduct'>
                                     <article class='img'>
-                                    <img src='../assets/imgUpload/" . $value['image'] . "' alt='showProduct[0][image]'>
+                                    <img src='../assets/imgUpload/" . $value['Image'] . "' alt='showProduct[0][Image]'>
                                     </article>
                                     <article class='title'>
                                         <h1>{$value['NameProducts']}</h1>
