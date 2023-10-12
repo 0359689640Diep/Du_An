@@ -34,7 +34,7 @@
                         echo "
                         <tr>
                             <td>{$value['NameProducts']}</td>
-                            <td><img src='../assets/imgUpload/{$value['image']}' alt='product'></td>
+                            <td><img src='../assets/imgUpload/{$value['Image']}' alt='product'></td>
                             <td>{$value['Name']}</td>
                             <td>{$value['Gmail']}</td>
                             <td>{$value['Content']}</td>

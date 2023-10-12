@@ -21,9 +21,10 @@ trait CommentUserModel{
         // StatusComment: 1 = chưa comment, 2 = đã comment 
         $query = $conn->query("
         SELECT orderconfirmation.Size, orderconfirmation.Price, orderconfirmation.IdProduct, 
-        orderconfirmation.Number, orderconfirmation.IdOrder, product.NameProducts, product.image 
+        orderconfirmation.Number, orderconfirmation.IdOrder, product.NameProducts, image.Image 
         FROM orderconfirmation
         JOIN product ON orderconfirmation.IdProduct = product.IdProduct
+        join image on image.IdProduct = product.IdProduct
          WHERE orderconfirmation.StatusComment != 1 and orderconfirmation.Status = 4
          and orderconfirmation.IdAccount = '$IdAccount'
          ");
@@ -35,10 +36,11 @@ trait CommentUserModel{
             if(empty($this->data)){
                 $queryComment = $conn->query("
                 select comment.IdComment, comment.Content,
-                account.Name,  product.image
+                account.Name,  image.Image
                 from comment
                 join product on comment.IdProduct = product.IdProduct
                 join account on comment.IdAccount = account.Id
+                join image on image.IdProduct = product.IdProduct
                 WHERE comment.Status != 1 and comment.IdAccount = '$IdAccount' ");
                 // status: 1 la xoa 0 la hien thi
                 if($queryComment){
@@ -69,7 +71,7 @@ trait CommentUserModel{
 
             if($queryUpdateStatusComment){
                 // status: 1 la xoa 0 la hien thi
-                $query = $conn->query("insert into comment value(null,'$IdAccount', '$IdProduct', '$comment', '$date', '1')");
+                $query = $conn->query("insert into comment value(null,'$IdAccount', '$IdProduct', '$comment', '$date', '0')");
                 if($query){
                     $this->data['message'] = "Success";
                 }else{

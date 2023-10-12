@@ -4,13 +4,22 @@ trait FixProductModels{
     public function FixProductDisplayModels($id){
         $conn = Connection::getInstance();
         $query = $conn->query("
-        SELECT product.NameProducts,product.IdDetails,productdetails.ProductDetails,productdetails.ProductDescription, product.Color, product.NumberProduct,product.Price, product.Size,category.IdCategory ,category.NameCategory FROM product
+        SELECT 
+        product.NameProducts, product.IdDetails, product.NumberProduct, product.Price, 
+        productdetails.ProductDetails, productdetails.ProductDescription, 
+        category.IdCategory ,category.NameCategory, color.Color, size.Size FROM product
         join productdetails on product.IdDetails = productdetails.IdProductDetails
         join category on product.IdCategory  = category.IdCategory 
-        where IdProduct = '$id'");
+        join size on size.IdProduct = product.IdProduct
+        join color on color.IdProduct = product.IdProduct
+        where product.IdProduct = '$id'");
         $data = array(); 
         if($query){
-            $data['display']= $query->fetch_assoc();
+            while($row = $query->fetch_assoc()){
+
+                $data['display']= $row;
+            }
+
         }
         return $data;
         
@@ -43,7 +52,16 @@ trait FixProductModels{
                 $queryDetails = $conn->query("update productdetails set ProductDetails = '$Details',ProductDescription ='$ProductDescription' where IdProductDetails = '$IdDetails'");
                 if($queryDetails){;
                     // thêm dữ liệu vào product
-                    $query = $conn->query("UPDATE product SET NameProducts = '$NameProducts',IdDetails= '$IdDetails', Color = '$Color', NumberProduct = '$NumberProduct', Price = '$Price', Size = '$Size', image='$ImageName',  IdCategory = '$IdCategory' ,DateEdit = '$currentDate' where IdProduct = '$id'");
+                    $query = $conn->query("UPDATE product 
+
+                    join size on size.IdProduct = product.IdProduct
+                    join image on image.IdProduct = product.IdProduct
+                    join color on color.IdProduct = product.IdProduct
+
+                    SET product.NameProducts = '$NameProducts',product.IdDetails= '$IdDetails',
+                     color.Color = '$Color', product.NumberProduct = '$NumberProduct', product.Price = '$Price', size.Size = '$Size', image.Image='$ImageName',  product.IdCategory = '$IdCategory' ,product.DateEdit = '$currentDate' 
+
+                    where product.IdProduct = '$id'");
                     if($query){
                         // thêm file ảnh vào thư mục 
                         move_uploaded_file($ImageTmp,"assets/imgUpload/". $ImageName);

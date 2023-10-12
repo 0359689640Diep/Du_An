@@ -21,7 +21,7 @@
                             echo "
                             <section class='listContentMain'>
                                 <article class='imageProduct'>
-                                    <img src='../assets/imgUpload/{$value['image']}' alt=''>
+                                    <img src='../assets/imgUpload/{$value['Image']}' alt=''>
                                 </article>
                                 <section class='contentProduct'>
                                     <ul>

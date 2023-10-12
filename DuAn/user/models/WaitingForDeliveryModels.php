@@ -20,11 +20,12 @@ trait WaitingForDeliveryModels{
         $IdAccount = $_SESSION['IdAccountUser'] ?? '';
         $query = $conn->query("
         select orderconfirmation.Price,orderconfirmation.IdOrder, 
-        product.NameProducts, product.image,  
+        product.NameProducts, image.Image,  
         account.Address, account.Phone
         from orderconfirmation
         join account on orderconfirmation.IdAccount = account.Id
         join product on orderconfirmation.IdProduct = product.IdProduct
+        join image on image.IdProduct = product.IdProduct
         where orderconfirmation.Status = 2 and orderconfirmation.IdAccount = '$IdAccount';
         ");
         if($query){

@@ -12,11 +12,12 @@ trait OderModels{
         select orderconfirmation.IdOrder, orderconfirmation.Status, 
         orderconfirmation.StatusComment, orderconfirmation.Size, 
         orderconfirmation.Price, orderconfirmation.Number, orderconfirmation.Type, 
-        product.IdProduct, product.NameProducts, product.image, product.NumberProduct,   
+        product.IdProduct, product.NameProducts, image.Image, product.NumberProduct,   
         account.Name, account.Gmail, account.Phone, account.Image, account.Address 
         from orderconfirmation 
         join account on  orderconfirmation.IdAccount = account.Id
         join product on  orderconfirmation.IdProduct = product.IdProduct
+        join image on image.IdProduct = product.IdProduct
         order by orderconfirmation.IdOrder desc
         ");
 

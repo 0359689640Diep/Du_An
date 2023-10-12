@@ -38,7 +38,7 @@
                             <td>{$value['Price']}</td>
                             <td>{$value['Evalute']}</td>
                             <td>{$value['Size']}</td>
-                            <td><img src='../assets/imgUpload/{$value['image']}' alt='product'></td>
+                            <td><img src='../assets/imgUpload/{$value['Image']}' alt='product'></td>
                             <td><button onclick='deleteProduct({$value['IdProduct']})'>Delete</button></td>
                             <td><button onclick='fixProduct({$value['IdProduct']})'>Fix</button></td>
                         </tr>

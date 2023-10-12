@@ -7,10 +7,11 @@ trait LisstCommentModels{
         $query = $conn->query("
         select
         comment.IdComment, comment.Content , comment.Date , 
-        comment.Status ,account.Name,account.Gmail ,product.NameProducts , product.image
+        comment.Status ,account.Name,account.Gmail ,product.NameProducts , image.Image
         from comment
         join account on comment.IdAccount = account.Id
         join product on comment.IdProduct = product.IdProduct
+        join image on image.IdProduct = product.IdProduct
         ORDER BY comment.IdComment DESC
         ");
 

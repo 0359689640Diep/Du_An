@@ -47,7 +47,7 @@
                 <section class='lisstOder'>
                     <section class='product'>
                         <article class='imgProduct'>
-                            <img src='../assets/imgUpload/{$value['image']}' alt='imageProduct'>
+                            <img src='../assets/imgUpload/{$value['Image']}' alt='imageProduct'>
                         </article>
                         <section class='contentProduct'>
                             <ul>

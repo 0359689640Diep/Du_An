@@ -21,7 +21,7 @@
                             echo "
                             <section class='listProduct'>
                                 <article class='img'>
-                                    <img src='../assets/imgUpload/{$value['image']}' alt=''>
+                                    <img src='../assets/imgUpload/{$value['Image']}' alt=''>
                                 </article>
                                 <section class='content'>
                                     <h1>NameProducts: {$value['NameProducts']}</h1>
@@ -42,7 +42,7 @@
                                 echo "
                                 <section class='listComment'>
                                     <article class='img'>
-                                        <img src='../assets/imgUpload/{$value['image']}' alt=''>
+                                        <img src='../assets/imgUpload/{$value['Image']}' alt=''>
                                     </article>
                                     <article class='content'>
                                         <h1>Name: {$value['Name']}</h1>
