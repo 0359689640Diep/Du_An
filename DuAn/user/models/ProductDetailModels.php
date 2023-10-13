@@ -37,7 +37,7 @@
                 $conn = Connection::getInstance();
                 $query = $conn->query("select comment.Content, account.Name from comment 
                 join account on comment.IdAccount = account.Id
-                where IdAccount != '$IdAccount' and comment.Status = 0");
+                where  comment.Status = 0");
                 if($query){
                     while($row = $query->fetch_assoc()){
                         $this->data['showComment'][] = $row;
@@ -60,8 +60,8 @@
                     while($row = $query->fetch_assoc()){
                         $this->data['GetProductsByCategory'][] = $row;
                     }
-                    // echo "<pre>";
-                    // var_dump($this->data['GetProductsByCategory']);die();
+                    echo "<pre>";
+                    var_dump($this->data['GetProductsByCategory']);die();
                 }else{
                     $this->data['messageError'] = "Hệ thống đang bảo trì";
                 }
@@ -78,11 +78,13 @@
 
             $query = $conn->prepare("SELECT image.Image, product.IdProduct, product.NameProducts, product.Price, product.NumberProduct , product.Evalute,
                                     color.Color,
-                                    size.Size
+                                    size.Size,
+                                    productdetails.ProductDetails
                                     FROM product
                                     JOIN image ON image.IdProduct = product.IdProduct
                                     JOIN color ON color.IdProduct = product.IdProduct
                                     JOIN size ON size.IdProduct = product.IdProduct
+                                    join productdetails on productdetails.IdProductDetails  = product.IdDetails
                                     WHERE product.Status = 0 and product.IdProduct = ?");
             
             $query->bind_param("i", $id);

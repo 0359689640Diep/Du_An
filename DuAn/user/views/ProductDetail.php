@@ -24,7 +24,7 @@
                         <article class="ProductDetailImgRight">
                         <?php
                             $showProduct =  $data['showProduct'][0];
-                            $showDetails = isset($data['showDetails'][0]) ? $data['showDetails'][0] : "" ;
+                            $showDetails = isset($data['showProduct'][0]) ? $data['showProduct'][0] : "" ;
                             // echo "<pre>";
                             // var_dump($showProduct); die();
                             echo "

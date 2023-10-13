@@ -11,7 +11,7 @@ class ProductDetailController extends Controller{
             $_SESSION["IdCategory"] = $IdCategory;
         }
         // echo "<pre>";
-        // print_r($IdDetails);die();
+        // print_r($data);die();
         $this->loadView("ProductDetail.php", $data);
     }
     function addToCart(){
