@@ -13,6 +13,7 @@
 <?php require_once "masterLayout/header.php"?>
         <aside>
         <?php require_once "masterLayout/navigation.php"?>
+        <?php require_once "masterLayout/Notification.php"?>
         </aside>
         <main>
             <form action="index.php?controller=Addproduct" method="post" enctype="multipart/form-data">
@@ -81,12 +82,34 @@
     </section>
 </body>
 <?php 
+if(isset($data['dataMessage']) ){
+    if (isset($data['dataMessage']['messageError'])) {
+          $error = $data['dataMessage']['messageError'];
+          echo "<script>
+          toast(
+            title= 'Error',
+            message= '$error',
+            type= 'error',
+            duration= 10000,
+            quantity = '1'
+        )
+          </script>";
+        }else{
+            if(isset($data['dataMessage']['message'])){
+                $success = $data['dataMessage']['message'];
+                echo "<script>
+                toast(
+                  title= 'Success',
+                  message= '$success',
+                  type= 'success',
+                  duration= 10000,
+                  quantity = '0'
+              )
+                </script>";        
 
-if(!empty($data['dataMessage'][0]) ){
-    $message = $data['dataMessage'][0];
-// hàm json_encode() để mã hóa giá trị của biến $message thành chuỗi JSON trước khi truyền vào đoạn mã JavaScript, để đảm bảo rằng các ký tự đặc biệt sẽ được mã hóa đúng và không gây ra lỗi cú pháp
-    echo "<script>alert(" . json_encode($message) . ");</script>";
-
+            }
+            
+        }
 }
 
  ?>

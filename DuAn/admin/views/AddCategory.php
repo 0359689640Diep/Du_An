@@ -13,6 +13,7 @@
 <?php require_once "masterLayout/header.php"?>
         <aside>
         <?php require_once "masterLayout/navigation.php"?>
+        <?php require_once "masterLayout/Notification.php"?>
         </aside>
         <main>
             <form action="index.php?controller=AddCategory" method="post" enctype="multipart/form-data">
@@ -29,9 +30,37 @@
         </main>
     </section>
 </body>
-<?php 
- $test = !empty($data[0]) ? "<script>alert('$data[0]');</script>" : ""; 
- echo ($test);
+<?php
+// var_dump($data); die();
+if(isset($data) ){
+    if (isset($data['messageError'])) {
+          $error = $data['messageError'];
+          echo "<script>
+          toast(
+            title= 'Error',
+            message= '$error',
+            type= 'error',
+            duration= 10000,
+            quantity = '1'
+        )
+          </script>";
+        }else{
+            if(isset($data['message'])){
+                $success = $data['message'];
+                echo "<script>
+                toast(
+                  title= 'Success',
+                  message= '$success',
+                  type= 'success',
+                  duration= 10000,
+                  quantity = '0'
+              )
+                </script>";        
+
+            }
+            
+        }
+}
  ?>
 <script src="../assets/js/product.js"></script>
 
