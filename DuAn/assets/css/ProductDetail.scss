@@ -63,8 +63,20 @@
                     @include FlexCenter;
                     justify-content: space-around;
                     margin: 2% 0;
-                    h1, del{
-                        font-size: 2rem;
+
+
+                    input{
+                        width: 70%;
+                        height: 100%;
+                        font-size: 2rem; 
+                        border:none;
+                        background-color: none;
+                    }
+                    input:focus{
+                        outline: none;
+                    }
+                    del{
+                        font-size: 2rem; 
                     }
                     del{
                         color: var(--text-color3);
@@ -83,10 +95,37 @@
                     border-top: 2px solid var(--text-color3);
                     justify-content: space-around;
                     margin: 2% 0;
+
                     h3{
                         margin: 1% 0;
                        font-size: 1rem;
                        color: var(--text-color3);
+                    }
+
+                    .contentColor{
+                        width: 100%;
+                        height: 70%;
+                        @include FlexCenter;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        overflow-y: auto;
+
+                        input{
+                            width: 34px; /* Điều chỉnh kích thước của checkbox */
+                            height: 34px;
+                            appearance: none; /* Ẩn giao diện checkbox mặc định */
+                            background-color: transparent; /* Xóa nền mặc định */
+                            border-radius: 50%; /* Áp dụng border-radius thành hình tròn */
+                            border: 2px solid var(--text-color1);
+                            margin: 2%;
+
+                        }
+                        input:checked{
+                            background-image: url(../img/checkIcont.png);
+                            background-size: 65%;
+                            background-repeat: no-repeat;
+                            background-position: 50% 61%;
+                        }
                     }
                 }
                 .side{
@@ -96,25 +135,33 @@
                     border-top: 2px solid var(--text-color3);
                     justify-content: space-around;
                     margin: 2% 0;
+
                     h3{
                         margin: 1% 0;
                        font-size: 1rem;
                        color: var(--text-color3);
                     }
-                    button{
-                        width: 20%;
-                        height: 50%;
-                        background-color: var(--background-color3);
-                       color: var(--text-color3);
-                       margin: 1% 2%;
-                        border-radius: 60px;
-                        border: none;
-                        font-size: 1rem;
+                    .contentSize{
+                        width: 100%;
+                        height: 70%;
+                        @include FlexCenter;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        overflow-y: auto;
 
-                    }
-                    button:hover{
-                        background-color: var(--background-color);
-                        color: var(--text-color)
+                        label{
+                            @include FlexCenter;
+                            justify-content: space-between;
+                            width: 15%;
+                            height: 59%;    
+                            font-size: 1.2rem;
+                            margin: 2%;
+
+                            input{
+                                width: 60%;
+                                height: 60%;
+                            }
+                        }
                     }
                 }
                 .addTocart{

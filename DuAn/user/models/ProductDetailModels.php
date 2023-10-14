@@ -55,13 +55,21 @@
             if(!empty($_SESSION["IdCategory"])){
                 $IdCategory = $_SESSION["IdCategory"];
                 $conn = Connection::getInstance();
-                $query = $conn->query("select image.Image, product.IdProduct, product.NameProducts, product.Price, product.NumberProduct, product.Evalute from product join image on image.IdProduct = product.IdProduct where product.IdCategory = '$IdCategory'");
+                $query = $conn->query("SELECT p.*, i.Image
+                FROM product p
+                INNER JOIN (
+                    SELECT IdProduct, Image
+                    FROM image
+                    GROUP BY IdProduct
+                ) i ON p.IdProduct = i.IdProduct
+                WHERE p.Status = 0 and p.IdCategory = '$IdCategory'
+                ORDER BY p.IdProduct");
                 if($query){
                     while($row = $query->fetch_assoc()){
                         $this->data['GetProductsByCategory'][] = $row;
                     }
-                    echo "<pre>";
-                    var_dump($this->data['GetProductsByCategory']);die();
+                    // echo "<pre>";
+                    // var_dump($this->data['GetProductsByCategory']);die();
                 }else{
                     $this->data['messageError'] = "Hệ thống đang bảo trì";
                 }
@@ -72,75 +80,92 @@
         }
 
         // lấy tất cả các sản phẩm ra ngoài màn hình
-        public function showProduct(){
-            $conn = Connection::getInstance();
-            $id = $_GET['id'];
-
-            $query = $conn->prepare("SELECT image.Image, product.IdProduct, product.NameProducts, product.Price, product.NumberProduct , product.Evalute,
-                                    color.Color,
-                                    size.Size,
-                                    productdetails.ProductDetails
-                                    FROM product
-                                    JOIN image ON image.IdProduct = product.IdProduct
-                                    JOIN color ON color.IdProduct = product.IdProduct
-                                    JOIN size ON size.IdProduct = product.IdProduct
-                                    join productdetails on productdetails.IdProductDetails  = product.IdDetails
-                                    WHERE product.Status = 0 and product.IdProduct = ?");
-            
-            $query->bind_param("i", $id);
-            $query->execute();
-
-            $result = $query->get_result();
-            
-            if($result->num_rows > 0){
-                $this->data['showProduct'] = $result->fetch_all(MYSQLI_ASSOC);
-            }else{
-                $this->data['messageError'] = "Hệ thống đang bảo trì";
-            }
-
-            // $query->close();
-        
-            // echo "<pre>";
-            // var_dump($this->data['showProduct']);
-            // die();
-        }
-
-        // kiem tra tai khoan da dang nhap hay chua
-        public function checkLogin(){
-            $dataProduct = array();
-            $idProduct =isset($_GET['id']) && !empty($_GET['id']) ? $_GET['id'] : '' ;
-            $idAccount = isset($_SESSION['IdAccountUser']) && !empty($_SESSION['IdAccountUser']) ? $_SESSION['IdAccountUser'] : '';
-            // var_dump($idAccount); die(); 
-            if(!empty($idProduct) && !empty($idAccount)){
-                if($_SERVER['REQUEST_METHOD'] === 'POST'){
-                    extract($_POST);
-                    $conn = Connection::getInstance();
-                    $query = $conn->query("select Price, Size, image from product where IdProduct = '$idProduct'");
-                    if($query){
-                        while($row = $query->fetch_assoc()){
-                            $dataProduct= $row;
-                        }
-                        extract($dataProduct);
-                        $queryOder = $conn->query("insert into cart value(null,'$idProduct',null, '$Size', '$idAccount',  '$number')");
-
-                        if($queryOder){
-                            $this->data['message'][] = $idAccount;
-                        }else{
-                            $this->data['messageError'][] = "The system is maintenance";
-                        }
-
-                        // echo "<pre>";
-                        // var_dump(); die();
-                    }else{
-                        $this->data['messageError'][] = "The system is maintenance";
-                    }
-                    // echo $Price; die();
-                }
-                // echo "tét";
-            }else{
-                $this->data['messageError'][] = "You are not logged into the system. Please log in to use the service";
+            public function showProduct(){
+                $conn = Connection::getInstance();
+    
+                $query = $conn->prepare("SELECT p.*, de.ProductDetails 
+                FROM product p
+                JOIN productdetails de ON de.IdProductDetails = p.IdDetails
+                WHERE p.Status = 0 AND p.IdProduct = ?
+                ");
+                $id = $_GET['id'];
                 
+                $query->bind_param("i", $id);
+                $query->execute();
+    
+                $result = $query->get_result();
+                
+                if($result->num_rows > 0){
+                    $this->data['showProduct'] = $result->fetch_all(MYSQLI_ASSOC);
+                    // lay IdProduct
+                    $IdProduct = $this->data['showProduct'][0]['IdProduct'];
+                    // truy van lay tat ca mau thuoc 1 san pham
+                    $queryColor = $conn->query("select IdColor, Color from color where IdProduct = '$IdProduct'");
+                    if($queryColor){
+                        while($row = $queryColor->fetch_assoc()){
+                            $this->data['Color'][] = $row;
+                        }
+                        
+                        // truy van lay tat ca size trong 1 sp
+                        $querySize = $conn->query("select IdSize, Size from size where IdProduct  = '$IdProduct'");
+                        if($querySize){
+                            while($row = $querySize->fetch_assoc()){
+                                $this->data['Size'][] = $row;
+                            }
+                            // truy van lay tat ca image trong 1 sp
+                            $querySize = $conn->query("select  Image from image where IdProduct  = '$IdProduct'");
+                            if($querySize){
+                                while($row = $querySize->fetch_assoc()){
+                                    $this->data['Image'][] = $row;
+                                }
+                            }
+                        }
+                        
+                    }else{
+                        $this->data['messageError'] = "Hệ thống đang bảo trì";
+                        
+                    }
+                    // echo "<pre>";
+                    // var_dump($this->data['Image']);
+                    //     die();
+                }else{
+                    $this->data['messageError'] = "Hệ thống đang bảo trì";
+                }
+    
+                $query->close();
+                return $this->data;
             }
+    
+        // kiem tra tai khoan da dang nhap hay chua, thêm dữ liệu vào bảng product
+        public function checkLogin(){
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                extract($_POST);
+                // echo "<pre>";
+                // print_r($Price);
+        
+                $idProduct =isset($_GET['id']) && !empty($_GET['id']) ? $_GET['id'] : '' ;
+                $idAccount = isset($_SESSION['IdAccountUser']) && !empty($_SESSION['IdAccountUser']) ? $_SESSION['IdAccountUser'] : '';
+                // var_dump($idAccount); die(); 
+                if(!empty($idProduct) && !empty($idAccount)){
+                    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+                        extract($_POST);
+                        $conn = Connection::getInstance();
+                        $queryOder = $conn->query("insert into cart value(null,'$idProduct','$idAccount','$Price', '$Size',   '$number', '$Color')");
+    
+                            if($queryOder){
+                                $this->data['message'][] = $idAccount;
+                            }else{
+                                $this->data['messageError'][] = "The system is maintenance";
+                            }
+                        // echo $Price; die();
+                    }
+                    // echo "tét";
+                }else{
+                    $this->data['messageError'][] = "You are not logged into the system. Please log in to use the service";
+                    
+                }
+            }
+            // die();
             return $this->data;
         }
 

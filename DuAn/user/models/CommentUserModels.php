@@ -20,28 +20,38 @@ trait CommentUserModel{
         $IdAccount = $_SESSION['IdAccountUser'] ?? '';
         // StatusComment: 1 = chưa comment, 2 = đã comment 
         $query = $conn->query("
-        SELECT orderconfirmation.Size, orderconfirmation.Price, orderconfirmation.IdProduct, 
-        orderconfirmation.Number, orderconfirmation.IdOrder, product.NameProducts, image.Image 
-        FROM orderconfirmation
-        JOIN product ON orderconfirmation.IdProduct = product.IdProduct
-        join image on image.IdProduct = product.IdProduct
-         WHERE orderconfirmation.StatusComment != 1 and orderconfirmation.Status = 4
-         and orderconfirmation.IdAccount = '$IdAccount'
+        SELECT ord.Price, ord.IdOrder, ord.Size, ord.Number, ord.IdProduct, 
+        p.NameProducts, i.Image, ac.Address, ac.Phone
+        FROM orderconfirmation ord
+        INNER JOIN (
+            SELECT IdProduct, MAX(Image) AS Image
+            FROM image i
+            GROUP BY IdProduct
+        ) i ON ord.IdProduct = i.IdProduct
+        JOIN product p ON p.IdProduct = ord.IdProduct
+        JOIN account ac ON ac.Id = ord.IdAccount  
+        WHERE ord.StatusComment != 1 and ord.Status = 4
+         and ord.IdAccount = '$IdAccount'
          ");
         if($query){
             while($row = $query->fetch_assoc()){
                 $this->data["listProduct"][] = $row;
                 // print_r($this->data);
             }
+
+
             if(empty($this->data)){
                 $queryComment = $conn->query("
-                select comment.IdComment, comment.Content,
-                account.Name,  image.Image
-                from comment
-                join product on comment.IdProduct = product.IdProduct
-                join account on comment.IdAccount = account.Id
-                join image on image.IdProduct = product.IdProduct
-                WHERE comment.Status != 1 and comment.IdAccount = '$IdAccount' ");
+                select co.IdComment, co.Content,
+                ac.Name, img.Image from comment co
+                inner join (
+                    select IdProduct, Max(Image) as Image
+                    from image i
+                    group by IdProduct
+                ) i on co.IdProduct = i.IdProduct
+                join account ac on ac.Id = ac.IdProduct
+              
+                ");
                 // status: 1 la xoa 0 la hien thi
                 if($queryComment){
                     while($row = $queryComment->fetch_assoc()){

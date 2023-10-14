@@ -478,7 +478,17 @@ footer > .footer {
   justify-content: space-around;
   margin: 2% 0;
 }
-.contener main .ProductDetail .ProductDetailContent .price h1, .contener main .ProductDetail .ProductDetailContent .price del {
+.contener main .ProductDetail .ProductDetailContent .price input {
+  width: 70%;
+  height: 100%;
+  font-size: 2rem;
+  border: none;
+  background-color: none;
+}
+.contener main .ProductDetail .ProductDetailContent .price input:focus {
+  outline: none;
+}
+.contener main .ProductDetail .ProductDetailContent .price del {
   font-size: 2rem;
 }
 .contener main .ProductDetail .ProductDetailContent .price del {
@@ -502,6 +512,32 @@ footer > .footer {
   font-size: 1rem;
   color: var(--text-color3);
 }
+.contener main .ProductDetail .ProductDetailContent .color .contentColor {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+.contener main .ProductDetail .ProductDetailContent .color .contentColor input {
+  width: 34px; /* Điều chỉnh kích thước của checkbox */
+  height: 34px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; /* Ẩn giao diện checkbox mặc định */
+  background-color: transparent; /* Xóa nền mặc định */
+  border-radius: 50%; /* Áp dụng border-radius thành hình tròn */
+  border: 2px solid var(--text-color1);
+  margin: 2%;
+}
+.contener main .ProductDetail .ProductDetailContent .color .contentColor input:checked {
+  background-image: url(../img/checkIcont.png);
+  background-size: 65%;
+  background-repeat: no-repeat;
+  background-position: 50% 61%;
+}
 .contener main .ProductDetail .ProductDetailContent .side {
   width: 100%;
   height: 15%;
@@ -515,19 +551,27 @@ footer > .footer {
   font-size: 1rem;
   color: var(--text-color3);
 }
-.contener main .ProductDetail .ProductDetailContent .side button {
-  width: 20%;
-  height: 50%;
-  background-color: var(--background-color3);
-  color: var(--text-color3);
-  margin: 1% 2%;
-  border-radius: 60px;
-  border: none;
-  font-size: 1rem;
+.contener main .ProductDetail .ProductDetailContent .side .contentSize {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow-y: auto;
 }
-.contener main .ProductDetail .ProductDetailContent .side button:hover {
-  background-color: var(--background-color);
-  color: var(--text-color);
+.contener main .ProductDetail .ProductDetailContent .side .contentSize label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 15%;
+  height: 59%;
+  font-size: 1.2rem;
+  margin: 2%;
+}
+.contener main .ProductDetail .ProductDetailContent .side .contentSize label input {
+  width: 60%;
+  height: 60%;
 }
 .contener main .ProductDetail .ProductDetailContent .addTocart {
   width: 100%;

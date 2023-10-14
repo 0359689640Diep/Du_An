@@ -17,6 +17,8 @@
                 <section class="contentMain">
                     <?php 
                     if(isset($data['listProduct'])){
+                        // echo "<pre>";
+                        // print_r($data['listProduct']);die();
                         foreach($data['listProduct'] as $value){
                             echo "
                             <section class='listProduct'>
@@ -27,7 +29,7 @@
                                     <h1>NameProducts: {$value['NameProducts']}</h1>
                                     <h4>Size: {$value['Size']}</h4>
                                     <h4>Quantity: {$value['Number']}</h4>
-                                    <h4>Price: {$value['Price']}</h4>
+                                    <h4>Price:$ {$value['Price']}</h4>
                                 </section>
                                 <form action='index.php?controller=CommentUser&action=addComment&id={$value['IdProduct']}&IdOrder={$value['IdOrder']}' method='post'>
                                     <input type='text' name='comment' autofocus>

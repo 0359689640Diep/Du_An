@@ -485,6 +485,17 @@ footer > .footer {
 .page .contener main form .contentCart .product .contentProduct .contentProductLeft h4 {
   font-size: 0.875rem;
   margin: 5% 0;
+  display: flex;
+  align-items: center;
+}
+.page .contener main form .contentCart .product .contentProduct .contentProductLeft h4 input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; /* Ẩn giao diện checkbox mặc định */
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
 }
 .page .contener main form .contentCart .product .contentProduct .contentProductRight {
   height: 100%;

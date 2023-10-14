@@ -29,13 +29,13 @@
                                         echo "
                                         <section class='listProduct'>
                                             <article class='img'>
-                                            <img src='../assets/imgUpload/$value[image] ' alt=''>
+                                                <img src='../assets/imgUpload/$value[Image] ' alt=''>
                                             </article>
                                             <section class='contentProduct'>
                                                 <section class='contentProductLeft'>
                                                     <h1>Gradient Graphic T-shirt</h1>
                                                     <h4>Size :$value[Size] </h4>
-                                                    <h4>Color :$value[Color] </h4>
+                                                    <h4>Color : <input type='checkbox' style='background-color:$value[Color]'> </h4>
                                                     <h1 name ='Price'>$ {$value['Price']}</h1>
                                                 </section>
                                                 <section class='contentProductRight'>

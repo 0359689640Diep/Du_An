@@ -16,14 +16,16 @@
 
         public function showCart(){
             $conn = Connection::getInstance();
-            $query = $conn->query('select 
-            cart.IdCart, cart.IdAccount, cart.Size, cart.IdProduct, cart.Number, 
-            product.NameProducts, product.NumberProduct, product.Price,
-            color.Color, image.image from product
-            join cart on cart.IdProduct = product.IdProduct
-            join image on image.IdProduct = product.IdProduct
-            join color on color.IdProduct = product.IdProduct
-            ');
+            $query = $conn->query("SELECT c.*, p.NumberProduct, i.Image
+            FROM cart c 
+            INNER JOIN (
+                SELECT IdProduct, MAX(Image) AS Image
+                FROM image
+                GROUP BY IdProduct
+            ) i ON c.IdProduct = i.IdProduct
+            JOIN product p ON p.IdProduct = c.IdProduct
+            "
+            );
             if($query){
                 while($row = $query->fetch_assoc()){
                     $this->data['showCart'][] = $row;

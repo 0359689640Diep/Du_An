@@ -17,7 +17,19 @@
                 <section class="ProductDetail">
                     <section class="ProductDetailImg">
                         <article class="ProductDetailImgLeft">
-                            <!-- <img src="../assets/img/aothun1.png" alt="">
+                            <?php 
+                            $quanlity = count($data['Image']) <= 3 ? count($data['Image']) :3;
+                            // echo $quanlity; die();
+                                if (isset($this->data['showProduct'])) {
+                                    for ($i = 0; $i < $quanlity; $i++) {
+                                        echo "<img src='../assets/imgUpload/". $data['Image'][$i]['Image'] ."'alt='{$data['Image'][$i]['Image']}'>";
+                                    }
+                                }else{
+                                    echo "<h1>Sản phẩm không tồn tại</h1>";
+                                }
+
+                            ?>
+                            <!-- 
                             <img src="../assets/img/aothun1.png" alt="">
                             <img src="../assets/img/aothun1.png" alt=""> -->
                         </article>
@@ -28,12 +40,12 @@
                             // echo "<pre>";
                             // var_dump($showProduct); die();
                             echo "
-                                <img src='../assets/imgUpload/" . $showProduct['Image'] . "' alt='showProduct[0][Image]'>
+                                <img src='../assets/imgUpload/" . $data['Image'][0]['Image'] . "' alt='showProduct[0][Image]'>
                             ";                            
                         ?>
                         </article>
                     </section>
-                    <section class="ProductDetailContent">
+                    <form action="index.php?controller=ProductDetail&action=addToCart&id=<?php echo $showProduct['IdProduct']?>" method="post" class="ProductDetailContent">
                         <?php 
                             echo "
                             <h1>{$showProduct['NameProducts']}</h1>
@@ -45,29 +57,52 @@
                                 <i class='ti-star'></i>
                             </article>   
                             <section class='price'>
-                                <h1>{$showProduct['Price']}</h1>
+                                <input type='text' name='Price' value = '{$showProduct['Price']}' readonly>
+                               
                             </section>    
                             <p>{$showDetails['ProductDetails']}</p> 
                             <article class='color'>
                                 <h3>Select Colors</h3>
-                                <svg height = '50' id='my-svg' >
-                                    <circle cx= '25' cy = '25' r = '25' fill = '{$showProduct['Color']}' ></circle>
-                                </svg>
+                                <article class='contentColor'>";
+                                if(isset($data['Color'])){
+                                    foreach($data['Color'] as $value){
+                                        echo "
+                                        <input type='radio' name='Color' value='$value[Color]' id='' style='background-color: $value[Color]'>
+                                        ";
+                                    }
+                                }
+                                // print_r($value);
+                            echo "
+                                </article>
                             </article> 
                             <article class='side'>
                                 <h3>Choose Size</h3>
-                                <button>{$showProduct['Size']}</button>
+                                <article class='contentSize'>";
+
+                                if(isset($data['Size'])){
+                                    foreach($data['Size'] as $value){
+                                        echo "
+                                        <label for='$value[IdSize]'>
+                                            $value[Size]
+                                            <input type='radio' name='Size' id='$value[IdSize]' value = '$value[Size]'>
+                                        </label>
+         
+                                        ";
+                                    }
+                                }
+                                echo "
+                            </article>
                             </article>
                             
                             ";
                         ?>
-                        <form action="index.php?controller=ProductDetail&action=addToCart&id=<?php echo $showProduct['IdProduct']?>" method="post" class="addTocart">
+                        <section class="addTocart">
                             <input type="number" name="number" id="" min = 1 max = <?php echo $showProduct['NumberProduct']?> value="1">
                             <button type="submit">Add To Cart</button>
-                        </form>
+                        </section>
 
-                    </section>
-                    
+                    </form>
+
                 </section>
                 <section class="commentUser">
                     <nav>

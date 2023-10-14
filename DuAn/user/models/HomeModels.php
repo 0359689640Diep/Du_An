@@ -16,14 +16,24 @@
 
         public function showProduct(){
             $conn = Connection::getInstance();
-            $query = $conn->query("SELECT image.Image, product.IdProduct, product.NameProducts, product.Price, product.Evalute
-            FROM image
-            JOIN product ON image.IdProduct = product.IdProduct
-            WHERE product.Status = 0;");
+            $query = $conn->query("SELECT p.*, i.Image
+            FROM product p
+            INNER JOIN (
+                SELECT IdProduct, Image
+                FROM image
+                GROUP BY IdProduct
+            ) i ON p.IdProduct = i.IdProduct
+            WHERE p.Status = 0
+            ORDER BY p.IdProduct
+            ");
+
             if($query){
                 while($row = $query->fetch_assoc()){
                     $this->data['showProduct'][] = $row;
                 }
+                // echo "<pre>";
+                // print_r($this->data['showProduct']); 
+                // die();
             }else{
                 $this->data['messageError'] = "Hệ thống đang bảo trì";
             }

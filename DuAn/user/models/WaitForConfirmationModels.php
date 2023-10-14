@@ -19,14 +19,16 @@ trait WaitForConfirmationModels{
         $conn = Connection::getInstance();
         $IdAccount = $_SESSION['IdAccountUser'] ?? '';
         $query = $conn->query("
-        select orderconfirmation.Price,orderconfirmation.IdOrder, 
-        product.NameProducts, image.Image,  
-        account.Address, account.Phone
-        from orderconfirmation
-        join account on orderconfirmation.IdAccount = account.Id
-        join product on orderconfirmation.IdProduct = product.IdProduct
-        join image on image.IdProduct = product.IdProduct
-        where orderconfirmation.Status = 1 and orderconfirmation.IdAccount = '$IdAccount';
+        SELECT ord.Price, ord.IdOrder, p.NameProducts, i.Image, ac.Address, ac.Phone
+        FROM orderconfirmation ord
+        INNER JOIN (
+            SELECT IdProduct, MAX(Image) AS Image
+            FROM image i
+            GROUP BY IdProduct
+        ) i ON ord.IdProduct = i.IdProduct
+        JOIN product p ON p.IdProduct = ord.IdProduct
+        JOIN account ac ON ac.Id = ord.IdAccount  
+        where ord.Status = 1 and ord.IdAccount = '$IdAccount'
         ");
         if($query){
             while ($row = $query->fetch_assoc()){

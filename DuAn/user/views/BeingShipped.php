@@ -25,7 +25,7 @@
                                 <section class='contentProduct'>
                                     <ul>
                                         <li>Name Product: {$value['NameProducts']}</li>
-                                        <li>Price: {$value['Price']}</li>
+                                        <li>Price:$ {$value['Price']}</li>
                                         <li>Address: {$value['Address']}</li>
                                         <li>Phone: {$value['Phone']}</li>
                                     </ul>

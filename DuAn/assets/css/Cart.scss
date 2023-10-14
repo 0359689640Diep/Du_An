@@ -71,6 +71,16 @@
                             h4{
                                 font-size: 0.875rem;
                                 margin: 5% 0;
+                                @include FlexCenter;
+                                
+
+                                input{
+                                    appearance: none; /* Ẩn giao diện checkbox mặc định */
+                                    background-color: transparent; 
+                                    width: 20px;
+                                    height: 20px;
+                                    border-radius: 30px;
+                                }
                             }
                         }
                         .contentProductRight{
