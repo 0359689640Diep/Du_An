@@ -165,22 +165,37 @@
     border: 2px solid;
     padding: 3px;
     text-align: center;
-  }
+}
+    td {
+      flex-wrap: wrap;
+      overflow-x: auto;
+    }
+    td>input{
+        width: 40px; /* Điều chỉnh kích thước của checkbox */
+        height: 40px;
+        appearance: none; /* Ẩn giao diện checkbox mặc định */
+        background-color: transparent; /* Xóa nền mặc định */
+        border-radius: 50%; /* Áp dụng border-radius thành hình tròn */
+        border: 2px solid var(--text-color1);
+    }
   
   td > img {
     width: 100%;
     height: 20%;
   }
-  
-  td > button {
+  td> a{
+      width: 100%;
+      height: 20%;
+  }
+  td >a> button {
     width: 100%;
-    height: 20%;
+    height: 100%;
     background-color: var(--background-color);
     color: var(--text-color);
     font-size: 16px;
   }
   
-  td > button:hover {
+  td >a> button:hover {
     background-color: var(--text-color);
     color: var(--text-color2);
     border-radius: 14px;

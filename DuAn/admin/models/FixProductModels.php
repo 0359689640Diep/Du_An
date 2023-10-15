@@ -3,27 +3,63 @@
 trait FixProductModels{
     public function FixProductDisplayModels($id){
         $conn = Connection::getInstance();
+
         $query = $conn->query("
-        SELECT 
-        product.NameProducts, product.IdDetails, product.NumberProduct, product.Price, 
-        productdetails.ProductDetails, productdetails.ProductDescription, 
-        category.IdCategory ,category.NameCategory, color.Color, size.Size FROM product
-        join productdetails on product.IdDetails = productdetails.IdProductDetails
-        join category on product.IdCategory  = category.IdCategory 
-        join size on size.IdProduct = product.IdProduct
-        join color on color.IdProduct = product.IdProduct
-        where product.IdProduct = '$id'");
+            SELECT 
+                p.NameProducts,p.IdProduct, p.IdDetails, p.NumberProduct, p.Price,
+                de.ProductDetails, de.ProductDescription,
+                ca.IdCategory, ca.NameCategory,
+                s.IdSize, c.IdColor, s.Size, c.Color
+            FROM product p
+            LEFT JOIN category ca ON p.IdCategory = ca.IdCategory
+            LEFT JOIN productdetails de ON p.IdDetails  = de.IdProductDetails
+            LEFT JOIN (
+                SELECT DISTINCT IdProduct, IdSize, Size
+                FROM size
+                WHERE IdProduct = '$id'
+            ) s ON p.IdProduct = s.IdProduct
+            LEFT JOIN (
+                SELECT DISTINCT IdProduct, IdColor, Color
+                FROM color
+                WHERE IdProduct = '$id'
+            ) c ON p.IdProduct = c.IdProduct
+            WHERE p.Status = 0 AND p.IdProduct = '$id'
+            ORDER BY p.IdProduct;
+        ");
         $data = array(); 
         if($query){
             while($row = $query->fetch_assoc()){
-
-                $data['display']= $row;
+                $data['NameProducts'] = $row['NameProducts'];
+                $data['IdProduct'] = $row['IdProduct'];
+                $data['IdDetails'] = $row['IdDetails'];
+                $data['NumberProduct'] = $row['NumberProduct'];
+                $data['Price'] = $row['Price'];
+                $data['ProductDetails'] = $row['ProductDetails'];
+                $data['ProductDescription'] = $row['ProductDescription'];
+                $data['IdCategory'] = $row['IdCategory'];
+                $data['NameCategory'] = $row['NameCategory'];
+                
+                if (!empty($row['IdSize'])) {
+                    $data['Size'][] = [
+                        'IdSize' => $row['IdSize'],
+                        'Size' => $row['Size']
+                    ];
+                }
+                
+                if (!empty($row['IdColor'])) {
+                    $data['Color'][] = [
+                        'IdColor' => $row['IdColor'],
+                        'Color' => $row['Color']
+                    ];
+                }
             }
-
         }
+    // echo "<pre>";
+    // var_dump($data); die();
         return $data;
-        
     }
+        
+    
 
     public function modelFixProduct($id){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

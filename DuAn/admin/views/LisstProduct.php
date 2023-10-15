@@ -33,14 +33,50 @@
                         <tr id='{$value['IdProduct']}'>
                             <td>{$value['NameProducts']}</td>
                             <td>{$value['IdDetails']}</td>
-                            <td><input type='color' name='' id='' value='{$value['Color']}'></td>
+                            <td>
+                            ";
+                            if(isset($value["Colors"])){
+                                foreach($value["Colors"] as $ValueColors){
+                                    echo "
+                                    
+                                        <input type='checkbox' style='background-color:{$ValueColors}'>
+                                    
+                                    ";
+                                }
+                            }
+                            echo "
+                            </td>
                             <td>{$value['NumberProduct']}</td>
                             <td>{$value['Price']}</td>
                             <td>{$value['Evalute']}</td>
-                            <td>{$value['Size']}</td>
+                            <td>
+                            ";
+                                    // echo "<pre>";
+                                    // print_r($value); die();
+                            if(isset($value["Sizes"])){
+                                foreach($value["Sizes"] as $ValueSize){
+                                    echo "
+                                    
+                                        <p>{$ValueSize}</p>
+                                    
+    
+                                    ";
+                                }
+                            }
+                            echo "
+                            </td>
                             <td><img src='../assets/imgUpload/{$value['Image']}' alt='product'></td>
-                            <td><button onclick='deleteProduct({$value['IdProduct']})'>Delete</button></td>
-                            <td><button onclick='fixProduct({$value['IdProduct']})'>Fix</button></td>
+                            <td>
+                                <a href='index.php?controller=FixProduct&IdProduct={$value['IdProduct']}'>
+                                    <button > Delete</button>
+                                </a>
+                                
+                                </td>
+                            <td>
+                                <a href='index.php?controller=FixProduct&IdProduct={$value['IdProduct']}'>
+                                <button>Fix</button>
+                                </a>
+                            </td>
                         </tr>
                     ";
                     

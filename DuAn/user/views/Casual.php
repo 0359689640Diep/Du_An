@@ -41,17 +41,17 @@
                                 <h1>Color</h1>
                             </article>
                             <article class="contentColor">
-                                <?php
-                                    if(isset($data["showProduct"])){
-                                        foreach($data["showProduct"] as $value){
-                                            echo "
-                                                <svg>
-                                                    <circle fill='{$value['Color']}'></circle>
-                                                </svg>
-                                            ";
-                                        }
-                                    }
-                                    ?>
+                                <input type="checkbox" value="#00C12B" style = "background-color:#00C12B" class="custom-checkbox" name="Color[]">
+                                <input type="checkbox" value="#F50606" style = "background-color:#F50606" class="custom-checkbox" name="Color[]">
+                                <input type="checkbox" value="#F5DD06" style = "background-color:#F5DD06" class="custom-checkbox" name="Color[]">
+                                <input type="checkbox" value="#F57906" style = "background-color:#F57906" class="custom-checkbox" name="Color[]">
+                                <input type="checkbox" value="#06CAF5" style = "background-color:#06CAF5" class="custom-checkbox" name="Color[]">
+                                <input type="checkbox" value="#063AF5" style = "background-color:#063AF5" class="custom-checkbox" name="Color[]">
+                                <input type="checkbox" value="#7D06F5" style = "background-color:#7D06F5" class="custom-checkbox" name="Color[]">
+                                <input type="checkbox" value="#F506A4" style = "background-color:#F506A4" class="custom-checkbox" name="Color[]">
+                                <input type="checkbox" value="#FFFFFF" style = "background-color:#FFFFFF" class="custom-checkbox" name="Color[]">
+                                <input type="checkbox" value="#000000" style = "background-color:#000000" class="custom-checkbox" name="Color[]">
+                                <input type="checkbox" value="#A7A7A7" style = "background-color:#A7A7A7" class="custom-checkbox" name="Color[]">
 
                             </article>
                         </section>
@@ -60,19 +60,21 @@
                                 <h1>Size</h1>
                             </section>
                             <article class="contentSize">
-                                <?php 
-                                    if(isset($data["showProduct"])){
-                                        foreach($data["showProduct"] as $value){
-                                            echo "
-                                            <a href=''>
-                                                <button>{$value['Size']}</button>
-                                            </a>
-                                            ";
-                                        }
-                                    }else{
-                                        echo "<h1>There are no products you are looking for</h1>";
-                                    }
-                                ?>
+                                <label for="S">S
+                                    <input type="checkbox" name="Size[]" id="S" value="S">
+                                </label>
+                                <label for="M">M
+                                    <input type="checkbox" name="Size[]" id="M" value="M">
+                                </label>
+                                <label for="L">L
+                                    <input type="checkbox" name="Size[]" id="L" value="L">
+                                </label>
+                                <label for="XXL">XXL
+                                    <input type="checkbox" name="Size[]" id="XXL" value="XXL">
+                                </label>
+                                <label for="XXXL">XXXL
+                                    <input type="checkbox" name="Size[]" id="XXXL" value="XXXL">
+                                </label>
                                 
                             </article>
                         </article>

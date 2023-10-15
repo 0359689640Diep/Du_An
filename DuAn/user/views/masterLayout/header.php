@@ -50,8 +50,6 @@
                 <h1 style="color: red">According to product</h1>
             </header>
             <section class="mainMeuProduct">
-                <a href="index.php?controller=Casual&id=">All</a>
-                <a href="index.php?controller=Casual&id=">New product</a>
                 <?php 
                 foreach($data['showCategory'] as $value){
                     echo "<a href='index.php?controller=Casual&id=$value[IdCategory]'>$value[NameCategory]</a>";

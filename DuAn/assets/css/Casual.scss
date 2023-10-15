@@ -87,10 +87,11 @@ main{
                 width: 100%;
                 height: 40%;
                 border-bottom: 2px solid var(--text-color3);
-            
+                
                 .titleColor{
+
                     width: 100%;
-                    height: 10%;
+                    height: 20%;
 
                     h1{
                         font-size: 1.25rem;
@@ -98,27 +99,26 @@ main{
                 }
                 .contentColor{
                     width: 100%;
-                    height: 45%;
+                    height: 80%;
                     @include FlexCenter;
                     justify-content: space-between;
                     flex-wrap: wrap;
                     overflow-x: auto;
                     
-                /* Chọn cặp thẻ SVG */
-                svg {
-                    width: 20%;
-                    height: 80%;
-                  }
-                  
-                  circle {
-                    stroke-width: 2px;
-                  }
-                  
-                  circle {
-                    cx: 20;
-                    cy: 20;
-                    r: 20;
-                  }
+                    input{
+                        width: 40px; /* Điều chỉnh kích thước của checkbox */
+                        height: 40px;
+                        appearance: none; /* Ẩn giao diện checkbox mặc định */
+                        background-color: transparent; /* Xóa nền mặc định */
+                        border-radius: 50%; /* Áp dụng border-radius thành hình tròn */
+                        border: 2px solid var(--text-color1);
+                    }
+                    input:checked{
+                        background-image: url(../img/checkIcont.png);
+                        background-size: 65%;
+                        background-repeat: no-repeat;
+                        background-position: 50% 61%;
+                    }
                   
   
                 }
@@ -128,40 +128,36 @@ main{
                 height: 40%;
                  margin-top: 5%;
 
+
                 .titleSize{
                     width: 100%;
                     margin-bottom: 1%;
+                    height: 20%;
+
                     h1{
                         font-size: 1.25rem;
                     }
                 }
                 .contentSize{
                     width: 100%;
-                    height: 75%;
+                    height: 80%;
                     @include FlexCenter;
                     justify-content: space-between;
                     flex-wrap: wrap;
                     overflow-x: auto;
+                    
+                    label{
+                        width: 30%;
+                        height: 30%;
+                        @include FlexCenter;
+                        justify-content: space-between;
+                        font-size: 1.2rem;
 
-                    a{
-                        width: 45%;
-                        height: 20%;
-                        border: none;
-                        button{
-                            border: none;
-                            @include WidthHieght;
-                            border-radius: 62px;
-                            background-color: var(--background-color2);
-                            font-size: 0.875rem;
-                            color: var(--text-color3);
-                        }
-                        button:hover{
-                            color: var(--text-color);
-                            background-color: var(--background-color);
-                            transition: linear 1s;
+                        input{
+                            width: 35%;
+                            height: 100%;
                         }
                     }
-                
                 }
             }
         }

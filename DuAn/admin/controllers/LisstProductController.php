@@ -4,6 +4,8 @@ class LisstProductController extends Controller{
     use LisstProductModels;
     public function index(){
         $data = $this->LisstProductModels();
+        // echo "<pre>";
+        // print_r($data['result'][0]['Sizes']); die();
         $this->loadView('LisstProduct.php', $data);
     }
 
