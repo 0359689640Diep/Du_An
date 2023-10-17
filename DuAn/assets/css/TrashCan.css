@@ -1,0 +1,291 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color: #FFFFFF;
+  --background-color-main: #efefef;
+  --text-color: #0C0C0D;
+  --text-color1: #A7A7A7;
+  --text-color2: #efefef;
+}
+
+.page {
+  width: 1440px;
+  height: 1000px;
+  gap: 4px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 10% 90%;
+  grid-template-areas: "header header" "aside main";
+  grid-gap: 1%;
+}
+
+.page > header {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  border-bottom: 2px solid var(--background-color-main);
+}
+
+.logo {
+  width: 30%;
+  height: 50%;
+}
+
+.logo > img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+}
+
+.search {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  position: relative;
+}
+
+.search > .ti-search {
+  /* transform: translateY(-50%); */
+  font-size: 20px;
+  position: absolute;
+  left: 2%;
+}
+
+.search > input {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  color: var(--text-color1);
+  border-radius: 50px;
+  padding-left: 5%;
+  border: none;
+}
+
+.Notification {
+  width: 10%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  font-size: 30px;
+}
+
+.page > aside {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  grid-area: aside;
+  padding: 2% 5%;
+  border-right: 2px solid var(--background-color-main);
+}
+
+.individual {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-around;
+  place-items: center;
+}
+
+.individual > .img {
+  width: 40%;
+  height: 100%;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.individual > .img > img {
+  width: 100%;
+  height: 100%;
+}
+
+.individual > .Personal_Information {
+  width: 50%;
+  height: 80%;
+}
+
+.individual > .Personal_Information > h4 {
+  color: var(--text-color1);
+}
+
+.setting {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: space-evenly;
+  place-items: center;
+  margin-top: 5%;
+}
+
+.setting > i {
+  font-size: 16px;
+}
+
+.setting > a {
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.setting:hover, .setting:hover a, .setting:hover i {
+  background-color: var(--text-color);
+  color: var(--text-color2);
+  border-radius: 40px;
+  transition: linear 1.5s;
+  /* transform: scale(4px); */
+}
+
+main .account {
+  width: 100%;
+  height: 23%;
+  overflow-x: auto;
+}
+main .account table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+main .account table th {
+  border: 2px solid;
+  padding: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main .account table td {
+  border: 2px solid;
+  padding: 3px solid;
+  text-align: center;
+  word-wrap: break-word;
+}
+main .account table td button {
+  width: 50%;
+  height: 30%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 16px;
+}
+main .account table td button:hover {
+  background-color: var(--text-color);
+  color: var(--text-color2);
+  border-radius: 14px;
+  transition: linear 1.5s;
+}
+main .category {
+  width: 100%;
+  height: 23%;
+  margin-top: 2%;
+}
+main .category table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+main .category table th {
+  border: 2px solid;
+  padding: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main .category table td {
+  border: 2px solid;
+  padding: 3px solid;
+  text-align: center;
+  word-wrap: break-word;
+}
+main .category table td button {
+  width: 50%;
+  height: 30%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 16px;
+}
+main .category table td button:hover {
+  background-color: var(--text-color);
+  color: var(--text-color2);
+  border-radius: 14px;
+  transition: linear 1.5s;
+}
+main .orderconfirmation {
+  width: 100%;
+  height: 23%;
+  margin-top: 2%;
+}
+main .orderconfirmation table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+main .orderconfirmation table th {
+  border: 2px solid;
+  padding: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main .orderconfirmation table td {
+  border: 2px solid;
+  padding: 3px solid;
+  text-align: center;
+  word-wrap: break-word;
+}
+main .orderconfirmation table td button {
+  width: 50%;
+  height: 30%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 16px;
+}
+main .orderconfirmation table td button:hover {
+  background-color: var(--text-color);
+  color: var(--text-color2);
+  border-radius: 14px;
+  transition: linear 1.5s;
+}
+main .product {
+  width: 100%;
+  height: 23%;
+  margin-top: 2%;
+}
+main .product table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+main .product table th {
+  border: 2px solid;
+  padding: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main .product table td {
+  border: 2px solid;
+  padding: 3px solid;
+  text-align: center;
+  word-wrap: break-word;
+}
+main .product table td button {
+  width: 50%;
+  height: 30%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 16px;
+}
+main .product table td button:hover {
+  background-color: var(--text-color);
+  color: var(--text-color2);
+  border-radius: 14px;
+  transition: linear 1.5s;
+}/*# sourceMappingURL=TrashCan.css.map */
