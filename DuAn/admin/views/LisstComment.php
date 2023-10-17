@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
+<?php require "masterLayout/head.php" ?>
 <link rel="stylesheet" href="../assets/css/LisstComment.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 <body>

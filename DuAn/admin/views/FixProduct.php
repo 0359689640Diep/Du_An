@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<?php require "masterLayout/head.php" ?>
+
 
 <link rel="stylesheet" href="../assets/css/FixProduct.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
@@ -29,7 +26,7 @@
                     ?>
             <form action="index.php?controller=FixProduct&IdProduct=<?=$IdProduct?>&IdDetails=<?=$IdDetails?>
             " method="post" enctype="multipart/form-data">
-                <label for="NameProducts">Name Products</label>
+                <!-- <label for="NameProducts">Name Products</label>
                 <input value="<?php echo $data['display']["NameProducts"]; ?>"  type="text" name="NameProducts" id="NameProducts">
 
                 <label for="Details">Details</label>
@@ -37,82 +34,47 @@
 
                 <label for="ProductDescription">Product Description</label>
                 <input value="<?php echo $data['display']["ProductDescription"]; ?>"  type="text" name="ProductDescription" id="ProductDescription">
-                <label for="Color">Color</label>
+                <label for="Color">Color</label> -->
                 <article class="color">
+                    <?php
+                    $tableColor = array('#F5DD06','#F57906','#06CAF5','#7D06F5','#F506A4','#FFFFFF','#000000','#a7a7a7');
+                    $foundColors = array(); // Mảng lưu trữ những giá trị tìm thấy
+                    
+                    foreach($tableColor as $valueColor){
+                        foreach($data["display"]["Color"] as $valueDB) {
+                        $found = false; // Cờ kiểm tra xem có tìm thấy phần tử hay không
+                    
+                        // echo "<input type='checkbox' style='background-color:{$valueColor}' 
+                        // checked value='" . $valueDB['IdColor'] . ":" . $valueColor . "'>";
+                            if($valueDB['Color'] === $valueColor){
+                                $found = true;// Thêm IdColor vào mảng $arrIdColor
+                                $foundColors['IdColor'] = $valueDB['IdColor']; // Thêm giá trị tìm thấy vào mảng $foundColors
+                                $foundColors['Color'] = $valueDB['Color']; // Thêm giá trị tìm thấy vào mảng $foundColors
+                                // break;
+                            } 
+                        }
+                    
+                        if(!$found){
+                            $arrIdColor[] = $valueDB['IdColor']; // Thêm IdColor vào mảng $arrIdColor
+                        }
+                    }
+                    echo "<pre>";
+                    var_dump($foundColors); die();
+                    // In ra những checkbox có giá trị không tìm thấy
+                    foreach($arrIdColor as $idColor) {
+                        foreach($tableColor as $value){
+                            if(!in_array($value, $foundColors)) {
+                                echo "<input type='checkbox' style='background-color:{$value}' 
+                                 value='" . $idColor. ":" . $value . "'>";
+                            }
+                        }
+                    }
+                    
 
-                <input type="checkbox" style="background-color:#00C12B" <?php 
-                    foreach($data["display"]["Color"] as $value){
-                        if($value['Color'] === "#00C12B"){
-                            echo "checked value='" . $value['IdColor'] . ":" . $value['Color'] . "'";
-                        } 
-                    } ?> name="Color[]">
+                    ?>
 
 
-                <input type="checkbox" style="background-color:#F50606" <?php 
-                foreach($data["display"]["Color"] as $value){
-                    if($value['Color'] === "#F50606"){
-                        echo "checked value='" . $value['IdColor'] . ":" . $value['Color'] . "'";
-                    } 
-                } ?> name="Color[]">
-
-                <input type="checkbox" style="background-color:#F5DD06" <?php 
-                foreach($data["display"]["Color"] as $value){
-                    if($value['Color'] === "#F5DD06"){
-                        echo "checked value='" . $value['IdColor'] . ":" . $value['Color'] . "'";
-                    } 
-                } ?> name="Color[]">
-
-                <input type="checkbox" style="background-color:#F57906" <?php 
-                foreach($data["display"]["Color"] as $value){
-                    if($value['Color'] === "#F57906"){
-                        echo "checked value='" . $value['IdColor'] . ":" . $value['Color'] . "'";
-                    } 
-                } ?> name="Color[]">
-
-                <input type="checkbox" style="background-color:#06CAF5" <?php 
-                foreach($data["display"]["Color"] as $value){
-                    if($value['Color'] === "#06CAF5"){
-                         echo "checked value='" . $value['IdColor'] . ":" . $value['Color'] . "'";
-                      } 
-                    } ?> name="Color[]">
-
-                <input type="checkbox" style="background-color:#06CAF5" <?php 
-                foreach($data["display"]["Color"] as $value){
-                    if($value['Color'] === "#06CAF5"){
-                         echo "checked value='" . $value['IdColor'] . ":" . $value['Color'] . "'";
-                      } 
-                    } ?> name="Color[]">
-            <input type="checkbox" style="background-color:#7D06F5" <?php 
-            foreach($data["display"]["Color"] as $value){
-                if($value['Color'] === "#7D06F5"){
-                     echo "checked value='" . $value['IdColor'] . ":" . $value['Color'] . "'";
-                      } 
-                    } ?> name="Color[]">  <input type="checkbox" style="background-color:#F506A4" <?php 
-                foreach($data["display"]["Color"] as $value){
-                    if($value['Color'] === "#F506A4"){
-                         echo "checked value='" . $value['IdColor'] . ":" . $value['Color'] . "'";
-                      } 
-                    } ?> name="Color[]">
-
-                <input type="checkbox" style="background-color:#FFFFFF" <?php 
-                foreach($data["display"]["Color"] as $value){
-                    if($value['Color'] === "#FFFFFF"){
-                         echo "checked value='" . $value['IdColor'] . ":" . $value['Color'] . "'";
-                      } 
-                    } ?> name="Color[]">
-                    <input type="checkbox" style="background-color:#000000" <?php 
-                    foreach($data["display"]["Color"] as $value){
-                        if($value['Color'] === "#000000"){
-                             echo "checked value='" . $value['IdColor'] . ":" . $value['Color'] . "'";
-                      } 
-                    } ?> name="Color[]"> 
-
-                    <input type="checkbox" style="background: #a7a7a7;" <?php 
-                    foreach($data["display"]["Color"] as $value){
-                        if($value['Color'] === " #a7a7a7;"){
-                             echo "checked value='" . $value['IdColor'] . ":" . $value['Color'] . "'";
-                      } 
-                    } ?> name="Color[]">
+                
 
                 </article>
                 <label for="NumberProduct">Number Product</label>
@@ -123,67 +85,111 @@
                 <article class="size">
                     <label for="S">S
                         <input type="checkbox" name="Size[]"
-                        <?php 
+                        <?php
+                            $isCheckedSize = false; 
                             foreach($data["display"]["Size"] as $value){
                                 if($value['Size'] === "S"){
                                     echo "checked id='S' value='" . $value['IdSize'] . ":" . $value['Size'] . "'";
+                                    $isCheckedSize = true;
+                                    break;
                                 }
                                 
+                            }
+                            if(!$isCheckedSize){
+                                echo "id='S' value='S'";
                             }
                         ?>
                         >
                     </label>
                     <label for="M">M
                         <input type="checkbox" name="Size[]"
-                        <?php 
+                        <?php
+                            $isCheckedSize = false; 
                             foreach($data["display"]["Size"] as $value){
                                 if($value['Size'] === "M"){
                                     echo "checked id='M' value='" . $value['IdSize'] . ":" . $value['Size'] . "'";
+                                    $isCheckedSize = true;
+                                    break;
                                 }
                                 
+                            }
+                            if(!$isCheckedSize){
+                                echo "id='M' value='M'";
                             }
                         ?>
                         >
                     </label>
                     <label for="L">L
                         <input type="checkbox" name="Size[]"
-                        <?php 
+                        <?php
+                            $isCheckedSize = false; 
                             foreach($data["display"]["Size"] as $value){
                                 if($value['Size'] === "L"){
                                     echo "checked id='L' value='" . $value['IdSize'] . ":" . $value['Size'] . "'";
+                                    $isCheckedSize = true;
+                                    break;
                                 }
                                 
+                            }
+                            if(!$isCheckedSize){
+                                echo "id='L' value='L'";
                             }
                         ?>
                         >
                     </label>
                     <label for="XXL">XXL
                         <input type="checkbox" name="Size[]"
-                        <?php 
+                        <?php
+                            $isCheckedSize = false; 
                             foreach($data["display"]["Size"] as $value){
                                 if($value['Size'] === "XXL"){
                                     echo "checked id='XXL' value='" . $value['IdSize'] . ":" . $value['Size'] . "'";
+                                    $isCheckedSize = true;
+                                    break;
                                 }
                                 
+                            }
+                            if(!$isCheckedSize){
+                                echo "id='XXL' value='XXL'";
                             }
                         ?>
                         >
                     </label>
                     <label for="XXXL">XXXL
                         <input type="checkbox" name="Size[]"
-                        <?php 
+                        <?php
+                            $isCheckedSize = false; 
                             foreach($data["display"]["Size"] as $value){
                                 if($value['Size'] === "XXXL"){
                                     echo "checked id='XXXL' value='" . $value['IdSize'] . ":" . $value['Size'] . "'";
+                                    $isCheckedSize = true;
+                                    break;
                                 }
                                 
+                            }
+                            if(!$isCheckedSize){
+                                echo "id='XXXL' value='XXXL'";
                             }
                         ?>
                         >
                     </label>
                 </article>
                 <label for="Image">Image</label>
-                <input   type="file" name="Image" id="Image">
+                <section class="Image">
+                    <?php 
+                    // echo "<pre>";
+                    // var_dump($data['display']['Image']); die();
+                    foreach($data['display']['Image'] as $value){
+                        echo "
+                        <article class='ContentImage'>
+                            <img src='../assets/imgUpload/{$value['Image']}' alt='{$value['Image']}'>
+                            <input type='hidden' name='IdImageUpdate[]' value='{$value['IdImage']}' >
+                            <input type='file' name='ImageUpdate[]' id='' >
+                        </article>
+                        ";
+                    }
+                    ?>
+                </section>
                 <label for="Category">Category</label>
                 <select name="Category" id="Category" >
 

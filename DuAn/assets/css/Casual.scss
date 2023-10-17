@@ -1,7 +1,8 @@
 @import "masterLayout/main";
 @import "masterLayout/mixin";
 .page{
-    padding: 0 2%
+    padding: 0 2%;
+    
 }
 header{
     border-bottom: 2px solid var(--text-color3);
@@ -245,6 +246,7 @@ main{
             justify-content: space-around;
             flex-wrap: wrap;
             overflow-y: auto;
+            align-content: flex-start;
 
             .lissProduct{
                 width: 30%;
@@ -258,6 +260,10 @@ main{
                     img{
                         @include WidthHieght;
                         border-radius: 20px;
+                    }
+                    img:hover{
+                        transition: linear 1.5s;
+                        transform: scale(1.1);
                     }
                 }
                 .nameProduct{

@@ -41,7 +41,7 @@
             $data = array();
             if($_SERVER['REQUEST_METHOD']){
                 extract($_POST);
-                $Price = $_SESSION['Price'];
+                $Price = isset($_SESSION['Price']) ?? "";
                 if(isset($Price) && isset($number)){
                     foreach($number as $key=>$value){
                         $sumPrice = ((float)$value * (float)$Price);
