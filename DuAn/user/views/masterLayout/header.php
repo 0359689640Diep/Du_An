@@ -16,7 +16,7 @@
                     </nav>
                 </section>
             </section>
-            <article class="logo">
+            <article class="logo" onclick="RenderNotId('home')">
                 <img src="../assets/img/logo.png" alt="logo">
             </article>
             
@@ -26,12 +26,12 @@
                 <h5 onclick="RenderNotId('home')">Home</h5>
                 <h5 onclick="RenderNotId('login')" >Log in</h5>
             </nav>
-            <section class="sheach">
-                <input type="text" placeholder="Search for product...">
+            <form action="index.php?controller=Casual&action=sheach" method="post" class="sheach" id="sheach">
+                <input type="text" placeholder="Search for product..." name="sheach" id="sheachInput">
                 <i class="ti-search" id = "ti-search" ></i>
-            </section>
+            </form>
             <section class="sheachMobile" id = "sheachMobile" >
-                <input type="text" placeholder="Search for product...">
+                <input type="text" placeholder="Search for product..." id="sheachInput">
             </section>
             <article class="Cart_Individual">
                 <?php 
@@ -122,4 +122,13 @@ showHideMenu( 'sheachMobile','ti-search');
 function RenderNotId(Arrive){
   window.location.replace(`index.php?controller=${Arrive}`)
 }
+
+// gửi from khi ấn enter
+document.getElementById('sheachInput').addEventListener("keyup", function(event){
+  event.preventDefault();
+  // 13 là phím enter
+  if(event.keyCode === 13){
+    document.getElementById("sheach").submit();
+  }
+});
 </script>

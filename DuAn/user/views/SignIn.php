@@ -37,7 +37,7 @@
                         <input type="number" placeholder="Phone" name ="Phone" required title="Không được để trống">
                         <input type="text" placeholder="Address" name ="Address" required title="Không được để trống">
                         <input type="password" placeholder="Password" name ="Password" required title="Không được để trống">
-                        <input type="password" placeholder="Password" name ="ConfirmationPassword" required title="Không được để trống">
+                        <input type="password" placeholder="Confirmation Password" name ="ConfirmationPassword" required title="Không được để trống">
                         <button  type="submit" name="submit" >Create  Account</button>
                         <span id="messageError" style="color:red;"></span>
                     </form>

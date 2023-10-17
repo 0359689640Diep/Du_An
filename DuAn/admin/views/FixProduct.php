@@ -37,7 +37,7 @@
                 <label for="Color">Color</label> -->
                 <article class="color">
                     <?php
-                    $tableColor = array('#F5DD06','#F57906','#06CAF5','#7D06F5','#F506A4','#FFFFFF','#000000','#a7a7a7');
+                    $tableColor = array('#00C12B','#F5DD06','#F57906','#06CAF5','#7D06F5','#F506A4','#FFFFFF','#000000','#a7a7a7','#F50606');
                     $foundColors = array(); // Mảng lưu trữ những giá trị tìm thấy
                     
                     foreach($tableColor as $valueColor){
@@ -54,9 +54,9 @@
                             } 
                         }
                     
-                        if(!$found){
-                            $arrIdColor[] = $valueDB['IdColor']; // Thêm IdColor vào mảng $arrIdColor
-                        }
+                        // if(!$found){
+                        //     $arrIdColor[] = $valueDB['IdColor']; // Thêm IdColor vào mảng $arrIdColor
+                        // }
                     }
                     echo "<pre>";
                     var_dump($foundColors); die();

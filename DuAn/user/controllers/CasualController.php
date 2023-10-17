@@ -16,5 +16,13 @@ class CasualController extends Controller{
         $data = $this->showProduct();
         $this->loadView("Casual.php", $data);
     }
+    
+    
+    function sheach(){
+        $data = $this->showProductShearch();
+        $data = $this->sortByShearch();
+        $data = $this->showCategory();
+        $this->loadView("Casual.php", $data);
+    }
 }
 ?>

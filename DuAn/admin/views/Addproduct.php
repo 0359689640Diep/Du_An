@@ -54,7 +54,7 @@
                         <input type="checkbox" name="Size[]" id="XXXL" value="XXXL">
                     </label>
                 </article>
-                <label for="Image">Image</label>
+                <label for="Image">Images</label>
                 <input required title="Không được để trống" type="file" name="Image[]" id="Image" multiple>
                 <label for="Category">Category</label>
                 <select name="Category" id="Category" required title="Không được để trống">
