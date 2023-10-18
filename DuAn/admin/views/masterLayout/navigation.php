@@ -34,9 +34,9 @@
     <i class="ti-cloud-up"></i>
     <a href="index.php?controller=LisstCategory">Lisst Category</a>
 </section>
-<section class="setting">
+<section class="setting" onclick="redirectToPage('index.php?controller=TrashCan')">
     <i class="ti-package"></i>
-    <a href="">Trash can</a>
+    <a href="index.php?controller=TrashCan">Trash can</a>
 </section>
 <section class="setting">
     <i class="ti-settings"></i>

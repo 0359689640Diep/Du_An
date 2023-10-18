@@ -290,8 +290,10 @@
                 height: 92%;
                 @include FlexCenter;
                 justify-content: space-between;
-                overflow-x: hidden;
+                overflow-x: auto;
                 flex-wrap: wrap;
+                align-content: flex-start;
+                
 
                 .Comment{
                     width: 45%;

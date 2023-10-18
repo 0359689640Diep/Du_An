@@ -4,7 +4,7 @@ trait DeliveredSuccessfullyModels{
 
     public function showCategory(){
         $conn = Connection::getInstance();
-        $query = $conn->query('select IdCategory,NameCategory from category');
+        $query = $conn->query('select IdCategory,NameCategory from category where status = 0');
         if($query){
             while($row = $query->fetch_assoc()){
                 $this->data['showCategory'][] = $row;

@@ -4,7 +4,7 @@
 
         public function showCategory(){
             $conn = Connection::getInstance();
-            $query = $conn->query('select IdCategory,NameCategory from category');
+            $query = $conn->query('select IdCategory,NameCategory from category where status = 0');
             if($query){
                 while($row = $query->fetch_assoc()){
                     $this->data['showCategory'][] = $row;
@@ -40,18 +40,16 @@
         }
 
         public function showComment(){
-            if(isset($_SESSION['IdAccountUser'])){
-                $conn = Connection::getInstance();
-                $query = $conn->query("select comment.Content, account.Name from comment 
-                join account on comment.IdAccount = account.Id
-                where  comment.Status = 0");
-                if($query){
-                    while($row = $query->fetch_assoc()){
-                        $this->data['showComment'][] = $row;
-                    }
-                }else{
-                    $this->data['messageError'] = "Hệ thống đang bảo trì";
+            $conn = Connection::getInstance();
+            $query = $conn->query("select comment.Content, account.Name from comment 
+            join account on comment.IdAccount = account.Id
+            where  comment.Status = 0");
+            if($query){
+                while($row = $query->fetch_assoc()){
+                    $this->data['showComment'][] = $row;
                 }
+            }else{
+                $this->data['messageError'] = "Hệ thống đang bảo trì";
             }
         }
 

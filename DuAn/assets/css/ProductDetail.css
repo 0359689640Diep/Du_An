@@ -695,8 +695,9 @@ footer > .footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  overflow-x: hidden;
+  overflow-x: auto;
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 .contener main .commentUser .content .Comment {
   width: 45%;

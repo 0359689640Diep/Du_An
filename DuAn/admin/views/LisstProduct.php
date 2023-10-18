@@ -62,7 +62,7 @@
                             </td>
                             <td><img src='../assets/imgUpload/{$value['Image']}' alt='product'></td>
                             <td>
-                                <a href='index.php?controller=FixProduct&IdProduct={$value['IdProduct']}'>
+                                <a href='index.php?controller=LisstProduct&action=deleteProduct&IdProduct={$value['IdProduct']}'>
                                     <button > Delete</button>
                                 </a>
                                 

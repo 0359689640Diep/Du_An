@@ -6,6 +6,7 @@
 <body>
     <section class="page">
         <?php require_once "masterLayout/header.php" ?>
+        <?php require "masterLayout/Notification.php" ?>
         <aside>
             <?php require_once "masterLayout/navigation.php" ?>
         </aside>
@@ -24,10 +25,10 @@
                                 <td> {$value['Name']} </td>
                                 <td>Account</td>
                                 <td>
-                                    <a href='index.php?controller=TrashCan&action=Delete&id={$value['Id']}'><button>Delete</button></a>
+                                    <a href='index.php?controller=TrashCan&action=Delete&Type=account&id={$value['Id']}'><button>Delete</button></a>
                                 </td>
                                 <td>
-                                    <a href='index.php?controller=TrashCan&action=Restore&id={$value['Id']}'><button>Restore</button></a>
+                                    <a href='index.php?controller=TrashCan&action=Restore&Type=account&id={$value['Id']}'><button>Restore</button></a>
         
                                 </td>
                             </tr>
@@ -51,10 +52,10 @@
                                 <td> {$value['NameCategory']} </td>
                                 <td>Category</td>
                                 <td>
-                                    <a href='index.php?controller=TrashCan&action=Delete&id={$value['IdCategory']}'><button>Delete</button></a>
+                                    <a href='index.php?controller=TrashCan&action=Delete&Type=category&id={$value['IdCategory']}'><button>Delete</button></a>
                                 </td>
                                 <td>
-                                    <a href='index.php?controller=TrashCan&action=Restore&id={$value['IdCategory']}'><button>Restore</button></a>
+                                    <a href='index.php?controller=TrashCan&action=Restore&Type=category&id={$value['IdCategory']}'><button>Restore</button></a>
         
                                 </td>
                             </tr>
@@ -78,11 +79,7 @@
                                 <td> {$value['Name']} </td>
                                 <td>Order</td>
                                 <td>
-                                    <a href='index.php?controller=TrashCan&action=Delete&id={$value['IdOrder']}'><button>Delete</button></a>
-                                </td>
-                                <td>
-                                    <a href='index.php?controller=TrashCan&action=Restore&id={$value['IdOrder']}'><button>Restore</button></a>
-        
+                                    <a href='index.php?controller=TrashCan&action=Delete&Type=order&id={$value['IdOrder']}'><button>Delete</button></a>
                                 </td>
                             </tr>
                             ";
@@ -105,10 +102,10 @@
                                 <td> {$value['NameProducts']} </td>
                                 <td>Product</td>
                                 <td>
-                                    <a href='index.php?controller=TrashCan&action=Delete&id={$value['IdProduct']}'><button>Delete</button></a>
+                                    <a href='index.php?controller=TrashCan&action=Delete&Type=product&id={$value['IdProduct']}'><button>Delete</button></a>
                                 </td>
                                 <td>
-                                    <a href='index.php?controller=TrashCan&action=Restore&id={$value['IdProduct']}'><button>Restore</button></a>
+                                    <a href='index.php?controller=TrashCan&action=Restore&Type=product&id={$value['IdProduct']}'><button>Restore</button></a>
         
                                 </td>
                             </tr>
@@ -122,4 +119,30 @@
         
     </section>
 </body>
+<?php
+if(isset($data["message"])){
+    $success = $data['message'];
+            echo "<script>
+            toast(
+              title= 'Success',
+              message= '$success',
+              type= 'success',
+              duration= 10000,
+              quantity = '0'
+          )
+            </script>";  
+}
+if(isset($data["Failure"])){
+    $success = $data['Failure'];
+            echo "<script>
+            toast(
+              title= 'Error',
+              message= '$success',
+              type= 'error',
+              duration= 10000,
+              quantity = '0'
+          )
+            </script>";  
+}
+?>
 </html>

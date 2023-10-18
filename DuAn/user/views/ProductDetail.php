@@ -155,28 +155,32 @@
                     </header>
                     <section class="mainproductSuggestions">
                         <?php 
-                        foreach($data['GetProductsByCategory'] as $value){
-                            echo "
-                                <section class='SuggestionsProduct'>
-                                    <article class='img'>
-                                    <img src='../assets/imgUpload/" . $value['Image'] . "' alt='showProduct[0][Image]'>
-                                    </article>
-                                    <article class='title'>
-                                        <h1>{$value['NameProducts']}</h1>
-                                    </article> 
-                                    <article class='evaluate'>
-                                        <i class='ti-star'></i>
-                                        <i class='ti-star'></i>
-                                        <i class='ti-star'></i>
-                                        <i class='ti-star'></i>
-                                        <i class='ti-star'></i>
-                                    </article> 
-                                    <section class='price'>
-                                        <h1>{$value['Price']}</h1>
-                                        
-                                    </section>
-                                </section>                            
-                            ";
+                        if(isset($data['GetProductsByCategory'])){
+                            foreach($data['GetProductsByCategory'] as $value){
+                                echo "
+                                    <section class='SuggestionsProduct'>
+                                        <article class='img'>
+                                        <img src='../assets/imgUpload/" . $value['Image'] . "' alt='showProduct[0][Image]'>
+                                        </article>
+                                        <article class='title'>
+                                            <h1>{$value['NameProducts']}</h1>
+                                        </article> 
+                                        <article class='evaluate'>
+                                            <i class='ti-star'></i>
+                                            <i class='ti-star'></i>
+                                            <i class='ti-star'></i>
+                                            <i class='ti-star'></i>
+                                            <i class='ti-star'></i>
+                                        </article> 
+                                        <section class='price'>
+                                            <h1>{$value['Price']}</h1>
+                                            
+                                        </section>
+                                    </section>                            
+                                ";
+                            }
+                        }else{
+                            echo "The system is maintenance";
                         }
                         ?>
                     </section>
