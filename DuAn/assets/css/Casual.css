@@ -405,6 +405,10 @@ footer > .footer {
 
 .page {
   padding: 0 2%;
+  height: 1500px;
+}
+.page .contener {
+  grid-template-rows: 10% 60% 30%;
 }
 
 header {
@@ -419,7 +423,7 @@ main {
 }
 main .sidebar {
   width: 23%;
-  height: 30%;
+  height: 90%;
   border: 2px solid var(--background-color2);
   border-radius: 20px;
   padding: 2%;
@@ -541,7 +545,7 @@ main .sidebar .mainSidebar .Size .contentSize {
 }
 main .sidebar .mainSidebar .Size .contentSize label {
   width: 30%;
-  height: 30%;
+  height: 21%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -607,7 +611,7 @@ main .contentMain {
 }
 main .contentMain .headerContentMain {
   width: 100%;
-  height: 3%;
+  height: 10%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -636,11 +640,11 @@ main .contentMain .mainContentMain {
 }
 main .contentMain .mainContentMain .lissProduct {
   width: 30%;
-  height: 15%;
+  height: 35%;
 }
 main .contentMain .mainContentMain .lissProduct .imgProduct {
   width: 100%;
-  height: 60%;
+  height: 75%;
 }
 main .contentMain .mainContentMain .lissProduct .imgProduct img {
   width: 100%;
@@ -680,4 +684,12 @@ main .contentMain .mainContentMain .lissProduct .priceProduct h2 {
 main .contentMain .footerContentMain {
   width: 100%;
   height: 5%;
+}
+
+footer .Feedback {
+  height: 33%;
+  top: -14%;
+}
+footer .mainFooter {
+  margin: 8% 0 0% 0;
 }/*# sourceMappingURL=Casual.css.map */

@@ -406,6 +406,7 @@ footer > .footer {
 .page {
   width: 1470px;
   height: 1500px;
+  padding: 0 2%;
 }
 .page .contener {
   width: 100%;

@@ -1,8 +1,12 @@
 @import "masterLayout/main";
 @import "masterLayout/mixin";
 .page{
-    padding: 0 2%;
-    
+    padding: 0 2%;  
+    height: 1500px;
+
+    .contener{
+        grid-template-rows: 10% 60% 30%;
+    }
 }
 header{
     border-bottom: 2px solid var(--text-color3);
@@ -12,9 +16,10 @@ main{
     padding: 2%;
     display: flex;
     justify-content: space-between;
+
     .sidebar{
         width: 23%;
-        height: 30%;
+        height: 90%;
         border: 2px solid var(--background-color2);
         border-radius: 20px;
         padding: 2%;
@@ -149,7 +154,7 @@ main{
                     
                     label{
                         width: 30%;
-                        height: 30%;
+                        height: 21%;
                         @include FlexCenter;
                         justify-content: space-between;
                         font-size: 1.2rem;
@@ -221,7 +226,7 @@ main{
 
         .headerContentMain{
             width: 100%;
-            height: 3%;
+            height: 10%;
             @include FlexCenter;
             justify-content: space-between;
             h1{
@@ -250,12 +255,12 @@ main{
 
             .lissProduct{
                 width: 30%;
-                height: 15%;
+                height: 35%;
                 
                 .imgProduct{
 
                     width: 100%;
-                    height: 60%;
+                    height: 75%;
 
                     img{
                         @include WidthHieght;
@@ -301,5 +306,15 @@ main{
             width: 100%;
             height: 5%;
         }
+    }
+}
+footer{
+    .Feedback{
+        height: 33%;
+        top: -14%;
+    }
+    .mainFooter {
+        margin: 8% 0 0% 0;
+
     }
 }

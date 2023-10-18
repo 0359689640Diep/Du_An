@@ -1,71 +1,41 @@
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) {
     .page{
         width: 100%;
-        height: 3500px;
-        background-color: var(--background-color);  
-        padding: 0 2%;
+        height: 1500px;
+
+        
     }
-    
 }
-@media screen and (min-width: 767px) and (max-width: 1023px){
+@media screen and (min-width: 767px) and (max-width: 1023px) {
     .page{
         width: 100%;
-        height: 3500px;
-        background-color: var(--background-color);  
-        padding: 0 2%;
+  height: 1500px;
+
+    }
+    html{
+        font-size: 9px;
     }
     .contentHeader> .nav>h5 {
         font-size: 10px;
     }
     .contentHeader> .sheach {
-        height: 38%;
+        height: 30%;
     }
     .contentHeader> .sheach>input{
         padding-left: 15%;
     }
     .contentHeader> .sheach> .ti-search{
-        top: 25%;
+        top: 24%;
+        font-size: 24px;
     }
-
-    .contentBanner>h1 {
-        font-size: 43px;
-        margin: 5% 0;
-
+    main .contentMain .mainContentMain .lissProduct {
+        width: 30%;
+        height: 25%;
     }
-    .contentBanner>h5 {
-        font-size: 11px;
-        /* margin: 2% 0; */
+    main .sidebar .mainSidebar .Color .contentColor input {
+        width: 30px;
+        height: 30px
     }
-    .contentBanner>button {
-        margin: 5% 0;
-        width: 52%;
-        height: 8%;
-    }
-    .contentFooterBanner>h1 {
-        font-size: 30px;
-        margin: 5% 0;
-
-    }
-    .Customers> .Content> .Comment {
-        width: 50%;
-        height: 95%;
-    }
-    .Comment> .Evaluate {
-        width: 90%;
-    }
-
-    .BrowseByDressStyle>h1 {
-        font-size: 45px;
-    }
-    .NewProduct> .title>h1, .BestsellerProduct> .title>h1  {
-        font-size: 14px;
-    }
-
-    /* footer */
-        .Feedback>h1 {
-        font-size: 26px;
-    }
-
     footer > .mainFooter {
         width: 100%;
         height: 50%;
@@ -88,14 +58,15 @@
     .footer> .pay {
         width: 40%;
     }
-    
 }
-@media  screen and (max-width: 767px){
+@media screen and (max-width: 767px){
     .page{
         width: 100%;
-        height: 3500px;
-        background-color: var(--background-color);
-        padding: 0 5%;
+        height: 1500px;
+
+    }
+    html{
+        font-size: 10px;
     }
     .contentHeader{
         width: 100%;
@@ -182,87 +153,26 @@
     .contentHeader> .Cart_Individual> i{
         font-size: 25px;
     }
-    .contener> .Banner{
-        display: block;
-    }
-    .Banner> .contentBanner{
-        width: 100%;
-        height: 45%;
-    }
-    .contentBanner>h1{
-        width: 100%;
-        font-size: 36px;
-    }
-    .contentBanner>h5{
-        font-size: 14px;
 
+    /* main */
+    main .sidebar {
+        display: none;
     }
-    .contentBanner>button{
-        width: 100%;
-        height: 15%;
+    main .contentMain .headerContentMain .showing {
+        width: 75%;
     }
-    .contentFooterBanner>h1{
-        font-size: 24px;
-
+    main .contentMain .headerContentMain {
+        justify-content: space-around;
     }
-    .contentBanner>footer{
-        height: 10%;
+    main .contentMain {
+        width: 100%;    
     }
-    .contentFooterBanner>p{
-        font-size: 12px;
-
-    }
-    .Banner> .imageLeft {
-        width: 100%;
-        height: 55%;
-        position: relative;
-    }
-    .imageLeft>img{
-        margin-top: 5.5%;
+    main .contentMain .mainContentMain .lissProduct {
+        width: 45%;
+        margin-top: 5%;
     }
 
-    .contener> .BrandName{
-        flex-wrap: wrap;
-    }
-    .BrandName>img{
-        width: 25%;
-        height: auto;
-         margin: 8px; 
-    }
-
-    .NewProduct, .Bestseller>h1 {
-        font-size: 32px;       
-    }
-    .ListNewProduct> .NewProduct, .BestsellerProduct{
-        width: 40%;
-        text-align: left;
-    }
-    .NewProduct> .price, .BestsellerProduct> .price{
-        justify-content: space-evenly;
-    }
-
-    .BrowseByDressStyle>h1{
-        font-size: 32px;
-    } 
-    .Content> .CasualFormal, .PartyGym{
-        display: block;
-
-    }
-    .CasualFormal> .Casual, .PartyGym> .Gym, .CasualFormal> .Formal, .PartyGym> .Party {
-        width: 100%;
-        height: 45%;
-        margin-top: 3.5%;
-    }
-    .Comment> .Evaluate {
-        width: 90%;
-    }
-
-    .Customers>h1{
-        font-size: 32px;
-    }
-    .Customers> .Content> .Comment{
-        width: 100%;
-    }
+     /* footer */
 
     .Feedback{
         width: 95%;
@@ -287,10 +197,8 @@
     .Mailing> .ti-email{
         top: 12%;
     }
-
-    /* footer */
   
-    footer > .mainFooter {
+     footer > .mainFooter {
         width: 100%;
         height: 68%;
         margin: 10% 0 0% 0;
@@ -329,7 +237,7 @@
         margin: 1% 0;
     }
     .content1> .content11>h1, .content1> .content11>ul>li{
-        font-size: 14px;
+        font-size: 10px;
         margin: 5% 0;
     }
 
@@ -341,6 +249,7 @@
     .footer> .pay{
         margin: 5% 8%;
     }
+    footer .Feedback {
+        top: -33%;
+    }
 }
-
-

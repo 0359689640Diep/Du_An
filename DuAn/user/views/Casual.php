@@ -3,6 +3,7 @@
 <?php require "masterLayout/head.php" ?>
 <link rel="stylesheet" href="../assets/css/Casual.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
+<link rel="stylesheet" href="../assets/css/responsive/ResponsiveCasual.css">
 <body>
     <section class="page">
         <section class="contener">
