@@ -1,6 +1,28 @@
 <?php
-
 trait AddproductModels{
+    public function LisstColorAndSizeDefault() {
+        $data = array();
+        $conn = Connection::getInstance();
+
+        $queryColor = $conn->query("Select * from colordefault");
+        if($queryColor){
+            while($row = $queryColor->fetch_assoc()){
+                $data["ColorDefault"][] = $row; 
+            }
+        }else{
+            $data['message'] = "The system is maintenance";
+        }
+        $querySize = $conn->query("Select * from sizedefault");
+        if($querySize){
+            while($row = $querySize->fetch_assoc()){
+                $data["SizeDefault"][] = $row; 
+            }
+        }else{
+            $data['message'] = "The system is maintenance";
+        }
+
+        return $data;
+    }
     public function modeladdproduct(){
         $data = array();
         if($_SERVER['REQUEST_METHOD'] === 'POST'){

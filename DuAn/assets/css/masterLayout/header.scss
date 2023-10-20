@@ -143,6 +143,7 @@ html{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    z-index: 99999;
 }
 .contentHeader> .Cart_Individual> i{
     font-size: 30px;

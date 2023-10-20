@@ -1,6 +1,48 @@
 <?php
 
 trait FixProductModels{
+    public function LisstColorAndSizeDefault() {
+        $data = array();
+        $conn = Connection::getInstance();
+        // lay du lieu color
+        $queryColorDefault = $conn->query("SELECT * FROM colordefault");
+        if($queryColorDefault){
+            while($row = $queryColorDefault->fetch_assoc()){
+                $data["ColorDefault"][] = $row; 
+            }
+            // xử lý so sánh và đánh dấu
+            $queryColor = $conn->query("SELECT c.*, cd.* FROM color c JOIN colordefault cd ON c.IdColorDefault = cd.IdColor");
+            if($queryColor){
+                while($row = $queryColor->fetch_assoc()){
+                    $data["Color"][] = $row; 
+                }
+            }
+        
+            
+        }else{
+            $data['message'] = "The system is maintenance";
+        }
+        // lay du lieu size
+        $querySize = $conn->query("Select * from sizedefault");
+        if($querySize){
+            while($row = $querySize->fetch_assoc()){
+                $data["SizeDefault"][] = $row; 
+            }
+            // xử lý so sánh và đánh dấu
+            $querySize = $conn->query("SELECT s.*, sd.* FROM size s JOIN sizedefault sd ON s.IdSizeDefault = sd.IdSize");
+            if($querySize){
+                while($row = $querySize->fetch_assoc()){
+                    $data["Size"][] = $row; 
+                }
+            }
+        
+   
+        // echo "<pre>";
+        // print_r($data);
+        // die();
+        return $data;
+    }
+    }
     public function FixProductDisplayModels($id){
         $conn = Connection::getInstance();
     
@@ -8,28 +50,18 @@ trait FixProductModels{
             SELECT 
                 p.NameProducts, p.IdProduct, p.IdDetails, p.NumberProduct, p.Price,
                 de.ProductDetails, de.ProductDescription,
-                ca.IdCategory, ca.NameCategory,
-                s.IdSize, c.IdColor, s.Size, c.Color, i.IdImage, i.Image
-            FROM product p
-            LEFT JOIN category ca ON p.IdCategory = ca.IdCategory
-            LEFT JOIN productdetails de ON p.IdDetails = de.IdProductDetails
-            LEFT JOIN (
-                SELECT DISTINCT IdProduct, IdImage, Image
-                FROM image
-                WHERE IdProduct = '$id'
-            ) i ON p.IdProduct = i.IdProduct
-            LEFT JOIN (
-                SELECT DISTINCT IdProduct, IdSize, Size
-                FROM size
-                WHERE IdProduct = '$id'
-            ) s ON p.IdProduct = s.IdProduct
-            LEFT JOIN (
-                SELECT DISTINCT IdProduct, IdColor, Color
-                FROM color
-                WHERE IdProduct = '$id'
-            ) c ON p.IdProduct = c.IdProduct
-            WHERE p.Status = 0 AND p.IdProduct = '$id'
-            ORDER BY p.IdProduct;
+                ca.IdCategory, ca.NameCategory,  i.IdImage, i.Image
+                FROM product p
+                LEFT JOIN category ca ON p.IdCategory = ca.IdCategory
+                LEFT JOIN productdetails de ON p.IdDetails = de.IdProductDetails
+                LEFT JOIN (
+                    SELECT DISTINCT IdProduct, IdImage, Image
+                    FROM image
+                    WHERE IdProduct = '$id'
+                ) i ON p.IdProduct = i.IdProduct
+                
+                WHERE p.Status = 0 AND p.IdProduct = '$id'
+                ORDER BY p.IdProduct;
         ");
         $data = array(); 
         if($query){
@@ -38,25 +70,11 @@ trait FixProductModels{
                 $data['IdProduct'] = $row['IdProduct'];
                 $data['IdDetails'] = $row['IdDetails'];
                 $data['NumberProduct'] = $row['NumberProduct'];
-                $data['Price'] = $row['Price'];
                 $data['ProductDetails'] = $row['ProductDetails'];
                 $data['ProductDescription'] = $row['ProductDescription'];
                 $data['IdCategory'] = $row['IdCategory'];
                 $data['NameCategory'] = $row['NameCategory'];
-                
-                if (!empty($row['IdSize'])) {
-                    $data['Size'][] = [
-                        'IdSize' => $row['IdSize'],
-                        'Size' => $row['Size']
-                    ];
-                }
-                
-                if (!empty($row['IdColor'])) {
-                    $data['Color'][] = [
-                        'IdColor' => $row['IdColor'],
-                        'Color' => $row['Color']
-                    ];
-                }
+                $data['Price'] = $row['Price'];
     
                 if (!empty($row['IdImage'])) {
                     $data['Image'][] = [
@@ -66,8 +84,7 @@ trait FixProductModels{
                 }
             }
         }
-        $data["Color"] = array_unique($data["Color"], SORT_REGULAR);
-        $data["Size"] = array_unique($data["Size"], SORT_REGULAR);
+
         $data["Image"] = array_unique($data["Image"], SORT_REGULAR);
 
     //     echo "<pre>";
@@ -86,8 +103,12 @@ trait FixProductModels{
             // lấy id details
             $IdDetails = $_GET['IdDetails'];        
             $data = array();
-            // echo $Category;
-            // die();
+            // foreach($Color as $valueColor){
+            //     echo $valueColor;
+            // }
+                // echo "<pre>";
+                // var_dump($id);
+                // die();
             if(empty($IdDetails) && empty($id)){
                 echo "<script> alert('Your session has expired'); </script>";
                 header("location:index.php?controller=LisstProduct");
@@ -104,23 +125,23 @@ trait FixProductModels{
                     where IdProduct = '$id'");
                     if($query){
 
-                        echo "<pre>";
-                        var_dump($Color); die();
                         foreach($Color as $valueColor){
-                            $colorString = explode(':', $valueColor);
-                            $queryColor = $conn->query("Update color set Color = '$colorString[1]' where IdColor  = '$colorString[0]'");
+                            $queryColor = $conn->query("Update color set IdColorDefault   = '$valueColor' where IdProduct   = '$id' AND IdColorDefault  = '$valueColor'" );
                             if(!$queryColor){
                                 $data['messageError'] = "Không thể update dữ liệu. Vui lòng nhập lại dữ liệu";
                                 die();
+                            }else{
+                                echo 1;
                             }
                         }
                         // update du lieu vào Size
                         foreach($Size as $valueSize){
-                            $sizeString = explode(':', $valueSize);
-                            $querySize = $conn->query("Update size set Size = '$sizeString[1]' where IdSize = '$sizeString[0]'");
+                            $querySize = $conn->query("Update size set IdSizeDefault  = '$valueSize' where IdProduct = '$id' and IdSizeDefault  = '$valueSize'");
                             if(!$querySize){
                                 $data['messageError'] = "Không thể update dữ liệu. Vui lòng nhập lại dữ liệu";
                                 die();
+                            }else{
+                                echo 2;
                             }
                         }
                         // echo "test";
@@ -177,6 +198,7 @@ trait FixProductModels{
             return $data;
         }
     }
+
 }
-// }
+
 ?>  

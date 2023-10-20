@@ -24,35 +24,34 @@
                 <input required title="Không được để trống" type="number" min =0  name="Price" id="Price">
                 <label for="Color">Color</label>
                 <article class="color">
-                    <input type="checkbox" value="#00C12B" style = "background-color:#00C12B" class="custom-checkbox" name="Color[]">
-                    <input type="checkbox" value="#F50606" style = "background-color:#F50606" class="custom-checkbox" name="Color[]">
-                    <input type="checkbox" value="#F5DD06" style = "background-color:#F5DD06" class="custom-checkbox" name="Color[]">
-                    <input type="checkbox" value="#F57906" style = "background-color:#F57906" class="custom-checkbox" name="Color[]">
-                    <input type="checkbox" value="#06CAF5" style = "background-color:#06CAF5" class="custom-checkbox" name="Color[]">
-                    <input type="checkbox" value="#063AF5" style = "background-color:#063AF5" class="custom-checkbox" name="Color[]">
-                    <input type="checkbox" value="#7D06F5" style = "background-color:#7D06F5" class="custom-checkbox" name="Color[]">
-                    <input type="checkbox" value="#F506A4" style = "background-color:#F506A4" class="custom-checkbox" name="Color[]">
-                    <input type="checkbox" value="#FFFFFF" style = "background-color:#FFFFFF" class="custom-checkbox" name="Color[]">
-                    <input type="checkbox" value="#000000" style = "background-color:#000000" class="custom-checkbox" name="Color[]">
-                    <input type="checkbox" value="#A7A7A7" style = "background-color:#A7A7A7" class="custom-checkbox" name="Color[]">
+                    <?php 
+                    if(isset($data['dataColorSizeDefault']['ColorDefault'])){
+                        foreach($data['dataColorSizeDefault']['ColorDefault'] as $valueColor){
+                            echo "
+                            <input type='checkbox' value='$valueColor[IdColor]' style = 'background-color:$valueColor[NameColor]' class='custom-checkbox' name='Color[]'>
+                            ";
+                        }
+                    }elseif(isset($data['dataColorSizeDefault']['Color'])){
+                        echo "<h1> 404 Not Fount </h1>";
+                    }
+                    ?>
+                    
                 </article>
                 <label for="Size">Size</label>
                 <article class="size">
-                    <label for="S">S
-                        <input type="checkbox" name="Size[]" id="S" value="S">
-                    </label>
-                    <label for="M">M
-                        <input type="checkbox" name="Size[]" id="M" value="M">
-                    </label>
-                    <label for="L">L
-                        <input type="checkbox" name="Size[]" id="L" value="L">
-                    </label>
-                    <label for="XXL">XXL
-                        <input type="checkbox" name="Size[]" id="XXL" value="XXL">
-                    </label>
-                    <label for="XXXL">XXXL
-                        <input type="checkbox" name="Size[]" id="XXXL" value="XXXL">
-                    </label>
+                <?php 
+                    if(isset($data['dataColorSizeDefault']['SizeDefault'])){
+                        foreach($data['dataColorSizeDefault']['SizeDefault'] as $valueSize){
+                            echo "
+                            <label for='$valueSize[NameSize]'>$valueSize[NameSize]
+                                <input type='checkbox' name='Size[]' id='$valueSize[NameSize]' value='$valueSize[IdSize]'>
+                            </label>
+                            ";
+                        }
+                    }else{
+                        echo "<h1> 404 Not Fount </h1>";
+                    }
+                    ?>
                 </article>
                 <label for="Image">Images</label>
                 <input required title="Không được để trống" type="file" name="Image[]" id="Image" multiple>

@@ -80,6 +80,8 @@ trait TrashCanModels{
 
                  $this->data = $this->message($conn, "DELETE FROM cart WHERE IdProduct = {$id}; ", "Success", "Failure");
 
+                 $this->data = $this->message($conn, "DELETE FROM orderconfirmation WHERE 	IdProduct = {$id}", "Success", "Failure");
+
                  $this->data = $this->message($conn, 
                  "DELETE p, d FROM product p JOIN productdetails d ON p.IdDetails = d.IdProductDetails WHERE p.IdProduct = {$id}; "
                  , "Success", "Failure");

@@ -8,6 +8,7 @@
     <section class="page" >
         <section class="contener">
             <?php include "masterLayout/header.php" ?>
+            <?php include "masterLayout/Notification.php" ?>
             <main>
                 <section class="ProductDetail">
                     <section class="ProductDetailImg">
@@ -62,7 +63,7 @@
                                 if(isset($data['Color'])){
                                     foreach($data['Color'] as $value){
                                         echo "
-                                        <input type='radio' name='Color' value='$value[Color]' id='' style='background-color: $value[Color]'>
+                                        <input type='radio' name='Color' required title='Cannot be empty' value='$value[Color]' id='' style='background-color: $value[Color]'>
                                         ";
                                     }
                                 }
@@ -79,7 +80,7 @@
                                         echo "
                                         <label for='$value[IdSize]'>
                                             $value[Size]
-                                            <input type='radio' name='Size' id='$value[IdSize]' value = '$value[Size]'>
+                                            <input type='radio' name='Size' required title='Cannot be empty' id='$value[IdSize]' value = '$value[Size]'>
                                         </label>
          
                                         ";
@@ -92,7 +93,7 @@
                             ";
                         ?>
                         <section class="addTocart">
-                            <input type="number" name="number" id="" min = 1 max = <?php echo $showProduct['NumberProduct']?> value="1">
+                            <input type="number" name="number" required title='Cannot be empty' id="number" min = 1 max = <?php echo $showProduct['NumberProduct']?> value="1">
                             <button type="submit">Add To Cart</button>
                         </section>
 
@@ -193,4 +194,20 @@
     </section>
 </body>
 <script src="../assets/js/ProductDetail.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+  const maxLimit = <?php echo $showProduct['NumberProduct'] ?>;
+  const input = document.getElementById('number');
+  input.addEventListener('input', function(){
+    // 10 là cơ số, được sử dụng để chuyển đổi giá trị nhập vào thành một số nguyên dựa trên hệ thập phân
+    const value = parseInt(input.value, 10);
+    if(value > maxLimit) {
+        // alert(1)
+        toast("Warning", "Product quantity is not enough", "warning", 5000, 0);
+    }else{
+        input.setCustomValidity("");
+    }
+  })
+})
+</script>
 </html>

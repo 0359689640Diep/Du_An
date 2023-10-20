@@ -8,6 +8,7 @@
 <section class="page" >
         <section class="contener">
             <?php include "masterLayout/header.php" ?>
+            <?php include "masterLayout/Notification.php" ?>
                 <main>
                     <?php $idAccount = !empty($_SESSION['IdAccountUser']) ? $_SESSION['IdAccountUser']: "";
                     ?>
@@ -35,7 +36,7 @@
                                                 </section>
                                                 <section class='contentProductRight'>
                                                     <i onclick='deleteCart($value[IdCart])'class='ti-trash'></i>
-                                                    <input type='number' name='number[$value[IdCart]]' id='' min = 1 max = $value[NumberProduct] value='$value[Number]'>
+                                                    <input type='number' name='number[$value[IdCart]]' id='' min = 1 max = $value[NumberProduct] value='$value[Number]' oninput='checkQuantity(this)' >
                                                 </section>
                                                 
                                             </section>
@@ -97,4 +98,14 @@
     </section>
 </body>
 <script src="../assets/js/cart.js"></script>
+<script>
+    function checkQuantity(input){
+    let currentValue = parseInt(input.value);
+    let maxValue = parseInt(input.getAttribute('max'));
+    if(currentValue > maxValue){
+        toast("Warning", "Product quantity is not enough", "warning", 5000, 0);
+        input.value = maxValue;
+    }
+}
+</script>
 </html>

@@ -26,7 +26,7 @@
                     ?>
             <form action="index.php?controller=FixProduct&IdProduct=<?=$IdProduct?>&IdDetails=<?=$IdDetails?>
             " method="post" enctype="multipart/form-data">
-                <!-- <label for="NameProducts">Name Products</label>
+                <label for="NameProducts">Name Products</label>
                 <input value="<?php echo $data['display']["NameProducts"]; ?>"  type="text" name="NameProducts" id="NameProducts">
 
                 <label for="Details">Details</label>
@@ -34,43 +34,29 @@
 
                 <label for="ProductDescription">Product Description</label>
                 <input value="<?php echo $data['display']["ProductDescription"]; ?>"  type="text" name="ProductDescription" id="ProductDescription">
-                <label for="Color">Color</label> -->
+                <label for="Color">Color</label>
                 <article class="color">
-                    <?php
-                    $tableColor = array('#00C12B','#F5DD06','#F57906','#06CAF5','#7D06F5','#F506A4','#FFFFFF','#000000','#a7a7a7','#F50606');
-                    $foundColors = array(); // Mảng lưu trữ những giá trị tìm thấy
-                    
-                    foreach($tableColor as $valueColor){
-                        foreach($data["display"]["Color"] as $valueDB) {
-                        $found = false; // Cờ kiểm tra xem có tìm thấy phần tử hay không
-                    
-                        // echo "<input type='checkbox' style='background-color:{$valueColor}' 
-                        // checked value='" . $valueDB['IdColor'] . ":" . $valueColor . "'>";
-                            if($valueDB['Color'] === $valueColor){
-                                $found = true;// Thêm IdColor vào mảng $arrIdColor
-                                $foundColors['IdColor'] = $valueDB['IdColor']; // Thêm giá trị tìm thấy vào mảng $foundColors
-                                $foundColors['Color'] = $valueDB['Color']; // Thêm giá trị tìm thấy vào mảng $foundColors
-                                // break;
-                            } 
-                        }
-                    
-                        // if(!$found){
-                        //     $arrIdColor[] = $valueDB['IdColor']; // Thêm IdColor vào mảng $arrIdColor
-                        // }
-                    }
-                    echo "<pre>";
-                    var_dump($foundColors); die();
-                    // In ra những checkbox có giá trị không tìm thấy
-                    foreach($arrIdColor as $idColor) {
-                        foreach($tableColor as $value){
-                            if(!in_array($value, $foundColors)) {
-                                echo "<input type='checkbox' style='background-color:{$value}' 
-                                 value='" . $idColor. ":" . $value . "'>";
-                            }
+                    <?php 
+                    // echo "<input type='checkbox' style='background-color:{$valueColor}' 
+                    // checked value='" . $valueDB['IdColor'] . ":" . $valueColor . "'>";
+                    if(isset($data['dataColorSizeDefault']['Color'])){
+                        foreach($data['dataColorSizeDefault']['Color'] as $valueColor){
+                            echo "
+                            <input type='checkbox' value='$valueColor[IdColor]' style = 'background-color:$valueColor[NameColor]' class='custom-checkbox' name='Color[]' checked>
+                            ";
                         }
                     }
-                    
+                    if(isset($data['dataColorSizeDefault']['ColorDefault'])){
+                        foreach($data['dataColorSizeDefault']['ColorDefault'] as $valueColor){
+                            echo "
+                            <input type='checkbox' value='$valueColor[IdColor]' style = 'background-color:$valueColor[NameColor]' class='custom-checkbox' name='Color[]'>
+                            ";
+                        }
+                    }
+                    else{
+                        echo "<h1> 404 Not Fount </h1>";
 
+                    }
                     ?>
 
 
@@ -83,96 +69,29 @@
                 <input value="<?php echo $data['display']["Price"]; ?>"  type="number" min =0  name="Price" id="Price">
                 <label for="Size">Size</label>
                 <article class="size">
-                    <label for="S">S
-                        <input type="checkbox" name="Size[]"
-                        <?php
-                            $isCheckedSize = false; 
-                            foreach($data["display"]["Size"] as $value){
-                                if($value['Size'] === "S"){
-                                    echo "checked id='S' value='" . $value['IdSize'] . ":" . $value['Size'] . "'";
-                                    $isCheckedSize = true;
-                                    break;
-                                }
-                                
-                            }
-                            if(!$isCheckedSize){
-                                echo "id='S' value='S'";
-                            }
-                        ?>
-                        >
-                    </label>
-                    <label for="M">M
-                        <input type="checkbox" name="Size[]"
-                        <?php
-                            $isCheckedSize = false; 
-                            foreach($data["display"]["Size"] as $value){
-                                if($value['Size'] === "M"){
-                                    echo "checked id='M' value='" . $value['IdSize'] . ":" . $value['Size'] . "'";
-                                    $isCheckedSize = true;
-                                    break;
-                                }
-                                
-                            }
-                            if(!$isCheckedSize){
-                                echo "id='M' value='M'";
-                            }
-                        ?>
-                        >
-                    </label>
-                    <label for="L">L
-                        <input type="checkbox" name="Size[]"
-                        <?php
-                            $isCheckedSize = false; 
-                            foreach($data["display"]["Size"] as $value){
-                                if($value['Size'] === "L"){
-                                    echo "checked id='L' value='" . $value['IdSize'] . ":" . $value['Size'] . "'";
-                                    $isCheckedSize = true;
-                                    break;
-                                }
-                                
-                            }
-                            if(!$isCheckedSize){
-                                echo "id='L' value='L'";
-                            }
-                        ?>
-                        >
-                    </label>
-                    <label for="XXL">XXL
-                        <input type="checkbox" name="Size[]"
-                        <?php
-                            $isCheckedSize = false; 
-                            foreach($data["display"]["Size"] as $value){
-                                if($value['Size'] === "XXL"){
-                                    echo "checked id='XXL' value='" . $value['IdSize'] . ":" . $value['Size'] . "'";
-                                    $isCheckedSize = true;
-                                    break;
-                                }
-                                
-                            }
-                            if(!$isCheckedSize){
-                                echo "id='XXL' value='XXL'";
-                            }
-                        ?>
-                        >
-                    </label>
-                    <label for="XXXL">XXXL
-                        <input type="checkbox" name="Size[]"
-                        <?php
-                            $isCheckedSize = false; 
-                            foreach($data["display"]["Size"] as $value){
-                                if($value['Size'] === "XXXL"){
-                                    echo "checked id='XXXL' value='" . $value['IdSize'] . ":" . $value['Size'] . "'";
-                                    $isCheckedSize = true;
-                                    break;
-                                }
-                                
-                            }
-                            if(!$isCheckedSize){
-                                echo "id='XXXL' value='XXXL'";
-                            }
-                        ?>
-                        >
-                    </label>
+                <?php 
+                    if(isset($data['dataColorSizeDefault']['Size'])){
+                        foreach($data['dataColorSizeDefault']['Size'] as $valueSize){
+                            echo "
+                            <label for='$valueSize[NameSize]'>$valueSize[NameSize]
+                                <input type='checkbox' name='Size[]' id='$valueSize[NameSize]' value='$valueSize[IdSize]' checked>
+                            </label>
+                            ";
+                        }
+                    }
+                    if(isset($data['dataColorSizeDefault']['SizeDefault'])){
+                        foreach($data['dataColorSizeDefault']['SizeDefault'] as $valueSize){
+                            echo "
+                            <label for='$valueSize[NameSize]'>$valueSize[NameSize]
+                                <input type='checkbox' name='Size[]' id='$valueSize[NameSize]' value='$valueSize[IdSize]'>
+                            </label>
+                            ";
+                        }
+                    }else{
+                        echo "<h1> 404 Not Fount </h1>";
+                    }
+                    ?>
+                        
                 </article>
                 <label for="Image">Image</label>
                 <section class="Image">

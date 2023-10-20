@@ -7,19 +7,22 @@ class FixProductController extends Controller{
         $datadisplay = $this->FixProductDisplayModels($id);
         $dataMessage = $this->modelFixProduct($id);
         $dataCategory = $this->modelGetCategory();
+        $dataColorSizeDefault = $this->LisstColorAndSizeDefault();
+
+        // echo "<pre>";
+        // print_r($dataColorSizeDefault);
+        // die();
         if($id == 0){
             header("location:index.php?controller=LisstProduct");
         }
         $data = array(
+            "dataColorSizeDefault" => $dataColorSizeDefault,
             "display" => $datadisplay,
            "dataCategory" => $dataCategory,
            "dataMessage" => $dataMessage
 
         );
-        // echo "<pre>";
-        // print_r($datadisplay['display'][0]);
         // print_r($data);
-        // die();
         // echo "<pre>";
         $this->loadView("FixProduct.php",$data);
     }

@@ -41,16 +41,18 @@ trait CommentUserModel{
 
 
             if(empty($this->data)){
+                $IdAccount = $_SESSION['IdAccountUser'];
+                // echo $IdAccount; die();
                 $queryComment = $conn->query("
                 select co.IdComment, co.Content,
-                ac.Name, img.Image from comment co
+                ac.Name, i.Image from comment co
                 inner join (
                     select IdProduct, Max(Image) as Image
                     from image i
                     group by IdProduct
                 ) i on co.IdProduct = i.IdProduct
-                join account ac on ac.Id = ac.IdProduct
-              
+                join account ac on ac.Id = co.IdProduct
+                where co.IdAccount = '$IdAccount' and co.Status = 0
                 ");
                 // status: 1 la xoa 0 la hien thi
                 if($queryComment){

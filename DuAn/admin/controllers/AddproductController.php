@@ -5,14 +5,15 @@ class AddproductController extends Controller{
     public function index() {
         $dataMessage = $this->modeladdproduct();
         $dataCategory = $this->modelGetCategory();
+        $dataColorSizeDefault = $this->LisstColorAndSizeDefault();
         
         $data = array(
            "dataCategory" => $dataCategory,
-           "dataMessage" => $dataMessage
-
+           "dataMessage" => $dataMessage,
+            "dataColorSizeDefault" => $dataColorSizeDefault
         );
         // echo "<pre>";
-        // print_r($data['dataMessage']);
+        // print_r($data['dataColorSizeDefault']);
         // die();
         // echo "<pre>";
 

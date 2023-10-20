@@ -51,3 +51,4 @@ function Run(type,id){
   window.location.replace(`index.php?controller=${type}&action=addToCart&id=${id}`)
 }
 
+
