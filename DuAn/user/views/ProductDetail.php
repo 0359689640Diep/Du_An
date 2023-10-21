@@ -53,6 +53,7 @@
                                 <i class='ti-star'></i>
                             </article>   
                             <section class='price'>
+                            <h1>$</h1>
                                 <input type='text' name='Price' value = '{$showProduct['Price']}' readonly>
                                
                             </section>    

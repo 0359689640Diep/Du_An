@@ -10,7 +10,8 @@ class FixProductController extends Controller{
         $dataColorSizeDefault = $this->LisstColorAndSizeDefault();
 
         // echo "<pre>";
-        // print_r($dataColorSizeDefault);
+        // // print_r($dataColorSizeDefault['ColorDefault']);
+        // var_dump(empty($dataColorSizeDefault['ColorDefault'][10]['IdProduct']));
         // die();
         if($id == 0){
             header("location:index.php?controller=LisstProduct");
@@ -22,8 +23,7 @@ class FixProductController extends Controller{
            "dataMessage" => $dataMessage
 
         );
-        // print_r($data);
-        // echo "<pre>";
+
         $this->loadView("FixProduct.php",$data);
     }
 

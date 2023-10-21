@@ -36,9 +36,9 @@ trait CommentUserModel{
         if($query){
             while($row = $query->fetch_assoc()){
                 $this->data["listProduct"][] = $row;
-                // print_r($this->data);
             }
-
+            
+            // var_dump(empty($this->data)); die();
 
             if(empty($this->data)){
                 $IdAccount = $_SESSION['IdAccountUser'];
@@ -51,11 +51,13 @@ trait CommentUserModel{
                     from image i
                     group by IdProduct
                 ) i on co.IdProduct = i.IdProduct
-                join account ac on ac.Id = co.IdProduct
+                join account ac on ac.Id = co.IdAccount
                 where co.IdAccount = '$IdAccount' and co.Status = 0
                 ");
                 // status: 1 la xoa 0 la hien thi
                 if($queryComment){
+
+                    // var_dump( $queryComment->fetch_assoc()); 
                     while($row = $queryComment->fetch_assoc()){
                         $this->data["listComment"][] = $row;
                     }

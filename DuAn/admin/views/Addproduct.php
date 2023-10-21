@@ -28,7 +28,7 @@
                     if(isset($data['dataColorSizeDefault']['ColorDefault'])){
                         foreach($data['dataColorSizeDefault']['ColorDefault'] as $valueColor){
                             echo "
-                            <input type='checkbox' value='$valueColor[IdColor]' style = 'background-color:$valueColor[NameColor]' class='custom-checkbox' name='Color[]'>
+                            <input type='checkbox' value='$valueColor[IdColorDefalut]' style = 'background-color:$valueColor[Color]' class='custom-checkbox' name='Color[]'>
                             ";
                         }
                     }elseif(isset($data['dataColorSizeDefault']['Color'])){
@@ -43,8 +43,8 @@
                     if(isset($data['dataColorSizeDefault']['SizeDefault'])){
                         foreach($data['dataColorSizeDefault']['SizeDefault'] as $valueSize){
                             echo "
-                            <label for='$valueSize[NameSize]'>$valueSize[NameSize]
-                                <input type='checkbox' name='Size[]' id='$valueSize[NameSize]' value='$valueSize[IdSize]'>
+                            <label for='$valueSize[Size]'>$valueSize[Size]
+                                <input type='checkbox' name='Size[]' id='$valueSize[Size]' value='$valueSize[IdSizeDefalut]'>
                             </label>
                             ";
                         }

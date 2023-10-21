@@ -251,11 +251,12 @@ main{
             justify-content: space-around;
             flex-wrap: wrap;
             overflow-y: auto;
-            align-content: flex-start;
+        
 
             .lissProduct{
                 width: 30%;
                 height: 35%;
+                margin: 5% 0;
                 
                 .imgProduct{
 

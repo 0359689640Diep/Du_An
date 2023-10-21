@@ -14,15 +14,10 @@
         </aside>
         <main>
         <?php 
-//   die();
-// echo "<pre>";
-// var_dump($data["display"]["IdDetails"]);         
-        // foreach($data["Color"] as $value){
 
-        // } 
-                    // die();
         $IdDetails = $data['display']["IdDetails"];
         $IdProduct = $data['display']["IdProduct"];
+        // echo $IdProduct;
                     ?>
             <form action="index.php?controller=FixProduct&IdProduct=<?=$IdProduct?>&IdDetails=<?=$IdDetails?>
             " method="post" enctype="multipart/form-data">
@@ -37,26 +32,27 @@
                 <label for="Color">Color</label>
                 <article class="color">
                     <?php 
-                    // echo "<input type='checkbox' style='background-color:{$valueColor}' 
-                    // checked value='" . $valueDB['IdColor'] . ":" . $valueColor . "'>";
-                    if(isset($data['dataColorSizeDefault']['Color'])){
-                        foreach($data['dataColorSizeDefault']['Color'] as $valueColor){
-                            echo "
-                            <input type='checkbox' value='$valueColor[IdColor]' style = 'background-color:$valueColor[NameColor]' class='custom-checkbox' name='Color[]' checked>
-                            ";
-                        }
-                    }
                     if(isset($data['dataColorSizeDefault']['ColorDefault'])){
                         foreach($data['dataColorSizeDefault']['ColorDefault'] as $valueColor){
-                            echo "
-                            <input type='checkbox' value='$valueColor[IdColor]' style = 'background-color:$valueColor[NameColor]' class='custom-checkbox' name='Color[]'>
-                            ";
-                        }
-                    }
-                    else{
-                        echo "<h1> 404 Not Fount </h1>";
+                            if(!empty($valueColor['IdProduct'])){
+                                echo "
+                                <input type='checkbox' value='$valueColor[IdColorDefault]' style = 'background-color:$valueColor[Color]' class='custom-checkbox' name='Color[]' checked>
+                                ";
+                                
+                            }
+                            elseif(empty($valueColor['IdProduct'])){
+                                echo "
+                                <input type='checkbox' value='$valueColor[IdColorDefalut]' style = 'background-color:$valueColor[Color]' class='custom-checkbox' name='Color[]' >
+                                ";
 
+                            }
+                            else{
+                                echo "<h1>404 Not Fount</h1>";
+                            }
+                        }
+                        // die();
                     }
+
                     ?>
 
 
@@ -70,25 +66,25 @@
                 <label for="Size">Size</label>
                 <article class="size">
                 <?php 
-                    if(isset($data['dataColorSizeDefault']['Size'])){
-                        foreach($data['dataColorSizeDefault']['Size'] as $valueSize){
-                            echo "
-                            <label for='$valueSize[NameSize]'>$valueSize[NameSize]
-                                <input type='checkbox' name='Size[]' id='$valueSize[NameSize]' value='$valueSize[IdSize]' checked>
-                            </label>
-                            ";
-                        }
-                    }
                     if(isset($data['dataColorSizeDefault']['SizeDefault'])){
                         foreach($data['dataColorSizeDefault']['SizeDefault'] as $valueSize){
-                            echo "
-                            <label for='$valueSize[NameSize]'>$valueSize[NameSize]
-                                <input type='checkbox' name='Size[]' id='$valueSize[NameSize]' value='$valueSize[IdSize]'>
-                            </label>
-                            ";
+                            if(!empty($valueSize['IdProduct'])){
+                                echo "
+                                <label for='$valueSize[Size]'>$valueSize[Size]
+                                    <input type='checkbox' name='Size[]' id='$valueSize[Size]' value='$valueSize[IdSizeDefault]' checked>
+                                </label>
+                                ";
+                            }elseif(empty($valueSize['IdProduct'])){
+                                echo "
+                                <label for='$valueSize[Size]'>$valueSize[Size]
+                                    <input type='checkbox' name='Size[]' id='$valueSize[Size]' value='$valueSize[IdSizeDefalut]'>
+                                </label>
+                                ";
+
+                            }else{
+                                echo "<h1>404 Not Fount</h1>";
+                            }
                         }
-                    }else{
-                        echo "<h1> 404 Not Fount </h1>";
                     }
                     ?>
                         

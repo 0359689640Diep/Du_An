@@ -23,6 +23,7 @@ trait AddproductModels{
 
         return $data;
     }
+        
     public function modeladdproduct(){
         $data = array();
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -47,7 +48,7 @@ trait AddproductModels{
     
                     // Thêm dữ liệu vào bảng size
                     foreach($Size as $valueSize){
-                        $querySize = $conn->query("insert into size values(null, $queryIdProduct, '$valueSize')");
+                        $querySize = $conn->query("insert into size values(null, '$queryIdProduct', '$valueSize') ");
                         if(!$querySize){
                             $data["messageError"] = "Hệ thống đang bảo trì-1";
                             break;
@@ -56,7 +57,7 @@ trait AddproductModels{
     
                     // Thêm dữ liệu vào bảng color
                         foreach($Color as $valueColor){
-                            $queryColor = $conn->query("insert into color values(null,$queryIdProduct, '$valueColor')");
+                            $queryColor = $conn->query("insert into color values(null, '$queryIdProduct', '$valueColor') ");
                             if(!$queryColor){
                                 $data["messageError"] = "Hệ thống đang bảo trì-2";
                                 break;

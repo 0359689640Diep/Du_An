@@ -110,12 +110,12 @@
                         <section class="showing">
                             <p>Showing 1-10 of 100 Products</p>
                             <p>Sort by: </p>
-                            <!-- chúng ta đã sử dụng thuộc tính onchange của thẻ select để thiết lập một sự kiện khi giá trị của option thay đổi. Khi sự kiện này xảy ra, chúng ta sẽ chuyển hướng trang đến URL tương ứng với giá trị của option được chọn. -->
+                            <!-- chúng ta đã sử dụng thuộc tính onchange của thẻ select để thiết lập một sự kiện khi giá trị của option thay đổi. Khi sự kiện này xảy ra, chúng ta sẽ chuyển hướng trang đến URL tương ứng với giá trị của option được chọn. -->        
                             <select name="" id="mySelect" onchange="location = this.value;">
                                 <option value="">Most Popular</option>
-                                <option value="index.php?controller=Casual&action=sheach&id=<?=isset($_GET['id']) ?? ""?>&quantity=25">25</option>
-                                <option value="index.php?controller=Casual&action=fillter&id=<?=isset($_GET['id']) ?? ""?>&quantity=50">50</option>
-                                <option value="index.php?controller=Casual&action=fillter&id=<?=isset($_GET['id']) ?? ""?>&quantity=100">100</option>
+                                <option value="index.php?controller=Casual&action=fillter&id=<?=isset($_GET['id']) ? $_GET['id'] : ""?>&quantity=1">25</option>
+                                <option value="index.php?controller=Casual&action=fillter&id=<?=isset($_GET['id']) ?$_GET['id'] : ""?>&quantity=2">50</option>
+                                <option value="index.php?controller=Casual&action=fillter&id=<?=isset($_GET['id']) ?$_GET['id'] : ""?>&quantity=3">100</option>
                             </select>
 
                         </section>
@@ -140,7 +140,7 @@
                                             <i class='ti-star'></i>
                                         </article>
                                     <article class='priceProduct'>
-                                        <h2>{$value['Price']}</h2>
+                                        <h2>$ {$value['Price']}</h2>
                                     </article>
                                 </section>
                                 ";

@@ -1,5 +1,9 @@
 <?php 
 
+$mau = [];
+$sanpham = [];
+foreach (){}
+
 $arr = array("1", "2", "3", "4", "a5", "a6");
 $arrDB = array(
     array(

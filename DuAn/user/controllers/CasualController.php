@@ -13,7 +13,6 @@ class CasualController extends Controller{
     function fillter(){
         $data = $this->sortBy();
         $data = $this->showCategory();
-        $data = $this->showProduct();
         $this->loadView("Casual.php", $data);
     }
     

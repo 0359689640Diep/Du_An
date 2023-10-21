@@ -5,14 +5,14 @@ trait LisstProductModels{
         //  Sử dụng GROUP_CONCAT để kết hợp các giá trị tương ứng thành một chuỗi, sau đó sử dụng explode để chuyển chuỗi thành mảng.LEFT JOIN là một loại join trong SQL, cho phép kết hợp dữ liệu từ hai hoặc nhiều bảng dựa trên một điều kiện kết nối. LEFT JOIN trả về tất cả các hàng từ bảng bên trái (bảng đầu tiên) và các hàng khớp từ bảng bên phải (bảng thứ hai) dựa trên điều kiện kết nối.
         $query = $conn->query("
             SELECT p.*, i.Image, 
-                GROUP_CONCAT(DISTINCT sd.NameSize) AS Sizes,
-                GROUP_CONCAT(DISTINCT  cd.NameColor) AS Colors
+                GROUP_CONCAT(DISTINCT sd.Size) AS Sizes,
+                GROUP_CONCAT(DISTINCT  cd.Color) AS Colors
             FROM product p
             LEFT JOIN image i ON p.IdProduct = i.IdProduct
             LEFT JOIN color c ON p.IdProduct = c.IdProduct
             LEFT JOIN size s ON p.IdProduct = s.IdProduct
-            left join colordefault cd on c.IdColorDefault = cd.IdColor 
-            left join sizedefault sd on s.IdSizeDefault = sd.IdSize 
+            LEFT JOIN colordefault cd ON cd.IdColorDefalut = c.IdColorDefault 
+            LEFT JOIN sizedefault sd ON sd.IdSizeDefalut = s.IdSizeDefault 
             WHERE p.Status = 0
             GROUP BY p.IdProduct
             ORDER BY p.IdProduct

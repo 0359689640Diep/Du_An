@@ -6,19 +6,20 @@ chức năng: 1- đang chuẩn bị, 2 là chờ lấy hàng, 3 chờ giao hàng
 <?php
 trait OderModels{
     public $data = array();
+
     public function listOder(){
         $conn = Connection::getInstance();
         $query = $conn->query("
-        select orderconfirmation.IdOrder, orderconfirmation.Status, 
-        orderconfirmation.StatusComment, orderconfirmation.Size, 
-        orderconfirmation.Price, orderconfirmation.Number, orderconfirmation.Type, 
-        product.IdProduct, product.NameProducts, image.Image, product.NumberProduct,   
-        account.Name, account.Gmail, account.Phone, account.Image, account.Address 
-        from orderconfirmation 
-        join account on  orderconfirmation.IdAccount = account.Id
-        join product on  orderconfirmation.IdProduct = product.IdProduct
-        join image on image.IdProduct = product.IdProduct
-        order by orderconfirmation.IdOrder desc
+        select ord.*, p.IdProduct, p.NameProducts, p.NumberProduct, i.Image, ac.Name, ac.Gmail, ac.Phone, ac.Image, ac.Address
+        from orderconfirmation ord
+        inner join (
+            select IdProduct, Max(Image) as Image
+            from image i
+        ) i on ord.IdProduct = i.IdProduct
+        join product p on ord.IdProduct = p.IdProduct
+        join account ac on ord.IdAccount = ac.Id
+         order by ord.IdOrder desc
+        
         ");
 
         if($query){
@@ -26,8 +27,6 @@ trait OderModels{
                 $this->data['listOder'][] = $row;
             }
         }
-        // echo "<pre>";
-        // var_dump($this->data); die();
         return $this->data;
     }
 

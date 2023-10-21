@@ -15,16 +15,7 @@ trait DeliveredSuccessfullyModels{
         return $this->data;
 
     }
-    // $query = $conn->query("
-    // select orderconfirmation.Price,orderconfirmation.IdOrder, 
-    // product.NameProducts, image.Image,  
-    // account.Address, account.Phone
-    // from orderconfirmation
-    // join account on orderconfirmation.IdAccount = account.Id
-    // join product on orderconfirmation.IdProduct = product.IdProduct
-    // join image on image.IdProduct = product.IdProduct
-    //
-    // ");
+
     public function lisstProduct(){
         $conn = Connection::getInstance();
         $IdAccount = $_SESSION['IdAccountUser'] ?? '';

@@ -18,27 +18,50 @@ trait CasualModels {
 
     public function showProduct(){
         $IdCategory = $_GET['id'];
-        // echo $IdCategory;
         $conn = Connection::getInstance();
-        $query = $conn->query("
-        SELECT p.*, i.Image
-        FROM product p
-        INNER JOIN (
-            SELECT IdProduct, Image
-            FROM image
-            GROUP BY IdProduct
-        ) i ON p.IdProduct = i.IdProduct
-        WHERE p.Status = 0 and p.IdCategory  = '$IdCategory '
-        ORDER BY p.IdProduct DESC
-        LIMIT 10
-        ");
-        if($query){
-            // echo "test";
-            while($row = $query->fetch_assoc()){
-                $this->data['showProduct'][] = $row;
+
+        if($IdCategory === "All"){
+            $query = $conn->query("
+            SELECT p.*, i.Image
+            FROM product p
+            INNER JOIN (
+                SELECT IdProduct, Image
+                FROM image
+                GROUP BY IdProduct
+            ) i ON p.IdProduct = i.IdProduct
+            WHERE p.Status = 0 
+            ORDER BY p.IdProduct DESC
+            LIMIT 10
+            ");
+            if($query){
+                // echo "test";
+                while($row = $query->fetch_assoc()){
+                    $this->data['showProduct'][] = $row;
+                }
+            }else{
+                $this->data['messageError'] = "Hệ thống đang bảo trì";
             }
         }else{
-            $this->data['messageError'] = "Hệ thống đang bảo trì";
+            $query = $conn->query("
+            SELECT p.*, i.Image
+            FROM product p
+            INNER JOIN (
+                SELECT IdProduct, Image
+                FROM image
+                GROUP BY IdProduct
+            ) i ON p.IdProduct = i.IdProduct
+            WHERE p.Status = 0 and p.IdCategory  = '$IdCategory '
+            ORDER BY p.IdProduct DESC
+            LIMIT 10
+            ");
+            if($query){
+                // echo "test";
+                while($row = $query->fetch_assoc()){
+                    $this->data['showProduct'][] = $row;
+                }
+            }else{
+                $this->data['messageError'] = "Hệ thống đang bảo trì";
+            }
         }
         return $this->data;
     }
@@ -46,26 +69,49 @@ trait CasualModels {
     public function sortBy(){
         $IdCategory = $_GET['id'];
         $quantity = $_GET['quantity'];
-        // echo $IdCategory.$quantity; die();
         $conn = Connection::getInstance();
-        $query = $conn->query("
-        SELECT p.*, i.Image
-        FROM product p
-        INNER JOIN (
-            SELECT IdProduct, Image
-            FROM image
-            GROUP BY IdProduct
-        ) i ON p.IdProduct = i.IdProduct
-        WHERE p.Status = 0 and p.Idcategory = '$IdCategory'
-        ORDER BY p.IdProduct DESC
-        LIMIT $quantity
-        ");
-        if($query){
-            while($row = $query->fetch_assoc()){
-                $this->data['showProduct'][] = $row;
+        if($IdCategory === "All"){
+            $query = $conn->query("
+            SELECT p.*, i.Image
+            FROM product p
+            INNER JOIN (
+                SELECT IdProduct, Image
+                FROM image
+                GROUP BY IdProduct
+            ) i ON p.IdProduct = i.IdProduct
+            WHERE p.Status = 0 
+            ORDER BY p.IdProduct DESC
+            LIMIT $quantity
+            ");
+            if($query){
+                while($row = $query->fetch_assoc()){
+                    $this->data['showProduct'][] = $row;
+                }
+            }else{
+                $this->data['messageError'] = "Hệ thống đang bảo trì";
             }
+
         }else{
-            $this->data['messageError'] = "Hệ thống đang bảo trì";
+            $query = $conn->query("
+            SELECT p.*, i.Image
+            FROM product p
+            INNER JOIN (
+                SELECT IdProduct, Image
+                FROM image
+                GROUP BY IdProduct
+            ) i ON p.IdProduct = i.IdProduct
+            WHERE p.Status = 0 and p.Idcategory = '$IdCategory'
+            ORDER BY p.IdProduct DESC
+            LIMIT $quantity
+            ");
+            if($query){
+                while($row = $query->fetch_assoc()){
+                    $this->data['showProduct'][] = $row;
+                }
+            }else{
+                $this->data['messageError'] = "Hệ thống đang bảo trì";
+            }
+
         }
         return $this->data;
     }

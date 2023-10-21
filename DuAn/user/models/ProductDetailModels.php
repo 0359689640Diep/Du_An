@@ -96,14 +96,18 @@
                     // lay IdProduct
                     $IdProduct = $this->data['showProduct'][0]['IdProduct'];
                     // truy van lay tat ca mau thuoc 1 san pham
-                    $queryColor = $conn->query("select IdColor, Color from color where IdProduct = '$IdProduct'");
+                    $queryColor = $conn->query("select c.IdColor, cd.Color from color c
+                    join colordefault cd on cd.IdColorDefalut = c.IdColorDefault
+                    where IdProduct = '$IdProduct'");
                     if($queryColor){
                         while($row = $queryColor->fetch_assoc()){
                             $this->data['Color'][] = $row;
                         }
                         
                         // truy van lay tat ca size trong 1 sp
-                        $querySize = $conn->query("select IdSize, Size from size where IdProduct  = '$IdProduct'");
+                        $querySize = $conn->query("select s.IdSize, sd.Size from size s
+                        join sizedefault sd on sd.IdSizeDefalut  = s.IdSizeDefault 
+                        where IdProduct  = '$IdProduct'");
                         if($querySize){
                             while($row = $querySize->fetch_assoc()){
                                 $this->data['Size'][] = $row;

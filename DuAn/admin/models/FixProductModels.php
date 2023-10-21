@@ -1,47 +1,65 @@
 <?php
-
 trait FixProductModels{
     public function LisstColorAndSizeDefault() {
         $data = array();
         $conn = Connection::getInstance();
+        $IdProduct = $_GET['IdProduct'];
         // lay du lieu color
-        $queryColorDefault = $conn->query("SELECT * FROM colordefault");
-        if($queryColorDefault){
-            while($row = $queryColorDefault->fetch_assoc()){
+        $queryColor = $conn->query("
+        SELECT c.*, cd.Color FROM color c
+        join colordefault cd on cd.IdColorDefalut   = c.IdColorDefault  
+        where IdProduct = '$IdProduct'
+        ");
+        $queryColorDefault = $conn->query("
+        SELECT cd.* FROM colordefault cd
+      
+        
+        ");
+
+        if($queryColorDefault and $queryColor){
+            while($row = $queryColor->fetch_assoc()){
                 $data["ColorDefault"][] = $row; 
             }
-            // xử lý so sánh và đánh dấu
-            $queryColor = $conn->query("SELECT c.*, cd.* FROM color c JOIN colordefault cd ON c.IdColorDefault = cd.IdColor");
-            if($queryColor){
-                while($row = $queryColor->fetch_assoc()){
-                    $data["Color"][] = $row; 
-                }
+            while($row = $queryColorDefault->fetch_assoc()){
+                $data["ColorDefault"][] = $row; 
             }
         
             
         }else{
             $data['message'] = "The system is maintenance";
         }
-        // lay du lieu size
-        $querySize = $conn->query("Select * from sizedefault");
-        if($querySize){
+
+        // lấy dữ liệu size
+        $querySize = $conn->query("
+        SELECT s.*, sd.Size FROM size s
+        join sizedefault sd on sd.IdSizeDefalut   = s.IdSizeDefault  
+        where IdProduct = '$IdProduct'
+        ");
+        $querySizeDefault = $conn->query("
+        SELECT sd.* FROM sizedefault sd
+      
+        
+        ");
+
+        if($querySizeDefault and $querySize){
+            // echo 1;
             while($row = $querySize->fetch_assoc()){
                 $data["SizeDefault"][] = $row; 
             }
-            // xử lý so sánh và đánh dấu
-            $querySize = $conn->query("SELECT s.*, sd.* FROM size s JOIN sizedefault sd ON s.IdSizeDefault = sd.IdSize");
-            if($querySize){
-                while($row = $querySize->fetch_assoc()){
-                    $data["Size"][] = $row; 
-                }
+            while($row = $querySizeDefault->fetch_assoc()){
+                $data["SizeDefault"][] = $row; 
             }
         
-   
+            
+        }else{
+            $data['message'] = "The system is maintenance";
+        }
         // echo "<pre>";
         // print_r($data);
-        // die();
+        // die();  
+
         return $data;
-    }
+
     }
     public function FixProductDisplayModels($id){
         $conn = Connection::getInstance();
@@ -103,12 +121,6 @@ trait FixProductModels{
             // lấy id details
             $IdDetails = $_GET['IdDetails'];        
             $data = array();
-            // foreach($Color as $valueColor){
-            //     echo $valueColor;
-            // }
-                // echo "<pre>";
-                // var_dump($id);
-                // die();
             if(empty($IdDetails) && empty($id)){
                 echo "<script> alert('Your session has expired'); </script>";
                 header("location:index.php?controller=LisstProduct");
@@ -124,26 +136,35 @@ trait FixProductModels{
 
                     where IdProduct = '$id'");
                     if($query){
+                      
+                        // Xóa toàn bộ những trường nào có IdColor trùng rồi insert lại dữ liệu
+                        $queryUpdateIdProductColor = $conn->query("delete from color where IdProduct  = '$id' ");
+                        if($queryUpdateIdProductColor){
+                            foreach($Color as $valueColor){
+                                $sql= "insert into color values(null, '$id', '$valueColor')" ;
+                                // var_dump($sql); die();
+                                $queryColor = $conn->query($sql);
+                                if(!$queryColor){
+                                    $data['messageError'] = "Không thể update dữ liệu. Vui lòng nhập lại dữ liệu";
+                                    die();
+                                }
+    
+                            }
 
-                        foreach($Color as $valueColor){
-                            $queryColor = $conn->query("Update color set IdColorDefault   = '$valueColor' where IdProduct   = '$id' AND IdColorDefault  = '$valueColor'" );
-                            if(!$queryColor){
-                                $data['messageError'] = "Không thể update dữ liệu. Vui lòng nhập lại dữ liệu";
-                                die();
-                            }else{
-                                echo 1;
-                            }
                         }
-                        // update du lieu vào Size
-                        foreach($Size as $valueSize){
-                            $querySize = $conn->query("Update size set IdSizeDefault  = '$valueSize' where IdProduct = '$id' and IdSizeDefault  = '$valueSize'");
-                            if(!$querySize){
-                                $data['messageError'] = "Không thể update dữ liệu. Vui lòng nhập lại dữ liệu";
-                                die();
-                            }else{
-                                echo 2;
-                            }
-                        }
+                      // Xóa toàn bộ những trường nào có IdColor trùng rồi insert lại dữ liệu
+                      $queryUpdateIdProductSize = $conn->query("delete from size  where IdProduct  = '$id' ");
+                      if($queryUpdateIdProductSize){
+                          // update du lieu vào Size
+                          foreach($Size as $valueSize){
+                              $querySize = $conn->query("insert into size values(null, '$id', '$valueSize')");
+                              if(!$querySize){
+                                  $data['messageError'] = "Không thể update dữ liệu. Vui lòng nhập lại dữ liệu";
+                                  die();
+                              }
+                          }
+
+                      }
                         // echo "test";
                         // die();                        
                         // update du lieu vào image

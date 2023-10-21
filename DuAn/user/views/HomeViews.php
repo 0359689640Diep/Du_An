@@ -52,7 +52,7 @@
                                 echo "
                                 <section class='NewProduct' onclick = Render('ProductDetail&id','$value[IdProduct]')>
                                    <article class='img'>
-                                       <img src='../assets/img/$value[Image]' alt='product'>
+                                       <img src='../assets/imgUpload/$value[Image]' alt='product'>
                                    </article>
                                    <article class='title'>
                                        <h1>$value[NameProducts]</h1>
@@ -65,7 +65,7 @@
                                        <i class='ti-star'></i>
                                    </article> 
                                    <section class='price'>
-                                       <h1>$value[Price]</h1>
+                                       <h1>$ $value[Price]</h1>
                                    </section>
                                </section>                            
                                ";
@@ -89,7 +89,7 @@
                              <section class='BestsellerProduct' onclick = Render('ProductDetail&id','$value[IdProduct]')>
                              
                                 <article class='img'>
-                                    <img src='../assets/img/$value[Image]' alt='product'>
+                                    <img src='../assets/imgUpload/$value[Image]' alt='product'>
                                 </article>
                                 <article class='title'>
                                     <h1>$value[NameProducts]</h1>
@@ -102,7 +102,7 @@
                                     <i class='ti-star'></i>
                                 </article> 
                                 <section class='price'>
-                                    <h1>$value[Price]</h1>
+                                    <h1>$ $value[Price]</h1>
                                 </section>
                             </section>
                             ";

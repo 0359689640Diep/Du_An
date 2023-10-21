@@ -4,7 +4,6 @@ session_start();
 include "../app/Connection.php";
 include "../app/Controller.php";
 include "../app/validate.php";
-
 // lay bien controller truyen tu url
 $controller = isset($_GET['controller']) ? $_GET["controller"]: "Home";
 $action = isset($_GET['action']) ? $_GET['action']:"index";
