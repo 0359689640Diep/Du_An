@@ -780,7 +780,7 @@ footer > .footer {
   margin: 2% 0;
 }
 .contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .title h1 {
-  font-size: 1.25rem;
+  font-size: 0.6rem;
 }
 .contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .evaluate {
   display: flex;
@@ -798,7 +798,7 @@ footer > .footer {
   justify-content: space-evenly;
 }
 .contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .price h1, .contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .price del {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 .contener main .productSuggestions .mainproductSuggestions .SuggestionsProduct .price del {
   color: var(--text-color3);

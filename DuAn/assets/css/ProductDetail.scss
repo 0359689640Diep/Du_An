@@ -377,7 +377,7 @@
                     }
                     .title{
                         h1{
-                            font-size: 1.25rem;
+                            font-size: 0.6rem;
                         }
                     }
                     .evaluate{
@@ -393,7 +393,7 @@
                         @include FlexCenter;
                         justify-content: space-evenly;
                         h1, del{
-                            font-size: 1.5rem;
+                            font-size: 1rem;
                         }
                         del{
                             color: var(--text-color3);

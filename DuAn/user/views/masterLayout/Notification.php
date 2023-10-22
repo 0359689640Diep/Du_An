@@ -14,7 +14,8 @@
         position: absolute;
         z-index: 99999;
         right: 1%;
-        top: 30%
+        top: 15%;
+        
 
     }
     .Message{

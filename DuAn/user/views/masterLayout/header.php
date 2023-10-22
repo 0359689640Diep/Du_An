@@ -1,5 +1,5 @@
 <header>
-    <section class="mainHeader">
+        <section class="mainHeader">
         <section class="SEOSignUp">
             <h4>Sign up and get 20% off to your first order.<a href="?controller=SignIn"> Sign Up Now</a></h4>
             <i class="ti-close"></i>

@@ -18,8 +18,7 @@
                         <section class="contentCart">
                             <section class="product">
                                 <?php 
-                                            // echo "<pre>";
-                                            // print_r($data["showCart"]); die();
+                            
                                 if(!empty($data['showCart'])){
                                     foreach($data['showCart'] as $value){
                                         echo "
@@ -48,7 +47,7 @@
     
                                         echo "<h1>'Hống' có gì trong giỏ hàng hết</h1>";
                                     }
-                                    // var_dump($value); die();
+                                    
                                 ?>
                                 
                             </section>

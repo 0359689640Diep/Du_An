@@ -10,15 +10,17 @@ trait OderModels{
     public function listOder(){
         $conn = Connection::getInstance();
         $query = $conn->query("
-        select ord.*, p.IdProduct, p.NameProducts, p.NumberProduct, i.Image, ac.Name, ac.Gmail, ac.Phone, ac.Image, ac.Address
-        from orderconfirmation ord
-        inner join (
-            select IdProduct, Max(Image) as Image
-            from image i
-        ) i on ord.IdProduct = i.IdProduct
-        join product p on ord.IdProduct = p.IdProduct
-        join account ac on ord.IdAccount = ac.Id
-         order by ord.IdOrder desc
+        SELECT ord.*, p.IdProduct, p.NameProducts, p.NumberProduct, i.Image, ac.Name, ac.Gmail, ac.Phone, ac.Image, ac.Address
+        FROM orderconfirmation ord
+        INNER JOIN (
+            SELECT IdProduct, MAX(Image) AS Image
+            FROM image
+            GROUP BY IdProduct
+        ) i ON ord.IdProduct = i.IdProduct
+        JOIN product p ON ord.IdProduct = p.IdProduct
+        JOIN account ac ON ord.IdAccount = ac.Id
+        ORDER BY ord.IdOrder DESC
+        
         
         ");
 

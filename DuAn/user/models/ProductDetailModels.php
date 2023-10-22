@@ -64,8 +64,6 @@
                     while($row = $query->fetch_assoc()){
                         $this->data['GetProductsByCategory'][] = $row;
                     }
-                    // echo "<pre>";
-                    // var_dump($this->data['GetProductsByCategory']);die();
                 }else{
                     $this->data['messageError'] = "Hệ thống đang bảo trì";
                 }
@@ -125,9 +123,6 @@
                         $this->data['messageError'] = "Hệ thống đang bảo trì";
                         
                     }
-                    // echo "<pre>";
-                    // var_dump($this->data['Image']);
-                    //     die();
                 }else{
                     $this->data['messageError'] = "Hệ thống đang bảo trì";
                 }
@@ -157,9 +152,7 @@
                             }else{
                                 $this->data['messageError'][] = "The system is maintenance";
                             }
-                        // echo $Price; die();
                     }
-                    // echo "tét";
                 }else{
                     $this->data['messageError'][] = "You are not logged into the system. Please log in to use the service";
                     

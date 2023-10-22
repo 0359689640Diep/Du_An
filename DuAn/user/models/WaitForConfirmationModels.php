@@ -35,8 +35,8 @@ trait WaitForConfirmationModels{
                 $this->data['lisstProduct'][] = $row;
             }
         }
-        return $this->data;
-    }
+           return $this->data;
+  }
 
     public function CancelOrderUser(){
         $conn = Connection::getInstance();

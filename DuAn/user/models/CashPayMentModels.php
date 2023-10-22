@@ -10,12 +10,10 @@ trait CashPayMentModels{
             while($row = $query->fetch_assoc()){
                 $data[] = $row;
             }
-            // $data[] = $IdAccount;
-            // echo "<pre>";
-            // var_dump($this->data);die();
         }else{
             $data['messageError'] = $conn->error;
         }
+
         return $data;
     }
 
