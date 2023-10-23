@@ -2,6 +2,7 @@
 <html lang="en">
 <?php require "masterLayout/head.php" ?>
 <link rel="stylesheet" href="../assets/css/signInUser.css">
+<link rel="stylesheet" href="../assets/css/responsive/ResponsiveSignIn.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">

@@ -1,0 +1,67 @@
+@media screen and (min-width: 1024px){
+    .page{
+        width: 100%;
+    }
+}
+@media screen and (min-width: 767px) and (max-width:1023px){
+    .page{
+        width: 100%;
+        
+    }
+    .left> .Wellcome>h1 {
+        font-size: 34px;
+    }
+    .icont img:nth-child(2) {
+        width: 28%;
+        height: 48%;
+    }
+    .contentRight>main {
+        height: 40%;
+    }
+    .contentRight>main>form>input {
+        height: 15%;
+    }
+    .contentRight>main>form>button {
+        height: 15%;
+    }
+    .contentRight>main {
+        width: 100%;
+        height: 40%;
+    }
+    .contentRight>footer>h3 {
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .page{
+        width: 100%;
+        /* height: 100%; */
+        grid-template-areas:
+        "right right"
+        "left left ";
+        grid-template-columns: 100%;
+        grid-template-rows: 70% 30%;
+    }
+    .page> .right {
+        padding: 10%;
+    }
+    .contentRight> .or {
+        height: 5%;
+    }
+    .contentRight>main>form>input {
+        height: 15%;
+        font-size: 15px;
+    }
+    .contentRight>header>button>h5{
+        font-size: 10px;
+    }
+    .contentRight>main>form>button {
+        height: 20%;
+    }
+    .contentRight>footer {
+        margin-top: 30%;
+    }
+    .left> .Wellcome>h1 {
+        font-size: 30px;
+    }
+}

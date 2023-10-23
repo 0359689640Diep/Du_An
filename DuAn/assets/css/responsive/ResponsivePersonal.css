@@ -1,68 +1,48 @@
 @media screen and (min-width: 1024px){
     .page{
         width: 100%;
-        height: 3500px;
-        background-color: var(--background-color);  
-        padding: 0 2%;
     }
-    
 }
-@media screen and (min-width: 767px) and (max-width: 1023px){
+@media screen and (min-width: 767px) and (max-width:1023px){
     .page{
-        width: 100%;
-        height: 3500px;
-        background-color: var(--background-color);  
-        padding: 0 2%;
+        width: 100%; 
     }
-    .contentHeader> .nav>h5 {
+    html{
         font-size: 10px;
     }
-    .contentHeader> .sheach {
-        height: 38%;
+    .contentHeader > .nav > h5 {
+        font-size: 10px;
     }
-    .contentHeader> .sheach>input{
+    .contentHeader > .sheach > input {
         padding-left: 15%;
+        font-size: 15px;
     }
-    .contentHeader> .sheach> .ti-search{
-        top: 25%;
+    .contentHeader > .sheach {
+        height: 35%;
     }
-
-    .contentBanner>h1 {
-        font-size: 43px;
-        margin: 5% 0;
-
+    .contentHeader > .sheach > .ti-search {
+        left: 3%;
+        top: 30%;
+        font-size: 25px;
     }
-    .contentBanner>h5 {
-        font-size: 11px;
-        /* margin: 2% 0; */
+    .contentMain form .fromRight {
+        width: 40%;
+        height: 70%;
+        display: block;
     }
-    .contentBanner>button {
-        margin: 5% 0;
-        width: 52%;
+    .contentMain form .fromRight .ContentFromRight input {
+        width: 100%;
+    }
+    .contentMain form .fromLeft .ti-eye {
+        right: 10%;
+        bottom: 40%;
+    }
+    .contentMain form .fromLeft button {
+        width: 51%;
         height: 8%;
     }
-    .contentFooterBanner>h1 {
-        font-size: 30px;
-        margin: 5% 0;
-
-    }
-    .Customers> .Content> .Comment {
-        width: 50%;
-        height: 95%;
-    }
-    .Comment> .Evaluate {
-        width: 90%;
-    }
-
-    .BrowseByDressStyle>h1 {
-        font-size: 45px;
-    }
-    .NewProduct> .title>h1, .BestsellerProduct> .title>h1  {
-        font-size: 14px;
-    }
-
-    /* footer */
-        .Feedback>h1 {
+     /* footer */
+     .Feedback>h1 {
         font-size: 26px;
     }
 
@@ -88,14 +68,14 @@
     .footer> .pay {
         width: 40%;
     }
-    
+
 }
-@media  screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
     .page{
         width: 100%;
-        height: 3500px;
-        background-color: var(--background-color);
-        padding: 0 5%;
+    }
+    html{
+        font-size: 9px;
     }
     .contentHeader{
         width: 100%;
@@ -182,93 +162,37 @@
     .contentHeader> .Cart_Individual> i{
         font-size: 25px;
     }
-    .contener> .Banner{
-        display: block;
-    }
-    .Banner> .contentBanner{
-        width: 100%;
-        height: 45%;
-    }
-    .contentBanner>h1{
-        width: 100%;
-        font-size: 36px;
-    }
-    .contentBanner>h5{
-        font-size: 14px;
-
-    }
-    .contentBanner>button{
-        width: 100%;
-        height: 15%;
-    }
-    .contentFooterBanner>h1{
-        font-size: 24px;
-
-    }
-    .contentBanner>footer{
-        height: 10%;
-    }
-    .contentFooterBanner>p{
-        font-size: 12px;
-
-    }
-    .Banner> .imageLeft {
-        width: 100%;
-        height: 55%;
-        position: relative;
-    }
-    .imageLeft>img{
-        margin-top: 5.5%;
-    }
-
-    .contener> .BrandName{
-        flex-wrap: wrap;
-    }
-    .BrandName>img{
-        width: 25%;
-        height: auto;
-         margin: 8px; 
-    }
-    .NewProduct> .title>h1, .BestsellerProduct> .title>h1 {
-        font-size: 12px;
-    }
-    .NewProduct> .price>h1, del, .BestsellerProduct> .price>h1, del {
-        font-size: 20px;
-    }
-    /* .NewProduct, .Bestseller>h1 {
-        font-size: 32px;       
-    } */
-    .ListNewProduct> .NewProduct, .BestsellerProduct{
+    /* main */
+    .contentMain form .fromRight {
         width: 40%;
-        text-align: left;
-    }
-    .NewProduct> .price, .BestsellerProduct> .price{
-        justify-content: space-evenly;
-    }
-
-    .BrowseByDressStyle>h1{
-        font-size: 32px;
-    } 
-    .Content> .CasualFormal, .PartyGym{
+        height: 70%;
         display: block;
-
     }
-    .CasualFormal> .Casual, .PartyGym> .Gym, .CasualFormal> .Formal, .PartyGym> .Party {
-        width: 100%;
-        height: 45%;
-        margin-top: 3.5%;
-    }
-    .Comment> .Evaluate {
-        width: 90%;
-    }
-
-    .Customers>h1{
-        font-size: 32px;
-    }
-    .Customers> .Content> .Comment{
+    .contentMain form .fromRight .ContentFromRight input {
         width: 100%;
     }
+    .contentMain form .fromLeft .ti-eye {
+        right: 10%;
+        bottom: 40%;
+    }
+    .contentMain form .fromLeft button {
+        width: 51%;
+        height: 8%;
+    }
+    .page .contener main .sidebar {
+        width: 75%;
+        height: 100%;
+        display: none;
+    }
+    .contentMain #ti-menu-alt {
+        display: block;
+        font-size: 2rem;
+        position: absolute;
+        left: -25%;
+        top: 0%;
+    }
 
+    /* footer */
     .Feedback{
         width: 95%;
         top: -40%;
@@ -293,8 +217,6 @@
         top: 12%;
     }
 
-    /* footer */
-  
     footer > .mainFooter {
         width: 100%;
         height: 68%;
@@ -347,5 +269,3 @@
         margin: 5% 8%;
     }
 }
-
-

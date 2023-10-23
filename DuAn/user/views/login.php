@@ -3,6 +3,7 @@
 <html lang="en">
 <?php require "masterLayout/head.php" ?>
 <link rel="stylesheet" href="../assets/css/loginUser.css">
+<link rel="stylesheet" href="../assets/css/responsive/ResponsiveLogin.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 <body>
     <section class="page">

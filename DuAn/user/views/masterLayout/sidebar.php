@@ -1,4 +1,4 @@
-<section class="sidebar">
+<section class="sidebar" id="sidebar">
     <section class="headerSidebar">
         <article class="img">
             <img src="../assets/imgUpload/<?= $_SESSION["ImageUser"]?>" alt="">

@@ -505,6 +505,9 @@ footer > .footer {
   height: 10%;
 }
 
+.contentMain {
+  position: relative;
+}
 .contentMain .headerContentMain {
   width: 100%;
   height: 10%;
