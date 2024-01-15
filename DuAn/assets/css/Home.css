@@ -480,9 +480,9 @@
     width: 100%;
     height: 65%;
     border-radius: 20px;
-    white-space: nowrap;
-    overflow-y: hidden;
-    display: flex;
+        white-space: nowrap;
+        overflow-y: hidden;
+        display: flex;
 }
 .Customers> .Content> .Comment{
     width: 35%;

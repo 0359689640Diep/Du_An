@@ -13,27 +13,26 @@
                 $this->data['messageError'] = "Hệ thống đang bảo trì";
             }
         }
-
+        
         public function showProduct(){
             $conn = Connection::getInstance();
-            $query = $conn->query("SELECT p.*, i.Image
+            $query = $conn->query("
+            SELECT p.*, MAX(i.Image) AS Image
             FROM product p
             INNER JOIN (
-                SELECT IdProduct, Image
+                SELECT IdProduct, MAX(Image) AS Image
                 FROM image
                 GROUP BY IdProduct
             ) i ON p.IdProduct = i.IdProduct
             WHERE p.Status = 0
-            ORDER BY p.IdProduct
+            GROUP BY p.IdProduct
             ");
+
 
             if($query){
                 while($row = $query->fetch_assoc()){
                     $this->data['showProduct'][] = $row;
                 }
-                // echo "<pre>";
-                // print_r($this->data['showProduct']); 
-                // die();
             }else{
                 $this->data['messageError'] = "Hệ thống đang bảo trì";
             }

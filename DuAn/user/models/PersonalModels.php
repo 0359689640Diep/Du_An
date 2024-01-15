@@ -37,7 +37,6 @@ trait PersonalModel{
             extract($_FILES);
             $nameImg = $image['name'];
             $tmp_name = $image["tmp_name"];
-            // echo $image["tmp_name"]; die();
             
             if(isset($image)&& empty($image['error'])){
                 move_uploaded_file($tmp_name, "../assets/imgUpload/".$nameImg );
@@ -47,9 +46,6 @@ trait PersonalModel{
                 Phone = '$phone',Image = '$nameImg' ,Sex = '$sex', Address = '$address', Password = '$password'
                 where Id = '$IdAccount'");
             }
-            // echo "<pre>";
-            // var_dump($sex); die();
-
 
         }
         return $data;

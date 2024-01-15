@@ -3,6 +3,7 @@
 <?php require "masterLayout/head.php" ?>
 <link rel="stylesheet" href="../assets/css/CommentUser.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
+
 <body>
     <section class="page">
         <section class="contener">
@@ -11,11 +12,11 @@
             <main>
                 <?php require "masterLayout/sidebar.php" ?>
                 <section class="contentMain">
-                    <?php 
-                    if(isset($data['listProduct'])){
-                        // echo "<pre>";
+                    <?php
+                    if (isset($data['listProduct'])) {
+                        //  
                         // print_r($data['listProduct']);die();
-                        foreach($data['listProduct'] as $value){
+                        foreach ($data['listProduct'] as $value) {
                             echo "
                             <section class='listProduct'>
                                 <article class='img'>
@@ -34,9 +35,9 @@
                             </section>                    
                             ";
                         }
-                    }else{
-                        if(isset($data['listComment'] )){
-                            foreach($data['listComment'] as $value){
+                    } else {
+                        if (isset($data['listComment'])) {
+                            foreach ($data['listComment'] as $value) {
                                 echo "
                                 <section class='listComment'>
                                     <article class='img'>
@@ -57,7 +58,7 @@
                                 </section>
                                 ";
                             }
-                        }else{
+                        } else {
                             echo "<h1>No orders yet</h1>";
                         }
                     }
@@ -68,10 +69,10 @@
         </section>
     </section>
 </body>
-<?php 
-if(isset($data['message'])){
+<?php
+if (isset($data['message'])) {
     $message = $data['message'];
-    if( $data['message'] === 'Success'){
+    if ($data['message'] === 'Success') {
         echo "<script>
         toast(
           title= 'Success',
@@ -80,10 +81,9 @@ if(isset($data['message'])){
           duration= 1000,
           quantity = '0'
       )
-        </script>";        
-
-    }else{
-    echo "<script>
+        </script>";
+    } else {
+        echo "<script>
     toast(
       title= 'Error',
       message= '$message',
@@ -92,8 +92,7 @@ if(isset($data['message'])){
       quantity = '0'
   )
   ";
-    
-}
+    }
 }
 ?>
 

@@ -1,12 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <?php require "masterLayout/head.php" ?>
 <link rel="stylesheet" href="../assets/css/ForgotPassword.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
+
 <body>
     <section class="page">
-    <?php include "masterLayout/Notification.php" ?>
+        <?php include "masterLayout/Notification.php" ?>
         <section class="left">
             <article class="Wellcome">
                 <h1>Welcome nice to meet you</h1>
@@ -34,14 +34,14 @@
                 </article>
                 <main id="form">
                     <!--  -->
-                    <form action="index.php?controller=ForgotPassword&action=SendGmail" method="post" >
-                        <input type="email" required title="Không được để trống" placeholder="Gmail" name ="Gmail">
-                        <button type="submit" name="submit" >Verify account</button>
+                    <form action="index.php?controller=ForgotPassword&action=SendGmail" method="post">
+                        <input type="email" required title="Không được để trống" placeholder="Gmail" name="Gmail">
+                        <button type="submit" name="submit">Verify account</button>
                     </form>
                 </main>
                 <footer>
                     <h3>
-                    Already have an account ? 
+                        Already have an account ?
                         <a href="index.php?controller=login">Login </a>
                     </h3>
                 </footer>
@@ -49,10 +49,10 @@
         </section>
     </section>
 </body>
-<?php 
-// echo "<pre>";
+<?php
+//  
 // var_dump($data["Gmail"]);
-if( !empty($data["message"])){
+if (!empty($data["message"])) {
     echo "
     <script>
             const main = document.getElementById('form');
@@ -104,7 +104,7 @@ if( !empty($data["message"])){
     </script>
     
     ";
-    if($data["message"] === 'Update successful'){
+    if ($data["message"] === 'Update successful') {
         $success = $data["message"];
         echo "<script>
         toast(
@@ -115,10 +115,9 @@ if( !empty($data["message"])){
         
     )
         </script>";
-
     }
-}else{
-    if(isset($data['error'])){
+} else {
+    if (isset($data['error'])) {
         $error = $data['error'];
         echo "<script>
         toast(
@@ -129,11 +128,11 @@ if( !empty($data["message"])){
         
     )
         </script>";
-
     }
 }
 
 
 
 ?>
+
 </html>

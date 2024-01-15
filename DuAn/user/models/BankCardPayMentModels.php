@@ -10,9 +10,6 @@ trait BankCardPayMentModels{
             while($row = $query->fetch_assoc()){
                 $data[] = $row;
             }
-            // $data[] = $IdAccount;
-            // echo "<pre>";
-            // var_dump($this->data);die();
         }else{
             $data['messageError'] = $conn->error;
         }
@@ -24,7 +21,6 @@ trait BankCardPayMentModels{
         $TotalAmountAfterTax = 0;
         $TotalPreTaxMoney  = 0;
         $toaNumberProduct = count($data);
-        //
         $toatNumber = 0;
         foreach($data as $value){
             $TotalAmountAfterTax += round((float)$value["Price"] ) ;
@@ -35,14 +31,12 @@ trait BankCardPayMentModels{
         $Toatl = $TotalAmountAfterTax + $TotalPreTaxMoney + ($toaNumberProduct *10);
         $rounded_number = round($Toatl, 2);
         $formattedNumber = number_format($rounded_number, 2, ",", ".");
-        // echo "<pre>";
         $this->data=[
             "TotalAmountAfterTax"=>$TotalAmountAfterTax,
             "TotalPreTaxMoney"=>$TotalPreTaxMoney,
             "toaNumberProduct"=>$toaNumberProduct,
             "Toatl"=>$formattedNumber
         ];
-        // var_dump($data);die();
         
         return $this->data;
     }
@@ -51,8 +45,6 @@ trait BankCardPayMentModels{
         $data = array();
             $conn = Connection::getInstance();
             $data = $this->getData();
-            // echo "<pre>";
-            // var_dump($data);die();
             foreach($data as $value){
                 $quey = $conn->query("
                 insert into orderconfirmation value(null, '1', '0', '$value[IdProduct]', '$value[IdAccount]',

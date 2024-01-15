@@ -3,14 +3,15 @@
 <?php require "masterLayout/head.php" ?>
 <link rel="stylesheet" href="../assets/css/LisstComment.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
+
 <body>
     <section class="page">
-<?php require_once "masterLayout/header.php"?>
-<aside>
-    <?php require_once "masterLayout/navigation.php"?>
-</aside>
+        <?php require_once "masterLayout/header.php"?>
+        <aside>
+            <?php require_once "masterLayout/navigation.php"?>
+        </aside>
 
-<?php require_once "masterLayout/Notification.php"?>
+        <?php require_once "masterLayout/Notification.php"?>
         <main>
             <table>
                 <tr>
@@ -81,10 +82,10 @@ if(isset($data['message'])){
           duration= 10000,
       )
         </script>";        
-        // header("location:index.php?controller=Oder");
     }
     
 
 }
 ?>
+
 </html>

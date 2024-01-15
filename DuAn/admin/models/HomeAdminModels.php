@@ -1,37 +1,38 @@
-<?php 
-trait HomeAdminModels{
+<?php
+trait HomeAdminModels
+{
     public function modelHomeAdmin()
-        {
-                $IdAccountAdmin = isset($_SESSION["IdAccountAdmin"]) ? $_SESSION["IdAccountAdmin"] : "";
-                $data = array();
-                if(!empty($IdAccountAdmin)){
-                    $conn = Connection::getInstance();
-                    $query = $conn->query("SELECT Name, Image, Permission FROM account WHERE  Id = '$IdAccountAdmin'");
-                    if ($query) {
-                        $result = $query->fetch_assoc();
-                        $data['result'] = $result;
-                        // truy vấn lấy tổng số account admin
-                        $queryAdmin = $conn->query("select count(Id) from account where Permission = 0  and Status =0 ");
-                        $resultAdmin = $queryAdmin->fetch_assoc();
-                        $data['Admin'] = $resultAdmin;
-                        // truy vấn lấy tổng số account user
-                        $queryUser = $conn->query("select count(Id) from account where Permission = 1  and Status =0 ");
-                        $resultUser = $queryUser->fetch_assoc();
-                        $data['User'] = $resultUser;
-                        // truy vấn lấy tổng số account  đã hủy
-                        $queryAdmin = $conn->query("select count(Id) from account where  Status =1 ");
-                        $resultAdmin = $queryAdmin->fetch_assoc();
-                        $data['Canceled'] = $resultAdmin;
-                        // truy vấn lấy tổng số account admin đã hủy
-                        $queryAdmin = $conn->query("select count(Id) from account where Permission = 0  and Status =1 ");
-                        $resultAdmin = $queryAdmin->fetch_assoc();
-                        $data['AdminCanceled'] = $resultAdmin;
-                        // truy vấn lấy tổng số account user đã hủy
-                        $queryUser = $conn->query("select count(Id) from account where Permission = 1  and Status =1 ");
-                        $resultUser = $queryUser->fetch_assoc();
-                        $data['UserCanceled'] = $resultUser;
-                        // truy vấn lấy tổng số tiền, số lượng, và lấy ra số lượng người thanh toán bằng thẻ và tiền mặt 
-                        $query = $conn->query("
+    {
+        $IdAccountAdmin = isset($_SESSION["IdAccountAdmin"]) ? $_SESSION["IdAccountAdmin"] : "";
+        $data = array();
+        if (!empty($IdAccountAdmin)) {
+            $conn = Connection::getInstance();
+            $query = $conn->query("SELECT Name, Image, Permission FROM account WHERE  Id = '$IdAccountAdmin'");
+            if ($query) {
+                $result = $query->fetch_assoc();
+                $data['result'] = $result;
+                // truy vấn lấy tổng số account admin
+                $queryAdmin = $conn->query("select count(Id) from account where Permission = 0  and Status =0 ");
+                $resultAdmin = $queryAdmin->fetch_assoc();
+                $data['Admin'] = $resultAdmin;
+                // truy vấn lấy tổng số account user
+                $queryUser = $conn->query("select count(Id) from account where Permission = 1  and Status =0 ");
+                $resultUser = $queryUser->fetch_assoc();
+                $data['User'] = $resultUser;
+                // truy vấn lấy tổng số account  đã hủy
+                $queryAdmin = $conn->query("select count(Id) from account where  Status =1 ");
+                $resultAdmin = $queryAdmin->fetch_assoc();
+                $data['Canceled'] = $resultAdmin;
+                // truy vấn lấy tổng số account admin đã hủy
+                $queryAdmin = $conn->query("select count(Id) from account where Permission = 0  and Status =1 ");
+                $resultAdmin = $queryAdmin->fetch_assoc();
+                $data['AdminCanceled'] = $resultAdmin;
+                // truy vấn lấy tổng số account user đã hủy
+                $queryUser = $conn->query("select count(Id) from account where Permission = 1  and Status =1 ");
+                $resultUser = $queryUser->fetch_assoc();
+                $data['UserCanceled'] = $resultUser;
+                // truy vấn lấy tổng số tiền, số lượng, và lấy ra số lượng người thanh toán bằng thẻ và tiền mặt 
+                $query = $conn->query("
                         SELECT 
                             SUM(oc.Price) AS sumPrice, 
                             SUM(oc.Number) AS sumNumber, 
@@ -45,15 +46,15 @@ trait HomeAdminModels{
                         WHERE 
                             oc.Type IN ('CK', 'TM')
                     ");
-                    // lay order
-                  
-// sp: Tên, giá, ảnh, số lượng, size
-// user: Tên, ảnh, gmail, phone,address
-// chức năng: 1- đang chuẩn bị, 2 là chờ lấy hàng, 3 chờ giao hàng, 4 đã đến nơi, 5 hủy đơn hàng do admin. 6 hủy đơn hàng do user. 7 Trả hàng do user
+                // lay order
 
-                    $data['SumProduct'] = $query->fetch_assoc();
-                    
-                    $query = $conn->query("
+                // sp: Tên, giá, ảnh, số lượng, size
+                // user: Tên, ảnh, gmail, phone,address
+                // chức năng: 1- đang chuẩn bị, 2 là chờ lấy hàng, 3 chờ giao hàng, 4 đã đến nơi, 5 hủy đơn hàng do admin. 6 hủy đơn hàng do user. 7 Trả hàng do user
+
+                $data['SumProduct'] = $query->fetch_assoc();
+
+                $query = $conn->query("
                     SELECT 
                     count(*) as sumOrder,
                     SUM(case when status = 1 then 1 else 0 end) as sumOrderWaitForConfirmation,
@@ -66,29 +67,24 @@ trait HomeAdminModels{
                     FROM orderconfirmation
                 
                     ");
-                    $data['SumOrder'] = $query->fetch_assoc();
+                $data['SumOrder'] = $query->fetch_assoc();
 
-                    // echo "<pre>";
-                    // var_dump($data);
-                    // die();
-                    
-                        
-                    } else {
-                        $data['messageError '] = "Hệ thống đang bảo trì";
-                    }
-                    
-                }else{
-                    header("location:index.php?controller=login");
+                //  
+                // var_dump($data);
 
-                }
 
-                return $data;
-                
-                // echo "<pre>";
-                // print_r($data['result']['Name']);
-                // echo "<pre>";
+
+            } else {
+                $data['messageError '] = "Hệ thống đang bảo trì";
             }
-        
-    
+        } else {
+            header("location:index.php?controller=login");
+        }
+
+        return $data;
+
+        //  
+        // print_r($data['result']['Name']);
+        //  
+    }
 }
-?>

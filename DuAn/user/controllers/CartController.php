@@ -9,25 +9,19 @@ class CartController extends Controller{
             }
             $dataPay = $this->PayBank();
             $this->loadView("CartViews.php", $data);
-            if($dataPay == null){
-                if(!empty($_COOKIE['CashPayMentAccout'])){
+            if($dataPay == null && $_SERVER['REQUEST_METHOD']){
+                extract($_POST);
+                if(isset($BankCardPayment)){
                     $idAccount = $_COOKIE['CashPayMentAccout'];
-                    echo "<script>
-                    window.location.replace('http://localhost:3000/DuAn/user/index.php?controller=CashPayMent&id=$idAccount');
-                    </script>";
-                    
-                }elseif(!empty($_COOKIE['BankCardPayMentAccout'])){
+                    header("Location: index.php?controller=CashPayMent&id=$idAccount");
+                }elseif(isset($CashPayment)){
                     $idAccount = $_COOKIE['BankCardPayMentAccout'];
-                     echo "<script>
-                        window.location.replace('http://localhost:3000/DuAn/user/index.php?controller=BankCardPayMent&id=$idAccount');
-                    </script>";
-                    
+                    header("Location: index.php?controller=BankCardPayMent&id=$idAccount");                    
                 }
             }
     }
     public function delete(){
         $data = $this->deleteCart();
-        // var_dump($data);
         if(empty($data)){
             $idAccount = isset($_SESSION['IdAccountUser']) && !empty($_SESSION['IdAccountUser']);
             header("location: index.php?controller=Cart&id=$idAccount");

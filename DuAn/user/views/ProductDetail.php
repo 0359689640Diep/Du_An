@@ -4,8 +4,9 @@
 <link rel="stylesheet" href="../assets/css/ProductDetail.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 <link rel="stylesheet" href="../assets/css/responsive/ResponsiveProductDetail.css">
+
 <body>
-    <section class="page" >
+    <section class="page">
         <section class="contener">
             <?php include "masterLayout/header.php" ?>
             <?php include "masterLayout/Notification.php" ?>
@@ -25,23 +26,20 @@
                                 }
 
                             ?>
-                            <!-- 
-                            <img src="../assets/img/aothun1.png" alt="">
-                            <img src="../assets/img/aothun1.png" alt=""> -->
                         </article>
                         <article class="ProductDetailImgRight">
-                        <?php
+                            <?php
                             $showProduct =  $data['showProduct'][0];
                             $showDetails = isset($data['showProduct'][0]) ? $data['showProduct'][0] : "" ;
-                            // echo "<pre>";
-                            // var_dump($showProduct); die();
                             echo "
                                 <img src='../assets/imgUpload/" . $data['Image'][0]['Image'] . "' alt='showProduct[0][Image]'>
                             ";                            
                         ?>
                         </article>
                     </section>
-                    <form action="index.php?controller=ProductDetail&action=addToCart&id=<?php echo $showProduct['IdProduct']?>" method="post" class="ProductDetailContent">
+                    <form
+                        action="index.php?controller=ProductDetail&action=addToCart&id=<?php echo $showProduct['IdProduct']?>"
+                        method="post" class="ProductDetailContent">
                         <?php 
                             echo "
                             <h1>{$showProduct['NameProducts']}</h1>
@@ -68,7 +66,7 @@
                                         ";
                                     }
                                 }
-                                // print_r($value);
+
                             echo "
                                 </article>
                             </article> 
@@ -94,7 +92,8 @@
                             ";
                         ?>
                         <section class="addTocart">
-                            <input type="number" name="number" required title='Cannot be empty' id="number" min = 1 max = <?php echo $showProduct['NumberProduct']?> value="1">
+                            <input type="number" name="number" required title='Cannot be empty' id="number" min=1
+                                max=<?php echo $showProduct['NumberProduct']?> value="1">
                             <button type="submit">Add To Cart</button>
                         </section>
 
@@ -107,14 +106,14 @@
                         <a href="#">Rating & Reviews</a>
                         <a href="#">FAQs</a>
                     </nav>
-                    <section class = "header">
+                    <section class="header">
                         <article class="left">
                             <h1>All Reviews</h1>
                             <span>(453)</span>
                         </article>
                         <article class="right">
-                            <svg height = "50" class="my-svg">
-                                <circle cx= "25" cy = "25" r = "25" fill = "#F0F0F0" ></circle>
+                            <svg height="50" class="my-svg">
+                                <circle cx="25" cy="25" r="25" fill="#F0F0F0"></circle>
                             </svg>
                             <i class="ti-filter"></i>
                             <select name="" id="">
@@ -123,7 +122,7 @@
                             <button>Write a Review</button>
                         </article>
                     </section>
-                    <section class="content">                           
+                    <section class="content">
                         <?php 
                         if(isset($data["showComment"])){
                             foreach($data["showComment"] as $value){
@@ -196,19 +195,20 @@
 </body>
 <script src="../assets/js/ProductDetail.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function(){
-  const maxLimit = <?php echo $showProduct['NumberProduct'] ?>;
-  const input = document.getElementById('number');
-  input.addEventListener('input', function(){
-    // 10 là cơ số, được sử dụng để chuyển đổi giá trị nhập vào thành một số nguyên dựa trên hệ thập phân
-    const value = parseInt(input.value, 10);
-    if(value > maxLimit) {
-        // alert(1)
-        toast("Warning", "Product quantity is not enough", "warning", 5000, 0);
-    }else{
-        input.setCustomValidity("");
-    }
-  })
+document.addEventListener("DOMContentLoaded", function() {
+    const maxLimit = <?php echo $showProduct['NumberProduct'] ?>;
+    const input = document.getElementById('number');
+    input.addEventListener('input', function() {
+        // 10 là cơ số, được sử dụng để chuyển đổi giá trị nhập vào thành một số nguyên dựa trên hệ thập phân
+        const value = parseInt(input.value, 10);
+        if (value > maxLimit) {
+            // alert(1)
+            toast("Warning", "Product quantity is not enough", "warning", 5000, 0);
+        } else {
+            input.setCustomValidity("");
+        }
+    })
 })
 </script>
+
 </html>

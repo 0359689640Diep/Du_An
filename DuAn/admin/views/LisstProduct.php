@@ -3,17 +3,18 @@
 <?php require "masterLayout/head.php" ?>
 <link rel="stylesheet" href="../assets/css/LisstProduct.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
+
 <body>
     <section class="page">
-<?php require_once "masterLayout/header.php"?>
+        <?php require_once "masterLayout/header.php" ?>
         <aside>
-        <?php require_once "masterLayout/navigation.php"?>
+            <?php require_once "masterLayout/navigation.php" ?>
         </aside>
         <main>
             <table>
                 <tr>
                     <th>Name Products</th>
-                    <th>Details	</th>
+                    <th>Details </th>
                     <th>Color </th>
                     <th>Number Product </th>
                     <th>Price </th>
@@ -21,44 +22,42 @@
                     <th>Size </th>
                     <th>Image </th>
                 </tr>
-                <?php 
-                if(!empty($data['result'])){
-                    foreach($data['result'] as $value){
+                <?php
+                if (!empty($data['result'])) {
+                    foreach ($data['result'] as $value) {
                         echo "
                         <tr id='{$value['IdProduct']}'>
                             <td>{$value['NameProducts']}</td>
                             <td>{$value['IdDetails']}</td>
                             <td>
                             ";
-                            if(isset($value["Colors"])){
-                                foreach($value["Colors"] as $ValueColors){
-                                    echo "
+                        if (isset($value["Colors"])) {
+                            foreach ($value["Colors"] as $ValueColors) {
+                                echo "
                                     
                                         <input type='checkbox' style='background-color:{$ValueColors}'>
                                     
                                     ";
-                                }
                             }
-                            echo "
+                        }
+                        echo "
                             </td>
                             <td>{$value['NumberProduct']}</td>
                             <td>{$value['Price']}</td>
                             <td>{$value['Evalute']}</td>
                             <td>
                             ";
-                                    // echo "<pre>";
-                                    // print_r($value); die();
-                            if(isset($value["Sizes"])){
-                                foreach($value["Sizes"] as $ValueSize){
-                                    echo "
+                        if (isset($value["Sizes"])) {
+                            foreach ($value["Sizes"] as $ValueSize) {
+                                echo "
                                     
                                         <p>{$ValueSize}</p>
                                     
     
                                     ";
-                                }
                             }
-                            echo "
+                        }
+                        echo "
                             </td>
                             <td><img src='../assets/imgUpload/{$value['Image']}' alt='product'></td>
                             <td>
@@ -74,19 +73,16 @@
                             </td>
                         </tr>
                     ";
-                    
-
                     }
-                
-                }else{
+                } else {
                     echo "<script> alert('No data displayed, please update the data'); </script>";
-
                 }
-            ?>
+                ?>
 
             </table>
         </main>
     </section>
 </body>
 <script src="../assets/js/LisstProduct.js"></script>
+
 </html>

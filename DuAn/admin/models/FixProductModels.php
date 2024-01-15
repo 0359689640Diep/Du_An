@@ -1,6 +1,8 @@
 <?php
-trait FixProductModels{
-    public function LisstColorAndSizeDefault() {
+trait FixProductModels
+{
+    public function LisstColorAndSizeDefault()
+    {
         $data = array();
         $conn = Connection::getInstance();
         $IdProduct = $_GET['IdProduct'];
@@ -16,16 +18,14 @@ trait FixProductModels{
         
         ");
 
-        if($queryColorDefault and $queryColor){
-            while($row = $queryColor->fetch_assoc()){
-                $data["ColorDefault"][] = $row; 
+        if ($queryColorDefault and $queryColor) {
+            while ($row = $queryColor->fetch_assoc()) {
+                $data["ColorDefault"][] = $row;
             }
-            while($row = $queryColorDefault->fetch_assoc()){
-                $data["ColorDefault"][] = $row; 
+            while ($row = $queryColorDefault->fetch_assoc()) {
+                $data["ColorDefault"][] = $row;
             }
-        
-            
-        }else{
+        } else {
             $data['message'] = "The system is maintenance";
         }
 
@@ -41,29 +41,27 @@ trait FixProductModels{
         
         ");
 
-        if($querySizeDefault and $querySize){
+        if ($querySizeDefault and $querySize) {
             // echo 1;
-            while($row = $querySize->fetch_assoc()){
-                $data["SizeDefault"][] = $row; 
+            while ($row = $querySize->fetch_assoc()) {
+                $data["SizeDefault"][] = $row;
             }
-            while($row = $querySizeDefault->fetch_assoc()){
-                $data["SizeDefault"][] = $row; 
+            while ($row = $querySizeDefault->fetch_assoc()) {
+                $data["SizeDefault"][] = $row;
             }
-        
-            
-        }else{
+        } else {
             $data['message'] = "The system is maintenance";
         }
-        // echo "<pre>";
+        //  
         // print_r($data);
-        // die();  
+
 
         return $data;
-
     }
-    public function FixProductDisplayModels($id){
+    public function FixProductDisplayModels($id)
+    {
         $conn = Connection::getInstance();
-    
+
         $query = $conn->query("
             SELECT 
                 p.NameProducts, p.IdProduct, p.IdDetails, p.NumberProduct, p.Price,
@@ -81,9 +79,9 @@ trait FixProductModels{
                 WHERE p.Status = 0 AND p.IdProduct = '$id'
                 ORDER BY p.IdProduct;
         ");
-        $data = array(); 
-        if($query){
-            while($row = $query->fetch_assoc()){
+        $data = array();
+        if ($query) {
+            while ($row = $query->fetch_assoc()) {
                 $data['NameProducts'] = $row['NameProducts'];
                 $data['IdProduct'] = $row['IdProduct'];
                 $data['IdDetails'] = $row['IdDetails'];
@@ -93,7 +91,7 @@ trait FixProductModels{
                 $data['IdCategory'] = $row['IdCategory'];
                 $data['NameCategory'] = $row['NameCategory'];
                 $data['Price'] = $row['Price'];
-    
+
                 if (!empty($row['IdImage'])) {
                     $data['Image'][] = [
                         'IdImage' => $row['IdImage'],
@@ -105,113 +103,106 @@ trait FixProductModels{
 
         $data["Image"] = array_unique($data["Image"], SORT_REGULAR);
 
-    //     echo "<pre>";
-    // var_dump($data["Color"]); die();
+        //      
+        // var_dump($data["Color"]); die();
         return $data;
     }
-    
-        
-    
 
-    public function modelFixProduct($id){
+
+
+
+    public function modelFixProduct($id)
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $conn = Connection::getInstance();
             extract($_POST);
             extract($_FILES);
             // lấy id details
-            $IdDetails = $_GET['IdDetails'];        
+            $IdDetails = $_GET['IdDetails'];
             $data = array();
-            if(empty($IdDetails) && empty($id)){
+            if (empty($IdDetails) && empty($id)) {
                 echo "<script> alert('Your session has expired'); </script>";
                 header("location:index.php?controller=LisstProduct");
             }
             $currentDate = date("Y/m/d");
-                // thêm dữ liệu vào bảng details
-                $queryDetails = $conn->query("update productdetails set ProductDetails = '$Details',ProductDescription ='$ProductDescription' where IdProductDetails = '$IdDetails'");
-                if($queryDetails){;
-                    // thêm dữ liệu vào product
-                    $query = $conn->query("UPDATE product 
+            // thêm dữ liệu vào bảng details
+            $queryDetails = $conn->query("update productdetails set ProductDetails = '$Details',ProductDescription ='$ProductDescription' where IdProductDetails = '$IdDetails'");
+            if ($queryDetails) {;
+                // thêm dữ liệu vào product
+                $query = $conn->query("UPDATE product 
                     SET NameProducts = '$NameProducts',IdDetails= '$IdDetails',
                      NumberProduct = '$NumberProduct', Price = '$Price',  IdCategory = '$Category' ,DateEdit = '$currentDate' 
 
                     where IdProduct = '$id'");
-                    if($query){
-                      
-                        // Xóa toàn bộ những trường nào có IdColor trùng rồi insert lại dữ liệu
-                        $queryUpdateIdProductColor = $conn->query("delete from color where IdProduct  = '$id' ");
-                        if($queryUpdateIdProductColor){
-                            foreach($Color as $valueColor){
-                                $sql= "insert into color values(null, '$id', '$valueColor')" ;
-                                // var_dump($sql); die();
-                                $queryColor = $conn->query($sql);
-                                if(!$queryColor){
-                                    $data['messageError'] = "Không thể update dữ liệu. Vui lòng nhập lại dữ liệu";
-                                    die();
-                                }
-    
-                            }
+                if ($query) {
 
-                        }
-                      // Xóa toàn bộ những trường nào có IdColor trùng rồi insert lại dữ liệu
-                      $queryUpdateIdProductSize = $conn->query("delete from size  where IdProduct  = '$id' ");
-                      if($queryUpdateIdProductSize){
-                          // update du lieu vào Size
-                          foreach($Size as $valueSize){
-                              $querySize = $conn->query("insert into size values(null, '$id', '$valueSize')");
-                              if(!$querySize){
-                                  $data['messageError'] = "Không thể update dữ liệu. Vui lòng nhập lại dữ liệu";
-                                  die();
-                              }
-                          }
-
-                      }
-                        // echo "test";
-                        // die();                        
-                        // update du lieu vào image
-                        for ($i = 0; $i < count($IdImageUpdate); $i++) {
-                            // Kiểm tra xem một tệp ảnh mới đã được tải lên cho trường này chưa
-                            if (!empty($ImageUpdate['name'][$i])) {
-                                // Xử lý tệp ảnh mới
-                                $newImageName = time() . '_' . $ImageUpdate['name'][$i];
-                                $targetPath = '../assets/imgUpload/' . $newImageName;
-                                // thêm file ảnh vào thư mục
-                                move_uploaded_file($ImageUpdate['tmp_name'][$i], $targetPath);
-                                $data[] = "Added product successfully";
-                                // Cập nhật bản ghi ảnh trong cơ sở dữ liệu
-                                $imageId = $IdImageUpdate[$i];
-                                $conn->query("UPDATE image SET Image = '$newImageName' WHERE IdImage = '$imageId'");
+                    // Xóa toàn bộ những trường nào có IdColor trùng rồi insert lại dữ liệu
+                    $queryUpdateIdProductColor = $conn->query("delete from color where IdProduct  = '$id' ");
+                    if ($queryUpdateIdProductColor) {
+                        foreach ($Color as $valueColor) {
+                            $sql = "insert into color values(null, '$id', '$valueColor')";
+                            // var_dump($sql); die();
+                            $queryColor = $conn->query($sql);
+                            if (!$queryColor) {
+                                $data['messageError'] = "Không thể update dữ liệu. Vui lòng nhập lại dữ liệu";
+                                die();
                             }
                         }
-                   
-                         
+                    }
+                    // Xóa toàn bộ những trường nào có IdColor trùng rồi insert lại dữ liệu
+                    $queryUpdateIdProductSize = $conn->query("delete from size  where IdProduct  = '$id' ");
+                    if ($queryUpdateIdProductSize) {
+                        // update du lieu vào Size
+                        foreach ($Size as $valueSize) {
+                            $querySize = $conn->query("insert into size values(null, '$id', '$valueSize')");
+                            if (!$querySize) {
+                                $data['messageError'] = "Không thể update dữ liệu. Vui lòng nhập lại dữ liệu";
+                                die();
+                            }
+                        }
+                    }
 
-                       
-                    }else{
-                                // print_r($conn->error);
-                        $data[] = "The system is maintenance";
-                     }
-                }else{
+
+                    // update du lieu vào image
+                    for ($i = 0; $i < count($IdImageUpdate); $i++) {
+                        // Kiểm tra xem một tệp ảnh mới đã được tải lên cho trường này chưa
+                        if (!empty($ImageUpdate['name'][$i])) {
+                            // Xử lý tệp ảnh mới
+                            $newImageName = time() . '_' . $ImageUpdate['name'][$i];
+                            $targetPath = '../assets/imgUpload/' . $newImageName;
+                            // thêm file ảnh vào thư mục
+                            move_uploaded_file($ImageUpdate['tmp_name'][$i], $targetPath);
+                            $data[] = "Added product successfully";
+                            // Cập nhật bản ghi ảnh trong cơ sở dữ liệu
+                            $imageId = $IdImageUpdate[$i];
+                            $conn->query("UPDATE image SET Image = '$newImageName' WHERE IdImage = '$imageId'");
+                        }
+                    }
+                } else {
+                    // print_r($conn->error);
                     $data[] = "The system is maintenance";
                 }
-    
-   
-    
-    
+            } else {
+                $data[] = "The system is maintenance";
+            }
+
+
+
+
             return $data;
-
         }
-
     }
-    public function modelGetCategory(){
+    public function modelGetCategory()
+    {
         $conn = Connection::getInstance();
         $query = $conn->query("select IdCategory, NameCategory from category where Status != 1");
         $data = array();
-        if($query) {
-            while($row = $query->fetch_assoc()) {
+        if ($query) {
+            while ($row = $query->fetch_assoc()) {
                 $data['result'][] = $row;
             }
-        //     echo "<pre>";
-        // print_r();die();
+            //      
+            // print_r();die();
 
             return $data;
         } else {
@@ -219,7 +210,4 @@ trait FixProductModels{
             return $data;
         }
     }
-
 }
-
-?>  

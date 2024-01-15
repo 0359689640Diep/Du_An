@@ -3,15 +3,16 @@
 <?php require "masterLayout/head.php" ?>
 <link rel="stylesheet" href="../assets/css/Oder.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
+
 <body>
     <section class="page">
-    <?php require_once "masterLayout/header.php"?>
-    <?php require_once "masterLayout/Notification.php"?>
-    <aside>
-        <?php require_once "masterLayout/navigation.php"?>
-    </aside>
-    <main>
-        <?php 
+        <?php require_once "masterLayout/header.php"?>
+        <?php require_once "masterLayout/Notification.php"?>
+        <aside>
+            <?php require_once "masterLayout/navigation.php"?>
+        </aside>
+        <main>
+            <?php 
         if(isset($data["listOder"])){
             foreach($data["listOder"] as $value){
                 $type = $value['Type'] === "TM" ? "Cash":"Transfer";
@@ -85,7 +86,7 @@
             }
         }
         ?>
-    </main>
+        </main>
     </section>
 </body>
 <?php 
@@ -99,7 +100,10 @@ if(isset($data['message'])){
         message= '$error',
         type= 'error',
         duration= 10000,'
-    )
+      );
+      setTimeout(() => {
+          window.location.replace('index.php?controller=Oder');
+      }, 2000)
       </script>";
     }else{
         $success = $data['message'];
@@ -109,12 +113,15 @@ if(isset($data['message'])){
           message= '$success',
           type= 'success',
           duration= 10000,
-      )
+        );
+        setTimeout(() => {
+            window.location.replace('index.php?controller=Oder');
+        }, 2000)
         </script>";        
-        // header("location:index.php?controller=Oder");
     }
     
 
 }
 ?>
+
 </html>

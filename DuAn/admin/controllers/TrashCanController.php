@@ -1,23 +1,24 @@
 <?php
 include "models/TrashCanModels.php";
-class TrashCanController extends Controller{
+class TrashCanController extends Controller
+{
     use TrashCanModels;
-    public function index(){
-        // echo "<pre>";
-        // var_dump($data); die();
+    public function index()
+    {
         $data = $this->showTrashCan();
         $this->loadView("TrashCan.php", $data);
     }
 
-    public function Restore(){
+    public function Restore()
+    {
         $data = $this->restoreTrashCan();
         $data = $this->showTrashCan();
         $this->loadView("TrashCan.php", $data);
     }
-    public function Delete(){
+    public function Delete()
+    {
         $data = $this->deleteTrashCan();
         $data = $this->showTrashCan();
         $this->loadView("TrashCan.php", $data);
     }
 }
-?>

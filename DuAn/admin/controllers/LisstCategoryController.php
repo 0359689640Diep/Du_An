@@ -4,7 +4,6 @@ class LisstCategoryController extends Controller{
     use LisstCategoryModels;
     public function index(){
         $data = $this->LisstCategoryModels();
-                    // print_r($data);die();
 
         $this->loadView('LisstCategory.php', $data);
     }

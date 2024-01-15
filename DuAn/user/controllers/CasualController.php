@@ -6,8 +6,6 @@ class CasualController extends Controller{
         $data = $this->showCategory();
         $data = $this->showProduct();
         $this->loadView("Casual.php", $data);
-        // echo "<pre>";
-        // var_dump($data);die();
     }
 
     function fillter(){

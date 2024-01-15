@@ -19,8 +19,8 @@ trait OderModels{
         ) i ON ord.IdProduct = i.IdProduct
         JOIN product p ON ord.IdProduct = p.IdProduct
         JOIN account ac ON ord.IdAccount = ac.Id
-        ORDER BY ord.IdOrder DESC
-        
+        WHERE ord.Status != 5
+        ORDER BY ord.IdOrder 
         
         ");
 
@@ -47,7 +47,6 @@ trait OderModels{
         $IdOrder = $_GET['id'];
         $IdProduct = $_GET['IdProduct'];
         $Number = $_GET['quantity'];
-        // echo $Number; die();
         $conn = Connection::getInstance();
         $query = $conn->query("update orderconfirmation set	Status = 3 where IdOrder = '$IdOrder'");
         if($query){

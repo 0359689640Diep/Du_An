@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <?php require "masterLayout/head.php" ?>
@@ -7,7 +6,7 @@
 
 <body>
     <section class="page">
-    <section class="Notification" id="Notification"> </section>
+        <section class="Notification" id="Notification"> </section>
         <section class="left">
             <article class="Wellcome">
                 <h1>Welcome nice to meet you</h1>
@@ -34,17 +33,18 @@
                 </article>
                 <main>
                     <form action="index.php?controller=login&action=login" method="post">
-                        <input type="text" required title="Không được để trống" placeholder="Gmail" name ="Gmail">
-                        <input type="password" required title="Không được để trống" placeholder="Password" name ="Password">
+                        <input type="text" required title="Không được để trống" placeholder="Gmail" name="Gmail">
+                        <input type="password" required title="Không được để trống" placeholder="Password"
+                            name="Password">
                         <span id="messageError" style="color:red;">
-                        <?php if(!empty($_SESSION['messageError'])){echo $_SESSION['messageError'];}?>
+                            <?php if(!empty($_SESSION['messageError'])){echo $_SESSION['messageError'];}?>
                         </span>
-                        <button type="submit" name="submit" >Log in to your account</button>
+                        <button type="submit" name="submit">Log in to your account</button>
                     </form>
                 </main>
                 <footer>
                     <h3>
-                    Already have an account ? 
+                        Already have an account ?
                         <a href="index.php?controller=SignIn">Sign In</a>
                     </h3>
                 </footer>
@@ -52,7 +52,7 @@
         </section>
     </section>
 </body>
-<script src="../assets/js/login.js" ></script>
+<script src="../assets/js/login.js"></script>
 <?php 
 if(!empty($data)){
     foreach ($data as $item) {
@@ -79,7 +79,7 @@ if(!empty($data)){
                   duration= 5000, 
               )
                 </script>";         
-                header("location:index.php?controller=homeAdmin");
+                header("location: index.php?controller=homeAdmin");
             }elseif(!empty($item['message1'])){
                 $success = $item['message1'];
                 echo "<script>
@@ -90,7 +90,7 @@ if(!empty($data)){
                   duration= 5000, 
               )
                 </script>";         
-                header("location:index.php?controller=Home");
+                header("location: index.php?controller=Home");
 
             }else{
                 $success = $item['message0'];
@@ -109,4 +109,5 @@ if(!empty($data)){
 
 }
 ?>
+
 </html>

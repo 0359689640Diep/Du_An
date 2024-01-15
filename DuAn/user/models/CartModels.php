@@ -45,8 +45,6 @@
                 if(isset($Price) && isset($number)){
                     foreach($number as $key=>$value){
                         $sumPrice = ((float)$value * (float)$Price);
-                        // echo "<pre>";
-                        // var_dump($key) ; die();
                         $queryCart = $conn->query("update cart set Price = '$sumPrice', Number = '$value' where IdCart ='$key'");
                         if(!$queryCart){
                             $data["messageError"] = $conn->error;
@@ -64,7 +62,6 @@
             $data = array();
             $conn = Connection::getInstance();
             $idCart = $_GET['id'];
-            // echo $idCart; die();
             $quety = $conn->query("delete from cart where idCart = $idCart");
             if(!$quety){
                 $data['messageError'] = 'Xoa that bai';

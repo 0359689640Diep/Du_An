@@ -5,19 +5,20 @@
 
 <link rel="stylesheet" href="../assets/css/AddCategory.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
+
 <body>
     <section class="page">
-<?php require_once "masterLayout/header.php"?>
+        <?php require_once "masterLayout/header.php"?>
         <aside>
-        <?php require_once "masterLayout/navigation.php"?>
-        <?php require_once "masterLayout/Notification.php"?>
+            <?php require_once "masterLayout/navigation.php"?>
+            <?php require_once "masterLayout/Notification.php"?>
         </aside>
         <main>
             <form action="index.php?controller=AddCategory" method="post" enctype="multipart/form-data">
                 <label for="NameCategory">Name Category</label>
                 <input required title="Không được để trống" type="text" name="NameCategory" id="NameCategory">
                 <label for="Status">Status</label>
-                <select name="Status" id="Status" required title="Không được để trống" >
+                <select name="Status" id="Status" required title="Không được để trống">
                     <option value="">Status</option>
                     <option value="1">Hidden</option>
                     <option value="0">Presently</option>
@@ -28,7 +29,7 @@
     </section>
 </body>
 <?php
-// var_dump($data); die();
+ 
 if(isset($data) ){
     if (isset($data['messageError'])) {
           $error = $data['messageError'];

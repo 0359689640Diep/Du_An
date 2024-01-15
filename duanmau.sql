@@ -98,7 +98,8 @@ CREATE TABLE `color` (
   `IdColor` int(11) NOT NULL,
   `IdProduct` int(11) NOT NULL,
   `IdColorDefault` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 --
 -- Đang đổ dữ liệu cho bảng `color`
@@ -145,7 +146,7 @@ INSERT INTO `color` (`IdColor`, `IdProduct`, `IdColorDefault`) VALUES
 CREATE TABLE `colordefault` (
   `IdColorDefalut` int(11) NOT NULL,
   `Color` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `colordefault`
@@ -330,7 +331,7 @@ CREATE TABLE `size` (
   `IdSize` int(11) NOT NULL,
   `IdProduct` int(11) NOT NULL,
   `IdSizeDefault` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `size`
@@ -398,7 +399,7 @@ INSERT INTO `size` (`IdSize`, `IdProduct`, `IdSizeDefault`) VALUES
 CREATE TABLE `sizedefault` (
   `IdSizeDefalut` int(11) NOT NULL,
   `Size` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `sizedefault`

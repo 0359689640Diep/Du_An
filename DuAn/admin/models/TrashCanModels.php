@@ -9,7 +9,7 @@ trait TrashCanModels{
         $this->data["Category"] = $this->fetchData($conn, "select IdCategory, NameCategory from category where Status = 1");
         $this->data["Order"] = $this->fetchData($conn, "select ac.Name, ord.IdOrder from orderconfirmation ord
                                                         join account ac on ac.Id = ord.IdAccount 
-                                                        where ord.Status = 6");
+                                                        where ord.Status = 5");
         $this->data["Product"] = $this->fetchData($conn, "select IdProduct, NameProducts from product where Status = 1");
         
         return $this->data;

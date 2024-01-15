@@ -51,15 +51,18 @@
             if(!empty($_SESSION["IdCategory"])){
                 $IdCategory = $_SESSION["IdCategory"];
                 $conn = Connection::getInstance();
-                $query = $conn->query("SELECT p.*, i.Image
+
+                $query = $conn->query("
+                SELECT p.*, i.Image
                 FROM product p
                 INNER JOIN (
-                    SELECT IdProduct, Image
+                    SELECT IdProduct, MAX(Image) AS Image
                     FROM image
                     GROUP BY IdProduct
                 ) i ON p.IdProduct = i.IdProduct
                 WHERE p.Status = 0 and p.IdCategory = '$IdCategory'
-                ORDER BY p.IdProduct");
+                ORDER BY p.IdProduct;
+                ");
                 if($query){
                     while($row = $query->fetch_assoc()){
                         $this->data['GetProductsByCategory'][] = $row;
@@ -135,12 +138,10 @@
         public function checkLogin(){
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 extract($_POST);
-                // echo "<pre>";
-                // print_r($Price);
         
                 $idProduct =isset($_GET['id']) && !empty($_GET['id']) ? $_GET['id'] : '' ;
                 $idAccount = isset($_SESSION['IdAccountUser']) && !empty($_SESSION['IdAccountUser']) ? $_SESSION['IdAccountUser'] : '';
-                // var_dump($idAccount); die(); 
+
                 if(!empty($idProduct) && !empty($idAccount)){
                     if($_SERVER['REQUEST_METHOD'] === 'POST'){
                         extract($_POST);
@@ -158,7 +159,6 @@
                     
                 }
             }
-            // die();
             return $this->data;
         }
 
@@ -168,7 +168,6 @@
             $this->showComment();
             $this->showDetails();
             $this->GetProductsByCategory();
-            // $this->checkLogin();
 
             return $this->data;
         }

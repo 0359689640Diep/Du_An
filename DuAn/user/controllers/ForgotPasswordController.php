@@ -9,15 +9,11 @@ class ForgotPasswordController extends Controller{
     // khi ấn nút submit
     public function SendGmail(){
         $data = $this->ForgotPasswordSendGmail();
-        // echo "<pre>";
-        // print_r($data); die();
         $this->loadView("ForgotPassword.php", $data);
         
     }
     public function updatePassword(){
         $data = $this->updatePasswordForgotPassword();
-        // echo "<pre>";
-        // print_r($data); die();
         $this->loadView("ForgotPassword.php", $data);
         
     }

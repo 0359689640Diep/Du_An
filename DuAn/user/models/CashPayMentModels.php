@@ -32,15 +32,14 @@ trait CashPayMentModels{
 
         $Toatl = $TotalAmountAfterTax + $TotalPreTaxMoney + ($toaNumberProduct *10);
         $rounded_number = round($Toatl, 2);
-        $formattedNumber = number_format($rounded_number, 2, ",", ".");
-        // echo "<pre>";
+        $formattedNumber = number_format($rounded_number, 2, ",", ".");  
         $this->data=[
             "TotalAmountAfterTax"=>$TotalAmountAfterTax,
             "TotalPreTaxMoney"=>$TotalPreTaxMoney,
             "toaNumberProduct"=>$toaNumberProduct,
             "Toatl"=>$formattedNumber
         ];
-        // var_dump($data);die();
+         
         
         return $this->data;
     }

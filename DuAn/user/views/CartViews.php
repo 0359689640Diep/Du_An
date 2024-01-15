@@ -84,8 +84,8 @@
                                     <i class="ti-arrow-right"></i>
                                     
                                     
-                                    <button type="submit" onclick="PayBank('CashPayment', <?= $idAccount ?> )" >Cash payment</button>
-                                    <button type="submit" onclick="PayBank('BankCardPayment', <?= $idAccount ?> )" >Bank card payment</button>
+                                    <button type="submit" name="CashPayment" onclick="PayBank('CashPayment', <?= $idAccount ?> )" >Cash payment</button>
+                                    <button type="submit" name="BankCardPayment" onclick="PayBank('BankCardPayment', <?= $idAccount ?> )" >Bank card payment</button>
                                 </section>
                             </section>
                         </section>

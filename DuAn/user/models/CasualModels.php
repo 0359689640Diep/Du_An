@@ -1,26 +1,28 @@
-<?php 
-trait CasualModels {
+<?php
+trait CasualModels
+{
     public $data = array();
 
-    public function showCategory(){
+    public function showCategory()
+    {
         $conn = Connection::getInstance();
         $query = $conn->query('select IdCategory,NameCategory from category where status = 0');
-        if($query){
-            while($row = $query->fetch_assoc()){
+        if ($query) {
+            while ($row = $query->fetch_assoc()) {
                 $this->data['showCategory'][] = $row;
             }
-        }else{
+        } else {
             $this->data['messageError'] = "Hệ thống đang bảo trì";
         }
         return $this->data;
-
     }
 
-    public function showProduct(){
+    public function showProduct()
+    {
         $IdCategory = $_GET['id'];
         $conn = Connection::getInstance();
 
-        if($IdCategory === "All"){
+        if ($IdCategory === "All") {
             $query = $conn->query("
             SELECT p.*, i.Image
             FROM product p
@@ -33,15 +35,15 @@ trait CasualModels {
             ORDER BY p.IdProduct DESC
             LIMIT 10
             ");
-            if($query){
-                // echo "test";
-                while($row = $query->fetch_assoc()){
+            if ($query) {
+                 
+                while ($row = $query->fetch_assoc()) {
                     $this->data['showProduct'][] = $row;
                 }
-            }else{
+            } else {
                 $this->data['messageError'] = "Hệ thống đang bảo trì";
             }
-        }else{
+        } else {
             $query = $conn->query("
             SELECT p.*, i.Image
             FROM product p
@@ -54,23 +56,24 @@ trait CasualModels {
             ORDER BY p.IdProduct DESC
             LIMIT 10
             ");
-            if($query){
-                // echo "test";
-                while($row = $query->fetch_assoc()){
+            if ($query) {
+                 
+                while ($row = $query->fetch_assoc()) {
                     $this->data['showProduct'][] = $row;
                 }
-            }else{
+            } else {
                 $this->data['messageError'] = "Hệ thống đang bảo trì";
             }
         }
         return $this->data;
     }
 
-    public function sortBy(){
+    public function sortBy()
+    {
         $IdCategory = $_GET['id'];
         $quantity = $_GET['quantity'];
         $conn = Connection::getInstance();
-        if($IdCategory === "All"){
+        if ($IdCategory === "All") {
             $query = $conn->query("
             SELECT p.*, i.Image
             FROM product p
@@ -83,15 +86,14 @@ trait CasualModels {
             ORDER BY p.IdProduct DESC
             LIMIT $quantity
             ");
-            if($query){
-                while($row = $query->fetch_assoc()){
+            if ($query) {
+                while ($row = $query->fetch_assoc()) {
                     $this->data['showProduct'][] = $row;
                 }
-            }else{
+            } else {
                 $this->data['messageError'] = "Hệ thống đang bảo trì";
             }
-
-        }else{
+        } else {
             $query = $conn->query("
             SELECT p.*, i.Image
             FROM product p
@@ -104,25 +106,25 @@ trait CasualModels {
             ORDER BY p.IdProduct DESC
             LIMIT $quantity
             ");
-            if($query){
-                while($row = $query->fetch_assoc()){
+            if ($query) {
+                while ($row = $query->fetch_assoc()) {
                     $this->data['showProduct'][] = $row;
                 }
-            }else{
+            } else {
                 $this->data['messageError'] = "Hệ thống đang bảo trì";
             }
-
         }
         return $this->data;
     }
-    public function sortByShearch(){
-            extract($_POST);
-            if(isset($_GET['quantity'])){
-                $sheach = $_SESSION['sheach'];
+    public function sortByShearch()
+    {
+        extract($_POST);
+        if (isset($_GET['quantity'])) {
+            $sheach = $_SESSION['sheach'];
 
-                $quantity =  $_GET['quantity'];
-                $conn = Connection::getInstance();
-                $query = $conn->query("
+            $quantity =  $_GET['quantity'];
+            $conn = Connection::getInstance();
+            $query = $conn->query("
                 SELECT p.*, i.Image
                 FROM product p
                 INNER JOIN (
@@ -134,25 +136,23 @@ trait CasualModels {
                 ORDER BY p.IdProduct DESC
                 LIMIT $quantity
                 ");
-                if($query){
-                    while($row = $query->fetch_assoc()){
-                        $this->data['showProduct'][] = $row;
-                    }
-                }else{
-                    $this->data['messageError'] = "Hệ thống đang bảo trì";
+            if ($query) {
+                while ($row = $query->fetch_assoc()) {
+                    $this->data['showProduct'][] = $row;
                 }
+            } else {
+                $this->data['messageError'] = "Hệ thống đang bảo trì";
             }
+        }
 
-        
+
         return $this->data;
     }
 
-    public function showProductShearch(){
+    public function showProductShearch()
+    {
         extract($_POST);
-        // echo "<pre>";
-        // var_dump($sheach); die();
-        // echo "1";
-        if(isset($sheach)){
+        if (isset($sheach)) {
             $_SESSION['sheach'] = $sheach;
             $conn = Connection::getInstance();
             $query = $conn->query("
@@ -167,18 +167,15 @@ trait CasualModels {
             ORDER BY p.IdProduct DESC
             LIMIT 10
             ");
-            if($query){
-                // echo "test";
-                while($row = $query->fetch_assoc()){
+            if ($query) {
+                 
+                while ($row = $query->fetch_assoc()) {
                     $this->data['showProduct'][] = $row;
                 }
-            }else{
+            } else {
                 $this->data['messageError'] = "Hệ thống đang bảo trì";
             }
-
         }
         return $this->data;
-        }
-
+    }
 }
-?>

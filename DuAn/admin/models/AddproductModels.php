@@ -41,7 +41,9 @@ trait AddproductModels{
                 $getIdDetails = mysqli_insert_id($conn);
     
                 // đảm bảo rằng details được thêm vào trước khi thêm dữ liệu product
-                $query = $conn->query("insert into product (NameProducts,IdDetails,  NumberProduct, Price,  IdCategory)  values ('$NameProducts','$getIdDetails','$NumberProduct','$Price', '$Category')");
+                $query = $conn->query("INSERT INTO product (NameProducts, IdDetails, NumberProduct, Price, IdCategory, DateEdit)
+                VALUES ('$NameProducts', '$getIdDetails', '$NumberProduct', '$Price', '$Category', NOW());
+                ");
                 if($query){
                     // lấy idproduct mới được update rồi thêm vào bảng size và image
                     $queryIdProduct  = mysqli_insert_id($conn);
@@ -101,7 +103,6 @@ trait AddproductModels{
             while($row = $query->fetch_assoc()) {
                 $data['result'][] = $row;
             }
-        // print_r($data);die();
 
             return $data;
         } else {
@@ -111,4 +112,4 @@ trait AddproductModels{
     }
 }
 // }
-?>  
+?>
