@@ -36,9 +36,10 @@
                 <main>
                     <form action="index.php?controller=login&action=login" method="post">
                         <input type="email" required title="Không được để trống" placeholder="Gmail" name="Gmail">
-                        <input type="password" required title="Không được để trống" placeholder="Password"
-                            name="Password">
-                        <?php if(!empty($_SESSION['messageError'])){echo $_SESSION['messageError'];}?>
+                        <input type="password" required title="Không được để trống" placeholder="Password" name="Password">
+                        <?php if (!empty($_SESSION['messageError'])) {
+                            echo $_SESSION['messageError'];
+                        } ?>
                         </span>
                         <button type="submit" name="submit">Log in to your account</button>
                     </form>
@@ -55,13 +56,13 @@
     </section>
 </body>
 <script src="../assets/js/login.js"></script>
-<?php 
-if(!empty($data)){
+<?php
+if (!empty($data)) {
     foreach ($data as $item) {
         if (isset($item['messageError'])) {
-        $sumData = count($data);
-          $error = $item['messageError'];
-          echo "<script>
+            $sumData = count($data);
+            $error = $item['messageError'];
+            echo "<script>
           toast(
             title= 'Error',
             message= '$error',
@@ -70,10 +71,10 @@ if(!empty($data)){
             
         )
           </script>";
-        }else{
-            if(!empty($item['message0'])){
+        } else {
+            if (!empty($item['message0'])) {
                 $success = $item['message0'];
-                    echo "<script>
+                echo "<script>
                     toast(
                       title= 'Success',
                       message= '$success',
@@ -81,9 +82,8 @@ if(!empty($data)){
                       duration= 5000, 
                   )
                   window.location.replace(`/Du_An_Mau/DuAn/admin/index.php?controller=homeAdmin`)
-                    </script>";       
-               
-            }elseif(!empty($item['message1'])){
+                    </script>";
+            } elseif (!empty($item['message1'])) {
                 $success = $item['message1'];
                 echo "<script>
                 toast(
@@ -92,10 +92,9 @@ if(!empty($data)){
                   type= 'success',
                   duration= 5000, 
               )
-                </script>";         
+                </script>";
                 header("location: index.php?controller=Home");
-
-            }else{
+            } else {
                 $success = $item['message0'];
                 echo "<script>
                 toast(
@@ -104,12 +103,10 @@ if(!empty($data)){
                   type= 'success',
                   duration= 5000, 
               )
-                </script>";  
+                </script>";
             }
         }
-      }
-    
-
+    }
 }
 ?>
 

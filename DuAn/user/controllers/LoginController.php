@@ -1,6 +1,6 @@
 <?php 
 include "models/LoginModels.php";
-class loginController extends Controller{
+class LoginController extends Controller{
     use loginModles;
     // load views
     public function index(){

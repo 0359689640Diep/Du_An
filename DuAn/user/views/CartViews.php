@@ -4,20 +4,21 @@
 <link rel="stylesheet" href="../assets/css/Cart.css">
 <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 <link rel="stylesheet" href="../assets/css/responsive/ResponsiveCart.css">
+
 <body>
-<section class="page" >
+    <section class="page">
         <section class="contener">
             <?php include "masterLayout/header.php" ?>
             <?php include "masterLayout/Notification.php" ?>
-                <main>
-                    <?php $idAccount = !empty($_SESSION['IdAccountUser']) ? $_SESSION['IdAccountUser']: "";
+            <main>
+                <?php $idAccount = !empty($_SESSION['IdAccountUser']) ? $_SESSION['IdAccountUser']: "";
                     ?>
-                    
-                    <form action="index.php?controller=Cart&id=<?php echo $idAccount;?>" method="post" id = "form">
-                        <h1>Your cart</h1>
-                        <section class="contentCart">
-                            <section class="product">
-                                <?php 
+
+                <form action="index.php?controller=Cart&id=<?php echo $idAccount;?>" method="post" id="form">
+                    <h1>Your cart</h1>
+                    <section class="contentCart">
+                        <section class="product">
+                            <?php 
                             
                                 if(!empty($data['showCart'])){
                                     foreach($data['showCart'] as $value){
@@ -49,10 +50,10 @@
                                     }
                                     
                                 ?>
-                                
-                            </section>
-                            <section class="detail">
-                                <?php 
+
+                        </section>
+                        <section class="detail">
+                            <?php 
                                     $total =0 ;
                                   if(!empty($data['showCart'])){
                                     foreach($data['showCart'] as $value){
@@ -63,48 +64,49 @@
                                     
                                 };
                                 ?>
-                                <h1>Order Summary</h1>
-                                <section class="detailSEO">
-    
-                                    <article class="contentDetailSEO">
-                                        <h4>Total VAT</h4>
-                                        <h4>$<?php echo $total*0.1 ?></h4>
-                                    </article>
-                                </section>
-                                <section class="Totail">
-                                    <h4>Total</h4>
-                                    <h4>$<?php echo ($total*0.1) + $total ?></h4>
-                                </section >
-                                <section class="AddCromoCode">
-                                    <input type="text" placeholder="Add promo code">
-                                    <input type="submit" value="Apply">
-                                </section>
-                                <section class="Payment">
-                                    <i class="ti-arrow-right"></i>
-                                    <i class="ti-arrow-right"></i>
-                                    
-                                    
-                                    <button type="submit" name="CashPayment" onclick="PayBank('CashPayment', <?= $idAccount ?> )" >Cash payment</button>
-                                    <button type="submit" name="BankCardPayment" onclick="PayBank('BankCardPayment', <?= $idAccount ?> )" >Bank card payment</button>
-                                </section>
+                            <h1>Order Summary</h1>
+                            <section class="detailSEO">
+
+                                <article class="contentDetailSEO">
+                                    <h4>Total VAT</h4>
+                                    <h4>$<?php echo $total*0.1 ?></h4>
+                                </article>
+                            </section>
+                            <section class="Totail">
+                                <h4>Total</h4>
+                                <h4>$<?php echo ($total*0.1) + $total ?></h4>
+                            </section>
+                            <section class="AddCromoCode">
+                                <input type="text" placeholder="Add promo code">
+                                <input type="submit" value="Apply">
+                            </section>
+                            <section class="Payment">
+                                <i class="ti-arrow-right"></i>
+                                <i class="ti-arrow-right"></i>
+
+
+                                <button type="submit" value="<?= $idAccount ?>" name="CashPayment">Cash payment</button>
+                                <button type="submit" value="<?= $idAccount ?>" name="BankCardPayment">Bank card
+                                    payment</button>
                             </section>
                         </section>
+                    </section>
                 </form>
-                </main>
+            </main>
             <?php include "masterLayout/footer.php" ?>
 
         </section>
     </section>
 </body>
-<script src="../assets/js/cart.js"></script>
 <script>
-    function checkQuantity(input){
+function checkQuantity(input) {
     let currentValue = parseInt(input.value);
     let maxValue = parseInt(input.getAttribute('max'));
-    if(currentValue > maxValue){
+    if (currentValue > maxValue) {
         toast("Warning", "Product quantity is not enough", "warning", 5000, 0);
         input.value = maxValue;
     }
 }
 </script>
+
 </html>

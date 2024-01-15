@@ -1,6 +1,6 @@
 <?php
 include "models/AddproductModels.php";
-class AddproductController extends Controller
+class AddProductController extends Controller
 {
     use AddproductModels;
     public function index()

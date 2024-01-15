@@ -18,7 +18,7 @@ include $fileController;
 if(class_exists($classController)){
     $object = new $classController();
     $object->$action();
-
-}else die("$fileController khong ton tai");
-
+} else {
+    header("location: index.php?controller=PageNotFound");
+};
 ?>
